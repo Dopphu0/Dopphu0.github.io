@@ -3,11 +3,11 @@
   <title>Welcome to Dopphu&#39;s Blog</title>
   
   <subtitle>dopphu.github.io</subtitle>
-  <link href="http://yoursite.com/atom.xml" rel="self"/>
+  <link href="https://gitee.com/dopphu/dopphu.git/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://gitee.com/dopphu/dopphu.git/"/>
   <updated>2020-09-01T12:19:53.771Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://gitee.com/dopphu/dopphu.git/</id>
   
   <author>
     <name>Dopphu</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2020/09/01/hello-world/"/>
-    <id>http://yoursite.com/2020/09/01/hello-world/</id>
+    <link href="https://gitee.com/dopphu/dopphu.git/2020/09/01/hello-world/"/>
+    <id>https://gitee.com/dopphu/dopphu.git/2020/09/01/hello-world/</id>
     <published>2020-09-01T12:19:53.771Z</published>
     <updated>2020-09-01T12:19:53.771Z</updated>
     
