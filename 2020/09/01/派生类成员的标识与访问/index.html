@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/dopphu/images/pp.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/dopphu/images/pp.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/dopphu/images/pp.jpg">
+  <link rel="mask-icon" href="/dopphu/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/dopphu/css/main.css">
+
+
+<link rel="stylesheet" href="/dopphu/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/dopphu/lib/pace/pace-theme-big-counter.min.css">
+  <script src="/dopphu/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"gitee.com","root":"/dopphu/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="派生类成员的标识与访问讨论派生类使用过程中的一些问题，也就是标识和访问派生类及其对象的成员（包栝了基类中继承来的部分和新增的部分）问题。 在派生类中，成员可以按访问属性划分为以下4中 (1) 不可访问的成员。这是从基类私有成员继承而来的，派生类或是建立派生类对象的模块都没有办法访问到它们，如果从派生类继续派生新类，也是无法访问的。 (2) 私有成员。这里可以包栝从基类继承过来的成员以及新增加的成员">
+<meta property="og:type" content="article">
+<meta property="og:title" content="派生类成员的标识与访问">
+<meta property="og:url" content="https://gitee.com/dopphu/dopphu.git/2020/09/01/%E6%B4%BE%E7%94%9F%E7%B1%BB%E6%88%90%E5%91%98%E7%9A%84%E6%A0%87%E8%AF%86%E4%B8%8E%E8%AE%BF%E9%97%AE/index.html">
+<meta property="og:site_name" content="Welcome to Dopphu&#39;s Blog">
+<meta property="og:description" content="派生类成员的标识与访问讨论派生类使用过程中的一些问题，也就是标识和访问派生类及其对象的成员（包栝了基类中继承来的部分和新增的部分）问题。 在派生类中，成员可以按访问属性划分为以下4中 (1) 不可访问的成员。这是从基类私有成员继承而来的，派生类或是建立派生类对象的模块都没有办法访问到它们，如果从派生类继续派生新类，也是无法访问的。 (2) 私有成员。这里可以包栝从基类继承过来的成员以及新增加的成员">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.zx95.net/images/2020/08/18/imagecea93ccea52383d1.png">
+<meta property="og:image" content="https://www.zx95.net/images/2020/08/18/image2d748ce1d3a16d49.png">
+<meta property="og:image" content="https://www.zx95.net/images/2020/08/18/image844dd3f751acf16d.png">
+<meta property="og:image" content="https://www.zx95.net/images/2020/08/18/imagebdde7da3ace95944.png">
+<meta property="og:image" content="https://www.zx95.net/images/2020/08/18/image5df824293df448c8.png">
+<meta property="og:image" content="https://www.zx95.net/images/2020/08/18/image19a67ee992a9a372.png">
+<meta property="og:image" content="https://www.zx95.net/images/2020/08/18/image3b683bc7e099408d.png">
+<meta property="og:image" content="https://www.zx95.net/images/2020/08/18/image21e066e8c8e209f6.png">
+<meta property="og:image" content="https://www.zx95.net/images/2020/08/18/image2051ab5f3da86971.png">
+<meta property="og:image" content="https://www.zx95.net/images/2020/08/18/image28964760a218b404.png">
+<meta property="og:image" content="https://www.zx95.net/images/2020/08/18/image907d769e34943aad.png">
+<meta property="article:published_time" content="2020-09-01T14:42:41.133Z">
+<meta property="article:modified_time" content="2020-08-18T09:25:24.000Z">
+<meta property="article:author" content="Dopphu">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.zx95.net/images/2020/08/18/imagecea93ccea52383d1.png">
+
+<link rel="canonical" href="https://gitee.com/dopphu/dopphu.git/2020/09/01/%E6%B4%BE%E7%94%9F%E7%B1%BB%E6%88%90%E5%91%98%E7%9A%84%E6%A0%87%E8%AF%86%E4%B8%8E%E8%AE%BF%E9%97%AE/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>派生类成员的标识与访问 | Welcome to Dopphu's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/dopphu/atom.xml" title="Welcome to Dopphu's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+<a target="_blank" rel="noopener" href="https://github.com/dopphu" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/dopphu/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Welcome to Dopphu's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">dopphu.github.io</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/dopphu/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/dopphu/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/dopphu/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2020/09/01/%E6%B4%BE%E7%94%9F%E7%B1%BB%E6%88%90%E5%91%98%E7%9A%84%E6%A0%87%E8%AF%86%E4%B8%8E%E8%AE%BF%E9%97%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          派生类成员的标识与访问
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-01 22:42:41" itemprop="dateCreated datePublished" datetime="2020-09-01T22:42:41+08:00">2020-09-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-18 17:25:24" itemprop="dateModified" datetime="2020-08-18T17:25:24+08:00">2020-08-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="派生类成员的标识与访问"><a href="#派生类成员的标识与访问" class="headerlink" title="派生类成员的标识与访问"></a>派生类成员的标识与访问</h1><p>讨论派生类使用过程中的一些问题，也就是标识和访问派生类及其对象的成员（包栝了基类中继承来的部分和新增的部分）问题。</p>
+<p>在派生类中，成员可以按访问属性划分为以下4中</p>
+<p>(1) <strong>不可访问的成员</strong>。这是从基类私有成员继承而来的，派生类或是建立派生类对象的模块都没有办法访问到它们，如果从派生类继续派生新类，也是无法访问的。</p>
+<p>(2) <strong>私有成员</strong>。这里可以包栝从基类继承过来的成员以及新增加的成员，在派生类内部可以访问，但是建立派生类对象的模块中无法访问，继续派生就变成了新的派生类中的不可访问成员。</p>
+<p>(3) <strong>保护成员</strong>。可能是新增也可能是从基类继承过来的，派生类内部成员可以访问，建立派生类对象的模块无法访问，进一步派生，在新的派生类中可能成为私有成员或保护成员。</p>
+<p>(4)<strong>公有成员</strong>。派生类、建立派生类的模块都可以访问，继续派生可能是新派生类中的私有、保护或者公有成员。</p>
+<h2 id="作用域分辨符"><a href="#作用域分辨符" class="headerlink" title="作用域分辨符"></a>作用域分辨符</h2><p>作用域分辨符，就是我们经常见到的”<code>::</code>“，它可以用来限定要访问的成员所在类的名称。一般的使用形式是：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">类名::成员名						<span class="comment">//数据成员</span></span><br><span class="line">类名::成员名(参数表)			  <span class="comment">//函数成员</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="下面来看看作用域分辨符在类族层次结构中是如何唯一表示成员的"><a href="#下面来看看作用域分辨符在类族层次结构中是如何唯一表示成员的" class="headerlink" title="下面来看看作用域分辨符在类族层次结构中是如何唯一表示成员的"></a>下面来看看作用域分辨符在类族层次结构中是如何唯一表示成员的</h2><p>简单来说就是，内层与外层同名，则内层标识符<strong>隐藏</strong>了外层标识符，这种现象称为<strong>隐藏规则</strong>。</p>
+<p><strong>如果派生类中声明了与基类成员函数同名的新函数，即使函数的参数表不同，从基类继承的同名函数的所有重载形式也都会被隐藏</strong>。如果要访问被隐藏的成员，就需要使用作用域分辨符和基类名来限定。**<code>只有在相同的作用域中定义的函数才可以重载。</code>**</p>
+<p><img src="https://www.zx95.net/images/2020/08/18/imagecea93ccea52383d1.png" alt="imagecea93ccea52383d1.png"></p>
+<p>例子：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt; </span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base1</span>&#123;</span></span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		<span class="keyword">int</span> var;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">()</span></span>&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Member of Base1!&quot;</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">		&#125; </span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base2</span>&#123;</span></span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		<span class="keyword">int</span> var;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">()</span></span>&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Member of Base2!&quot;</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derived</span>:</span><span class="keyword">public</span> Base1, <span class="keyword">public</span> Base2&#123;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		<span class="keyword">int</span> var;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">()</span></span>&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Member of Derived!&quot;</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	Derived d;</span><br><span class="line">	Derived *p = &amp;d;</span><br><span class="line">	</span><br><span class="line">	d.var = <span class="number">1</span>;</span><br><span class="line">	d.fun();</span><br><span class="line">	</span><br><span class="line">	d.Base1::var = <span class="number">2</span>;</span><br><span class="line">	d.Base1::fun();</span><br><span class="line">	</span><br><span class="line">	p-&gt;Base2::var = <span class="number">3</span>;</span><br><span class="line">	p-&gt;Base2::fun();</span><br><span class="line">		</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<p><img src="https://www.zx95.net/images/2020/08/18/image2d748ce1d3a16d49.png" alt="image2d748ce1d3a16d49.png"></p>
+<p>在主函数中，创建了一个派生类的对象d，根据隐藏规则，如果通过成员名称来访问改类的成员，就只能访问到派生类新增加的两个成员，从基类继承过来的成员由于处于外层作用域而被隐藏。这时，要想访问从基类继承来的成员，就必须使用类名和作用域分辨符。程序中后面两组语句就是分别访问由基类 <code>Base1</code>，<code>Base2</code> 继承来的成员。</p>
+<p><strong>$</strong> 通过作用域分辨符，就明确地唯一标识了派生类中由基类所继承来的成员，达到了访问的目的，解决了成员被隐藏的问题。</p>
+<p>如果在上个例子中，派生类没有声明与基类同名的成员，那么使用<code>&quot;对象名.成员名&quot;</code>就无法访问到任何成员，来自 <code>Base1</code> 和 <code>Base2</code> 类的同名成员具有相同的作用域，系统根本无法进行唯一标识，这时就必须使用作用域分辨符。例子（教材截图）如下：（例子7-6指的就是上面那个程序）</p>
+<p><img src="https://www.zx95.net/images/2020/08/18/image844dd3f751acf16d.png" alt="image844dd3f751acf16d.png"></p>
+<p>报错出现了这个词：<em>ambiguous [æmˈbɪɡjuəs] adj. 模糊不清的，模棱两可的；不明确的，不明朗的；引起歧义的</em></p>
+<p><img src="https://www.zx95.net/images/2020/08/18/imagebdde7da3ace95944.png" alt="imagebdde7da3ace95944.png"></p>
+<p>上面讨论多继承问题时，假定所有基类之间没有继承关系，如果这个条件得不到满足会出现什么情况呢？<strong>如果某个派生类的部分或全部直接基类是从另一个共同基类派生而来，在这些直接基类中，从上一级基类继承来的成员就拥有相同的名称，因此派生类中也就会产生同名现象，对这种类型的同名成员也要使用作用域分辨符来唯一标识，而且必须用直接基类来进行限定。</strong></p>
+<p><em>多继承同名隐藏举例：</em></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base0</span>&#123;</span>				<span class="comment">//定义基类Base0 </span></span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		<span class="keyword">int</span> var0;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">fun0</span><span class="params">()</span></span>&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Member of Base0&quot;</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base1</span>:</span><span class="keyword">public</span> Base0&#123;	<span class="comment">//定义派生类Base1 </span></span><br><span class="line">	<span class="keyword">public</span>:					<span class="comment">//新增外部接口 </span></span><br><span class="line">		<span class="keyword">int</span> var1;			 </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base2</span>:</span><span class="keyword">public</span> Base0&#123;	<span class="comment">//定义派生类Base2 </span></span><br><span class="line">	<span class="keyword">public</span>:					<span class="comment">//新增外部接口 </span></span><br><span class="line">		<span class="keyword">int</span> var2;		</span><br><span class="line">&#125;; </span><br><span class="line"><span class="comment">//定义派生类Derived </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derived</span>:</span><span class="keyword">public</span> Base1, <span class="keyword">public</span> Base2&#123;</span><br><span class="line">	<span class="keyword">public</span>:					<span class="comment">//新增外部接口 </span></span><br><span class="line">		<span class="keyword">int</span> var;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">()</span></span>&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Member of Derived&quot;</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	Derived d;</span><br><span class="line">	d.Base1::var0 = <span class="number">2</span>;</span><br><span class="line">	d.Base1::fun0(); </span><br><span class="line">	d.Base2::var0 = <span class="number">3</span>;</span><br><span class="line">	d.Base2::fun0();</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<p><img src="https://www.zx95.net/images/2020/08/18/image5df824293df448c8.png" alt="image5df824293df448c8.png"></p>
+<p>教材程序分析截图：</p>
+<p><img src="https://www.zx95.net/images/2020/08/18/image19a67ee992a9a372.png" alt="image19a67ee992a9a372.png"></p>
+<h2 id="虚基类"><a href="#虚基类" class="headerlink" title="虚基类"></a>虚基类</h2><p>当某些类的部分或全部直接基类是从另一个共同基类派生而来时，在这些直接基类中从上一级共同基类继承来的成员就拥有相同的名称。在派生类的对象中，这些同名数据成员在内存中同时拥有多个副本，同一个函数名会有多个映射。可以使用作用域分辨符来唯一标识并分别访问它们。也可以<strong>将共同基类设置为虚基类，这是从不同的路径继承过来的同名数据在内存中就只有一个副本，同名函数也只有一个映射。</strong>这就解决了同名成员唯一标识的问题。</p>
+<p><strong>$</strong> 虚基类的声明是在派生类的定义过程中进行的，其语法形式为：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> 派生类名:</span><span class="keyword">virtual</span> 继承方式 基类名</span><br></pre></td></tr></table></figure>
+
+<p>上述语句声明基类为派生类的虚基类。在多继承情况下，虚基类关键字的作用范围和继承方式关键字相同，只对紧跟其后的基类起作用。声明了虚基类之后，虚基类的成员在进一步派生过程中和派生类一起维护同一个内存数据副本。</p>
+<p>举例：</p>
+<blockquote>
+<p>UML图（截图）</p>
+</blockquote>
+<p><img src="https://www.zx95.net/images/2020/08/18/image3b683bc7e099408d.png" alt="image3b683bc7e099408d.png"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//虚基类举例</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt; </span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base0</span>&#123;</span></span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		<span class="keyword">int</span> var0;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">fun0</span><span class="params">()</span></span>&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Member of Base0&quot;</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">		&#125; </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base1</span>:</span><span class="keyword">virtual</span> <span class="keyword">public</span> Base0&#123;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		<span class="keyword">int</span> var1;</span><br><span class="line">&#125;; </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base2</span>:</span><span class="keyword">virtual</span> <span class="keyword">public</span> Base0&#123;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		<span class="keyword">int</span> var2;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derived</span>:</span><span class="keyword">public</span> Base1, <span class="keyword">public</span> Base2&#123;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		<span class="keyword">int</span> var;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">()</span></span>&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Member of Derived&quot;</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;; </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	Derived d;</span><br><span class="line">	d.var0 = <span class="number">10</span>;</span><br><span class="line">	d.var1 = <span class="number">100</span>;</span><br><span class="line">	d.var2 = <span class="number">1000</span>;</span><br><span class="line">	d.fun0();</span><br><span class="line">	</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<p><img src="https://www.zx95.net/images/2020/08/18/image21e066e8c8e209f6.png" alt="image21e066e8c8e209f6.png"></p>
+<p>分析（教材截图）：</p>
+<p><img src="https://www.zx95.net/images/2020/08/18/image2051ab5f3da86971.png" alt="image2051ab5f3da86971.png"></p>
+<h2 id="虚基类及其派生类构造函数"><a href="#虚基类及其派生类构造函数" class="headerlink" title="虚基类及其派生类构造函数"></a>虚基类及其派生类构造函数</h2><p><strong>$</strong> 在上个例子中虚基类的使用显得非常方便、简单，这是由于该程序中所有类的使用都是编译器自动生成的默认构造函数。<strong>如果虚基类声明有非默认形式的（即带形参的）构造函数，并且没有声明默认形式的构造函数，事情就比较麻烦了</strong>（<del>me：没有默认构造函数则必须要传参执行有参数的构造函数，否则是会报错的</del>）。这是，在整个继承关系中,直接或间接继承虚基类的所有派生类，都必须在构造函数的成员初始化列表中列出对虚基类的初始化。</p>
+<p>例如，若是虚基类声明了带参数的构造函数，上面程序就要改为</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base0</span> &#123;</span>								<span class="comment">//定义基类Base0 </span></span><br><span class="line">	<span class="keyword">public</span>:									<span class="comment">//外部接口 </span></span><br><span class="line">		Base0(<span class="keyword">int</span> var): var0(var)&#123;&#125;</span><br><span class="line">		<span class="keyword">int</span> var0;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">fun0</span><span class="params">()</span></span>&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Member of Base0&quot;</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;; </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base1</span>:</span><span class="keyword">virtual</span> <span class="keyword">public</span> Base0&#123;			<span class="comment">//Base0为虚基类，派生Base1类 </span></span><br><span class="line">	<span class="keyword">public</span>:									<span class="comment">//新增外部接口 </span></span><br><span class="line">		Base1(<span class="keyword">int</span> var):Base0(var)&#123;&#125;</span><br><span class="line">		<span class="keyword">int</span> var1; </span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base2</span>:</span><span class="keyword">virtual</span> <span class="keyword">public</span> Base0&#123;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		Base2(<span class="keyword">int</span> var):Base0(var)&#123;&#125;</span><br><span class="line">		<span class="keyword">int</span> var2;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derived</span>:</span><span class="keyword">public</span> Base1, <span class="keyword">public</span> Base2&#123;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		Derived(<span class="keyword">int</span> var):Base0(var), Base1(var), Base2(var)&#123;&#125;</span><br><span class="line">		<span class="keyword">int</span> var;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">()</span></span>&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Member of Derived&quot;</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="function">Derived <span class="title">d</span><span class="params">(<span class="number">1</span>)</span></span>;</span><br><span class="line">	d.var = <span class="number">2</span>;</span><br><span class="line">	d.fun();</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<p><img src="https://www.zx95.net/images/2020/08/18/image28964760a218b404.png" alt="image28964760a218b404.png"></p>
+<p>然后是干货满满的教材小结截图，把问题说得很详细了：</p>
+<p><img src="https://www.zx95.net/images/2020/08/18/image907d769e34943aad.png" alt="image907d769e34943aad.png"></p>
+<p>———————————————————结束线———————————————————</p>
+
+    </div>
+
+    
+    
+    
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/dopphu/tags/C/" rel="tag"># C++</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/dopphu/2020/09/01/%E7%B1%BB%E5%9E%8B%E5%85%BC%E5%AE%B9%E8%A7%84%E5%88%99/" rel="prev" title="类型兼容原则">
+      <i class="fa fa-chevron-left"></i> 类型兼容原则
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/dopphu/2020/09/01/%E6%B4%BE%E7%94%9F%E7%B1%BB%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0/" rel="next" title="派生类的构造、复制、析构函数">
+      派生类的构造、复制、析构函数 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B4%BE%E7%94%9F%E7%B1%BB%E6%88%90%E5%91%98%E7%9A%84%E6%A0%87%E8%AF%86%E4%B8%8E%E8%AE%BF%E9%97%AE"><span class="nav-number">1.</span> <span class="nav-text">派生类成员的标识与访问</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%88%86%E8%BE%A8%E7%AC%A6"><span class="nav-number">1.1.</span> <span class="nav-text">作用域分辨符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E9%9D%A2%E6%9D%A5%E7%9C%8B%E7%9C%8B%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%88%86%E8%BE%A8%E7%AC%A6%E5%9C%A8%E7%B1%BB%E6%97%8F%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E4%B8%AD%E6%98%AF%E5%A6%82%E4%BD%95%E5%94%AF%E4%B8%80%E8%A1%A8%E7%A4%BA%E6%88%90%E5%91%98%E7%9A%84"><span class="nav-number">1.2.</span> <span class="nav-text">下面来看看作用域分辨符在类族层次结构中是如何唯一表示成员的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%99%9A%E5%9F%BA%E7%B1%BB"><span class="nav-number">1.3.</span> <span class="nav-text">虚基类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%99%9A%E5%9F%BA%E7%B1%BB%E5%8F%8A%E5%85%B6%E6%B4%BE%E7%94%9F%E7%B1%BB%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-number">1.4.</span> <span class="nav-text">虚基类及其派生类构造函数</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dopphu"
+      src="/dopphu/images/dopphu.jpg">
+  <p class="site-author-name" itemprop="name">Dopphu</p>
+  <div class="site-description" itemprop="description">欢迎大家扫描二维码，关注我的微信公众号</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/dopphu/archives/">
+        
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/dopphu/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://doyyli.github.io/" title="https:&#x2F;&#x2F;doyyli.github.io" rel="noopener" target="_blank">洋洋小伙伴</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dopphu</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/dopphu/lib/anime.min.js"></script>
+  <script src="/dopphu/lib/velocity/velocity.min.js"></script>
+  <script src="/dopphu/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/dopphu/js/utils.js"></script>
+
+<script src="/dopphu/js/motion.js"></script>
+
+
+<script src="/dopphu/js/schemes/pisces.js"></script>
+
+
+<script src="/dopphu/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/dopphu/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

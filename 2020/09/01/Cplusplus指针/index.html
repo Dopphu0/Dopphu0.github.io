@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/dopphu/images/pp.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/dopphu/images/pp.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/dopphu/images/pp.jpg">
+  <link rel="mask-icon" href="/dopphu/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/dopphu/css/main.css">
+
+
+<link rel="stylesheet" href="/dopphu/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/dopphu/lib/pace/pace-theme-big-counter.min.css">
+  <script src="/dopphu/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"gitee.com","root":"/dopphu/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="指针函数指针$ 函数指针  起别名的语法格式就是这样，例如： 1typedef int(*DoubleIntFunction)(double);  1DoubleIntFunction  funcPtr;  函数指针的赋值： 1函数指针名 &#x3D; 函数名;  等号右边的函数名所指出的必须是一个已经声明过的、和函数指针具有相同返回值类型和相同形参表的函数。在赋值之后，就可以通过函数指针名来直接引用这个指">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cplusplus指针">
+<meta property="og:url" content="https://gitee.com/dopphu/dopphu.git/2020/09/01/Cplusplus%E6%8C%87%E9%92%88/index.html">
+<meta property="og:site_name" content="Welcome to Dopphu&#39;s Blog">
+<meta property="og:description" content="指针函数指针$ 函数指针  起别名的语法格式就是这样，例如： 1typedef int(*DoubleIntFunction)(double);  1DoubleIntFunction  funcPtr;  函数指针的赋值： 1函数指针名 &#x3D; 函数名;  等号右边的函数名所指出的必须是一个已经声明过的、和函数指针具有相同返回值类型和相同形参表的函数。在赋值之后，就可以通过函数指针名来直接引用这个指">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wx2.sbimg.cn/2020/08/11/ov7Y4.png">
+<meta property="og:image" content="https://www.zx95.net/images/2020/08/12/image.png">
+<meta property="og:image" content="https://www.zx95.net/images/2020/08/12/image815d493fca138d1e.png">
+<meta property="og:image" content="https://www.zx95.net/images/2020/08/12/imageede9b7d0b103067a.png">
+<meta property="og:image" content="https://www.zx95.net/images/2020/08/12/image1887d1b53c406125.png">
+<meta property="og:image" content="https://www.zx95.net/images/2020/08/12/imageefb3d4f829bfaea7.png">
+<meta property="article:published_time" content="2020-09-01T14:42:41.194Z">
+<meta property="article:modified_time" content="2020-08-14T07:41:36.000Z">
+<meta property="article:author" content="Dopphu">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wx2.sbimg.cn/2020/08/11/ov7Y4.png">
+
+<link rel="canonical" href="https://gitee.com/dopphu/dopphu.git/2020/09/01/Cplusplus%E6%8C%87%E9%92%88/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Cplusplus指针 | Welcome to Dopphu's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/dopphu/atom.xml" title="Welcome to Dopphu's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+<a target="_blank" rel="noopener" href="https://github.com/dopphu" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/dopphu/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Welcome to Dopphu's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">dopphu.github.io</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/dopphu/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/dopphu/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/dopphu/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2020/09/01/Cplusplus%E6%8C%87%E9%92%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Cplusplus指针
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-01 22:42:41" itemprop="dateCreated datePublished" datetime="2020-09-01T22:42:41+08:00">2020-09-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-14 15:41:36" itemprop="dateModified" datetime="2020-08-14T15:41:36+08:00">2020-08-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h1><h2 id="函数指针"><a href="#函数指针" class="headerlink" title="函数指针"></a>函数指针</h2><p><strong>$</strong> <strong>函数指针</strong></p>
+<p><img src="https://wx2.sbimg.cn/2020/08/11/ov7Y4.png" alt="ov7Y4.png"></p>
+<p>起别名的语法格式就是这样，例如：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">int</span><span class="params">(*DoubleIntFunction)</span><span class="params">(<span class="keyword">double</span>)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DoubleIntFunction  funcPtr;</span><br></pre></td></tr></table></figure>
+
+<p>函数指针的赋值：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数指针名 = 函数名;</span><br></pre></td></tr></table></figure>
+
+<p>等号右边的函数名所指出的必须是一个已经声明过的、和函数指针具有相同返回值类型和相同形参表的函数。在赋值之后，就可以通过函数指针名来直接引用这个指针指向的函数。例如上面的<code>funcPtr</code>函数指针，就可以这样使用（调用）：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(*funcPtr)(...实参列表...);</span><br></pre></td></tr></table></figure>
+
+<h2 id="对象指针"><a href="#对象指针" class="headerlink" title="对象指针"></a>对象指针</h2><p><strong>$</strong> 对象指针就是用于存放对象地址的变量。对象指针遵循一般变量指针的各种规则，声明对象的指针的一般语法形式为：</p>
+<p><code>类名 *对象指针名;</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">类名 *对象指针名;</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Point *pointPtr;</span><br><span class="line">Point p1;</span><br><span class="line">pointPtr = &amp;p1;</span><br></pre></td></tr></table></figure>
+
+<p>使用对象指针访问对象成员的语法形式为：</p>
+<p><code>对象指针名-&gt;成员名;</code></p>
+<p>这种形式与<code>(*对象指针名).成员名</code>的访问形式是等价的。</p>
+<p><strong>$</strong> 再次提一下<a target="_blank" rel="noopener" href="https://dopphu.github.io/2020/08/06/Cplusplus%E5%89%8D%E5%90%91%E5%A3%B0%E6%98%8E/">前向引用声明</a></p>
+<p><img src="https://www.zx95.net/images/2020/08/12/image.png" alt="image.png"></p>
+<h2 id="this指针"><a href="#this指针" class="headerlink" title="this指针"></a>this指针</h2><p><img src="https://www.zx95.net/images/2020/08/12/image815d493fca138d1e.png" alt="image815d493fca138d1e.png"></p>
+<p>this 指针是成员函数的一个隐含形参，当成员函数对对象的数据成员进行操作时，就隐含使用了this指针。</p>
+<p><img src="https://www.zx95.net/images/2020/08/12/imageede9b7d0b103067a.png" alt="imageede9b7d0b103067a.png"></p>
+<h2 id="指向类的非静态成员的指针"><a href="#指向类的非静态成员的指针" class="headerlink" title="指向类的非静态成员的指针"></a>指向类的非静态成员的指针</h2><p><strong>$</strong> <strong>指向对象成员的指针</strong>使用前也要先声明，在赋值，然后再引用。因此首先要声明指向该对象所在类的成员函数的指针。声明指针语句的一般形式为：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">类型说明符	类名::*指针名;			<span class="comment">//声明指向数据成员的指针</span></span><br><span class="line">类型说明符   (类名::*指针名)(参数表);  <span class="comment">//声明指向函数成员的指针		</span></span><br></pre></td></tr></table></figure>
+
+<p>声明之后就是赋值，就是要确定指向类的哪一个成员。一般语法形式为：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">指针名 = &amp;类名::数据成员名。</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong>：对类成员取地址时，也要遵循访问权限的约定，也就是说，在一个类的作用域之外不能够对它的私有成员取地址。</p>
+<p><img src="https://www.zx95.net/images/2020/08/12/image1887d1b53c406125.png" alt="image1887d1b53c406125.png"></p>
+<p>成员函数指针在声明之后要用以下形式的语句对其进行赋值：</p>
+<p><code>指针名=&amp;类名::函数成员名;</code></p>
+<p><img src="https://www.zx95.net/images/2020/08/12/imageefb3d4f829bfaea7.png" alt="imageefb3d4f829bfaea7.png"></p>
+<h2 id="指向类的静态成员的指针"><a href="#指向类的静态成员的指针" class="headerlink" title="指向类的静态成员的指针"></a>指向类的静态成员的指针</h2><p><strong>$</strong> 对类的静态成员的访问还是不依赖于对象的，因此可以用普通的指针来指向和访问静态成员。</p>
+<p>静态数据成员，比如：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//假设count是Point类的一个静态数据成员 int型</span></span><br><span class="line"><span class="keyword">int</span> *p = &amp;Point::count;</span><br><span class="line"><span class="comment">//访问</span></span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Object count=&quot;</span>&lt;&lt;*p&lt;&lt;<span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
+
+<p>静态函数成员，例子：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span>&#123;</span></span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		Point(<span class="keyword">int</span> x=<span class="number">0</span>, <span class="keyword">int</span> y=<span class="number">0</span>):x(x), y(y)&#123;</span><br><span class="line">			count++;</span><br><span class="line">		&#125;</span><br><span class="line">		Point(<span class="keyword">const</span> Point &amp;p):x(p.x), y(p.y)&#123;</span><br><span class="line">			count++;</span><br><span class="line">		&#125;</span><br><span class="line">		~Point()&#123;</span><br><span class="line">			count--;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="function"><span class="keyword">int</span> <span class="title">getX</span><span class="params">()</span><span class="keyword">const</span></span>&#123;</span><br><span class="line">			<span class="keyword">return</span> x;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="function"><span class="keyword">int</span> <span class="title">getY</span><span class="params">()</span><span class="keyword">const</span></span>&#123;</span><br><span class="line">			<span class="keyword">return</span> y;</span><br><span class="line">		&#125;</span><br><span class="line">	</span><br><span class="line">		<span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">showCount</span><span class="params">()</span></span>&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;  Object count=&quot;</span>&lt;&lt;count&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">		<span class="keyword">int</span> x, y;</span><br><span class="line">		<span class="keyword">static</span> <span class="keyword">int</span> count;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> Point::count = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">void</span> (*funcPtr)() = Point::showCount;</span><br><span class="line">	</span><br><span class="line">	<span class="function">Point <span class="title">a</span><span class="params">(<span class="number">2</span>, <span class="number">3</span>)</span></span>;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Point A:&quot;</span>&lt;&lt;a.getX()&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;a.getY()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	funcPtr();</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/dopphu/tags/C/" rel="tag"># C++</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/dopphu/2020/09/01/C++%E7%BB%93%E6%9E%84%E4%BD%93%E5%92%8C%E8%81%94%E5%90%88%E4%BD%93/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8C%87%E9%92%88"><span class="nav-number">1.</span> <span class="nav-text">指针</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88"><span class="nav-number">1.1.</span> <span class="nav-text">函数指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E6%8C%87%E9%92%88"><span class="nav-number">1.2.</span> <span class="nav-text">对象指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this%E6%8C%87%E9%92%88"><span class="nav-number">1.3.</span> <span class="nav-text">this指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E5%90%91%E7%B1%BB%E7%9A%84%E9%9D%9E%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E7%9A%84%E6%8C%87%E9%92%88"><span class="nav-number">1.4.</span> <span class="nav-text">指向类的非静态成员的指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E5%90%91%E7%B1%BB%E7%9A%84%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E7%9A%84%E6%8C%87%E9%92%88"><span class="nav-number">1.5.</span> <span class="nav-text">指向类的静态成员的指针</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dopphu"
+      src="/dopphu/images/dopphu.jpg">
+  <p class="site-author-name" itemprop="name">Dopphu</p>
+  <div class="site-description" itemprop="description">欢迎大家扫描二维码，关注我的微信公众号</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/dopphu/archives/">
+        
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/dopphu/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://doyyli.github.io/" title="https:&#x2F;&#x2F;doyyli.github.io" rel="noopener" target="_blank">洋洋小伙伴</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dopphu</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/dopphu/lib/anime.min.js"></script>
+  <script src="/dopphu/lib/velocity/velocity.min.js"></script>
+  <script src="/dopphu/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/dopphu/js/utils.js"></script>
+
+<script src="/dopphu/js/motion.js"></script>
+
+
+<script src="/dopphu/js/schemes/pisces.js"></script>
+
+
+<script src="/dopphu/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/dopphu/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
