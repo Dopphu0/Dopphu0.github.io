@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>命令模式下命令的执行——初见</title>
+      <link href="/dopphu/2020/09/20/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F%E4%B8%8B%E5%91%BD%E4%BB%A4%E7%9A%84%E6%89%A7%E8%A1%8C%E2%80%94%E2%80%94%E5%88%9D%E8%A7%81/"/>
+      <url>/dopphu/2020/09/20/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F%E4%B8%8B%E5%91%BD%E4%BB%A4%E7%9A%84%E6%89%A7%E8%A1%8C%E2%80%94%E2%80%94%E5%88%9D%E8%A7%81/</url>
+      
+        <content type="html"><![CDATA[<h1 id="命令模式下命令的执行——初见"><a href="#命令模式下命令的执行——初见" class="headerlink" title="命令模式下命令的执行——初见"></a>命令模式下命令的执行——初见</h1><h2 id="1-开始执行命令"><a href="#1-开始执行命令" class="headerlink" title="1.开始执行命令"></a>1.开始执行命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ ls -al ~</span><br><span class="line">$ ls      -al ~</span><br><span class="line">$ ls -a -l ~</span><br></pre></td></tr></table></figure><p>上面三个命令是一模一样的执行结果。</p><h2 id="2-基础命令操作"><a href="#2-基础命令操作" class="headerlink" title="2.基础命令操作"></a>2.基础命令操作</h2><p>$ 显示日期命令</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ date</span><br></pre></td></tr></table></figure><p>$ 显示日历命令</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 语法</span></span><br><span class="line">$ cal [mouth] [year]</span><br><span class="line"><span class="comment"># 直接列出当前月份</span></span><br><span class="line">$ cal</span><br><span class="line"><span class="comment"># 列出2020年的所有月份</span></span><br><span class="line">$ cal 2020</span><br></pre></td></tr></table></figure><p>$ 简单好用的计算器：<strong>bc</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入计算器</span></span><br><span class="line">$ bc</span><br></pre></td></tr></table></figure><ul><li><code>+</code>    加法</li><li><code>-</code>    减法</li><li><code>*</code>    乘法</li><li><code>/</code>    除法</li><li><code>^</code>    指数</li><li><code>%</code>    余数</li></ul><p>注：<strong>1.</strong> bc默认仅输出整数，如果要输出小数点后位数，就要执行命令 <code>scale=3</code> 。</p><p><strong>2.</strong> 要离开bc回到命令界面时，务必输入【quit】来离开bc的软件环境。</p><p>$ 超简单的文本编辑器：<strong>nano</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ nano text.txt</span><br><span class="line"><span class="comment"># 不管text.txt存不存在都没有关系，存在就打开文件，不存在就创建新文件。</span></span><br></pre></td></tr></table></figure><ul><li>【Ctrl】+ G：取得联机帮助（help），很有用的。</li><li>【Ctrl】+ X：离开nano软件，若修改过文件会提示是否需要保存。</li><li>【Ctrl】+ O：保存文件</li></ul>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Git全局设置用户名和邮箱配置</title>
       <link href="/dopphu/2020/09/15/Git%E5%85%A8%E5%B1%80%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E5%90%8D%E5%92%8C%E9%82%AE%E7%AE%B1%E9%85%8D%E7%BD%AE/"/>
       <url>/dopphu/2020/09/15/Git%E5%85%A8%E5%B1%80%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E5%90%8D%E5%92%8C%E9%82%AE%E7%AE%B1%E9%85%8D%E7%BD%AE/</url>
