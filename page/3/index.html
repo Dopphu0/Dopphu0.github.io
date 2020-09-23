@@ -189,6 +189,86 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2020/09/01/%E7%B1%BB%E7%9A%84%E7%BB%84%E5%90%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2020/09/01/%E7%B1%BB%E7%9A%84%E7%BB%84%E5%90%88/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-01 22:42:41" itemprop="dateCreated datePublished" datetime="2020-09-01T22:42:41+08:00">2020-09-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-06 09:34:28" itemprop="dateModified" datetime="2020-08-06T09:34:28+08:00">2020-08-06</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="类的组合"><a href="#类的组合" class="headerlink" title="类的组合"></a>类的组合</h1><p>$ <strong>类的组合描述的就是一个类内嵌其它类的对象作为成员的情况，它们之间是一种包含与被包含的关系。</strong>例如，用一个类来描述计算机系统，首先可以把它分解为硬件和软件，而硬件包含…，软件又包含…，这些部分每一个都能进行进一步的分解，用类的观点来描述，它就是一个类的组合。</p>
+<p><img src="https://wx1.sbimg.cn/2020/08/05/oD61o.png" alt="oD61o.png"></p>
+<p><strong>$</strong> <strong>当创建类的对象时，如果这个类具有内嵌对象成员，那么各个内嵌对象将首先被自动创建。</strong>因为部件对象是复杂对象的一部分，因此，<strong>在创建对象时既要对本类的基本类型数据成员进行初始化，又要对内嵌对象成员进行初始化。</strong>这时，理解这些对象的构造函数被调用的顺序就很重要。</p>
+<p><img src="https://wx2.sbimg.cn/2020/08/05/oDg7U.png" alt="oDg7U.png"></p>
+<p><strong>$</strong> 那么当存在类的组合关系时，复制构造函数该如何编写呢？同样，没有编写的话，编译系统会在必要时自动生成一个隐含的复制构造函数，这个隐含的函数会自动调用内嵌对象的复制构造函数，为各个内嵌对象初始化。</p>
+<p>自己编写的话，举个例子：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//假设C类中包含B类的对象b作为成员，C类的复制构造函数形式如下：</span></span><br><span class="line">C::C(C &amp;c1):b(c1.b)&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>$</strong> 用一个例子来理解一下复制构造函数，构造函数的调用顺序吧。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span>&#123;</span></span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		Point(<span class="keyword">int</span> xx = <span class="number">0</span>, <span class="keyword">int</span> yy = <span class="number">0</span>)&#123;</span><br><span class="line">			x = xx;</span><br><span class="line">			y = yy;</span><br><span class="line">		&#125;</span><br><span class="line">		Point(Point &amp;p);</span><br><span class="line">		<span class="function"><span class="keyword">int</span> <span class="title">getX</span><span class="params">()</span></span>&#123;</span><br><span class="line">			<span class="keyword">return</span> x;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="function"><span class="keyword">int</span> <span class="title">getY</span><span class="params">()</span></span>&#123;</span><br><span class="line">			<span class="keyword">return</span> y;</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">		<span class="keyword">int</span> x, y;</span><br><span class="line">&#125;;</span><br><span class="line">Point::Point(Point &amp;p)&#123;		<span class="comment">//复制构造函数的实现 </span></span><br><span class="line">	x = p.x;</span><br><span class="line">	y = p.y;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Calling the copy constructor of Point&quot;</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//类的组合</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Line</span>&#123;</span></span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		Line(Point xp1, Point xp2);</span><br><span class="line">		Line(Line &amp;l);</span><br><span class="line">		<span class="function"><span class="keyword">double</span> <span class="title">getLen</span><span class="params">()</span></span>&#123;</span><br><span class="line">			<span class="keyword">return</span> len;</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">		Point p1, p2;</span><br><span class="line">		<span class="keyword">double</span> len;</span><br><span class="line">&#125;; </span><br><span class="line"><span class="comment">//组合类的构造函数</span></span><br><span class="line">Line::Line(Point xp1, Point xp2):p1(xp1), p2(xp2)&#123;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Calling constructor of Line&quot;</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="comment">//static_cast&lt;double&gt;(...)强制类型转换 </span></span><br><span class="line">	<span class="keyword">double</span> x = <span class="keyword">static_cast</span>&lt;<span class="keyword">double</span>&gt;(p1.getX() - p2.getX());</span><br><span class="line">	<span class="keyword">double</span> y = <span class="keyword">static_cast</span>&lt;<span class="keyword">double</span>&gt;(p1.getY() - p2.getY());</span><br><span class="line">	len = <span class="built_in">sqrt</span>(x*x + y*y); </span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">//组合类的复制构造函数</span></span><br><span class="line">Line::Line(Line &amp;l):p1(l.p1), p2(l.p2)&#123;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Calling the copy constructor of Line&quot;</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	len = l.len;</span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">//主函数 </span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	Point myp1(1, 1), myp2(4, 5);</span><br><span class="line">	</span><br><span class="line">	<span class="function">Line <span class="title">line</span><span class="params">(myp1, myp2)</span></span>;</span><br><span class="line">	</span><br><span class="line">	<span class="function">Line <span class="title">line2</span><span class="params">(<span class="built_in">line</span>)</span></span>;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;The length of the line is:&quot;</span>;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="built_in">line</span>.getLen()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;The length or the line2 is:&quot;</span>;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;line2.getLen()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://wx2.sbimg.cn/2020/08/06/ooXYR.png" alt="ooXYR.png"></p>
+<p><strong>me</strong>:<em>形实结合两次Point的构造函数，然后初始化Line的Point数据成员又两次point的构造函数，然后调用Line的构造函数（此时内嵌Point的构造函数已经调用）。接下来的三个复制构造函数就好理解了，不做赘述。</em></p>
+<p><img src="https://wx1.sbimg.cn/2020/08/06/oomVI.png" alt="oomVI.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2020/09/01/%E7%B1%BB%E7%9A%84%E9%9D%99%E6%80%81%E6%88%90%E5%91%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1036,80 +1116,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2020/09/01/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2020/09/01/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-09-01 20:19:53" itemprop="dateCreated datePublished" datetime="2020-09-01T20:19:53+08:00">2020-09-01</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/dopphu/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/dopphu/">1</a><a class="page-number" href="/dopphu/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/dopphu/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/dopphu/">1</a><a class="page-number" href="/dopphu/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/dopphu/page/4/">4</a><a class="extend next" rel="next" href="/dopphu/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1177,7 +1187,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/dopphu/archives/">
         
-          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
