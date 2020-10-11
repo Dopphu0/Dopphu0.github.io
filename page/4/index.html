@@ -189,6 +189,132 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2020/09/01/%E6%A0%87%E8%AF%86%E7%AC%A6%E5%9C%A8%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%8F%AF%E8%A7%81%E6%80%A7%E6%98%AF%E4%B8%80%E5%9B%9E%E4%BA%8B%E5%90%97%EF%BC%9F%E6%9C%89%E4%BA%86%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2020/09/01/%E6%A0%87%E8%AF%86%E7%AC%A6%E5%9C%A8%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%8F%AF%E8%A7%81%E6%80%A7%E6%98%AF%E4%B8%80%E5%9B%9E%E4%BA%8B%E5%90%97%EF%BC%9F%E6%9C%89%E4%BA%86%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3/" class="post-title-link" itemprop="url">标识符在作用域和可见性是一回事吗？有了初步了解</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-01 22:42:41" itemprop="dateCreated datePublished" datetime="2020-09-01T22:42:41+08:00">2020-09-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-10 20:16:22" itemprop="dateModified" datetime="2020-08-10T20:16:22+08:00">2020-08-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="标识符在作用域和可见性是一回事吗？有了初步了解"><a href="#标识符在作用域和可见性是一回事吗？有了初步了解" class="headerlink" title="标识符在作用域和可见性是一回事吗？有了初步了解"></a>标识符在作用域和可见性是一回事吗？有了初步了解</h2><p><strong>$</strong> <strong>作用域</strong>：作用域是一个标识符在程序正文中有效的区域。</p>
+<ol>
+<li><p>函数原型作用域</p>
+<p>​    函数原型作用域是C++程序中最小的作用域。在函数原型中一定要包含形参的类型说明。<strong>在函数原型声明时形式参数的作用范围就是函数原型的作用域。</strong>例如：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">area</span><span class="params">(<span class="keyword">double</span> radius)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>标识符radius的作用（或称有效）范围就在函数area形参列表的左右括号之间，在程序的其他地方不能引用这个标识符。因此标识符radius的作用域称为<strong>函数原型作用域</strong>。</p>
+<p><em>me</em>：你可能会好奇，radius不是形参吗？在函数体里面不是可用吗？其实这里只是一个函数原型的形参列表，而不是函数实现的形参列表，当有函数实现的时候，函数体中就是下面要讲的局部作用域了。</p>
+<p><strong>注意</strong>：由于函数原型的形参列表起作用的只是形参类型，标识符并不起作用，因此使允许省去的。但考虑到程序的可读性，通常还是要在函数原型声明时，给出形参标识符。</p>
+</li>
+<li><p>局部作用域（纯抄书，感觉解释很到位）</p>
+<p>​    为了理解局部作用域，先来看一个例子。</p>
+<p>​    <img src="https://wx2.sbimg.cn/2020/08/09/oqgKe.png" alt="oqgKe.png"></p>
+<p>​    <strong>函数形参列表中形参的作用域，从形参的列表的声明处开始，到整个函数体结束之处为止。</strong>因此，形参a的作用域从a的声明处开始，到fun函数的结束处为止。<strong>函数体内声明的变量，其作用域从声明处开始，一直到声明所在的块结束的大括号为止。</strong>所谓块，就是一对大括号括起来的一段程序。例如函数体就是一个块，if后面的分支体又是一个较小的块。<strong>具有局部作用域的变量也称为局部变量。</strong></p>
+</li>
+<li><p>类作用域</p>
+<p>​    类可以被看作一组有名成员的集合，类X的成员m具有类作用域，<strong>对m的访问方式有如下3种</strong>：</p>
+<p>(1) <strong>如果在X的成员函数中没有声明同名的局部作用域标识符，那么在该函数内可以直接访问成员m</strong>。也就是说m在这样的函数中都起作用。</p>
+<p>(2) <strong>通过表达式<code>x.m</code>或<code>X::m</code>。这正是程序中访问对象成员的最基本方法。<code>X::m</code>的方式用于访问类的静态成员。</strong><a target="_blank" rel="noopener" href="https://dopphu.github.io/2020/08/10/%E7%B1%BB%E7%9A%84%E9%9D%99%E6%80%81%E6%88%90%E5%91%98/#more">关于类的静态成员</a></p>
+<p>(3) <strong>通过<code>ptr-&gt;m</code>这样的表达式，其中<code>ptr</code>为指向一个 X 类的一个对象的指针。</strong></p>
+</li>
+<li><p>命名空间作用域</p>
+<p>​    教材截图：</p>
+<p><img src="https://wx2.sbimg.cn/2020/08/09/oqjbk.png" alt="oqjbk.png"></p>
+<ol>
+<li><p>命名空间的语法形式如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> 命名空间名 &#123;</span><br><span class="line">    命名空间的各种声明(函数声明、类声明、...)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>一个命名空间确定了一个命名空间作用域，<strong>凡是在该命名空间之内声明的、不属于前面所述各个作用域的标识符，都属于该命名空间作用域</strong>。在命名空间内部可以直接引用当前命名空间中声明的标识符，如果需要引用其他命名空间的标识符，则需要使用下面的语法：</p>
+<p><code>命名空间名::标识符名</code></p>
+<p>例如：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> SomeNs&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>&#123;</span>...&#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//这样引用</span></span><br><span class="line">SomeNs::SomeClass obj1;</span><br></pre></td></tr></table></figure>
+
+<p>有时，标识符前面总使用这样的命名空间限定会显得过于冗长，C++提供了using语句来解决，using语句有两种形式：</p>
+<p><code>using 命名空间名::标识符名;</code>//暴露指定标识符</p>
+<p><code>using namespace 命名空间名;</code>//暴露该命名空间所有标识符</p>
+<p>事实上，C++标准库的所有标识符都被声明在std命名空间内，前面用到的<code>cin</code>、<code>cout</code>、<code>endl</code>等标识符皆是如此，因此，前面的程序都使用了<code>using namespace std;</code>。如果去掉这条语句，则引用相应的标识符需要使用<code>std::cin</code>、<code>std::cout</code>、<code>std::endl</code>这样的语法。</p>
+<p><strong>命名空间也允许嵌套</strong>，例如：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> OuterNs&#123;</span><br><span class="line">    <span class="keyword">namespace</span> InnerNs&#123;</span><br><span class="line">        <span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>&#123;</span>...&#125;;<span class="comment">//类声明</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>此外，两类特殊的命名空间：全局命名空间和匿名命名空间。全局命名空间是默认的命名空间，在显示声明的命名空间之外声明的标识符都在一个全局命名空间，声明方式如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> &#123;</span><br><span class="line">    匿名命名空间内的各种声明&#123;函数声明、类声明、...&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在包含多个源文件的工程中，<strong>匿名命名空间常常被用来屏蔽不希望暴露给其他源文件的标识符</strong>，这是因为每个源文件的匿名命名空间是彼此不同的，在一个源文件中没有办法访问其他文件的匿名命名空间。</p>
+</li>
+<li><p><strong>具有命名空间作用域的变量也称为全局变量。</strong></p>
+</li>
+</ol>
+</li>
+<li><p>可见性：</p>
+<p>​    命名空间作用域 &gt; 类作用域 &gt; 局部作用域</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2020/09/01/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -326,7 +452,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/dopphu/archives/">
         
-          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-count">32</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
