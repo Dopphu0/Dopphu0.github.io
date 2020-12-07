@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>crc</title>
+      <link href="/dopphu/2020/12/07/crc/"/>
+      <url>/dopphu/2020/12/07/crc/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> binascii</span><br><span class="line"><span class="keyword">import</span> struct</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">file = input(<span class="string">&quot;图片地址：&quot;</span>)</span><br><span class="line">fr = open(file,<span class="string">&#x27;rb&#x27;</span>).read()</span><br><span class="line">data = bytearray(fr[<span class="number">0x0c</span>:<span class="number">0x1d</span>])</span><br><span class="line">crc32key = eval(<span class="string">&#x27;0x&#x27;</span>+str(binascii.b2a_hex(fr[<span class="number">0x1d</span>:<span class="number">0x21</span>]))[<span class="number">2</span>:<span class="number">-1</span>])</span><br><span class="line"><span class="comment">#原来的代码: crc32key = eval(str(fr[29:33]).replace(&#x27;\\x&#x27;,&#x27;&#x27;).replace(&quot;b&#x27;&quot;,&#x27;0x&#x27;).replace(&quot;&#x27;&quot;,&#x27;&#x27;))</span></span><br><span class="line">n = <span class="number">4095</span></span><br><span class="line"><span class="keyword">for</span> w <span class="keyword">in</span> range(n):</span><br><span class="line">    width = bytearray(struct.pack(<span class="string">&#x27;&gt;i&#x27;</span>, w))</span><br><span class="line">    <span class="keyword">for</span> h <span class="keyword">in</span> range(n):</span><br><span class="line">        height = bytearray(struct.pack(<span class="string">&#x27;&gt;i&#x27;</span>, h))</span><br><span class="line">        <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">4</span>):</span><br><span class="line">            data[x+<span class="number">4</span>] = width[x]</span><br><span class="line">            data[x+<span class="number">8</span>] = height[x]</span><br><span class="line">        crc32result = binascii.crc32(data) &amp; <span class="number">0xffffffff</span></span><br><span class="line">        <span class="keyword">if</span> crc32result == crc32key:</span><br><span class="line">            print(width,height)</span><br><span class="line">            newpic = bytearray(fr)</span><br><span class="line">            <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">4</span>):</span><br><span class="line">                newpic[x+<span class="number">16</span>] = width[x]</span><br><span class="line">                newpic[x+<span class="number">20</span>] = height[x]</span><br><span class="line">            fw = open(file+<span class="string">&#x27;.png&#x27;</span>,<span class="string">&#x27;wb&#x27;</span>)</span><br><span class="line">            fw.write(newpic)</span><br><span class="line">            fw.close</span><br><span class="line">            sys.exit()</span><br></pre></td></tr></table></figure><p>转载地址：</p><p><a href="https://h3110w0r1d.com/archives/128/">https://h3110w0r1d.com/archives/128/</a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>2020考研</title>
       <link href="/dopphu/2020/10/11/2022%E8%80%83%E7%A0%94/"/>
       <url>/dopphu/2020/10/11/2022%E8%80%83%E7%A0%94/</url>
