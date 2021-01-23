@@ -6,7 +6,7 @@
   <link href="https://gitee.com/dopphu/dopphu.git/atom.xml" rel="self"/>
   
   <link href="https://gitee.com/dopphu/dopphu.git/"/>
-  <updated>2021-01-15T05:51:25.469Z</updated>
+  <updated>2021-01-23T05:54:39.072Z</updated>
   <id>https://gitee.com/dopphu/dopphu.git/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>你还在背单词吗？</title>
+    <link href="https://gitee.com/dopphu/dopphu.git/2021/01/23/%E4%BD%A0%E8%BF%98%E5%9C%A8%E8%83%8C%E5%8D%95%E8%AF%8D%E4%B9%88/"/>
+    <id>https://gitee.com/dopphu/dopphu.git/2021/01/23/%E4%BD%A0%E8%BF%98%E5%9C%A8%E8%83%8C%E5%8D%95%E8%AF%8D%E4%B9%88/</id>
+    <published>2021-01-23T05:55:01.265Z</published>
+    <updated>2021-01-23T05:54:39.072Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="记单词的方法"><a href="#记单词的方法" class="headerlink" title="记单词的方法"></a>记单词的方法</h2><p>$ 会写的词 形容人的都要会写</p><h3 id="1-联想法"><a href="#1-联想法" class="headerlink" title="1.联想法"></a>1.联想法</h3><p>Vigorous    精力充沛的 </p><p>Trivial    琐碎的 </p><p>Moderate   中庸的，适度的</p><p>isolate   使孤独，使孤立</p><p>$ Caricature（me：汽车爱上猫）  漫画</p><h3 id="2-编故事法"><a href="#2-编故事法" class="headerlink" title="2.编故事法"></a>2.编故事法</h3><p>grope    摸索着做某事，试图做某事</p><p>grain    谷物，谷粒    </p><p>glitter    发光闪光v （me:垃圾前（litter）的哥哥（g）→ 两者对比，哥哥像发着光 →发光、闪光）</p><p>grace    优雅</p><p>$ graceful    优雅的</p><h3 id="3-词根词缀法"><a href="#3-词根词缀法" class="headerlink" title="3.词根词缀法"></a>3.词根词缀法</h3><p><strong>表示人的所有后缀</strong></p><p>-er——beginner；observer</p><p>-or——doctor；collector；instructor</p><p>-ist/ian——artist；journalist</p><h3 id="4-谐音法"><a href="#4-谐音法" class="headerlink" title="4.谐音法"></a>4.谐音法</h3><p>Quest    请求要求 in quest of</p><p>Flee    逃跑v</p><p>Cease    死亡；终止；暂停；n/v</p><p>Champion    冠军</p><p>Chill    寒冷的</p><p>curse    诅咒 cursed被诅咒的</p><p>Ambition    野心；</p><h3 id="5-形近对照发"><a href="#5-形近对照发" class="headerlink" title="5.形近对照发"></a>5.形近对照发</h3><p>Topic</p><p>tropic    热带n</p><p>Brush    刷子，画笔</p><p>bush     灌木丛</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;记单词的方法&quot;&gt;&lt;a href=&quot;#记单词的方法&quot; class=&quot;headerlink&quot; title=&quot;记单词的方法&quot;&gt;&lt;/a&gt;记单词的方法&lt;/h2&gt;&lt;p&gt;$ 会写的词 形容人的都要会写&lt;/p&gt;
+&lt;h3 id=&quot;1-联想法&quot;&gt;&lt;a href=&quot;#1-联想法&quot; cl</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>与mysql的第一次亲密接触</title>
@@ -447,26 +468,6 @@
     
     
     <category term="C++" scheme="https://gitee.com/dopphu/dopphu.git/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://gitee.com/dopphu/dopphu.git/2020/09/01/%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0/"/>
-    <id>https://gitee.com/dopphu/dopphu.git/2020/09/01/%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0/</id>
-    <published>2020-09-01T14:42:41.177Z</published>
-    <updated>2020-08-05T08:21:34.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h1><p><strong>$</strong> 析构函数与构造函数的作用几乎正好相反，它是用来完成对象被删除前的一些清理工作。<strong>析构函数是在对象的生存周期即将结束的时刻被自动调用的。</strong>它的调用完成之后对象也就消失了，相应的内存空间也会被释放。</p><p><img src="https://wx1.sbimg.cn/2020/08/05/oCOg6.png" alt="oCOg6.png"></p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Clock</span>&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">Clock();<span class="comment">//构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setTime</span><span class="params">(<span class="keyword">int</span> newH, <span class="keyword">int</span> newM, <span class="keyword">int</span> newS)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">showTime</span><span class="params">()</span></span>;</span><br><span class="line">~Clock&#123;&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line"><span class="keyword">int</span> hour, minute, second; </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;析构函数&quot;&gt;&lt;a href=&quot;#析构函数&quot; class=&quot;headerlink&quot; title=&quot;析构函数&quot;&gt;&lt;/a&gt;析构函数&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;$&lt;/strong&gt; 析构函数与构造函数的作用几乎正好相反，它是用来完成对象被删除前的一些清理工作。&lt;str</summary>
-      
-    
-    
-    
     
   </entry>
   
