@@ -189,6 +189,84 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/01/15/day02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2021/01/15/day02/" class="post-title-link" itemprop="url">day02</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-01-15 13:38:38 / 修改时间：13:50:23" itemprop="dateCreated datePublished" datetime="2021-01-15T13:38:38+08:00">2021-01-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">数据库学习</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>SQL命令学习</p>
+<p>SQL语言</p>
+<p>DQL语言：Data Query Language</p>
+<p>DML语言：Data Manipulation Language</p>
+<p>DDL语言：Data Define Language</p>
+<p>TCL语言：transaction（事务）Control Language</p>
+<p><img src="E:\数据库学习\笔记\字段中英文对照" alt="image-20210106193045313"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进阶1：基础查询</span></span><br><span class="line">/*</span><br><span class="line">语法：</span><br><span class="line">select 查询列表 from 表名;</span><br><span class="line"></span><br><span class="line">类似于：System.out.println(打印东西)</span><br><span class="line">特点：</span><br><span class="line"></span><br><span class="line">1.查询列表可以是：表中的字段，常量值，表达式，函数</span><br><span class="line">2.查询的结果是一个虚拟的表格</span><br><span class="line">*/</span><br><span class="line">USE myemployees;</span><br><span class="line"><span class="comment">#1.查询表中的某个字段</span></span><br><span class="line"></span><br><span class="line">SELECT last_name FROM employees;</span><br><span class="line"></span><br><span class="line"><span class="comment">#2.查询表中的多个字段</span></span><br><span class="line">SELECT last_name,salary,email FROM employees;</span><br><span class="line"><span class="comment">#3.查询表中所有字段</span></span><br><span class="line"><span class="comment"># ctrl + F12 格式化</span></span><br><span class="line"><span class="comment"># 方式一</span></span><br><span class="line">SELECT</span><br><span class="line">  `first_name`,</span><br><span class="line">  `last_name`,</span><br><span class="line">  `email`,</span><br><span class="line">  `phone_number`,</span><br><span class="line">  `job_id`,</span><br><span class="line">  `salary`,</span><br><span class="line">  `commission_pct`,</span><br><span class="line">  `manager_id`,</span><br><span class="line">  `department_id`,</span><br><span class="line">  `hiredate`</span><br><span class="line">FROM</span><br><span class="line">  employees;</span><br><span class="line"><span class="comment"># 方式二</span></span><br><span class="line">SELECT * FROM employees;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4.查询常量值</span></span><br><span class="line">SELECT 100;</span><br><span class="line"><span class="comment"># 不区分字符和字符串，字符 都用单引号</span></span><br><span class="line">SELECT <span class="string">&#x27;join&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 5.查询表达式</span></span><br><span class="line">SELECT 100%98;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 6.查询函数</span></span><br><span class="line">SELECT VERSION();</span><br><span class="line"></span><br><span class="line"><span class="comment">#↑ 查询的是啥，字段名就是啥</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 7.起别名</span></span><br><span class="line">/*</span><br><span class="line">1.便于理解</span><br><span class="line">2.如果查询字段有重复情况，使用别名可以区别开来</span><br><span class="line">*/</span><br><span class="line"><span class="comment">#方式一：使用AS</span></span><br><span class="line">SELECT 100%98 AS 结果;</span><br><span class="line">SELECT last_name AS 姓,first_name AS 名 FROM employees;</span><br><span class="line"><span class="comment">#方式二：使用空格</span></span><br><span class="line">SELECT last_name 姓,first_name 名 FROM employees;</span><br><span class="line"></span><br><span class="line"><span class="comment">#案例：查询salary，显示结果为out put</span></span><br><span class="line"><span class="comment"># 若别名有特殊符号，如：空格，# 等，mysql建议使用双引号引起来，单引号也可以。</span></span><br><span class="line">SELECT salary AS <span class="string">&quot;out put&quot;</span> FROM employees;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 8.去重 DISTINCT</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#案例：查询员工表中涉及到的所有的部门编号</span></span><br><span class="line">SELECT DISTINCT department_id FROM employees;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 9.+ 的作用</span></span><br><span class="line">/*</span><br><span class="line">java中+号</span><br><span class="line">1.运算符，两个操作数都是数值型</span><br><span class="line">2.连接符，只要有一个操作数为字符串</span><br><span class="line"></span><br><span class="line">mysql中的+号</span><br><span class="line">仅仅有一个功能：运算符</span><br><span class="line"></span><br><span class="line">select 100+99; 两个操作数都是数值型，则作加法运算</span><br><span class="line">select <span class="string">&#x27;123&#x27;</span>+99; 其中一方为字符型，试图将字符型数值转换成数值型。</span><br><span class="line">			如果转换成功，则继续做加法运算</span><br><span class="line">select <span class="string">&#x27;join&#x27;</span>+90;	如果转换失败，则将字符型数值转换成0</span><br><span class="line"></span><br><span class="line">select null+10;		只要其中一方为null，则结果肯定为null</span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 案例：查询员工名和姓连接成一个字段，并显示为 姓名</span></span><br><span class="line"></span><br><span class="line">SELECT CONCAT(<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>) AS 结果;</span><br><span class="line">SELECT CONCAT(last_name,first_name) AS 姓名 FROM employees;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/01/15/day03/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -972,81 +1050,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2020/09/15/Python%E7%9A%84%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7pip%E4%BD%BF%E7%94%A8%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E6%BA%90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2020/09/15/Python%E7%9A%84%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7pip%E4%BD%BF%E7%94%A8%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E6%BA%90/" class="post-title-link" itemprop="url">Python的包管理工具pip使用国内镜像源</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-09-15 21:42:00 / 修改时间：21:59:16" itemprop="dateCreated datePublished" datetime="2020-09-15T21:42:00+08:00">2020-09-15</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Python的包管理工具pip使用国内镜像源"><a href="#Python的包管理工具pip使用国内镜像源" class="headerlink" title="Python的包管理工具pip使用国内镜像源"></a>Python的包管理工具pip使用国内镜像源</h1><p>参考链接：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/microman/p/6107879.html">https://www.cnblogs.com/microman/p/6107879.html</a></p>
-<h2 id="国内源"><a href="#国内源" class="headerlink" title="国内源"></a>国内源</h2><p>清华：<a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple">https://pypi.tuna.tsinghua.edu.cn/simple</a></p>
-<p>阿里云：<a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/pypi/simple/">http://mirrors.aliyun.com/pypi/simple/</a></p>
-<p>中国科技大学 <a target="_blank" rel="noopener" href="https://pypi.mirrors.ustc.edu.cn/simple/">https://pypi.mirrors.ustc.edu.cn/simple/</a></p>
-<p>华中理工大学：<a target="_blank" rel="noopener" href="http://pypi.hustunique.com/">http://pypi.hustunique.com/</a></p>
-<p>山东理工大学：<a target="_blank" rel="noopener" href="http://pypi.sdutlinux.org/">http://pypi.sdutlinux.org/</a> </p>
-<p>豆瓣：<a target="_blank" rel="noopener" href="http://pypi.douban.com/simple/">http://pypi.douban.com/simple/</a></p>
-<p><strong><em>note：新版ubuntu要求使用https源，要注意。</em></strong></p>
-<h2 id="临时使用"><a href="#临时使用" class="headerlink" title="临时使用"></a>临时使用</h2><p>可以在使用pip的时候加参数<code>-i https://pypi.tuna.tsinghua.edu.cn/simple</code><br>例如：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pyspider</span><br></pre></td></tr></table></figure>
-
-<p>这样就会从清华这边的镜像去安装pyspider库。</p>
-<h2 id="永久修改，一劳永逸"><a href="#永久修改，一劳永逸" class="headerlink" title="永久修改，一劳永逸"></a>永久修改，一劳永逸</h2><p>Linux下，修改 ~/.pip/pip.conf (没有就创建一个文件夹及文件。文件夹要加“.”，表示是隐藏文件夹)</p>
-<p>内容如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url &#x3D; https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple</span><br><span class="line">[install]</span><br><span class="line">trusted-host&#x3D;mirrors.aliyun.com</span><br></pre></td></tr></table></figure>
-
-<p>windows下，直接在user目录中创建一个pip目录，如：C:\Users\xx\pip，新建文件pip.ini。内容同上。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1118,7 +1121,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/dopphu/archives/">
         
-          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-count">48</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
