@@ -189,6 +189,213 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2020/12/07/crc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2020/12/07/crc/" class="post-title-link" itemprop="url">crc</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-12-07 22:08:01 / 修改时间：22:09:54" itemprop="dateCreated datePublished" datetime="2020-12-07T22:08:01+08:00">2020-12-07</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> binascii</span><br><span class="line"><span class="keyword">import</span> struct</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">file = input(<span class="string">&quot;图片地址：&quot;</span>)</span><br><span class="line">fr = open(file,<span class="string">&#x27;rb&#x27;</span>).read()</span><br><span class="line">data = bytearray(fr[<span class="number">0x0c</span>:<span class="number">0x1d</span>])</span><br><span class="line">crc32key = eval(<span class="string">&#x27;0x&#x27;</span>+str(binascii.b2a_hex(fr[<span class="number">0x1d</span>:<span class="number">0x21</span>]))[<span class="number">2</span>:<span class="number">-1</span>])</span><br><span class="line"><span class="comment">#原来的代码: crc32key = eval(str(fr[29:33]).replace(&#x27;\\x&#x27;,&#x27;&#x27;).replace(&quot;b&#x27;&quot;,&#x27;0x&#x27;).replace(&quot;&#x27;&quot;,&#x27;&#x27;))</span></span><br><span class="line">n = <span class="number">4095</span></span><br><span class="line"><span class="keyword">for</span> w <span class="keyword">in</span> range(n):</span><br><span class="line">    width = bytearray(struct.pack(<span class="string">&#x27;&gt;i&#x27;</span>, w))</span><br><span class="line">    <span class="keyword">for</span> h <span class="keyword">in</span> range(n):</span><br><span class="line">        height = bytearray(struct.pack(<span class="string">&#x27;&gt;i&#x27;</span>, h))</span><br><span class="line">        <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">4</span>):</span><br><span class="line">            data[x+<span class="number">4</span>] = width[x]</span><br><span class="line">            data[x+<span class="number">8</span>] = height[x]</span><br><span class="line">        crc32result = binascii.crc32(data) &amp; <span class="number">0xffffffff</span></span><br><span class="line">        <span class="keyword">if</span> crc32result == crc32key:</span><br><span class="line">            print(width,height)</span><br><span class="line">            newpic = bytearray(fr)</span><br><span class="line">            <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">4</span>):</span><br><span class="line">                newpic[x+<span class="number">16</span>] = width[x]</span><br><span class="line">                newpic[x+<span class="number">20</span>] = height[x]</span><br><span class="line">            fw = open(file+<span class="string">&#x27;.png&#x27;</span>,<span class="string">&#x27;wb&#x27;</span>)</span><br><span class="line">            fw.write(newpic)</span><br><span class="line">            fw.close</span><br><span class="line">            sys.exit()</span><br></pre></td></tr></table></figure>
+
+<p>转载地址：</p>
+<p><a target="_blank" rel="noopener" href="https://h3110w0r1d.com/archives/128/">https://h3110w0r1d.com/archives/128/</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2020/10/11/2022%E8%80%83%E7%A0%94/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2020/10/11/2022%E8%80%83%E7%A0%94/" class="post-title-link" itemprop="url">2020考研</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-10-11 21:59:26 / 修改时间：22:00:30" itemprop="dateCreated datePublished" datetime="2020-10-11T21:59:26+08:00">2020-10-11</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>课前建议：</p>
+<p>（1）课只听一边</p>
+<p>（2）做好笔记</p>
+<p>（3）不懂就问</p>
+<p>困难的价值在于被解决，而不是被逃避。</p>
+<p><img src="https://raw.githubusercontent.com/Dopphu/images/master/img/20201011195525.png"></p>
+<p><img src="https://raw.githubusercontent.com/Dopphu/images/master/img/20201011195727.png"></p>
+<p>我懂你的困惑</p>
+<p><img src="https://raw.githubusercontent.com/Dopphu/images/master/img/20201011195914.png"></p>
+<h2 id="一，考研百科"><a href="#一，考研百科" class="headerlink" title="一，考研百科"></a>一，考研百科</h2><p><img src="https://raw.githubusercontent.com/Dopphu/images/master/img/20201011200115.png"></p>
+<p><img src="https://raw.githubusercontent.com/Dopphu/images/master/img/20201011200303.png"></p>
+<p><img src="https://raw.githubusercontent.com/Dopphu/images/master/img/20201011200408.png"></p>
+<p><img src="https://raw.githubusercontent.com/Dopphu/images/master/img/20201011200454.png"></p>
+<p><img src="https://raw.githubusercontent.com/Dopphu/images/master/img/20201011200522.png"></p>
+<p><img src="https://raw.githubusercontent.com/Dopphu/images/master/img/20201011200645.png"></p>
+<p>招生简章也会说考什么科目</p>
+<p><img src="https://raw.githubusercontent.com/Dopphu/images/master/img/20201011200804.png"></p>
+<p><strong>考试科目不是一成不变的，尤其是专业课。</strong>（最新的招生目录）</p>
+<p><img src="C:\Users\Dopphu\AppData\Roaming\Typora\typora-user-images\image-20201011200914442.png" alt="image-20201011200914442"></p>
+<p><img src="https://raw.githubusercontent.com/Dopphu/images/master/img/20201011201127.png"></p>
+<p><img src="https://raw.githubusercontent.com/Dopphu/images/master/img/20201011201356.png"></p>
+<p>下面这个文件很重要</p>
+<p><img src="https://raw.githubusercontent.com/Dopphu/images/master/img/20201011201548.png"></p>
+<p><img src="https://raw.githubusercontent.com/Dopphu/images/master/img/20201011201714.png"></p>
+<p>是“学力”不是学“历”。</p>
+<p><img src="https://raw.githubusercontent.com/Dopphu/images/master/img/20201011203525.png"></p>
+<p><img src="https://raw.githubusercontent.com/Dopphu/images/master/img/20201011204210.png"></p>
+<p><img src="https://raw.githubusercontent.com/Dopphu/images/master/img/20201011215607.png"></p>
+<h2 id="二，考研政策"><a href="#二，考研政策" class="headerlink" title="二，考研政策"></a>二，考研政策</h2><h2 id="三，考研流程"><a href="#三，考研流程" class="headerlink" title="三，考研流程"></a>三，考研流程</h2><h2 id="四，考研形势"><a href="#四，考研形势" class="headerlink" title="四，考研形势"></a>四，考研形势</h2>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2020/09/23/%E8%B5%84%E6%BA%90%E7%BD%91%E7%AB%99/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2020/09/23/%E8%B5%84%E6%BA%90%E7%BD%91%E7%AB%99/" class="post-title-link" itemprop="url">资源网站</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-09-23 14:33:47 / 修改时间：15:03:11" itemprop="dateCreated datePublished" datetime="2020-09-23T14:33:47+08:00">2020-09-23</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>AI音乐推荐    <a target="_blank" rel="noopener" href="https://www.gnoosic.com/faves.php">https://www.gnoosic.com/faves.php</a><br>RAP    <a target="_blank" rel="noopener" href="https://foreignrap.com/">https://foreignrap.com</a><br>壁纸    <a target="_blank" rel="noopener" href="https://wallhaven.cc/">https://wallhaven.cc/</a><br>私人定制    <a target="_blank" rel="noopener" href="http://www.fiverr.com/">www.fiverr.com</a><br>云旅游    <a target="_blank" rel="noopener" href="http://www.airpano.com/">http://www.airpano.com/</a><br>云住酒店云吃饭    <a target="_blank" rel="noopener" href="https://bbs.saraba1st.com/2b/space-uid-197835.html">https://bbs.saraba1st.com/2b/space-uid-197835.html</a><br>开窗户    <a target="_blank" rel="noopener" href="https://window-swap.com/">https://window-swap.com/</a><br>伴奏提取    <a target="_blank" rel="noopener" href="https://www.lalal.ai/">https://www.lalal.ai/</a><br>格式转换    <a target="_blank" rel="noopener" href="https://www.alltoall.net/">https://www.alltoall.net/</a><br>高端翻译    <a target="_blank" rel="noopener" href="https://www.deepl.com/translator">https://www.deepl.com/translator</a><br>图片唱歌    <a target="_blank" rel="noopener" href="https://yanderify.com/">https://yanderify.com/</a><br>好好说话    <a target="_blank" rel="noopener" href="https://lab.magiconch.com/nbnhhsh/">https://lab.magiconch.com/nbnhhsh/</a><br>那你能帮帮我吗    <a target="_blank" rel="noopener" href="https://zh.wikihow.com/%E9%A6%96%E9%A1%B5">https://zh.wikihow.com/%E9%A6%96%E9%A1%B5</a><br>天气    <a target="_blank" rel="noopener" href="https://www.windy.com/">https://www.windy.com/</a><br>自杀网站    <a target="_blank" rel="noopener" href="https://www.thiswebsitewillselfdestruct.com/">https://www.thiswebsitewillselfdestruct.com/</a><br>起名    <a target="_blank" rel="noopener" href="https://www.behindthename.com/">https://www.behindthename.com/</a><br>版权音乐曲库    <a target="_blank" rel="noopener" href="http://www.epidemicsound.com/">www.epidemicsound.com</a><br>独立游戏    <a target="_blank" rel="noopener" href="https://www.indiexpo.net/">https://www.indiexpo.net/</a><br>学钢琴    <a target="_blank" rel="noopener" href="https://app.flowkey.com.cn/">https://app.flowkey.com.cn/</a><br>焦段科普    <a target="_blank" rel="noopener" href="https://www.samyanglens.com/en/product/simulator/lens.php">https://www.samyanglens.com/en/product/simulator/lens.php</a><br>全球生活水平    <a target="_blank" rel="noopener" href="https://www.gapminder.org/dollar-street/">https://www.gapminder.org/dollar-street/</a><br>海    <a target="_blank" rel="noopener" href="https://seaside-station.com/region/hokkaido/">https://seaside-station.com/region/hokkaido/</a><br>标准地图    <a target="_blank" rel="noopener" href="http://bzdt.ch.mnr.gov.cn/index.html">http://bzdt.ch.mnr.gov.cn/index.html</a><br>色差    <a target="_blank" rel="noopener" href="http://www.cuishuai.cc/game/">http://www.cuishuai.cc/game/</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2020/09/20/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F%E4%B8%8B%E5%91%BD%E4%BB%A4%E7%9A%84%E6%89%A7%E8%A1%8C%E2%80%94%E2%80%94%E5%88%9D%E8%A7%81/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -752,259 +959,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2020/09/01/C++%E7%9A%84%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E7%AC%A6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2020/09/01/C++%E7%9A%84%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E7%AC%A6/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-09-01 22:42:41" itemprop="dateCreated datePublished" datetime="2020-09-01T22:42:41+08:00">2020-09-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-15 11:18:24" itemprop="dateModified" datetime="2020-08-15T11:18:24+08:00">2020-08-15</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="C-的类型转换符"><a href="#C-的类型转换符" class="headerlink" title="C++的类型转换符"></a>C++的类型转换符</h1><h2 id="static-cast"><a href="#static-cast" class="headerlink" title="static_cast"></a>static_cast</h2><p>基于内容的数据类型的转换，比较安全。例子：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">float</span> b = <span class="keyword">static_cast</span>&lt;<span class="keyword">float</span>&gt;(a);</span><br></pre></td></tr></table></figure>
-
-<h2 id="reinterpret-cast"><a href="#reinterpret-cast" class="headerlink" title="reinterpret_cast"></a>reinterpret_cast</h2><p>me：转换指针。教材截图很详细：</p>
-<p><img src="https://www.zx95.net/images/2020/08/15/image.png" alt="image.png"></p>
-<p>关于<code>void指针</code></p>
-<p><img src="https://www.zx95.net/images/2020/08/15/imagef422763dea9751f2.png" alt="imagef422763dea9751f2.png"></p>
-<p>小总结：</p>
-<p><img src="https://www.zx95.net/images/2020/08/15/image01be536d2496c6cb.png" alt="image01be536d2496c6cb.png"></p>
-<h2 id="const-cast"><a href="#const-cast" class="headerlink" title="const_cast"></a>const_cast</h2><p>通俗的说，<code>const_cast</code>可以将数据类型中的 <code>const</code> 属性去除。它可以将常指针转换为普通指针，将常引用转换为普通引用。例如：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> *cp)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> *p = <span class="keyword">const_cast</span>&lt;<span class="keyword">int</span>*&gt;(cp);</span><br><span class="line">    (*p)++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>foo函数“出尔反尔”。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2020/09/01/C++string%E7%B1%BB%E5%88%9D%E6%AD%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2020/09/01/C++string%E7%B1%BB%E5%88%9D%E6%AD%A5/" class="post-title-link" itemprop="url">C++string类初步</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-09-01 22:42:41" itemprop="dateCreated datePublished" datetime="2020-09-01T22:42:41+08:00">2020-09-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-14 15:46:20" itemprop="dateModified" datetime="2020-08-14T15:46:20+08:00">2020-08-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="C-string类"><a href="#C-string类" class="headerlink" title="C++string类"></a>C++string类</h1><p>使用数组来存放字符串，调用系统函数来处理字符串，毕竟显得不方便，而且数据与处理数据的函数分离也不符合面向对象方法的要求。为此，C++标准库将面对对象的串的概念加入到C++语言中，预定义了字符串类（<code>string</code>类）。string类提供了对字符串进行处理所需要的的操作。使用<code>string</code>类需要包含头文件string。<code>string</code>类封装了串的属性并提供了一系列允许访问这些属性的函数。</p>
-<p><strong>细节</strong>：严格的说，<code>string</code>并非一个独立的类，而是<strong>类模板</strong><code>basic_string</code>的一个特化实例。不过对于<code>string</code>的使用者来说，它的特点与一个类无异，因此可以把它当做一个类来看待。</p>
-<h2 id="构造函数原型"><a href="#构造函数原型" class="headerlink" title="构造函数原型"></a>构造函数原型</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span>();						<span class="comment">//默认构造函数，建立一个长度为0的串</span></span><br><span class="line"><span class="built_in">string</span>(<span class="keyword">const</span> <span class="built_in">string</span> &amp;rhs);		<span class="comment">//复制构造函数</span></span><br><span class="line"><span class="built_in">string</span>(<span class="keyword">const</span> <span class="keyword">char</span> *s);			<span class="comment">//用指针s所指向的字符常量来初始化string类的对象</span></span><br><span class="line"><span class="built_in">string</span>(<span class="keyword">const</span> <span class="built_in">string</span>&amp; rhs, <span class="keyword">unsigned</span> <span class="keyword">int</span> pos, <span class="keyword">unsigned</span> <span class="keyword">int</span> n);</span><br><span class="line">		<span class="comment">//将对象rhs的串从位置pos开始取n个字符，初始化string类的对象</span></span><br><span class="line">		<span class="comment">//注：串中的第一个字符的位置为0</span></span><br><span class="line"><span class="built_in">string</span>(<span class="keyword">const</span> <span class="keyword">char</span> *s, <span class="keyword">unsigned</span> <span class="keyword">int</span> n);</span><br><span class="line">		<span class="comment">//用指针s所指向的字符串中的前n个字符初始化string类的对象</span></span><br><span class="line"><span class="built_in">string</span>(<span class="keyword">unsigned</span> <span class="keyword">int</span> n, <span class="keyword">char</span> c);</span><br><span class="line">		<span class="comment">//将参数c中的字符重复n次，用来初始化string类的对象</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>提示</strong>：由于<code>string</code>类是具有接收<code>const char *</code>类型的构造函数，因此字符串常量和用字符数组表示的字符串变量都可以隐含地转化为<code>string</code>对象。例如，可以直接使用字符串常量对<code>string</code>对象初始化。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> str = <span class="string">&quot;Hello world!&quot;</span>;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://www.zx95.net/images/2020/08/14/imagefb5fd25f84ec5143.png" alt="imagefb5fd25f84ec5143.png"></p>
-<p><img src="https://www.zx95.net/images/2020/08/14/imagefc2dbde0ee4fce9e.png" alt="imagefc2dbde0ee4fce9e.png"></p>
-<p><img src="https://www.zx95.net/images/2020/08/14/image3a8ec912d2f78483.png" alt="image3a8ec912d2f78483.png"></p>
-<p>例子：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt; </span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//根据value的值输出true和false，title为 提示文字</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> * title, <span class="keyword">bool</span> value)</span></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;title&lt;&lt;<span class="string">&quot; returns &quot;</span>&lt;&lt;(value?<span class="string">&quot;true&quot;</span>:<span class="string">&quot;false&quot;</span>)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">string</span> s1 = <span class="string">&quot;DEF&quot;</span>;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;s1 is &quot;</span>&lt;&lt;s1&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">string</span> s2;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Please enter s2:&quot;</span>;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;s2;<span class="comment">//这种输入方式会以空格为分割符，例如：123 def 则只读取123，def将会在下一次从键盘输入字符时被读取 </span></span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;length of s2:&quot;</span>&lt;&lt;s2.length()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//比较运算符的测试</span></span><br><span class="line">	test(<span class="string">&quot;s1&lt;\&quot;ABC\&quot;&quot;</span>, s1&lt;=<span class="string">&quot;ABC&quot;</span>);</span><br><span class="line">	test(<span class="string">&quot;\&quot;DEF\&quot;&lt;=s1&quot;</span>, <span class="string">&quot;DEF&quot;</span>&lt;=s1);</span><br><span class="line">	</span><br><span class="line">	s2 += s1;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;s2=s2+s1:&quot;</span>&lt;&lt;s2&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;length of s2:&quot;</span>&lt;&lt;s2.length()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://www.zx95.net/images/2020/08/14/image8ac542ca8d1cd00c.png" alt="image8ac542ca8d1cd00c.png"></p>
-<p><strong>$</strong> 用<code>getline</code>输入字符串</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;<span class="number">2</span>; i++)&#123;</span><br><span class="line">		<span class="built_in">string</span> city, state;</span><br><span class="line">		getline(<span class="built_in">cin</span>, city, <span class="string">&#x27;,&#x27;</span>);</span><br><span class="line">		getline(<span class="built_in">cin</span>, state);</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;City: &quot;</span>&lt;&lt;city&lt;&lt;<span class="string">&quot;   State:&quot;</span>&lt;&lt;state&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2020/09/01/%E5%8F%8B%E5%85%83/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2020/09/01/%E5%8F%8B%E5%85%83/" class="post-title-link" itemprop="url">友元</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-09-01 22:42:41" itemprop="dateCreated datePublished" datetime="2020-09-01T22:42:41+08:00">2020-09-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-10 20:14:32" itemprop="dateModified" datetime="2020-08-10T20:14:32+08:00">2020-08-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="友元"><a href="#友元" class="headerlink" title="友元"></a>友元</h1><h2 id="友元-1"><a href="#友元-1" class="headerlink" title="友元"></a>友元</h2><p><strong>$</strong> <strong>友元关系提供了不同类或对象的成员函数之间、类的成员函数与一般函数之间进行数据共享的机制。</strong>通俗来说就是，友元关系就是一个类主动声明哪些其他类或函数时它的朋友，进而给它们提供对本类的访问特许。</p>
-<h2 id="友元函数和友元类"><a href="#友元函数和友元类" class="headerlink" title="友元函数和友元类"></a>友元函数和友元类</h2><p>声明形式如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>&#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    ...</span><br><span class="line">        <span class="function"><span class="keyword">friend</span> <span class="keyword">int</span> <span class="title">somefunc</span><span class="params">(...)</span></span>;	<span class="comment">//友元函数声明</span></span><br><span class="line">    	<span class="keyword">friend</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span>;</span>				<span class="comment">//声明A为SomeClass的友元类</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">   	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>友元函数不仅可以是一个普通函数，也可以是另外一个类的成员函数。友元成员函数的使用和一般友元函数的使用基本相同，只是要通过相应的类或对象名来访问。</p>
-<p>关于友元还有几点注意：</p>
-<p><strong>1.友元关系是不能传递的</strong></p>
-<p><strong>2.友元关系是单向的</strong></p>
-<p><strong>3.友元关系是不被继承的</strong></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/dopphu/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/dopphu/">1</a><a class="page-number" href="/dopphu/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/dopphu/page/4/">4</a><a class="page-number" href="/dopphu/page/5/">5</a><a class="extend next" rel="next" href="/dopphu/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/dopphu/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/dopphu/">1</a><a class="page-number" href="/dopphu/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/dopphu/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/dopphu/page/6/">6</a><a class="extend next" rel="next" href="/dopphu/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1072,7 +1030,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/dopphu/archives/">
         
-          <span class="site-state-item-count">50</span>
+          <span class="site-state-item-count">53</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
