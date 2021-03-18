@@ -6,7 +6,7 @@
   <link href="https://gitee.com/dopphu/dopphu.git/atom.xml" rel="self"/>
   
   <link href="https://gitee.com/dopphu/dopphu.git/"/>
-  <updated>2021-02-22T08:05:43.664Z</updated>
+  <updated>2021-03-18T08:30:20.474Z</updated>
   <id>https://gitee.com/dopphu/dopphu.git/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一个cmd的小技巧</title>
+    <link href="https://gitee.com/dopphu/dopphu.git/2021/03/18/%E4%B8%80%E4%B8%AAcmd%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
+    <id>https://gitee.com/dopphu/dopphu.git/2021/03/18/%E4%B8%80%E4%B8%AAcmd%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/</id>
+    <published>2021-03-18T08:28:37.853Z</published>
+    <updated>2021-03-18T08:30:20.474Z</updated>
+    
+    <content type="html"><![CDATA[<p>直接在路径位置输出cmd，然后按回车命令行打开后就直接在该路径下了。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;直接在路径位置输出cmd，然后按回车命令行打开后就直接在该路径下了。&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>视图</title>
@@ -429,30 +450,6 @@
       
     
     
-    
-    
-  </entry>
-  
-  <entry>
-    <title>与mysql的第一次亲密接触</title>
-    <link href="https://gitee.com/dopphu/dopphu.git/2021/01/15/%E4%B8%8Emysql%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BA%B2%E5%AF%86%E6%8E%A5%E8%A7%A6/"/>
-    <id>https://gitee.com/dopphu/dopphu.git/2021/01/15/%E4%B8%8Emysql%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BA%B2%E5%AF%86%E6%8E%A5%E8%A7%A6/</id>
-    <published>2021-01-15T05:38:38.674Z</published>
-    <updated>2021-01-15T05:51:25.469Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="与mysql的第一次亲密接触"><a href="#与mysql的第一次亲密接触" class="headerlink" title="与mysql的第一次亲密接触"></a>与mysql的第一次亲密接触</h1><p>一、数据库的好处</p><ol><li>可以持久化数据到本地</li><li>结构化查询</li></ol><p>二、数据库的常见概念</p><ol><li>DB：数据库，存储数据的容器</li><li>DBMS：数据库管理系统，又称为数据库软件或数据库产品，用于创建或管理DB</li><li>SQL：结构化查询语言，用于数据库通信的语言，不是某个数据库软件特有的，而是几乎所有的主流数据库软件通用的语言</li></ol><p>三、数据库存储数据的特点</p><ol><li>数据存放到表中，然后表再放到库中</li><li>一个库可以有很多张表，每张表具有唯一的表名用来标识自己</li><li>表中有一个或多个列，列又被称为“字段”，相当于Java中的“属性”</li><li>表中的每一行数据，相当于Java中的“对象”</li></ol><p><strong>总结：</strong></p><p>一、MySQL的背景</p><p>前身属于瑞典的一家公司，MySQL AB</p><p>08年被sun公司收购</p><p>09年sun被oracle收购</p><p>二、MySQL的优点</p><ol><li>开源、免费、成本低</li><li>性能高，移植性也好</li><li>体积小便于安装</li></ol><p>三、MySQL的安装</p><p>属于C/S架构的软件，一般来讲安装服务端</p><p>安装路径非中文</p><p>社区版</p><p>企业版</p><p>5.5</p><p>5.6</p><p>5.7</p><p>8.0</p><p>四、MySQL服务的启动和停止</p><p>方式一：</p><p>通过命令行</p><p>net start 服务名</p><p>net stop 服务名</p><p>方式二：</p><p>计算机——右击——管理——服务</p><p>五、MySQL服务的登录和退出</p><p>登录：<code>mysql 【-h主机名 -p口号端】 -u用户名 -p密码</code></p><p>注意：-h和主机名、-p和主机名、-u和用户名之间空格可加可不加，-p和密码之间不能加空格。另外，可以不加密码，回车后输入即可。</p><p>退出：<code>输入eixt+回车</code>或<code>ctrl+C</code></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;与mysql的第一次亲密接触&quot;&gt;&lt;a href=&quot;#与mysql的第一次亲密接触&quot; class=&quot;headerlink&quot; title=&quot;与mysql的第一次亲密接触&quot;&gt;&lt;/a&gt;与mysql的第一次亲密接触&lt;/h1&gt;&lt;p&gt;一、数据库的好处&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;</summary>
-      
-    
-    
-    
-    <category term="数据库学习" scheme="https://gitee.com/dopphu/dopphu.git/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0/"/>
     
     
   </entry>
