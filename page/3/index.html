@@ -189,73 +189,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/06/Test0408/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2021/04/06/Test0408/" class="post-title-link" itemprop="url">���ڱ����ĸ�ֵ</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-04-06 22:47:30 / 修改时间：22:43:16" itemprop="dateCreated datePublished" datetime="2021-04-06T22:47:30+08:00">2021-04-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * ���ڱ����ĸ�ֵ</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 	��������ǻ����������ͣ���ʱ��ֵ���Ǳ��������������ֵ</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 	��������������������ͣ���ʱ��ֵ���Ǳ�������������ݵĵ�ֵַ</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * �����βεĴ��ݻ��ƣ�</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 		ֵ���ݻ��ƣ���������ǻ����������ͣ���ʱʵ�θ����βε���ʵ�����Ǵ��������ֵ��</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 		</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> chapter04;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test0408</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		Data data = <span class="keyword">new</span> Data();</span><br><span class="line"></span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">		data.m = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">		data.n = <span class="number">999</span>;</span><br><span class="line"></span><br><span class="line">		System.out.println(<span class="string">&quot;m = &quot;</span>+data.m +<span class="string">&quot;;n = &quot;</span>+data.n);</span><br><span class="line"></span><br><span class="line">		swap(data);</span><br><span class="line"></span><br><span class="line">		System.out.println(<span class="string">&quot;m = &quot;</span>+data.m +<span class="string">&quot;;n = &quot;</span>+data.n);</span><br><span class="line"></span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//�����黻�Ļ���������ߴ��������±꣩</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//����ʵ��ֵ����</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(Data d)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> temp = d.m;</span><br><span class="line"></span><br><span class="line">		d.m=d.n;</span><br><span class="line"></span><br><span class="line">		d.n=temp;</span><br><span class="line"></span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Data</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> m;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/06/Test0407JDk5Extra/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -305,6 +238,73 @@
 
       
           <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * JDK5.0 �����ɱ��������(���ԵĻ������ȵ��ù̶�������)</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 1.���ÿɱ�����βη���ʱ������Ĳ���������0����1����2��...</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 2.�ɱ�����βεķ������뱾�෽������ͬ���ββ�ͬ�ķ���֮�乹������</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 3.�ɱ�����βεķ����뱾���з�������ͬ���β�����Ҳ��ͬ������֮�䲻�������أ����߲��ܹ��棬������֮ǰ���������������ʵ�ֵģ�</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 4.�ɱ�������β��ڷ������β��б���������ĩβ</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> chapter04;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test0407JDk5Extra</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		Test0407JDk5Extra demo = <span class="keyword">new</span> Test0407JDk5Extra();</span><br><span class="line"></span><br><span class="line">		demo.show(<span class="string">&quot;123&quot;</span>,<span class="string">&quot;abc&quot;</span>);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">(String ...strs)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		System.out.println(<span class="string">&quot;show(Stirng)&quot;</span>+strs[<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">	 * Description:</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@author</span> </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> str</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		System.out.println(<span class="string">&quot;show(Stirng...)&quot;</span>);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//��Ϊ��ɱ�һ�������ܹ���</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//	public void show(String [] a) &#123;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//		System.out.println(&quot;show(Stirng...)&quot;);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//	&#125;</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/06/Test0408/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2021/04/06/Test0408/" class="post-title-link" itemprop="url">���ڱ����ĸ�ֵ</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-06 22:47:30 / 修改时间：22:43:16" itemprop="dateCreated datePublished" datetime="2021-04-06T22:47:30+08:00">2021-04-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * ���ڱ����ĸ�ֵ</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 	��������ǻ����������ͣ���ʱ��ֵ���Ǳ��������������ֵ</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 	��������������������ͣ���ʱ��ֵ���Ǳ�������������ݵĵ�ֵַ</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * �����βεĴ��ݻ��ƣ�</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 		ֵ���ݻ��ƣ���������ǻ����������ͣ���ʱʵ�θ����βε���ʵ�����Ǵ��������ֵ��</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 		</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> chapter04;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test0408</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		Data data = <span class="keyword">new</span> Data();</span><br><span class="line"></span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">		data.m = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">		data.n = <span class="number">999</span>;</span><br><span class="line"></span><br><span class="line">		System.out.println(<span class="string">&quot;m = &quot;</span>+data.m +<span class="string">&quot;;n = &quot;</span>+data.n);</span><br><span class="line"></span><br><span class="line">		swap(data);</span><br><span class="line"></span><br><span class="line">		System.out.println(<span class="string">&quot;m = &quot;</span>+data.m +<span class="string">&quot;;n = &quot;</span>+data.n);</span><br><span class="line"></span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//�����黻�Ļ���������ߴ��������±꣩</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//����ʵ��ֵ����</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(Data d)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> temp = d.m;</span><br><span class="line"></span><br><span class="line">		d.m=d.n;</span><br><span class="line"></span><br><span class="line">		d.n=temp;</span><br><span class="line"></span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Data</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> m;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -390,73 +390,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/06/Test0402Use/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2021/04/06/Test0402Use/" class="post-title-link" itemprop="url">方法调用示例</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-04-06 22:47:30 / 修改时间：22:37:23" itemprop="dateCreated datePublished" datetime="2021-04-06T22:47:30+08:00">2021-04-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> chapter04;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test0402Use</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		Customer c1 = <span class="keyword">new</span> Customer();</span><br><span class="line"></span><br><span class="line">		c1.eat();</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/06/Test0402/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -506,6 +439,73 @@
 
       
           <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * ���з�����������ʹ��</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * ������������Ӧ�þ��еĹ���</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * ���磺Math�ࣺsqrt()\random()\...</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 	   Scanner�ࣺnextXxx()...</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * ������������Ȩ�����η� ����ֵ���� ������(�β��б�)&#123;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 				������</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 			&#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 		ע�⣺static��final��abstract �����εķ����������ٽ�</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * ˵����</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 		1.����Ȩ�����η�</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 			java�涨��4��Ȩ�����η���private��public��ȱʡ��protected</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 		2.����ֵ���ͣ��з���ֵ VS �޷���ֵ</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 			1����������з���ֵ��������ڷ�������ʱ��ָ������ֵ���͡�ͬʱ��������Ҫʹ��</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 			return�ؼ���������ָ�����͵ı�������</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 			2���������û�з���ֵ���򷽷�����ʱ��ʹ��void����ʾ��ͨ����û�з���ֵ�ķ����Ͳ�ʹ��</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 			return�ˣ����ǣ����ʹ�õĻ���ֻ�ܡ�return;����ʾ�����˷�������˼��</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 		3.������������֪�⣬���ڱ�ʶ������ѭ��淶</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 		4.�β��б����β�0������</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 		5.�����壺�������ܵ�����</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * return�ؼ��ֵ�ʹ��</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 		1.ʹ�÷�Χ��ʹ���ڷ�������</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 		2.���ã�</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 			��1����������</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 			��2������з���ֵ���͵ķ�����ʹ�á�return ���ݡ�����������Ҫ������</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 		3.ע��㣺return �ؼ��ֺ󲻿�������ִ�����</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * ������ʹ�ã������п��Ե���������������������Ƕ�׶���</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> chapter04;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test0402</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		Customer c1 = <span class="keyword">new</span> Customer();</span><br><span class="line"></span><br><span class="line">		c1.name = <span class="string">&quot;Cats&quot;</span>;</span><br><span class="line"></span><br><span class="line">		System.out.println(c1.getNation(<span class="string">&quot;China&quot;</span>));</span><br><span class="line"></span><br><span class="line">		c1.test();</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//�ͻ���</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Customer</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//����</span></span><br><span class="line"></span><br><span class="line">	String name;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">boolean</span> isMale;</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	<span class="comment">//����</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		System.out.println(<span class="string">&quot;�ͻ��Է�&quot;</span>);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sleep</span><span class="params">(<span class="keyword">int</span> hour)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		System.out.println(<span class="string">&quot;��Ϣ��&quot;</span>+hour+<span class="string">&quot;Сʱ&quot;</span>);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getNation</span><span class="params">(String nation)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> <span class="string">&quot;�ҵĹ�����&quot;</span>+nation;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		System.out.println(<span class="string">&quot;������ȱʡô&quot;</span>);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/06/Test0402Use/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2021/04/06/Test0402Use/" class="post-title-link" itemprop="url">方法调用示例</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-06 22:47:30 / 修改时间：22:37:23" itemprop="dateCreated datePublished" datetime="2021-04-06T22:47:30+08:00">2021-04-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> chapter04;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test0402Use</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		Customer c1 = <span class="keyword">new</span> Customer();</span><br><span class="line"></span><br><span class="line">		c1.eat();</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
       
     </div>
 

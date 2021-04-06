@@ -189,73 +189,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/02/10/10%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2021/02/10/10%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2/" class="post-title-link" itemprop="url">10联合查询</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-02-10 11:34:51 / 修改时间：11:33:42" itemprop="dateCreated datePublished" datetime="2021-02-10T11:34:51+08:00">2021-02-10</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">数据库学习</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#进阶9：联合查询</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	union 联合 合并：将多条查询语句的结果合并成一个结果</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">	语法：</span></span><br><span class="line"><span class="comment">		查询语句1</span></span><br><span class="line"><span class="comment">		union</span></span><br><span class="line"><span class="comment">		查询语句2</span></span><br><span class="line"><span class="comment">		...;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">	应用场景</span></span><br><span class="line"><span class="comment">		e.g.</span></span><br><span class="line"><span class="comment">		比如有两个表，一个中国玩家表，一个外国玩家表，查询所有男性玩家</span></span><br><span class="line"><span class="comment">		</span></span><br><span class="line"><span class="comment">		要查询的结果来自多个表，且多个表没有直接的关系，但查询的信息一致时</span></span><br><span class="line"><span class="comment">	注意事项：</span></span><br><span class="line"><span class="comment">		1.列数相同（就算每列的含义不一样，此时列名为第一个查询的列名）就不会语法报错</span></span><br><span class="line"><span class="comment">		但是还是要保持列数和每列的含义一致</span></span><br><span class="line"><span class="comment">		2.信息重复，会去掉重复项，不想去重使用 union all</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#引入的案例：查询部门编号&gt;90或员工邮箱包含a的员工信息</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> email <span class="keyword">LIKE</span> <span class="string">&#x27;%a%&#x27;</span> <span class="keyword">OR</span> department_id&gt;<span class="number">90</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> email <span class="keyword">LIKE</span> <span class="string">&#x27;%a%&#x27;</span></span><br><span class="line"><span class="keyword">UNION</span></span><br><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> department_id &gt; <span class="number">90</span>; </span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> t_ca;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/02/10/09%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -307,6 +240,73 @@
           <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#进阶8：分页查询</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	应用场景：</span></span><br><span class="line"><span class="comment">	淘宝商品数据一页一页的，不是100页全查出来然后再分成100页，而是翻一页查一次</span></span><br><span class="line"><span class="comment">	要不然看了第一页后不想看了，后边的99页就白查了。</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">	语法：</span></span><br><span class="line"><span class="comment">		select 查询列表（5）</span></span><br><span class="line"><span class="comment">		from 表名（1）</span></span><br><span class="line"><span class="comment">		【join type】（2）</span></span><br><span class="line"><span class="comment">		【where】（3）</span></span><br><span class="line"><span class="comment">		【group by】（4）</span></span><br><span class="line"><span class="comment">		【order by】（6）</span></span><br><span class="line"><span class="comment">		limit offset,size（7）</span></span><br><span class="line"><span class="comment">		#两个值</span></span><br><span class="line"><span class="comment">		# 第一个offset（默认是0）：起始索引(从0开始)#substr是从1开始</span></span><br><span class="line"><span class="comment">		# 第二个size：条目个数(注意：不是结束索引，就是单纯查size条)</span></span><br><span class="line"><span class="comment">	特点：</span></span><br><span class="line"><span class="comment">		1.limit子句放在查询语句的最后，执行顺序也在最好</span></span><br><span class="line"><span class="comment">		2.公式</span></span><br><span class="line"><span class="comment">			要显示的页数 page 每页的条目数 size</span></span><br><span class="line"><span class="comment">			select 查询列表</span></span><br><span class="line"><span class="comment">			from 表</span></span><br><span class="line"><span class="comment">			limit (page-1)*size,size;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">#案例1：查询前五条员工信息</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">LIMIT</span> <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">LIMIT</span> <span class="number">0</span>,<span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#案例2：查询11条到15条</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">LIMIT</span> <span class="number">10</span>,<span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#案例3：有奖金的员工信息，并且工资较高的前十名显示出来</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> commission_pct <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> </span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> salary <span class="keyword">DESC</span> </span><br><span class="line"><span class="keyword">LIMIT</span> <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
 
 
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/02/10/10%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2021/02/10/10%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2/" class="post-title-link" itemprop="url">10联合查询</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-02-10 11:34:51 / 修改时间：11:33:42" itemprop="dateCreated datePublished" datetime="2021-02-10T11:34:51+08:00">2021-02-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">数据库学习</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#进阶9：联合查询</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	union 联合 合并：将多条查询语句的结果合并成一个结果</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">	语法：</span></span><br><span class="line"><span class="comment">		查询语句1</span></span><br><span class="line"><span class="comment">		union</span></span><br><span class="line"><span class="comment">		查询语句2</span></span><br><span class="line"><span class="comment">		...;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">	应用场景</span></span><br><span class="line"><span class="comment">		e.g.</span></span><br><span class="line"><span class="comment">		比如有两个表，一个中国玩家表，一个外国玩家表，查询所有男性玩家</span></span><br><span class="line"><span class="comment">		</span></span><br><span class="line"><span class="comment">		要查询的结果来自多个表，且多个表没有直接的关系，但查询的信息一致时</span></span><br><span class="line"><span class="comment">	注意事项：</span></span><br><span class="line"><span class="comment">		1.列数相同（就算每列的含义不一样，此时列名为第一个查询的列名）就不会语法报错</span></span><br><span class="line"><span class="comment">		但是还是要保持列数和每列的含义一致</span></span><br><span class="line"><span class="comment">		2.信息重复，会去掉重复项，不想去重使用 union all</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#引入的案例：查询部门编号&gt;90或员工邮箱包含a的员工信息</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> email <span class="keyword">LIKE</span> <span class="string">&#x27;%a%&#x27;</span> <span class="keyword">OR</span> department_id&gt;<span class="number">90</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> email <span class="keyword">LIKE</span> <span class="string">&#x27;%a%&#x27;</span></span><br><span class="line"><span class="keyword">UNION</span></span><br><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> department_id &gt; <span class="number">90</span>; </span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> t_ca;</span><br></pre></td></tr></table></figure>
       
     </div>
 
