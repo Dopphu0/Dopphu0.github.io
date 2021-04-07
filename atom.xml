@@ -6,7 +6,7 @@
   <link href="https://gitee.com/dopphu/dopphu.git/atom.xml" rel="self"/>
   
   <link href="https://gitee.com/dopphu/dopphu.git/"/>
-  <updated>2021-04-06T14:44:53.149Z</updated>
+  <updated>2021-04-07T03:02:20.606Z</updated>
   <id>https://gitee.com/dopphu/dopphu.git/</id>
   
   <author>
@@ -15,6 +15,19 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>这是一个中文的标题</title>
+    <link href="https://gitee.com/dopphu/dopphu.git/2021/04/07/%E5%AE%9E%E9%AA%8C%E4%B8%80%E4%B8%8B/"/>
+    <id>https://gitee.com/dopphu/dopphu.git/2021/04/07/%E5%AE%9E%E9%AA%8C%E4%B8%80%E4%B8%8B/</id>
+    <published>2021-04-07T03:01:58.282Z</published>
+    <updated>2021-04-07T03:02:20.606Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>JavaBean��һ��Java����д�ɵĿ��������</title>
@@ -435,27 +448,6 @@ public class Test0410Class &amp;#123;
       
       
     <summary type="html">&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>一个cmd的小技巧</title>
-    <link href="https://gitee.com/dopphu/dopphu.git/2021/03/18/%E4%B8%80%E4%B8%AAcmd%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
-    <id>https://gitee.com/dopphu/dopphu.git/2021/03/18/%E4%B8%80%E4%B8%AAcmd%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/</id>
-    <published>2021-03-18T08:28:37.853Z</published>
-    <updated>2021-03-18T08:30:20.474Z</updated>
-    
-    <content type="html"><![CDATA[<p>直接在路径位置输出cmd，然后按回车命令行打开后就直接在该路径下了。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;直接在路径位置输出cmd，然后按回车命令行打开后就直接在该路径下了。&lt;/p&gt;
-</summary>
       
     
     
