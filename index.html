@@ -189,6 +189,75 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/08/%E5%8D%95%E5%88%97%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%88%9D%E8%A7%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2021/04/08/%E5%8D%95%E5%88%97%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%88%9D%E8%A7%81/" class="post-title-link" itemprop="url">单例设计模式初见</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-08 08:58:13 / 修改时间：08:59:56" itemprop="dateCreated datePublished" datetime="2021-04-08T08:58:13+08:00">2021-04-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 单例设计模式：</span></span><br><span class="line"><span class="comment"> * 		1.所谓单例设计模式，就是采用一定的方法保证在整个软件体系中，对某个类只能存在一个对象实例</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 		2.如何实现</span></span><br><span class="line"><span class="comment"> * 			懒汉式 VS　饿汉式</span></span><br><span class="line"><span class="comment"> * 		3.区分懒汉式和饿汉式</span></span><br><span class="line"><span class="comment"> * 			饿汉式：</span></span><br><span class="line"><span class="comment"> * 				缺点：对象加载时间过长</span></span><br><span class="line"><span class="comment"> * 				优点：懒汉式是线程安全的</span></span><br><span class="line"><span class="comment"> * 			懒汉式：</span></span><br><span class="line"><span class="comment"> * 				优点：延迟对象的创建（不用的时候不占内存）</span></span><br><span class="line"><span class="comment"> * 				目前的写法缺点：线程不安全——&gt;到线程内容时，再修改让它变成安全的</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> chapter06;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test03</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">		Order o1 = Order.getInstance();</span><br><span class="line">		Order o2 = Order.getInstance();</span><br><span class="line">		System.out.println(o1==o2);</span><br><span class="line">		</span><br><span class="line">		Bank b1 = Bank.getInstance();</span><br><span class="line">		Bank b2 = Bank.getInstance();</span><br><span class="line">		System.out.println(b1==b2);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//饿汉式</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bank</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//1.私有化类的构造器</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">Bank</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//2.内部创建类的对象</span></span><br><span class="line">	<span class="comment">//4.要求此对象也必须声明为静态的</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> Bank instance = <span class="keyword">new</span> Bank();</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//3.提供公共的方法，返回类的对象</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Bank <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> instance;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//懒汉式（巧记：比较懒，用的时候再造）</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Order</span></span>&#123;</span><br><span class="line"><span class="comment">//	1.私有化类的构造器</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">Order</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//2.声明当前类对象，没有初始化</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> Order instance = <span class="keyword">null</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//3.声明public、static的返回当前类对象的方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Order <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(instance==<span class="keyword">null</span>) &#123;</span><br><span class="line">			instance = <span class="keyword">new</span> Order();	</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> instance;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/07/%E5%AE%9E%E9%AA%8C%E4%B8%80%E4%B8%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -839,79 +908,6 @@ public class Test0410Class &#123;
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/07/Test0409/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2021/04/07/Test0409/" class="post-title-link" itemprop="url">�����������֮һ����װ������</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-07 10:57:44" itemprop="dateCreated datePublished" datetime="2021-04-07T10:57:44+08:00">2021-04-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-06 22:43:28" itemprop="dateModified" datetime="2021-04-06T22:43:28+08:00">2021-04-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * �����������֮һ����װ������</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * ���ǳ������׷�� �����ھۣ�����ϡ�</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * &gt; ���ھۣ����ڲ����ݲ���ϸ���Լ���ɣ��������ⲿ����</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * &gt; ����ϣ������Ⱪ¶�����ķ��������Լ�ʹ��</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * ���ض����ڲ��ĸ����ԣ����⹫���򵥵Ľӿڡ����������ã��Ӷ����ϵͳ</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * �Ŀ���չ�ԡ���ά���ԡ�ͨ�׵�˵���Ѹ����ص������������ı�¶�ı�¶������</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * ����Ƿ�װ�Ե����˼��</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * ��װ�Ե����֣�</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 		���ǽ��������˽�л���private����ͬʱ���ṩ������public���ķ�������ȡ��getXxx�������ã�setXxx��</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 		��չ����װ�Ե�����</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 			������</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 			�ڲ����Ⱪ¶��˽�еķ��� </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 			�۵���ģʽ</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * Ȩ�����η�</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 	1. Java�涨��4��Ȩ�ޣ���С���󣩣�private��ȱʡ��ɶҲûд����protected��public</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 	2. 4��Ȩ�޿��������༰����ڲ��ṹ�����ԡ����������������ڲ���</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 	3. ����ģ�4��Ȩ�޶�����������������ڲ��ṹ��������Ļ���ֻ��ʹ��ȱʡ��public</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * �ܽ��װ�ԣ�Java�ṩ������Ȩ�����η��������������ڲ��ṹ���������༰����ڲ��ṹ�ڱ�����ʱ�Ŀɼ��ԵĴ�С��</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> chapter04;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test0409</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		Animal a = <span class="keyword">new</span> Animal();</span><br><span class="line"></span><br><span class="line">		a.name = <span class="string">&quot;���&quot;</span>;</span><br><span class="line"></span><br><span class="line">		a.age = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//		a.legs = 4;</span></span><br><span class="line"></span><br><span class="line">		a.show();</span><br><span class="line"></span><br><span class="line">		a.setLegs(<span class="number">100</span>);</span><br><span class="line"></span><br><span class="line">		a.show();</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	String name;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> legs;<span class="comment">//�ȵĸ���,��Ϸ�������legs&gt;=0</span></span><br><span class="line"></span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		System.out.println(<span class="string">&quot;��ʳ&quot;</span>);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		System.out.println(<span class="string">&quot;name=&quot;</span>+ name+<span class="string">&quot; age=&quot;</span>+ age+<span class="string">&quot; legs=&quot;</span>+legs);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setLegs</span><span class="params">(<span class="keyword">int</span> l)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(l&gt;=<span class="number">0</span>) &#123;</span><br><span class="line"></span><br><span class="line">			legs = l;</span><br><span class="line"></span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;</span><br><span class="line"></span><br><span class="line">			legs = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getLegs</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> legs;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -983,7 +979,7 @@ public class Test0410Class &#123;
       <div class="site-state-item site-state-posts">
           <a href="/dopphu/archives/">
         
-          <span class="site-state-item-count">79</span>
+          <span class="site-state-item-count">80</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
