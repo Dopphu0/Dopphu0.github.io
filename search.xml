@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>20210407</title>
+      <link href="/dopphu/2021/04/08/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B001/"/>
+      <url>/dopphu/2021/04/08/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B001/</url>
+      
+        <content type="html"><![CDATA[<p>《中华人民共和国刑法》第二百八十六条</p><h2 id="IP地址详解"><a href="#IP地址详解" class="headerlink" title="IP地址详解"></a>IP地址详解</h2><p>计算机、交换器、路由器等网络设备用电缆等传输介质进行连接——&gt;网络</p><p>世界互联——&gt;互联网</p><p>适配器——&gt;网卡</p><p>MAC地址理论上不能改，实际上是可以的，比如ARP攻击、中间人攻击（流量都经过我）</p><p>MAC地址——&gt;六段、十六进制</p><p>IP由两部分组成</p><ul><li>网络部分（NETWORK）</li><li>主机部分（HOST）</li></ul><p>我们能接触到的IP只有A（1-126）、B（128）、C（192）</p><table><thead><tr><th></th><th>A</th><th>B</th><th>C</th></tr></thead><tbody><tr><td>网络位</td><td>1（8位）</td><td>2（16位）</td><td>3（24位）</td></tr><tr><td>主机位</td><td>3</td><td>2</td><td>1</td></tr></tbody></table><p>127为本机回环地址，用来测试本机</p><p>子网掩码口诀：网络位全为1，主机位全为0（但是并不符合所有情况）</p><p><strong>结论一：</strong> 已知网络位和主机位可得</p><p>1）子网掩码（网络位全为1、主机位全为0）</p><p>2）求网段：网络位不变，主机位为0</p><p>​        e.g. IP 192.168.1.1；子网掩码 255.255.255.0； 网段 192.168.1.0（1.255【广播地址】和1.0【代表整个网段】都不能用）【me】</p><p><em>另一种表示方法：192.168.1.1/24</em></p><h2 id="私有地址"><a href="#私有地址" class="headerlink" title="私有地址"></a>私有地址</h2><ul><li>满足企业用户在内部网络中使用的需求</li><li>私有地址不能在互联网上使用</li><li>私有地址包括三组<ul><li>A类：10.0.0.0~10.255.255.255</li><li>B类：172.16.0.0~172.31.255.255</li><li>C类：192.168.0.0~192.168.255.255</li></ul></li></ul><p>DHCP-Server自动分配（自己搭建，自己规定如何分配）</p><ul><li>IP（没有DHCP-Server，则电脑自己给自己一个168开头的）</li><li>网关（要和IP地址要在同一段）</li><li>DNS（8.8.8.8——谷歌的国际DNS）</li><li>子网掩码</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 信息安全培训笔记 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>单例设计模式初见</title>
       <link href="/dopphu/2021/04/08/%E5%8D%95%E5%88%97%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%88%9D%E8%A7%81/"/>
       <url>/dopphu/2021/04/08/%E5%8D%95%E5%88%97%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%88%9D%E8%A7%81/</url>
