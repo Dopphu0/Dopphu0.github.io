@@ -189,6 +189,75 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/02/05/05%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2021/02/05/05%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">05分组函数</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-02-05 13:41:39 / 修改时间：17:40:31" itemprop="dateCreated datePublished" datetime="2021-02-05T13:41:39+08:00">2021-02-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">数据库学习</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#二、分组函数</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	功能：用作统计使用，又称为聚合函数或统计函数或组函数</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">	分类：</span></span><br><span class="line"><span class="comment">		sum 	求和</span></span><br><span class="line"><span class="comment">		avg	平均值</span></span><br><span class="line"><span class="comment">		max	最大值</span></span><br><span class="line"><span class="comment">		min	最小值</span></span><br><span class="line"><span class="comment">		count	计算个数</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">	特点：</span></span><br><span class="line"><span class="comment">		1.sum和avg一般用于处理数值型</span></span><br><span class="line"><span class="comment">		max、min、count可以处理任何类型</span></span><br><span class="line"><span class="comment">		2.是否忽略null值</span></span><br><span class="line"><span class="comment">			以上分组函数都忽略null值</span></span><br><span class="line"><span class="comment">		3.可以和distinct搭配实现去重</span></span><br><span class="line"><span class="comment">		4.count函数的单独介绍</span></span><br><span class="line"><span class="comment">		5.和分组函数一同查询的字段有限制,一般是group by后的字段，其它的不行</span></span><br><span class="line"><span class="comment">		如：</span></span><br><span class="line"><span class="comment">			SELECT AVG(salary),employee_id FROM employees;#只会显示一行，没有什么意义</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#1.简单的使用</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">SUM</span>(salary) <span class="keyword">FROM</span> employees;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">AVG</span>(salary) <span class="keyword">FROM</span> employees;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MIN</span>(salary) <span class="keyword">FROM</span> employees;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MAX</span>(salary) <span class="keyword">FROM</span> employees;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(salary) <span class="keyword">FROM</span> employees;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">SUM</span>(salary) 和,<span class="keyword">AVG</span>(salary) 平均,<span class="keyword">MAX</span>(salary) 最大,<span class="keyword">MIN</span>(salary) 最小,<span class="keyword">COUNT</span>(salary) 个数</span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">SUM</span>(salary) 和,<span class="keyword">ROUND</span>(<span class="keyword">AVG</span>(salary),<span class="number">2</span>) 平均,<span class="keyword">MAX</span>(salary) 最大,<span class="keyword">MIN</span>(salary) 最小,<span class="keyword">COUNT</span>(salary) 个数</span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br><span class="line"></span><br><span class="line"><span class="comment">#2. 分组函数的参数支持哪些类型</span></span><br><span class="line"><span class="comment"># sum 和 avg 适合处理数值型</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">SUM</span>(last_name),<span class="keyword">AVG</span>(last_name) <span class="keyword">FROM</span> employees;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">SUM</span>(hiredate) <span class="keyword">FROM</span> employees;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MAX</span>(last_name),<span class="keyword">MIN</span>(last_name) <span class="keyword">FROM</span> employees;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MAX</span>(hiredate),<span class="keyword">MIN</span>(hiredate) <span class="keyword">FROM</span> employees;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(last_name) <span class="keyword">FROM</span> employees;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(commission_pct) <span class="keyword">FROM</span> employees;</span><br><span class="line"></span><br><span class="line"><span class="comment">#3.忽略null</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">SUM</span>(commission_pct),<span class="keyword">SUM</span>(commission_pct)/<span class="number">35</span>,<span class="keyword">SUM</span>(commission_pct)/<span class="number">107</span>, <span class="keyword">AVG</span>(commission_pct) <span class="keyword">FROM</span> employees;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MAX</span>(commission_pct),<span class="keyword">MIN</span>(commission_pct) <span class="keyword">FROM</span> employees;</span><br><span class="line"></span><br><span class="line"><span class="comment">#4. 和distinct搭配</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">SUM</span>(<span class="keyword">DISTINCT</span> salary),<span class="keyword">SUM</span>(salary) <span class="keyword">FROM</span> employees;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(<span class="keyword">DISTINCT</span> salary) <span class="keyword">FROM</span> employees;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#5.count函数的详细介绍</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*) <span class="keyword">FROM</span> employees;		<span class="comment">#查询行数</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(<span class="number">1</span>) <span class="keyword">FROM</span> employees;		<span class="comment">#可以当作加了一列1，统计一共有多少个1（“1”可以换成任何数值或字符）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*效率：</span></span><br><span class="line"><span class="comment">	存储引擎inodb	count(*)的效率高</span></span><br><span class="line"><span class="comment">	存储引擎myisam	count(*)和count(1)的效率差不多，比count(字段)要高一些（me：多了一步null的判断）</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#6.和分组函数一同查询的字段有限制</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">AVG</span>(salary),employee_id <span class="keyword">FROM</span> employees;</span><br><span class="line"></span><br><span class="line"><span class="comment">#习题</span></span><br><span class="line"><span class="comment">#1.查询公司员工工资的最大值、最小值、平均值、总和</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MAX</span>(salary) 最大值,<span class="keyword">MIN</span>(salary) 最小值,<span class="keyword">AVG</span>(salary) 平均值,<span class="keyword">SUM</span>(salary) 总和</span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#2.查询员工表中的最大入职时间和最小入职时间的相差天数</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DATEDIFF</span>(<span class="keyword">MAX</span>(hiredate),<span class="keyword">MIN</span>(hiredate)) <span class="keyword">FROM</span> employees;</span><br><span class="line"><span class="comment">#3.查询部门编号为90的员工的个数</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*)  <span class="keyword">FROM</span> employees <span class="keyword">WHERE</span> department_id=<span class="number">90</span>;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(department_id) <span class="keyword">FROM</span> employees <span class="keyword">WHERE</span> department_id = <span class="number">90</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#datediff函数</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DATEDIFF</span>(<span class="keyword">NOW</span>(),<span class="string">&#x27;2001-06-11&#x27;</span>);</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/02/05/04%E5%87%BD%E6%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1009,92 +1078,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2020/10/11/2022%E8%80%83%E7%A0%94/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2020/10/11/2022%E8%80%83%E7%A0%94/" class="post-title-link" itemprop="url">2020考研</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-10-11 21:59:26 / 修改时间：22:00:30" itemprop="dateCreated datePublished" datetime="2020-10-11T21:59:26+08:00">2020-10-11</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>课前建议：</p>
-<p>（1）课只听一边</p>
-<p>（2）做好笔记</p>
-<p>（3）不懂就问</p>
-<p>困难的价值在于被解决，而不是被逃避。</p>
-<p><img src="https://raw.githubusercontent.com/Dopphu/images/master/img/20201011195525.png"></p>
-<p><img src="https://raw.githubusercontent.com/Dopphu/images/master/img/20201011195727.png"></p>
-<p>我懂你的困惑</p>
-<p><img src="https://raw.githubusercontent.com/Dopphu/images/master/img/20201011195914.png"></p>
-<h2 id="一，考研百科"><a href="#一，考研百科" class="headerlink" title="一，考研百科"></a>一，考研百科</h2><p><img src="https://raw.githubusercontent.com/Dopphu/images/master/img/20201011200115.png"></p>
-<p><img src="https://raw.githubusercontent.com/Dopphu/images/master/img/20201011200303.png"></p>
-<p><img src="https://raw.githubusercontent.com/Dopphu/images/master/img/20201011200408.png"></p>
-<p><img src="https://raw.githubusercontent.com/Dopphu/images/master/img/20201011200454.png"></p>
-<p><img src="https://raw.githubusercontent.com/Dopphu/images/master/img/20201011200522.png"></p>
-<p><img src="https://raw.githubusercontent.com/Dopphu/images/master/img/20201011200645.png"></p>
-<p>招生简章也会说考什么科目</p>
-<p><img src="https://raw.githubusercontent.com/Dopphu/images/master/img/20201011200804.png"></p>
-<p><strong>考试科目不是一成不变的，尤其是专业课。</strong>（最新的招生目录）</p>
-<p><img src="C:\Users\Dopphu\AppData\Roaming\Typora\typora-user-images\image-20201011200914442.png" alt="image-20201011200914442"></p>
-<p><img src="https://raw.githubusercontent.com/Dopphu/images/master/img/20201011201127.png"></p>
-<p><img src="https://raw.githubusercontent.com/Dopphu/images/master/img/20201011201356.png"></p>
-<p>下面这个文件很重要</p>
-<p><img src="https://raw.githubusercontent.com/Dopphu/images/master/img/20201011201548.png"></p>
-<p><img src="https://raw.githubusercontent.com/Dopphu/images/master/img/20201011201714.png"></p>
-<p>是“学力”不是学“历”。</p>
-<p><img src="https://raw.githubusercontent.com/Dopphu/images/master/img/20201011203525.png"></p>
-<p><img src="https://raw.githubusercontent.com/Dopphu/images/master/img/20201011204210.png"></p>
-<p><img src="https://raw.githubusercontent.com/Dopphu/images/master/img/20201011215607.png"></p>
-<h2 id="二，考研政策"><a href="#二，考研政策" class="headerlink" title="二，考研政策"></a>二，考研政策</h2><h2 id="三，考研流程"><a href="#三，考研流程" class="headerlink" title="三，考研流程"></a>三，考研流程</h2><h2 id="四，考研形势"><a href="#四，考研形势" class="headerlink" title="四，考研形势"></a>四，考研形势</h2>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1166,7 +1149,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/dopphu/archives/">
         
-          <span class="site-state-item-count">81</span>
+          <span class="site-state-item-count">82</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

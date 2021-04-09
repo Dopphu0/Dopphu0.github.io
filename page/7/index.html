@@ -189,6 +189,96 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2020/09/01/C++string%E7%B1%BB%E5%88%9D%E6%AD%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2020/09/01/C++string%E7%B1%BB%E5%88%9D%E6%AD%A5/" class="post-title-link" itemprop="url">C++string类初步</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-01 22:42:41" itemprop="dateCreated datePublished" datetime="2020-09-01T22:42:41+08:00">2020-09-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-14 15:46:20" itemprop="dateModified" datetime="2020-08-14T15:46:20+08:00">2020-08-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="C-string类"><a href="#C-string类" class="headerlink" title="C++string类"></a>C++string类</h1><p>使用数组来存放字符串，调用系统函数来处理字符串，毕竟显得不方便，而且数据与处理数据的函数分离也不符合面向对象方法的要求。为此，C++标准库将面对对象的串的概念加入到C++语言中，预定义了字符串类（<code>string</code>类）。string类提供了对字符串进行处理所需要的的操作。使用<code>string</code>类需要包含头文件string。<code>string</code>类封装了串的属性并提供了一系列允许访问这些属性的函数。</p>
+<p><strong>细节</strong>：严格的说，<code>string</code>并非一个独立的类，而是<strong>类模板</strong><code>basic_string</code>的一个特化实例。不过对于<code>string</code>的使用者来说，它的特点与一个类无异，因此可以把它当做一个类来看待。</p>
+<h2 id="构造函数原型"><a href="#构造函数原型" class="headerlink" title="构造函数原型"></a>构造函数原型</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span>();						<span class="comment">//默认构造函数，建立一个长度为0的串</span></span><br><span class="line"><span class="built_in">string</span>(<span class="keyword">const</span> <span class="built_in">string</span> &amp;rhs);		<span class="comment">//复制构造函数</span></span><br><span class="line"><span class="built_in">string</span>(<span class="keyword">const</span> <span class="keyword">char</span> *s);			<span class="comment">//用指针s所指向的字符常量来初始化string类的对象</span></span><br><span class="line"><span class="built_in">string</span>(<span class="keyword">const</span> <span class="built_in">string</span>&amp; rhs, <span class="keyword">unsigned</span> <span class="keyword">int</span> pos, <span class="keyword">unsigned</span> <span class="keyword">int</span> n);</span><br><span class="line">		<span class="comment">//将对象rhs的串从位置pos开始取n个字符，初始化string类的对象</span></span><br><span class="line">		<span class="comment">//注：串中的第一个字符的位置为0</span></span><br><span class="line"><span class="built_in">string</span>(<span class="keyword">const</span> <span class="keyword">char</span> *s, <span class="keyword">unsigned</span> <span class="keyword">int</span> n);</span><br><span class="line">		<span class="comment">//用指针s所指向的字符串中的前n个字符初始化string类的对象</span></span><br><span class="line"><span class="built_in">string</span>(<span class="keyword">unsigned</span> <span class="keyword">int</span> n, <span class="keyword">char</span> c);</span><br><span class="line">		<span class="comment">//将参数c中的字符重复n次，用来初始化string类的对象</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>提示</strong>：由于<code>string</code>类是具有接收<code>const char *</code>类型的构造函数，因此字符串常量和用字符数组表示的字符串变量都可以隐含地转化为<code>string</code>对象。例如，可以直接使用字符串常量对<code>string</code>对象初始化。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> str = <span class="string">&quot;Hello world!&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://www.zx95.net/images/2020/08/14/imagefb5fd25f84ec5143.png" alt="imagefb5fd25f84ec5143.png"></p>
+<p><img src="https://www.zx95.net/images/2020/08/14/imagefc2dbde0ee4fce9e.png" alt="imagefc2dbde0ee4fce9e.png"></p>
+<p><img src="https://www.zx95.net/images/2020/08/14/image3a8ec912d2f78483.png" alt="image3a8ec912d2f78483.png"></p>
+<p>例子：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt; </span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//根据value的值输出true和false，title为 提示文字</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> * title, <span class="keyword">bool</span> value)</span></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;title&lt;&lt;<span class="string">&quot; returns &quot;</span>&lt;&lt;(value?<span class="string">&quot;true&quot;</span>:<span class="string">&quot;false&quot;</span>)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">string</span> s1 = <span class="string">&quot;DEF&quot;</span>;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;s1 is &quot;</span>&lt;&lt;s1&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">string</span> s2;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Please enter s2:&quot;</span>;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;s2;<span class="comment">//这种输入方式会以空格为分割符，例如：123 def 则只读取123，def将会在下一次从键盘输入字符时被读取 </span></span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;length of s2:&quot;</span>&lt;&lt;s2.length()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//比较运算符的测试</span></span><br><span class="line">	test(<span class="string">&quot;s1&lt;\&quot;ABC\&quot;&quot;</span>, s1&lt;=<span class="string">&quot;ABC&quot;</span>);</span><br><span class="line">	test(<span class="string">&quot;\&quot;DEF\&quot;&lt;=s1&quot;</span>, <span class="string">&quot;DEF&quot;</span>&lt;=s1);</span><br><span class="line">	</span><br><span class="line">	s2 += s1;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;s2=s2+s1:&quot;</span>&lt;&lt;s2&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;length of s2:&quot;</span>&lt;&lt;s2.length()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://www.zx95.net/images/2020/08/14/image8ac542ca8d1cd00c.png" alt="image8ac542ca8d1cd00c.png"></p>
+<p><strong>$</strong> 用<code>getline</code>输入字符串</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;<span class="number">2</span>; i++)&#123;</span><br><span class="line">		<span class="built_in">string</span> city, state;</span><br><span class="line">		getline(<span class="built_in">cin</span>, city, <span class="string">&#x27;,&#x27;</span>);</span><br><span class="line">		getline(<span class="built_in">cin</span>, state);</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;City: &quot;</span>&lt;&lt;city&lt;&lt;<span class="string">&quot;   State:&quot;</span>&lt;&lt;state&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2020/09/01/%E5%8F%8B%E5%85%83/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -987,107 +1077,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2020/09/01/%E7%B1%BB%E5%9E%8B%E5%85%BC%E5%AE%B9%E8%A7%84%E5%88%99/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2020/09/01/%E7%B1%BB%E5%9E%8B%E5%85%BC%E5%AE%B9%E8%A7%84%E5%88%99/" class="post-title-link" itemprop="url">类型兼容原则</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-09-01 22:42:41" itemprop="dateCreated datePublished" datetime="2020-09-01T22:42:41+08:00">2020-09-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-18 17:24:48" itemprop="dateModified" datetime="2020-08-18T17:24:48+08:00">2020-08-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="类型兼容规则"><a href="#类型兼容规则" class="headerlink" title="类型兼容规则"></a>类型兼容规则</h1><p><strong>类型兼容规则是指在需要基类对象的任何地方，都可以使用公有派生类的对象来替代。</strong>通过公有继承，派生类得到了基类中处构造函数和析构函数之外的所有成员。这样，公有派生类实际就具备了基类的所有功能，凡是基类能够解决的问题，公有派生类都可以解决。类型兼容规则中所指的替代包括以下的情况。</p>
-<ol>
-<li>派生类的对象可以隐含地转换为基类对象。</li>
-<li>派生类的对象可以初始化基类的引用。</li>
-<li>派生类的指针可以隐含地转换为基类的指针。</li>
-</ol>
-<hr>
-<p>重点！</p>
-<p><strong>在替代之后，派生对象就可以作为基类的对象使用，但是只能使用从基类继承的成员。</strong></p>
-<hr>
-<p>例如：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>&#123;</span>...&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">D</span>:</span><span class="keyword">public</span> B&#123;...&#125;;</span><br><span class="line">B b1, *pb1;</span><br><span class="line">D d1;</span><br></pre></td></tr></table></figure>
-
-<p>(1) 派生类对象可以隐含转换为基类对象，即用派生类对象中从基类继承来的成员，逐赋值给基类对象的成员：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b1 = d1;</span><br></pre></td></tr></table></figure>
-
-<p>(2) 派生类的对象也可以初始化基类对象的引用：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">B &amp;rb = d1;</span><br></pre></td></tr></table></figure>
-
-<p>(3) 派生类对象的地址也可隐含转换为指向基类的指针：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd1 =&amp;d1;</span><br></pre></td></tr></table></figure>
-
-<p>由于类型兼容规则的引入，对于基类及其公有派生类的对象，可以使用相同的函数统一进行处理。因为当函数的形参为基类的对象（或引用、指针）时，实参可以是派生类的对象（或指针），而没有必要为每一个类设计单独的模块，大大提高了程序的效率。这正是C++的又一重要特色——<strong>多态性</strong>。可以说，类型的兼容规则是多态性的重要基础之一。下面是个例子：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base1</span>&#123;</span></span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">display</span><span class="params">()</span><span class="keyword">const</span></span>&#123;<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Base1::display()&quot;</span>&lt;&lt;<span class="built_in">endl</span>;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base2</span>:</span><span class="keyword">public</span> Base1&#123;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">display</span><span class="params">()</span><span class="keyword">const</span></span>&#123;<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Base2::display()&quot;</span>&lt;&lt;<span class="built_in">endl</span>;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derived</span>:</span><span class="keyword">public</span> Base2&#123;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">display</span><span class="params">()</span><span class="keyword">const</span></span>&#123;<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Rerived::display()&quot;</span>&lt;&lt;<span class="built_in">endl</span>;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">(Base1 *ptr)</span></span>&#123;</span><br><span class="line">	ptr-&gt;<span class="built_in">display</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	Base1 base1;</span><br><span class="line">	Base2 base2;</span><br><span class="line">	Derived derived;</span><br><span class="line">	</span><br><span class="line">	fun(&amp;base1);</span><br><span class="line">	fun(&amp;base2);</span><br><span class="line">	fun(&amp;derived);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>运行结果：</p>
-<p><img src="https://www.zx95.net/images/2020/08/18/imageea0152a6b851cccd.png" alt="imageea0152a6b851cccd.png"></p>
-<p>通过这个例子可以看到，根据类型兼容规则，可以在基类对象出现的场合使用派生类进行替代，但是替代之后派生类仅仅发挥出基类的作用。<strong>多态</strong>的设计方法可以保证在类型兼容的前提下，基类、派生类分别以不同的方式来响应相同的信息。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1159,7 +1148,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/dopphu/archives/">
         
-          <span class="site-state-item-count">81</span>
+          <span class="site-state-item-count">82</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
