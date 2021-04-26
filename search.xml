@@ -4,6 +4,82 @@
   
     
     <entry>
+      <title>20210414信息安全培训笔记04</title>
+      <link href="/dopphu/2021/04/26/20210414%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B004/"/>
+      <url>/dopphu/2021/04/26/20210414%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B004/</url>
+      
+        <content type="html"><![CDATA[<p>内置用户</p><p>与使用者相关的用户</p><p>与Windows组件关联的用户账户</p><ul><li><p>System（本地系统）（权限最高）</p><p>​        为Windows的核心组件访问文件等资源提供权限</p></li><li><p>LOCAL SERVICE</p></li><li><p>NETWORK SERVICE</p></li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看用户组</span></span><br><span class="line">$ net localgroup</span><br><span class="line"><span class="comment"># 创建用户组</span></span><br><span class="line">$ net localgroup 组名 /add</span><br><span class="line"><span class="comment"># 删除用户组</span></span><br><span class="line">$ net lcoalgroup 组名 /del</span><br><span class="line"><span class="comment"># 将用户加入组</span></span><br><span class="line">$ net lcoalgroup 组名 用户名 /add</span><br><span class="line"><span class="comment"># 将用户踢出组</span></span><br><span class="line">$ net lcoalgroup 组名 用户名 /del</span><br></pre></td></tr></table></figure><p>组</p><ul><li>内置<ul><li>需要人为添加用户的组<ul><li>administrator</li><li>Guests</li><li>Power Users（为了兼容老版本，无关紧要，了解即可）</li><li>Users（标准用户）</li></ul></li><li>自动添加用户的组（动态包含成员的内置组）、<ul><li>Everyone<ul><li>包含任何用户</li><li>设置开放的权限时经常使用</li></ul></li></ul></li></ul></li><li>普通组</li></ul><p>计算机默认都在工作组 <code>WORKGROUP</code> （如图，可以在这里改主机名）</p><p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/WORKGROUP%E5%B7%A5%E4%BD%9C%E7%BB%84.44eyusl45mm0.jpg" alt="WORKGROUP工作组"></p><p>域环境基于互联网（意味着互联网上任何一台计算机都可以加入域）——把计算机逻辑地组织在一起，统一管理（受 <strong>域控</strong> （？DC）的统一管理）</p><p>想要访问域中资源，要用DC分配给你的域用户进行登录</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配静态IP[、子网掩码]</span></span><br><span class="line">$ netsh interface ip <span class="built_in">set</span> address 网卡名 static ip [子网掩码]</span><br><span class="line"><span class="comment"># 配动态IP</span></span><br><span class="line">$ netsh interface ip <span class="built_in">set</span> address 网卡名 dhcp</span><br><span class="line"> <span class="comment"># 查看网络详细信息</span></span><br><span class="line">$ ipcofig -all</span><br><span class="line"><span class="comment"># 重命名主机名</span></span><br><span class="line">$ netdom renamecomputer localhost /newname:新主机名</span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ping</span></span><br><span class="line"><span class="comment"># -a 返回主机名</span></span><br><span class="line"><span class="comment"># -l 改变包大小（最大65500，默认32）</span></span><br><span class="line"><span class="comment"># -t 持续发包</span></span><br></pre></td></tr></table></figure><p>远程桌面 3389端口</p><p>mstsc（骂死他傻X）——远程控制</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 关闭c$共享（c$、ipc$十分危险，一般都要关闭）</span></span><br><span class="line">$ net share c$ /del</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 信息安全培训笔记 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>20210415信息安全培训笔记05</title>
+      <link href="/dopphu/2021/04/26/20210415%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B005/"/>
+      <url>/dopphu/2021/04/26/20210415%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B005/</url>
+      
+        <content type="html"><![CDATA[<p><a href="#1">点击</a></p><p>NTFS（New Technology File System）：有分区就可以做文件系统，可以将两个分区各取一部分构成一个新的分区</p><p>NTFS 权限</p><ul><li>NTFS文件系统</li><li>设置文件权限</li><li>设置文件夹权限</li><li>权限的分类</li></ul><p>NTFS权限规则</p><ul><li>权限的累加</li><li>拒绝权限</li><li>继承权限</li><li>特别的权限<ul><li>特殊权限↓<ul><li>读取权限的权限</li><li>更改权限的权限</li><li>取得所有权</li></ul></li></ul></li></ul><p><a style="color:red;" id="1">123123</a></p><p>NTFS文件系统特点</p><ul><li><p>提高硬盘读写性能</p></li><li><p>可靠性</p><ul><li>加密文件系统</li><li>访问控制列表（ACL）</li></ul></li><li><p>磁盘利用率</p><ul><li>压缩</li><li>磁盘配额（磁盘空间的分配额度）</li></ul></li></ul><p>常见文件权限：</p><ul><li>读取数据</li><li>写入数据</li><li>附加数据</li><li>删除</li><li>执行文件</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">一个实验</span><br><span class="line">校长：除了不能删除，其它都可</span><br><span class="line">老师：可以增改查，不可删除</span><br><span class="line">学生：只能看</span><br><span class="line">保安：无任何权限</span><br><span class="line">e.g.</span><br><span class="line">张三在A用户组，也在B用户组。A可以修改，B不可以修改，那么张三不可以修改（权限冲突时，say no优先（拒绝优先）；不冲突就累加）</span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%8F%96%E6%B6%88%E5%8B%BE%E9%80%89%E4%BB%8E%E8%AF%A5%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%88%B6%E7%BA%A7%E7%BB%A7%E6%89%BF%E7%9A%84%E6%9D%83%E9%99%90.48naigh4m1o0.jpg" alt="取消勾选从该对象的父级继承的权限"></p><p>将勾选去掉</p><p>不进入文件的ACL里，就啥也干不了</p><p>权限规则：</p><ul><li><ol><li>默认继承（主要针对文件夹）</li></ol></li><li><ol start="2"><li>阻止继承</li></ol></li><li><ol start="3"><li>强制生效</li></ol><ul><li><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%BC%BA%E5%88%B6%E7%94%9F%E6%95%88.6adl3ov1gqo0.jpg" alt="强制生效"></li></ul></li><li><ol start="4"><li>权限不冲突——累加</li></ol></li><li><ol start="5"><li>权限冲突（隶属的不同组的冲突，用户和组的冲突）</li></ol></li><li><ol start="6"><li>取得所有权</li></ol></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">实验作业：</span><br><span class="line">公司的组织架构</span><br><span class="line">三个部门：</span><br><span class="line"></span><br><span class="line">1.技术部</span><br><span class="line"> 1）技术经理</span><br><span class="line"> 2）技术员工</span><br><span class="line">2.财务部</span><br><span class="line"> 1）财务经理</span><br><span class="line"> 2）财务员工</span><br><span class="line">3.市场部</span><br><span class="line"> 1）市场经理</span><br><span class="line"> 2）市场员工</span><br><span class="line">步骤一：命令创建，加组</span><br><span class="line">步骤二：D盘（C盘文件权限设计操作系统，十分复杂）里（只有一块硬盘，自己在虚拟机设置里再添加一块儿硬盘），经理读写，不可删除。普通员工只能查看</span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%AE%9E%E9%AA%8C%E4%BD%9C%E4%B8%9A%E5%85%AC%E5%8F%B8%E6%9E%B6%E6%9E%84.4a5cjznp0kk0.jpg" alt="实验作业公司架构"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 信息安全培训笔记 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>20210413信息安全培训笔记03</title>
+      <link href="/dopphu/2021/04/26/20210413%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B003/"/>
+      <url>/dopphu/2021/04/26/20210413%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B003/</url>
+      
+        <content type="html"><![CDATA[<h2 id="用户、用户组、组的管理"><a href="#用户、用户组、组的管理" class="headerlink" title="用户、用户组、组的管理"></a>用户、用户组、组的管理</h2><p>用户账户拥有唯一的安全标识符SID</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打开命令行查看SID命令</span></span><br><span class="line">$ whoami -user</span><br><span class="line"><span class="comment">#</span></span><br></pre></td></tr></table></figure><p>SID=系统ID+用户ID（用户ID如下面最后的500，另外Windows系统的管理员用户均为ID为500，普通账户从1000开始）</p><p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/image-20210413193931980.17ejhfj95j40.png" alt="image-20210413193931980"></p><p>同一个系统下的用户的系统ID相同，用户ID不同</p><p>注册表：regedit.exe</p><p>虚拟机中用 <code>ctrl+alt+insert</code> 代替 <code>ctrl+alt+delete</code> （以免与真实机热键冲突）</p><h3 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h3><h4 id="1-如何查看用户"><a href="#1-如何查看用户" class="headerlink" title="1.如何查看用户"></a>1.如何查看用户</h4><ol><li><h5 id="图形化界面"><a href="#图形化界面" class="headerlink" title="图形化界面"></a>图形化界面</h5><p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7.ptabbx5cgk.jpg" alt="图形化界面管理用户"></p></li><li><h5 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h5></li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看用户</span></span><br><span class="line">$ net user</span><br><span class="line"><span class="comment"># 添加用户（默认属于users组）</span></span><br><span class="line">$ net user 用户名 密码/add</span><br><span class="line"><span class="comment"># 重设密码</span></span><br><span class="line">$ net user 用户名 新密码</span><br><span class="line"><span class="comment"># 清空密码（需要在本地安全策略禁用 “密码必须符合复杂性要求” ） </span></span><br><span class="line">$ net user 用户名 <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="comment"># 查看用户详细信息</span></span><br><span class="line">$ net user 用户名</span><br><span class="line"><span class="comment"># 激活用户</span></span><br><span class="line">$ net user 用户名 /active:yes</span><br><span class="line"><span class="comment"># 禁用账户</span></span><br><span class="line">$ net user 用户名 /active:no</span><br><span class="line"><span class="comment"># 删除账户</span></span><br><span class="line">$ net user 用户名 密码/del</span><br><span class="line"><span class="comment"># 如何把普通用户改为管理员（将用户添加到管理员组，涉及用户组的概念）</span></span><br><span class="line">$ net localgroup administrators 用户名/add</span><br><span class="line"><span class="comment"># 将用户从管理员组中踢出</span></span><br><span class="line">$ net localgroup administrators 用户名/del</span><br></pre></td></tr></table></figure><p>内置账户，如：win-server 2008 的Guest（来宾账户，默认是被禁用的，而且一般也要禁用，安全检查时必看）、管理员</p><p>如果一个用户同属于多个组，则权限累加</p><p>msc微软控制台</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看本地安全策略</span></span><br><span class="line">运行——&gt;secpol.msc</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 信息安全培训笔记 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>20210408信息安全培训笔记02</title>
+      <link href="/dopphu/2021/04/26/20210408%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B002/"/>
+      <url>/dopphu/2021/04/26/20210408%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B002/</url>
+      
+        <content type="html"><![CDATA[<p>虚拟机架构</p><ul><li>寄居架构</li><li>原生架构（VPS、虚拟化、云服务器等）</li></ul><p>虚拟机产品：</p><p>windows开机启动过程：</p><ol><li>开机加电自检（台式机可能会报警报告硬件出现异常）</li><li>引导BIOS（cmos芯片存BIOS程序）</li></ol><p>重装系统的时候就要调BIOS，改变寻找系统的先后顺序</p><p>MBR扇区（第一扇区）：512字节=446（引导程序）+64（分区信息）+2（标识）</p><ol start="3"><li>引导系统</li></ol><p>操作系统</p><p>文件系统</p><p>新硬盘是无法存储文件的：</p><ul><li>分区——做文件系统（格式化就是做文件系统）</li><li>做文件系统<ul><li>文件系统<ul><li>FAT系列（这是不牛的：凳子一扔，不摆凳子），单次只能存不超过4个G    </li><li>NTFS（这是牛的：凳子整齐排好）</li></ul></li></ul></li></ul><p>MBR分区：</p><ul><li>主分区（主分区可装系统，可存储数据）</li><li>扩展分区</li><li>逻辑分区</li></ul><p>扩展分区里创逻辑分区</p><p>每创建一个主分区或扩展分区就要占16字节（分区信息，MBR扇区的64字节里），所以最多一共就能建4个（实际上，扩展分区只能建一个）</p><p>大写、小写、字母、特殊符号四选三即可符合密码复杂性要求</p><p>GPT分区方式（？）：扩展卷等。</p><p>vmnet（虚拟网络）</p><ul><li>仅主机模式——交换机：构建局域网<ul><li>仅主机模式可以创建多个</li><li><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/image-20210413192529113.1x1qmowpmhvk.png" alt="image-20210413192529113"></li></ul></li><li>NAT模式（网络地址转换）（不同于桥接模式，不占用宿主同网段的IP，就像家庭宽带多个设备用的都是私有网段的IP）——虚拟机可以上互联网（）</li><li>桥接模式（会分配一个和宿主机一个网段的真实的IP）——虚拟机可以上互联网（但其实是可以上宿主机的连接的网）</li></ul><p>注意：NAT模式和桥接模式的区别</p><p>cm架构（Client-Server）和bm（Browser-Server）架构</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 信息安全培训笔记 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>修改mysql配置文件位置</title>
       <link href="/dopphu/2021/04/25/%E4%BF%AE%E6%94%B9mysql%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE02/"/>
       <url>/dopphu/2021/04/25/%E4%BF%AE%E6%94%B9mysql%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE02/</url>

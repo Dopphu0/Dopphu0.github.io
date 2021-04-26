@@ -189,6 +189,503 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/25/%E6%85%A2%E6%9F%A5%E8%AF%A2%E6%97%A5%E5%BF%9708/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2021/04/25/%E6%85%A2%E6%9F%A5%E8%AF%A2%E6%97%A5%E5%BF%9708/" class="post-title-link" itemprop="url">慢查询日记08</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-25 13:35:00 / 修改时间：13:38:48" itemprop="dateCreated datePublished" datetime="2021-04-25T13:35:00+08:00">2021-04-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/mysql%E9%AB%98%E7%BA%A7/" itemprop="url" rel="index"><span itemprop="name">mysql高级</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="慢查询日志"><a href="#慢查询日志" class="headerlink" title="慢查询日志"></a>慢查询日志</h1><h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><ul>
+<li>MySQL的慢查询日志是MySQL提供的一种日志记录，它用来记录在MySQL中响应时间超过阈值的语句，具体运行时间超过<code>long_query_time</code>值的SQL，则会被记录到慢查询日志中。</li>
+<li>具体运行时间超过<code>long_query_time</code>值的SQL，则会被记录到慢查询日志中。<code>long_query_time</code>的默认值是10，意思是运行10秒以上的语句。（等于10则不会被记录）</li>
+<li>由他来查看哪些SQL超过了我们的最大忍耐时间，比如一条sql执行超过5秒，我们就算慢sql，希望能收集超过5秒的sql，结合之前的explain进行全面分析。</li>
+</ul>
+<h2 id="怎么玩"><a href="#怎么玩" class="headerlink" title="怎么玩"></a>怎么玩</h2><h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>默认情况下，MySQL 数据库没有开启慢查询日志，需要我们手动来设置这个参数。</p>
+<p>当然，如果不是调优需要的话，一般不建议启动该参数，因为开启慢查询日志会或多或少带来一定的性能影响。慢查询日志支持将日志记录写入文件。</p>
+<h3 id="查看是否开启以及如何开启"><a href="#查看是否开启以及如何开启" class="headerlink" title="查看是否开启以及如何开启"></a>查看是否开启以及如何开启</h3><p>默认：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> <span class="keyword">VARIABLES</span> <span class="keyword">LIKE</span> <span class="string">&#x27;%slow_query_log%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>开启：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> slow_query_log=<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<p>该设置方法仅对当前数据库有效（退出后进入就需要重新设置），如要永久生效，就必须修改配置文件my.cnf（其它系统变量也是如此）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/image-20210227143634594.2z45tm6uenk0.png" alt="image-20210227143634594"></p>
+<p>示例配置</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E7%A4%BA%E4%BE%8B%E9%85%8D%E7%BD%AE.4pn5aycf2rs0.jpg" alt="示例配置"></p>
+<p>使用命令</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> long_query_time=<span class="number">3</span>;</span><br></pre></td></tr></table></figure>
+
+<p>修改到阈值到3秒钟的就是慢SQL</p>
+<h3 id="为什么设置后看不出变化？"><a href="#为什么设置后看不出变化？" class="headerlink" title="为什么设置后看不出变化？"></a>为什么设置后看不出变化？</h3><p>需要重新连接或开一个会话才能看到修改值</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">&#x27;%long_query_time%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="强行睡4秒"><a href="#强行睡4秒" class="headerlink" title="强行睡4秒"></a>强行睡4秒</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">sleep</span>(<span class="number">4</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="查询当前有多少条慢查询记录"><a href="#查询当前有多少条慢查询记录" class="headerlink" title="查询当前有多少条慢查询记录"></a>查询当前有多少条慢查询记录</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">global</span> <span class="keyword">status</span> <span class="keyword">like</span> <span class="string">&#x27;%Slow_queries%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="日志分析工具MySQLdumpslow"><a href="#日志分析工具MySQLdumpslow" class="headerlink" title="日志分析工具MySQLdumpslow"></a>日志分析工具MySQLdumpslow</h2><h3 id="查看MySQLdumpslow的帮助信息"><a href="#查看MySQLdumpslow的帮助信息" class="headerlink" title="查看MySQLdumpslow的帮助信息"></a>查看MySQLdumpslow的帮助信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ MySQLdumpslow --<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
+
+<p>S：是表示按照何种方式进行排序</p>
+<p>c：访问次数</p>
+<p>l：锁定时间</p>
+<p>r：返回记录</p>
+<p>t：查询时间</p>
+<p>al：平均锁定时间</p>
+<p>ar：平均返回记录数</p>
+<p>at：平均查询时间</p>
+<p>t：即为返回前面多少条的数据</p>
+<p>g：后边搭配一个正则表达式，大小写不敏感</p>
+<h3 id="工作日常参考"><a href="#工作日常参考" class="headerlink" title="工作日常参考"></a>工作日常参考</h3><p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%B8%B8%E5%8F%82%E8%80%83.61zsl17et3c0.jpg" alt="工作日常参考"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/25/%E6%9F%A5%E8%AF%A2%E6%88%AA%E5%8F%96%E5%88%86%E6%9E%9007/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2021/04/25/%E6%9F%A5%E8%AF%A2%E6%88%AA%E5%8F%96%E5%88%86%E6%9E%9007/" class="post-title-link" itemprop="url">查询截取分析07</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-25 13:35:00 / 修改时间：13:38:44" itemprop="dateCreated datePublished" datetime="2021-04-25T13:35:00+08:00">2021-04-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/mysql%E9%AB%98%E7%BA%A7/" itemprop="url" rel="index"><span itemprop="name">mysql高级</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>分析步骤：</p>
+<ol>
+<li>观察，至少跑一天，看看 生产的慢SQL情况</li>
+<li>开启慢查询日志， 设置阈值，比如超过5秒就是慢SQL，并将它抓去出来</li>
+<li>explain+慢SQL分析</li>
+<li>show profile</li>
+<li>运维经理 or DBA，进行SQL数据库服务器的参数调优</li>
+</ol>
+<p>总结：</p>
+<p>1 慢查询的开启并捕获</p>
+<p>2 explain + 慢SQL分析</p>
+<p>3 show profile查询SQL在MySQL服务器里面的执行细节和生命周期情况</p>
+<p>4 SQL数据库服务器的参数调优</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/in%E4%B8%8Eexists%E5%AF%B9%E6%AF%94.674wmlz4wnw0.jpg" alt="in与exists对比"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/image-20210225181556935.30io97nllaa0.jpg" alt="image-20210225181556935"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/25/%E7%AC%94%E8%AE%B003/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2021/04/25/%E7%AC%94%E8%AE%B003/" class="post-title-link" itemprop="url">笔记03</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-25 13:35:00 / 修改时间：13:38:40" itemprop="dateCreated datePublished" datetime="2021-04-25T13:35:00+08:00">2021-04-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/mysql%E9%AB%98%E7%BA%A7/" itemprop="url" rel="index"><span itemprop="name">mysql高级</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>查看字符集</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">&#x27;character%&#x27;</span>;</span><br><span class="line">或</span><br><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">&#x27;%char%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>二进制日志lob-bin：主从复制</p>
+<p>错误日志log-error：默认是关闭的，记录严重的警告和错误信息，每次启动和关闭的详细信息。</p>
+<p>查询日志log</p>
+<p>数据文件 : linux 下路径 /var/lib/mysql</p>
+<ul>
+<li>frm：存放表结构</li>
+<li>myd：存放表数据</li>
+<li>myi：存放索引</li>
+</ul>
+<h2 id="mysql逻辑架构"><a href="#mysql逻辑架构" class="headerlink" title="mysql逻辑架构"></a>mysql逻辑架构</h2><p>和其他数据库相比，mysql有点与众不同，它的架构可以在多种不同的场景中应用并发挥良好作用。主要体现在存储引擎的架构上，<strong>插件式的存储引擎架构将查询处理和其它的系统任务以及数据的存储提取相分离。</strong>这种架构可以根据业务的需求和实际需要选择合适的存储引擎。</p>
+<p>me：哪层出事找哪层解决。</p>
+<p>1.连接层 2.服务层 3.引擎层 4.存储层</p>
+<h2 id="存储引擎简介"><a href="#存储引擎简介" class="headerlink" title="存储引擎简介"></a>存储引擎简介</h2><p>常用的两个：innodb和MYISAM</p>
+<ol>
+<li><p>查看你的mysql现在提供的存储引擎</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show engines;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看你的mysql当前默认的存储引擎</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show variables like &#x27;%storage_engine%&#x27;;</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/25/MySql%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%9005/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2021/04/25/MySql%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%9005/" class="post-title-link" itemprop="url">MySQL性能分析05</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-25 13:35:00 / 修改时间：13:39:27" itemprop="dateCreated datePublished" datetime="2021-04-25T13:35:00+08:00">2021-04-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/mysql%E9%AB%98%E7%BA%A7/" itemprop="url" rel="index"><span itemprop="name">mysql高级</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>MySQL Query Optimizer</strong></p>
+<p>mysql 会 ‘ 按自己理解进行优化 ’</p>
+<p><strong>MySQL常见瓶颈</strong></p>
+<p>CPU：CPU在饱和的时候一般发生在数据装入内存或从磁盘上读取数据的时候</p>
+<p>IO：磁盘I/O瓶颈发生在装入数据远大于内存容量的时候</p>
+<p>服务器硬件的性能瓶颈：top，free，iostat和vmstat来查看系统的性能状态</p>
+<p><strong>Explain</strong></p>
+<p>是什么：官网</p>
+<p>能干吗</p>
+<ul>
+<li>表的读取顺序</li>
+<li>数据读取操作的类型</li>
+<li>哪些些索引可以使用</li>
+<li>哪些索引被实际使用</li>
+<li>表之间的引用</li>
+<li>每张表有多少行被优化器查询</li>
+</ul>
+<p>怎么玩</p>
+<ul>
+<li><p>Explain + SQL语句</p>
+</li>
+<li><p>执行计划包含的信息</p>
+<ul>
+<li>id</li>
+<li>select_type</li>
+<li>table</li>
+<li>type</li>
+<li>possible_keys</li>
+<li>key</li>
+<li>key_len</li>
+<li>ref</li>
+<li>rows</li>
+<li>Extra</li>
+</ul>
+</li>
+</ul>
+<p>各字段解释</p>
+<h4 id="id"><a href="#id" class="headerlink" title="id"></a>id</h4><ol>
+<li><p>id相同</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/id%E7%9B%B8%E5%90%8C.1cgztjz8xn7k.jpg" alt="id相同"></p>
+</li>
+<li><p>id不同</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/image-20210223171906278.11iudbukzv80.png" alt="image-20210223171906278"></p>
+</li>
+<li><p>不同相同同时存在</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E4%B8%8D%E5%90%8C%E7%9B%B8%E5%90%8C%E5%90%8C%E6%97%B6%E5%AD%98%E5%9C%A8.m1qfmohbnds.jpg" alt="不同相同同时存在"></p>
+</li>
+</ol>
+<h4 id="select-type"><a href="#select-type" class="headerlink" title="select_type"></a>select_type</h4><p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/image-20210224125954736.5dc52qxrb2o0.png" alt="image-20210224125954736"></p>
+<ul>
+<li><p>simple</p>
+<p>简单的select查询，查询中不包含子查询或union</p>
+</li>
+<li><p>primary</p>
+<p>查询中若包含任何复杂的子部分，最外层查询则被标记为primary</p>
+</li>
+<li><p>subquery</p>
+<p>在select或where中包含子查询</p>
+</li>
+<li><p>derived</p>
+<p>在from列表中包含的子查询被标记为derived（衍生）MySQL会递归执行这些子查询，把结果放在临时表里。</p>
+</li>
+<li><p>union</p>
+<p>若第二个select出现在union之后，则被标记为union，若union包含在from子句的子查询中，外层select将被标记为derived</p>
+</li>
+<li><p>union result</p>
+<p>从union表中获取结果的select</p>
+</li>
+</ul>
+<h4 id="table"><a href="#table" class="headerlink" title="table"></a>table</h4><p>显示这一行数据是关于哪张表的</p>
+<h4 id="type"><a href="#type" class="headerlink" title="type"></a>type</h4><p>常见的几种</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/image-20210224131707846.63bnb6dttmk0.png" alt="image-20210224131707846"></p>
+<p>从最好到最差依次是（实际应用中达到<strong>ref</strong>已经很好了）</p>
+<p>system &gt; const&gt; eq_ref &gt; ref &gt; range &gt; index &gt; ALL</p>
+<ul>
+<li><p>system</p>
+<p>表只有一行记录（等于系统表），这是const类型的特例，平时不会出现</p>
+</li>
+<li><p>const</p>
+<p>表示通过索引一次就找到了，const用于比较primary key或者unique索引。因为只匹配一行数据，所以很快。如将主键置于where列表中，MySQL就能将该查询转换为一个常量。</p>
+</li>
+<li><p>eq_ref</p>
+<p>唯一性索引扫描，对于每个索引键，表中只有一条记录与之匹配。常见于主键或唯一索引扫描</p>
+<p>me：ceo一个人一个部门号</p>
+</li>
+<li><p>ref</p>
+<p>非唯一性索引扫描，返回匹配某个单独值的所有行。本质上也是一种索引访问，它返回所有匹配某个单独值的行，然而，它可能会找到多个符合条件的行，所以他应该属于查找和扫描的混合体。</p>
+<p>me：程序员 很多人一个部门号 </p>
+</li>
+<li><p>range</p>
+<p>只检索给定范围的行，使用一个索引来选择行。key列显示使用了哪个索引，一般就是在你的where语句中出现了between、&gt; 、&lt; 、in等的查询，这种范围扫描索引扫描比全表扫描要好，因为它只需要开始于索引的某一点，而结束于另一点，不用扫描全部索引。</p>
+</li>
+<li><p>index</p>
+<p>Full Index Scan，index与ALL区别为index类型只遍历索引树。这通常比ALL快，因为索引文件通常比数据文件小。（也就是说虽然ALL和index都是读全表，但index是从索引中读取的，而ALL是从硬盘中读取的）</p>
+<p>e.g. <code>select id from table1；</code></p>
+</li>
+<li><p>ALL</p>
+<p>Full Table Scan，将会遍历全表以找到匹配的行。</p>
+</li>
+</ul>
+<p>备注：一般来说，得保证查询<strong>至少要达到range</strong>级别，<strong>最好能达到ref</strong></p>
+<h4 id="possible-keys"><a href="#possible-keys" class="headerlink" title="possible_keys"></a>possible_keys</h4><p>显示可能应用到这张表的索引，一个或多个</p>
+<p>查询涉及到的字段上若存在索引，则该索引将被列出，但不一定被查询实际使用</p>
+<h4 id="key"><a href="#key" class="headerlink" title="key"></a>key</h4><p>实际使用的索引。如果为NULL，则没有使用索引</p>
+<p>查询中若涉及覆盖索引，则该索引仅出现在key列表中</p>
+<p>补充：<strong>索引覆盖</strong>——就是建立的索引顺序与查询字段顺序一致</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/image-20210224140707068.1rw8eocqft0g.png" alt="image-20210224140707068"></p>
+<h4 id="key-len"><a href="#key-len" class="headerlink" title="key_len"></a>key_len</h4><p>表示索引中使用的字节数，可以通过该列计算查询中使用的索引的长度。在不损失精确性的情况下，长度越短越好。key_len显示的值为索引字段的最大可能长度，并非实际使用长度，即key_len，是根据表定义计算而得，不是通过表内检索出的</p>
+<h4 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h4><p>显示索引的哪一列被使用了，如果可能的话，是一个常数，哪些列或常量被用于查找索引列上的值</p>
+<h4 id="rows"><a href="#rows" class="headerlink" title="rows"></a>rows</h4><p>根据表统计信息及索引选用情况，大致估算出找到所需的记录所需要读取的行数，如图</p>
+<p>建索引与不建索引</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/image-20210224175825326.26eafg3mn00w.png" alt="image-20210224175825326"></p>
+<h4 id="Extra"><a href="#Extra" class="headerlink" title="Extra"></a>Extra</h4><p>包含不适合在其它列显示又十分重要的额外信息，如下：（前三个重要）</p>
+<ol>
+<li><p><strong>Using filesort</strong> （文件内排序）</p>
+<p>说明MySQL会对数据使用一个外部的索引排序，而不是按照表内的索引顺序进行读取。MySQL中无法利用索引完成的排序操作成为 “ 文件排序 ” </p>
+<p>![Using filesort](<a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/Using">https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/Using</a> filesort.1wfom72r6vvk.jpg)</p>
+</li>
+<li><p><strong>Using temporary</strong></p>
+<p>使用了临时表保存中间结果，MySQL在对查询结果排序时使用临时表。常见于排序order by 和 分组查询 group by</p>
+<p>![Using temporary](<a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/Using">https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/Using</a> temporary.2h278atqp9q0.jpg)</p>
+</li>
+<li><p><strong>Using index</strong></p>
+<p>表示相应的select操作中使用了覆盖索引（Covering Index），避免访问了表的数据行，效率不错！</p>
+<p>如果同时出现 using where ，表明索引被用来执行索引键值的查找</p>
+<p>如果没有同时出现 using where ，表明索引用来读取数据而非执行查找动作</p>
+<p><strong>覆盖索引</strong> （Covering Index），一说为索引覆盖</p>
+<p>​    理解方式一（推荐）：就是select的数据列只从索引中就能够取得，MySQL可以利用索引返回select列表中的字段，而不必根据索引再次读取数据文件。换句或说<strong>查询列要被所建的索引覆盖</strong>。</p>
+<p>​    理解方式二：索引是高效找到行的一个方法，但是一般数据库也能使用索引找到一个列的数据，因此它不必读取整个行。毕竟索引叶子节点存储了它们索引的数据。当能通过读取索引就可以得到想要的数据，那就不需要读取行了。一个索引包含了（或覆盖了）满足查询结果的数据就叫做覆盖索引。</p>
+<p>![Using index](<a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/Using">https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/Using</a> index.21cx30x4zjuo.jpg)</p>
+<p>注意：</p>
+<p>​    如果要使用覆盖索引，一定要注意select列表中只取出需要的列，不可select * </p>
+<p>​    因为如果将所有字段一起做索引会导致索引文件过大，查询性能下降</p>
+</li>
+<li><p>Using where</p>
+</li>
+<li><p>using join buffer</p>
+<p>使用了连接缓存</p>
+</li>
+<li><p>impossible where</p>
+<p>where子句的值总是false，不能用来获取任何元组。</p>
+</li>
+<li><p>select tables optimized away</p>
+<p>在没有GROUP BY子句的情况下，基于索引优化MIN/MAX操作或者对于MYISAM存储引擎优化COUNT(*)操作，不必等到执行阶段再计算，查询执行计划生成阶段即可完成优化。</p>
+</li>
+<li><p>distinct</p>
+<p>优化 distinct 操作，在找到第一匹配的元祖后即停止找同样值的操作。</p>
+</li>
+</ol>
+<h4 id="一个热身case"><a href="#一个热身case" class="headerlink" title="一个热身case"></a>一个热身case</h4><p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/image-20210224191718084.23egz7jnbgrk.png" alt="image-20210224191718084"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/25/11%E5%85%A8%E5%B1%80%E6%9F%A5%E8%AF%A2%E6%97%A5%E5%BF%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -687,288 +1184,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/10/%E6%8E%A5%E5%8F%A3JDk8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2021/04/10/%E6%8E%A5%E5%8F%A3JDk8/" class="post-title-link" itemprop="url">接口JDK8</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-04-10 11:12:28 / 修改时间：11:12:16" itemprop="dateCreated datePublished" datetime="2021-04-10T11:12:28+08:00">2021-04-10</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**（接口）</span></span><br><span class="line"><span class="comment"> * JDK8（以后） 除了定义全局常量和抽象方法之外，可以定义静态方法、默认方法</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> chapter06;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test13</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SubClass s = <span class="keyword">new</span> SubClass();</span><br><span class="line">		</span><br><span class="line"><span class="comment">//		s.method1();//调不了</span></span><br><span class="line">		<span class="comment">//接口中定义的静态方法，只能通过接口来调用</span></span><br><span class="line">		CompareA.method1();</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//通过实现类的对象，可以调用接口的默认方法</span></span><br><span class="line">		<span class="comment">//如果实现类重写了接口中的默认方法，则调用重写后的方法</span></span><br><span class="line">		s.method2();</span><br><span class="line">		s.method3();</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//知识点：类优先原则</span></span><br><span class="line">		<span class="comment">//如果子类（或实现类）继承的父类和实现的接口中声明了同名同参数的默认方法，</span></span><br><span class="line">		<span class="comment">//那么子类在没有重写此方法的情况下，默认调用的是父类中同名同参数的默认方法</span></span><br><span class="line">		</span><br><span class="line">		s.method3();</span><br><span class="line">		<span class="comment">//那么要是多实现呢？实现的多个接口中有同名同参数的默认方法，则会报错：接口冲突</span></span><br><span class="line">		<span class="comment">//冲突了你还想用，那就必须重写了</span></span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">CompareA</span></span>&#123;</span><br><span class="line">	<span class="comment">//静态方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">method1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;CompareAMethod&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//默认方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">default</span> <span class="keyword">void</span> <span class="title">method2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;CompareA：上海&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">method3</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;CompareMethod3&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubClass</span> <span class="keyword">extends</span> <span class="title">SuperClass</span> <span class="keyword">implements</span> <span class="title">CompareA</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;method2重写&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method3</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;接口实现重写的method&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">myMethod</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		method3();<span class="comment">//重写的方法</span></span><br><span class="line">		<span class="keyword">super</span>.method3();<span class="comment">//调用父类中的方法</span></span><br><span class="line">		<span class="comment">//知识点：如何实现调用接口中的默认方法</span></span><br><span class="line">		CompareA.<span class="keyword">super</span>.method3();<span class="comment">//调用接口中的默认方法</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SuperClass</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method3</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;SuperClass的method3&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/10/%E6%8E%A5%E5%8F%A3%E7%9A%84%E4%BD%BF%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2021/04/10/%E6%8E%A5%E5%8F%A3%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">接口的使用</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-04-10 11:10:34 / 修改时间：11:08:54" itemprop="dateCreated datePublished" datetime="2021-04-10T11:10:34+08:00">2021-04-10</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 接口的使用,，满足多态性</span></span><br><span class="line"><span class="comment"> * 接口，实际上是定义了一种规范</span></span><br><span class="line"><span class="comment"> * 在开发中体会面向接口编程</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> chapter06;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test11</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Computer com = <span class="keyword">new</span> Computer();</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//1.创建了接口的非匿名实现类的非匿名对象</span></span><br><span class="line">		Flash flash = <span class="keyword">new</span> Flash();</span><br><span class="line">		com.transferData(flash);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//2.创建了接口的非匿名实现类的匿名对象</span></span><br><span class="line">		com.transferData(<span class="keyword">new</span> Printer());</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//3.创建了接口的匿名实现类的非匿名对象</span></span><br><span class="line">		USB phone = <span class="keyword">new</span> USB() &#123;</span><br><span class="line">		</span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span> </span>&#123;</span><br><span class="line">				System.out.println(<span class="string">&quot;手机开始工作&quot;</span>);</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">				System.out.println(<span class="string">&quot;手机停止工作&quot;</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//4.创建匿名实现类的匿名对象</span></span><br><span class="line">		com.transferData(<span class="keyword">new</span> USB() &#123;</span><br><span class="line"></span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span> </span>&#123;</span><br><span class="line">				<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">				System.out.println(<span class="string">&quot;mp3开始工作&quot;</span>);</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">				<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">				System.out.println(<span class="string">&quot;mp3停止工作&quot;</span>);</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">		&#125;);</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Computer</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">transferData</span><span class="params">(USB usb)</span> </span>&#123;</span><br><span class="line">		usb.start();</span><br><span class="line">		</span><br><span class="line">		System.out.println(<span class="string">&quot;具体的工作&quot;</span>);</span><br><span class="line">		usb.stop();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">USB</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//常量：定义了长、宽、高最大最小的传输速度</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">start</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Flash</span> <span class="keyword">implements</span> <span class="title">USB</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;U盘开始工作&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;U盘结束工作&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Printer</span> <span class="keyword">implements</span> <span class="title">USB</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;打印机开始工作&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;打印机结束工作&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/10/%E6%8E%A5%E5%8F%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2021/04/10/%E6%8E%A5%E5%8F%A3/" class="post-title-link" itemprop="url">接口interface</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-04-10 11:10:34 / 修改时间：11:07:41" itemprop="dateCreated datePublished" datetime="2021-04-10T11:10:34+08:00">2021-04-10</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 接口interface</span></span><br><span class="line"><span class="comment"> * 1.接口的使用interface来定义</span></span><br><span class="line"><span class="comment"> * 2.Java中，接口和类是并列的两个结构</span></span><br><span class="line"><span class="comment"> * 3.如何定义接口：定义接口中的成员</span></span><br><span class="line"><span class="comment"> * 		3.1 JDK7及以前：只能定义全局常量和抽象方法</span></span><br><span class="line"><span class="comment"> * 			&gt; 全局常量：public static final的，但是书写时可以省略不写</span></span><br><span class="line"><span class="comment"> * 			&gt; 抽象方法：public abstract</span></span><br><span class="line"><span class="comment"> * 		3.2 JDK8 除了定义全局常量和抽象方法之外，可以定义静态方法、默认方法（略）</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 4.接口中不能定义构造器，意味着接口不可以实例化</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 5. Java开发中，接口通过让类去实现(implements)的方式来使用</span></span><br><span class="line"><span class="comment"> * 	如果实现类覆盖了接口中的所有抽象方法，则此实现类就可以实例化</span></span><br><span class="line"><span class="comment"> * 	如果实现类没有覆盖接口中所有的抽象方法，则此实现类仍为一个抽象类</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 6.Java类可以实现多个接口——&gt;弥补了Java单继承的局限性</span></span><br><span class="line"><span class="comment"> * 		格式：class AA extends BB implements CC,DD,EE</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 7. 接口与接口之间可以继承且可以多继承</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 8. 接口的具体使用，体现多态性</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 9.接口，实际上可以看做是一种规范</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 面试题：抽象类和接口有哪些异同</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> chapter06;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test10</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Plane p = <span class="keyword">new</span> Plane();</span><br><span class="line">		p.stop();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Flyable</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//全局变量</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MAX_SPEED = <span class="number">7000</span>;<span class="comment">//第一宇宙速度</span></span><br><span class="line">	<span class="keyword">int</span> MIN_SPEED = <span class="number">1</span>;<span class="comment">//省略了public static final</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">//抽象的方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">fly</span><span class="params">()</span></span>;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span></span>;<span class="comment">//省略了public abstract</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Plane</span> <span class="keyword">implements</span> <span class="title">Flyable</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fly</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		System.out.println(<span class="string">&quot;Plane can fly&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		System.out.println(<span class="string">&quot;Plane can stop&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">AA</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">method1</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">BB</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">method2</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">CC</span> <span class="keyword">extends</span> <span class="title">AA</span>,<span class="title">BB</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/10/%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%BA%94%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2021/04/10/%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">接口的应用-代理模式</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-10 11:10:34" itemprop="dateCreated datePublished" datetime="2021-04-10T11:10:34+08:00">2021-04-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-14 11:06:10" itemprop="dateModified" datetime="2021-04-14T11:06:10+08:00">2021-04-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 接口的应用：代理模式</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> chapter06;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Proxy;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test12</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Server server = <span class="keyword">new</span> Server();</span><br><span class="line">		ProxyServer proxyServer = <span class="keyword">new</span> ProxyServer(server);</span><br><span class="line">		</span><br><span class="line">		proxyServer.browse();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">NetWork</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">browse</span><span class="params">()</span></span>;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Server</span> <span class="keyword">implements</span> <span class="title">NetWork</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">browse</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		System.out.println(<span class="string">&quot;真是的服务器网络&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//代理类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProxyServer</span> <span class="keyword">implements</span> <span class="title">NetWork</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> NetWork work;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> work</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ProxyServer</span><span class="params">(NetWork work)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>();</span><br><span class="line">		<span class="keyword">this</span>.work = work;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">check</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;联网前的准备工作&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">browse</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		check();</span><br><span class="line">		work.browse();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1040,7 +1255,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/dopphu/archives/">
         
-          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-count">89</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
