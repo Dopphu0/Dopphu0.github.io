@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>20210426信息安全培训笔记06</title>
+      <link href="/dopphu/2021/04/26/20210426%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B006/"/>
+      <url>/dopphu/2021/04/26/20210426%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B006/</url>
+      
+        <content type="html"><![CDATA[<p>共享文件夹占用的端口——137、138、（前两个UDP）139、445（后两个TCP）</p><p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%85%B1%E4%BA%AB%E6%89%80%E5%8D%A0%E7%94%A8%E7%9A%84%E7%AB%AF%E5%8F%A3.5jalfwv5gm00.jpg" alt="共享所占用的端口"></p><ul><li>共享权限<ul><li>完全控制</li><li>读取</li><li>更改</li></ul></li><li>本地权限</li></ul><p>两者冲突小的（安全）生效，将完全控制勾选，就可以通过本地权限进行访问控制了（因为共享权限太大了）</p><ul><li><p>如何做</p><ul><li><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%88%9B%E5%BB%BA%E5%85%B1%E4%BA%AB.2x6ucmw7a8y0.jpg" alt="创建共享"></li></ul></li><li><p>如何访问</p><p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%85%B1%E4%BA%AB%E8%AE%BF%E9%97%AE.6odtj63toxs0.jpg" alt="共享访问"></p><p>忘记权限——注销后即可</p><p>后面也可以加上文件路径——访问指定的共享文件夹（外层的就看不到了）</p></li><li><p>隐藏共享</p><ul><li>共享名后加上$</li><li><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E9%9A%90%E8%97%8F%E5%85%B1%E4%BA%AB.5pabvzwtwyg0.jpg" alt="隐藏共享"></li></ul></li><li><p>权限管理——实际上仍然是利用NTFS的权限管理</p></li></ul><p>对等网→C-S架构（Client-Server）</p><p>补充内容：</p><p>拿到一块全新的磁盘以后</p><ol><li><p>联机</p></li><li><p>初始化</p></li><li><p>分区方式</p><ol><li>MBR</li></ol></li></ol><ol start="2"><li><p>GPT（只能存数据，不能装系统?）</p><ol><li>优点：读写速度快、跨磁盘、安全（镜像卷）</li><li>缺点：占用空间大</li><li>卷：<ul><li>简单卷<ul><li>普通分区</li><li>动态扩容</li></ul></li><li>跨区卷<ul><li>至少两个磁盘，最多可以32块硬盘</li><li>融盘（跨盘）</li><li>读写速度一般（一块存完再存下一块）</li><li>动态扩容</li><li>可以扩展，可以压缩</li></ul></li><li>带区卷<ul><li>2-32</li><li>多硬盘同时读取</li><li>每块大小要相同，<del>这也决定了扩容时也要扩的一样大</del> 不可扩展</li></ul></li><li>镜像卷<ul><li>2</li><li>利用率低，只有50%</li><li>不可扩展</li></ul></li><li>raid-5<ul><li>3-32</li><li>通错的同时照顾了利用率（两份数据一份校验，三者损其一可通过另外两个将损失的那个复原；校验部分属于无效数据（只是为了安全，由两个数据部分生成，并不是我们需要使用的数据））</li><li>不可扩展</li></ul></li></ul></li></ol></li></ol><p>注：只有简单卷和跨区卷可以扩展，其它的卷都不能扩展</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">作业：会建立各种分区、各种卷</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 信息安全培训笔记 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>20210414信息安全培训笔记04</title>
       <link href="/dopphu/2021/04/26/20210414%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B004/"/>
       <url>/dopphu/2021/04/26/20210414%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B004/</url>
