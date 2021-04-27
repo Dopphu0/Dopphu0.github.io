@@ -18,8 +18,8 @@
   
   <entry>
     <title>20210426信息安全培训笔记06</title>
-    <link href="https://gitee.com/dopphu/dopphu.git/2021/04/26/20210426%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B006/"/>
-    <id>https://gitee.com/dopphu/dopphu.git/2021/04/26/20210426%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B006/</id>
+    <link href="https://gitee.com/dopphu/dopphu.git/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210426%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B006/"/>
+    <id>https://gitee.com/dopphu/dopphu.git/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210426%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B006/</id>
     <published>2021-04-26T15:22:02.047Z</published>
     <updated>2021-04-26T15:22:28.748Z</updated>
     
@@ -40,9 +40,32 @@
   </entry>
   
   <entry>
+    <title>20210413信息安全培训笔记03</title>
+    <link href="https://gitee.com/dopphu/dopphu.git/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210413%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B003/"/>
+    <id>https://gitee.com/dopphu/dopphu.git/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210413%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B003/</id>
+    <published>2021-04-26T04:28:27.146Z</published>
+    <updated>2021-04-26T04:32:39.359Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="用户、用户组、组的管理"><a href="#用户、用户组、组的管理" class="headerlink" title="用户、用户组、组的管理"></a>用户、用户组、组的管理</h2><p>用户账户拥有唯一的安全标识符SID</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打开命令行查看SID命令</span></span><br><span class="line">$ whoami -user</span><br><span class="line"><span class="comment">#</span></span><br></pre></td></tr></table></figure><p>SID=系统ID+用户ID（用户ID如下面最后的500，另外Windows系统的管理员用户均为ID为500，普通账户从1000开始）</p><p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/image-20210413193931980.17ejhfj95j40.png" alt="image-20210413193931980"></p><p>同一个系统下的用户的系统ID相同，用户ID不同</p><p>注册表：regedit.exe</p><p>虚拟机中用 <code>ctrl+alt+insert</code> 代替 <code>ctrl+alt+delete</code> （以免与真实机热键冲突）</p><h3 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h3><h4 id="1-如何查看用户"><a href="#1-如何查看用户" class="headerlink" title="1.如何查看用户"></a>1.如何查看用户</h4><ol><li><h5 id="图形化界面"><a href="#图形化界面" class="headerlink" title="图形化界面"></a>图形化界面</h5><p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7.ptabbx5cgk.jpg" alt="图形化界面管理用户"></p></li><li><h5 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h5></li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看用户</span></span><br><span class="line">$ net user</span><br><span class="line"><span class="comment"># 添加用户（默认属于users组）</span></span><br><span class="line">$ net user 用户名 密码/add</span><br><span class="line"><span class="comment"># 重设密码</span></span><br><span class="line">$ net user 用户名 新密码</span><br><span class="line"><span class="comment"># 清空密码（需要在本地安全策略禁用 “密码必须符合复杂性要求” ） </span></span><br><span class="line">$ net user 用户名 <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="comment"># 查看用户详细信息</span></span><br><span class="line">$ net user 用户名</span><br><span class="line"><span class="comment"># 激活用户</span></span><br><span class="line">$ net user 用户名 /active:yes</span><br><span class="line"><span class="comment"># 禁用账户</span></span><br><span class="line">$ net user 用户名 /active:no</span><br><span class="line"><span class="comment"># 删除账户</span></span><br><span class="line">$ net user 用户名 密码/del</span><br><span class="line"><span class="comment"># 如何把普通用户改为管理员（将用户添加到管理员组，涉及用户组的概念）</span></span><br><span class="line">$ net localgroup administrators 用户名/add</span><br><span class="line"><span class="comment"># 将用户从管理员组中踢出</span></span><br><span class="line">$ net localgroup administrators 用户名/del</span><br></pre></td></tr></table></figure><p>内置账户，如：win-server 2008 的Guest（来宾账户，默认是被禁用的，而且一般也要禁用，安全检查时必看）、管理员</p><p>如果一个用户同属于多个组，则权限累加</p><p>msc微软控制台</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看本地安全策略</span></span><br><span class="line">运行——&gt;secpol.msc</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;用户、用户组、组的管理&quot;&gt;&lt;a href=&quot;#用户、用户组、组的管理&quot; class=&quot;headerlink&quot; title=&quot;用户、用户组、组的管理&quot;&gt;&lt;/a&gt;用户、用户组、组的管理&lt;/h2&gt;&lt;p&gt;用户账户拥有唯一的安全标识符SID&lt;/p&gt;
+&lt;figure clas</summary>
+      
+    
+    
+    
+    <category term="信息安全培训笔记" scheme="https://gitee.com/dopphu/dopphu.git/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>20210414信息安全培训笔记04</title>
-    <link href="https://gitee.com/dopphu/dopphu.git/2021/04/26/20210414%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B004/"/>
-    <id>https://gitee.com/dopphu/dopphu.git/2021/04/26/20210414%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B004/</id>
+    <link href="https://gitee.com/dopphu/dopphu.git/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210414%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B004/"/>
+    <id>https://gitee.com/dopphu/dopphu.git/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210414%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B004/</id>
     <published>2021-04-26T04:28:27.146Z</published>
     <updated>2021-04-26T04:32:55.606Z</updated>
     
@@ -70,8 +93,8 @@
   
   <entry>
     <title>20210415信息安全培训笔记05</title>
-    <link href="https://gitee.com/dopphu/dopphu.git/2021/04/26/20210415%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B005/"/>
-    <id>https://gitee.com/dopphu/dopphu.git/2021/04/26/20210415%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B005/</id>
+    <link href="https://gitee.com/dopphu/dopphu.git/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210415%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B005/"/>
+    <id>https://gitee.com/dopphu/dopphu.git/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210415%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B005/</id>
     <published>2021-04-26T04:28:27.146Z</published>
     <updated>2021-04-26T04:33:17.776Z</updated>
     
@@ -96,32 +119,9 @@
   </entry>
   
   <entry>
-    <title>20210413信息安全培训笔记03</title>
-    <link href="https://gitee.com/dopphu/dopphu.git/2021/04/26/20210413%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B003/"/>
-    <id>https://gitee.com/dopphu/dopphu.git/2021/04/26/20210413%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B003/</id>
-    <published>2021-04-26T04:28:27.146Z</published>
-    <updated>2021-04-26T04:32:39.359Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="用户、用户组、组的管理"><a href="#用户、用户组、组的管理" class="headerlink" title="用户、用户组、组的管理"></a>用户、用户组、组的管理</h2><p>用户账户拥有唯一的安全标识符SID</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打开命令行查看SID命令</span></span><br><span class="line">$ whoami -user</span><br><span class="line"><span class="comment">#</span></span><br></pre></td></tr></table></figure><p>SID=系统ID+用户ID（用户ID如下面最后的500，另外Windows系统的管理员用户均为ID为500，普通账户从1000开始）</p><p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/image-20210413193931980.17ejhfj95j40.png" alt="image-20210413193931980"></p><p>同一个系统下的用户的系统ID相同，用户ID不同</p><p>注册表：regedit.exe</p><p>虚拟机中用 <code>ctrl+alt+insert</code> 代替 <code>ctrl+alt+delete</code> （以免与真实机热键冲突）</p><h3 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h3><h4 id="1-如何查看用户"><a href="#1-如何查看用户" class="headerlink" title="1.如何查看用户"></a>1.如何查看用户</h4><ol><li><h5 id="图形化界面"><a href="#图形化界面" class="headerlink" title="图形化界面"></a>图形化界面</h5><p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7.ptabbx5cgk.jpg" alt="图形化界面管理用户"></p></li><li><h5 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h5></li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看用户</span></span><br><span class="line">$ net user</span><br><span class="line"><span class="comment"># 添加用户（默认属于users组）</span></span><br><span class="line">$ net user 用户名 密码/add</span><br><span class="line"><span class="comment"># 重设密码</span></span><br><span class="line">$ net user 用户名 新密码</span><br><span class="line"><span class="comment"># 清空密码（需要在本地安全策略禁用 “密码必须符合复杂性要求” ） </span></span><br><span class="line">$ net user 用户名 <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="comment"># 查看用户详细信息</span></span><br><span class="line">$ net user 用户名</span><br><span class="line"><span class="comment"># 激活用户</span></span><br><span class="line">$ net user 用户名 /active:yes</span><br><span class="line"><span class="comment"># 禁用账户</span></span><br><span class="line">$ net user 用户名 /active:no</span><br><span class="line"><span class="comment"># 删除账户</span></span><br><span class="line">$ net user 用户名 密码/del</span><br><span class="line"><span class="comment"># 如何把普通用户改为管理员（将用户添加到管理员组，涉及用户组的概念）</span></span><br><span class="line">$ net localgroup administrators 用户名/add</span><br><span class="line"><span class="comment"># 将用户从管理员组中踢出</span></span><br><span class="line">$ net localgroup administrators 用户名/del</span><br></pre></td></tr></table></figure><p>内置账户，如：win-server 2008 的Guest（来宾账户，默认是被禁用的，而且一般也要禁用，安全检查时必看）、管理员</p><p>如果一个用户同属于多个组，则权限累加</p><p>msc微软控制台</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看本地安全策略</span></span><br><span class="line">运行——&gt;secpol.msc</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;用户、用户组、组的管理&quot;&gt;&lt;a href=&quot;#用户、用户组、组的管理&quot; class=&quot;headerlink&quot; title=&quot;用户、用户组、组的管理&quot;&gt;&lt;/a&gt;用户、用户组、组的管理&lt;/h2&gt;&lt;p&gt;用户账户拥有唯一的安全标识符SID&lt;/p&gt;
-&lt;figure clas</summary>
-      
-    
-    
-    
-    <category term="信息安全培训笔记" scheme="https://gitee.com/dopphu/dopphu.git/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>20210408信息安全培训笔记02</title>
-    <link href="https://gitee.com/dopphu/dopphu.git/2021/04/26/20210408%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B002/"/>
-    <id>https://gitee.com/dopphu/dopphu.git/2021/04/26/20210408%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B002/</id>
+    <link href="https://gitee.com/dopphu/dopphu.git/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210408%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B002/"/>
+    <id>https://gitee.com/dopphu/dopphu.git/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210408%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B002/</id>
     <published>2021-04-26T04:28:27.136Z</published>
     <updated>2021-04-26T04:32:11.400Z</updated>
     

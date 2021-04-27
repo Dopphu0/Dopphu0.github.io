@@ -22,24 +22,23 @@
     var CONFIG = {"hostname":"gitee.com","root":"/dopphu/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="共享文件夹占用的端口——137、138、（前两个UDP）139、445（后两个TCP）   共享权限 完全控制 读取 更改   本地权限  两者冲突小的（安全）生效，将完全控制勾选，就可以通过本地权限进行访问控制了（因为共享权限太大了）  如何做     如何访问  忘记权限——注销后即可 后面也可以加上文件路径——访问指定的共享文件夹（外层的就看不到了）  隐藏共享  共享名后加上$    权限">
+  <meta name="description" content="点击 NTFS（New Technology File System）：有分区就可以做文件系统，可以将两个分区各取一部分构成一个新的分区 NTFS 权限  NTFS文件系统 设置文件权限 设置文件夹权限 权限的分类  NTFS权限规则  权限的累加 拒绝权限 继承权限 特别的权限 特殊权限↓ 读取权限的权限 更改权限的权限 取得所有权      123123 NTFS文件系统特点  提高硬盘读写性">
 <meta property="og:type" content="article">
-<meta property="og:title" content="20210426信息安全培训笔记06">
-<meta property="og:url" content="https://gitee.com/dopphu/dopphu.git/2021/04/26/20210426%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B006/index.html">
+<meta property="og:title" content="20210415信息安全培训笔记05">
+<meta property="og:url" content="https://gitee.com/dopphu/dopphu.git/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210415%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B005/index.html">
 <meta property="og:site_name" content="Welcome to Dopphu&#39;s Blog">
-<meta property="og:description" content="共享文件夹占用的端口——137、138、（前两个UDP）139、445（后两个TCP）   共享权限 完全控制 读取 更改   本地权限  两者冲突小的（安全）生效，将完全控制勾选，就可以通过本地权限进行访问控制了（因为共享权限太大了）  如何做     如何访问  忘记权限——注销后即可 后面也可以加上文件路径——访问指定的共享文件夹（外层的就看不到了）  隐藏共享  共享名后加上$    权限">
+<meta property="og:description" content="点击 NTFS（New Technology File System）：有分区就可以做文件系统，可以将两个分区各取一部分构成一个新的分区 NTFS 权限  NTFS文件系统 设置文件权限 设置文件夹权限 权限的分类  NTFS权限规则  权限的累加 拒绝权限 继承权限 特别的权限 特殊权限↓ 读取权限的权限 更改权限的权限 取得所有权      123123 NTFS文件系统特点  提高硬盘读写性">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%85%B1%E4%BA%AB%E6%89%80%E5%8D%A0%E7%94%A8%E7%9A%84%E7%AB%AF%E5%8F%A3.5jalfwv5gm00.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%88%9B%E5%BB%BA%E5%85%B1%E4%BA%AB.2x6ucmw7a8y0.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%85%B1%E4%BA%AB%E8%AE%BF%E9%97%AE.6odtj63toxs0.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E9%9A%90%E8%97%8F%E5%85%B1%E4%BA%AB.5pabvzwtwyg0.jpg">
-<meta property="article:published_time" content="2021-04-26T15:22:02.047Z">
-<meta property="article:modified_time" content="2021-04-26T15:22:28.748Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%8F%96%E6%B6%88%E5%8B%BE%E9%80%89%E4%BB%8E%E8%AF%A5%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%88%B6%E7%BA%A7%E7%BB%A7%E6%89%BF%E7%9A%84%E6%9D%83%E9%99%90.48naigh4m1o0.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%BC%BA%E5%88%B6%E7%94%9F%E6%95%88.6adl3ov1gqo0.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%AE%9E%E9%AA%8C%E4%BD%9C%E4%B8%9A%E5%85%AC%E5%8F%B8%E6%9E%B6%E6%9E%84.4a5cjznp0kk0.jpg">
+<meta property="article:published_time" content="2021-04-26T04:28:27.146Z">
+<meta property="article:modified_time" content="2021-04-26T04:33:17.776Z">
 <meta property="article:author" content="Dopphu">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%85%B1%E4%BA%AB%E6%89%80%E5%8D%A0%E7%94%A8%E7%9A%84%E7%AB%AF%E5%8F%A3.5jalfwv5gm00.jpg">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%8F%96%E6%B6%88%E5%8B%BE%E9%80%89%E4%BB%8E%E8%AF%A5%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%88%B6%E7%BA%A7%E7%BB%A7%E6%89%BF%E7%9A%84%E6%9D%83%E9%99%90.48naigh4m1o0.jpg">
 
-<link rel="canonical" href="https://gitee.com/dopphu/dopphu.git/2021/04/26/20210426%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B006/">
+<link rel="canonical" href="https://gitee.com/dopphu/dopphu.git/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210415%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B005/">
 
 
 <script id="page-configurations">
@@ -52,7 +51,7 @@
   };
 </script>
 
-  <title>20210426信息安全培训笔记06 | Welcome to Dopphu's Blog</title>
+  <title>20210415信息安全培训笔记05 | Welcome to Dopphu's Blog</title>
   
 
 
@@ -197,7 +196,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/26/20210426%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B006/">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210415%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B005/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
@@ -210,7 +209,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          20210426信息安全培训笔记06
+          20210415信息安全培训笔记05
         </h1>
 
         <div class="post-meta">
@@ -221,7 +220,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-04-26 23:22:02 / 修改时间：23:22:28" itemprop="dateCreated datePublished" datetime="2021-04-26T23:22:02+08:00">2021-04-26</time>
+              <time title="创建时间：2021-04-26 12:28:27 / 修改时间：12:33:17" itemprop="dateCreated datePublished" datetime="2021-04-26T12:28:27+08:00">2021-04-26</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -244,97 +243,94 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>共享文件夹占用的端口——137、138、（前两个UDP）139、445（后两个TCP）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%85%B1%E4%BA%AB%E6%89%80%E5%8D%A0%E7%94%A8%E7%9A%84%E7%AB%AF%E5%8F%A3.5jalfwv5gm00.jpg" alt="共享所占用的端口"></p>
+        <p><a href="#1">点击</a></p>
+<p>NTFS（New Technology File System）：有分区就可以做文件系统，可以将两个分区各取一部分构成一个新的分区</p>
+<p>NTFS 权限</p>
 <ul>
-<li>共享权限<ul>
-<li>完全控制</li>
-<li>读取</li>
-<li>更改</li>
+<li>NTFS文件系统</li>
+<li>设置文件权限</li>
+<li>设置文件夹权限</li>
+<li>权限的分类</li>
 </ul>
-</li>
-<li>本地权限</li>
-</ul>
-<p>两者冲突小的（安全）生效，将完全控制勾选，就可以通过本地权限进行访问控制了（因为共享权限太大了）</p>
+<p>NTFS权限规则</p>
 <ul>
-<li><p>如何做</p>
+<li>权限的累加</li>
+<li>拒绝权限</li>
+<li>继承权限</li>
+<li>特别的权限<ul>
+<li>特殊权限↓<ul>
+<li>读取权限的权限</li>
+<li>更改权限的权限</li>
+<li>取得所有权</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><a style="color:red;" id="1">123123</a></p>
+<p>NTFS文件系统特点</p>
 <ul>
-<li><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%88%9B%E5%BB%BA%E5%85%B1%E4%BA%AB.2x6ucmw7a8y0.jpg" alt="创建共享"></li>
-</ul>
+<li><p>提高硬盘读写性能</p>
 </li>
-<li><p>如何访问</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%85%B1%E4%BA%AB%E8%AE%BF%E9%97%AE.6odtj63toxs0.jpg" alt="共享访问"></p>
-<p>忘记权限——注销后即可</p>
-<p>后面也可以加上文件路径——访问指定的共享文件夹（外层的就看不到了）</p>
-</li>
-<li><p>隐藏共享</p>
+<li><p>可靠性</p>
 <ul>
-<li>共享名后加上$</li>
-<li><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E9%9A%90%E8%97%8F%E5%85%B1%E4%BA%AB.5pabvzwtwyg0.jpg" alt="隐藏共享"></li>
+<li>加密文件系统</li>
+<li>访问控制列表（ACL）</li>
 </ul>
 </li>
-<li><p>权限管理——实际上仍然是利用NTFS的权限管理</p>
-</li>
-</ul>
-<p>对等网→C-S架构（Client-Server）</p>
-<p>补充内容：</p>
-<p>拿到一块全新的磁盘以后</p>
-<ol>
-<li><p>联机</p>
-</li>
-<li><p>初始化</p>
-</li>
-<li><p>分区方式</p>
-<ol>
-<li>MBR</li>
-</ol>
-</li>
-</ol>
-<ol start="2">
-<li><p>GPT（只能存数据，不能装系统?）</p>
-<ol>
-<li>优点：读写速度快、跨磁盘、安全（镜像卷）</li>
-<li>缺点：占用空间大</li>
-<li>卷：<ul>
-<li>简单卷<ul>
-<li>普通分区</li>
-<li>动态扩容</li>
-</ul>
-</li>
-<li>跨区卷<ul>
-<li>至少两个磁盘，最多可以32块硬盘</li>
-<li>融盘（跨盘）</li>
-<li>读写速度一般（一块存完再存下一块）</li>
-<li>动态扩容</li>
-<li>可以扩展，可以压缩</li>
-</ul>
-</li>
-<li>带区卷<ul>
-<li>2-32</li>
-<li>多硬盘同时读取</li>
-<li>每块大小要相同，<del>这也决定了扩容时也要扩的一样大</del> 不可扩展</li>
-</ul>
-</li>
-<li>镜像卷<ul>
-<li>2</li>
-<li>利用率低，只有50%</li>
-<li>不可扩展</li>
-</ul>
-</li>
-<li>raid-5<ul>
-<li>3-32</li>
-<li>通错的同时照顾了利用率（两份数据一份校验，三者损其一可通过另外两个将损失的那个复原；校验部分属于无效数据（只是为了安全，由两个数据部分生成，并不是我们需要使用的数据））</li>
-<li>不可扩展</li>
+<li><p>磁盘利用率</p>
+<ul>
+<li>压缩</li>
+<li>磁盘配额（磁盘空间的分配额度）</li>
 </ul>
 </li>
 </ul>
-</li>
-</ol>
-</li>
-</ol>
-<p>注：只有简单卷和跨区卷可以扩展，其它的卷都不能扩展</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">作业：会建立各种分区、各种卷</span><br></pre></td></tr></table></figure>
+<p>常见文件权限：</p>
+<ul>
+<li>读取数据</li>
+<li>写入数据</li>
+<li>附加数据</li>
+<li>删除</li>
+<li>执行文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">一个实验</span><br><span class="line">校长：除了不能删除，其它都可</span><br><span class="line">老师：可以增改查，不可删除</span><br><span class="line">学生：只能看</span><br><span class="line">保安：无任何权限</span><br><span class="line">e.g.</span><br><span class="line">	张三在A用户组，也在B用户组。A可以修改，B不可以修改，那么张三不可以修改（权限冲突时，say no优先（拒绝优先）；不冲突就累加）</span><br></pre></td></tr></table></figure>
 
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%8F%96%E6%B6%88%E5%8B%BE%E9%80%89%E4%BB%8E%E8%AF%A5%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%88%B6%E7%BA%A7%E7%BB%A7%E6%89%BF%E7%9A%84%E6%9D%83%E9%99%90.48naigh4m1o0.jpg" alt="取消勾选从该对象的父级继承的权限"></p>
+<p>将勾选去掉</p>
+<p>不进入文件的ACL里，就啥也干不了</p>
+<p>权限规则：</p>
+<ul>
+<li><ol>
+<li>默认继承（主要针对文件夹）</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>阻止继承</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>强制生效</li>
+</ol>
+<ul>
+<li><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%BC%BA%E5%88%B6%E7%94%9F%E6%95%88.6adl3ov1gqo0.jpg" alt="强制生效"></li>
+</ul>
+</li>
+<li><ol start="4">
+<li>权限不冲突——累加</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>权限冲突（隶属的不同组的冲突，用户和组的冲突）</li>
+</ol>
+</li>
+<li><ol start="6">
+<li>取得所有权</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">实验作业：</span><br><span class="line">公司的组织架构</span><br><span class="line">三个部门：</span><br><span class="line"></span><br><span class="line">1.技术部</span><br><span class="line"> 1）技术经理</span><br><span class="line"> 2）技术员工</span><br><span class="line">2.财务部</span><br><span class="line"> 1）财务经理</span><br><span class="line"> 2）财务员工</span><br><span class="line">3.市场部</span><br><span class="line"> 1）市场经理</span><br><span class="line"> 2）市场员工</span><br><span class="line">步骤一：命令创建，加组</span><br><span class="line">步骤二：D盘（C盘文件权限设计操作系统，十分复杂）里（只有一块硬盘，自己在虚拟机设置里再添加一块儿硬盘），经理读写，不可删除。普通员工只能查看</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%AE%9E%E9%AA%8C%E4%BD%9C%E4%B8%9A%E5%85%AC%E5%8F%B8%E6%9E%B6%E6%9E%84.4a5cjznp0kk0.jpg" alt="实验作业公司架构"></p>
 
     </div>
 
@@ -369,10 +365,13 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/dopphu/2021/04/26/20210414%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B004/" rel="prev" title="20210414信息安全培训笔记04">
-      <i class="fa fa-chevron-left"></i> 20210414信息安全培训笔记04
+    <a href="/dopphu/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210408%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B002/" rel="prev" title="20210408信息安全培训笔记02">
+      <i class="fa fa-chevron-left"></i> 20210408信息安全培训笔记02
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/dopphu/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210414%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B004/" rel="next" title="20210414信息安全培训笔记04">
+      20210414信息安全培训笔记04 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
