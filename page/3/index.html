@@ -189,7 +189,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210415%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B005/">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%B8%89%E7%AB%A0/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E7%9A%84%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
@@ -203,7 +203,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/dopphu/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210415%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B005/" class="post-title-link" itemprop="url">20210415信息安全培训笔记05</a>
+            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%B8%89%E7%AB%A0/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">二维数组的使用</a>
         </h2>
 
         <div class="post-meta">
@@ -214,7 +214,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-04-26 12:28:27 / 修改时间：12:33:17" itemprop="dateCreated datePublished" datetime="2021-04-26T12:28:27+08:00">2021-04-26</time>
+              <time title="创建时间：2021-05-05 22:18:37 / 修改时间：21:52:41" itemprop="dateCreated datePublished" datetime="2021-05-05T22:18:37+08:00">2021-05-05</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -222,7 +222,11 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">信息安全培训笔记</span></a>
+                  <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%95%B0%E7%BB%84/" itemprop="url" rel="index"><span itemprop="name">第三章 数组</span></a>
                 </span>
             </span>
 
@@ -237,699 +241,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><a href="#1">点击</a></p>
-<p>NTFS（New Technology File System）：有分区就可以做文件系统，可以将两个分区各取一部分构成一个新的分区</p>
-<p>NTFS 权限</p>
-<ul>
-<li>NTFS文件系统</li>
-<li>设置文件权限</li>
-<li>设置文件夹权限</li>
-<li>权限的分类</li>
-</ul>
-<p>NTFS权限规则</p>
-<ul>
-<li>权限的累加</li>
-<li>拒绝权限</li>
-<li>继承权限</li>
-<li>特别的权限<ul>
-<li>特殊权限↓<ul>
-<li>读取权限的权限</li>
-<li>更改权限的权限</li>
-<li>取得所有权</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p><a style="color:red;" id="1">123123</a></p>
-<p>NTFS文件系统特点</p>
-<ul>
-<li><p>提高硬盘读写性能</p>
-</li>
-<li><p>可靠性</p>
-<ul>
-<li>加密文件系统</li>
-<li>访问控制列表（ACL）</li>
-</ul>
-</li>
-<li><p>磁盘利用率</p>
-<ul>
-<li>压缩</li>
-<li>磁盘配额（磁盘空间的分配额度）</li>
-</ul>
-</li>
-</ul>
-<p>常见文件权限：</p>
-<ul>
-<li>读取数据</li>
-<li>写入数据</li>
-<li>附加数据</li>
-<li>删除</li>
-<li>执行文件</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">一个实验</span><br><span class="line">校长：除了不能删除，其它都可</span><br><span class="line">老师：可以增改查，不可删除</span><br><span class="line">学生：只能看</span><br><span class="line">保安：无任何权限</span><br><span class="line">e.g.</span><br><span class="line">	张三在A用户组，也在B用户组。A可以修改，B不可以修改，那么张三不可以修改（权限冲突时，say no优先（拒绝优先）；不冲突就累加）</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%8F%96%E6%B6%88%E5%8B%BE%E9%80%89%E4%BB%8E%E8%AF%A5%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%88%B6%E7%BA%A7%E7%BB%A7%E6%89%BF%E7%9A%84%E6%9D%83%E9%99%90.48naigh4m1o0.jpg" alt="取消勾选从该对象的父级继承的权限"></p>
-<p>将勾选去掉</p>
-<p>不进入文件的ACL里，就啥也干不了</p>
-<p>权限规则：</p>
-<ul>
-<li><ol>
-<li>默认继承（主要针对文件夹）</li>
-</ol>
-</li>
-<li><ol start="2">
-<li>阻止继承</li>
-</ol>
-</li>
-<li><ol start="3">
-<li>强制生效</li>
-</ol>
-<ul>
-<li><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%BC%BA%E5%88%B6%E7%94%9F%E6%95%88.6adl3ov1gqo0.jpg" alt="强制生效"></li>
-</ul>
-</li>
-<li><ol start="4">
-<li>权限不冲突——累加</li>
-</ol>
-</li>
-<li><ol start="5">
-<li>权限冲突（隶属的不同组的冲突，用户和组的冲突）</li>
-</ol>
-</li>
-<li><ol start="6">
-<li>取得所有权</li>
-</ol>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">实验作业：</span><br><span class="line">公司的组织架构</span><br><span class="line">三个部门：</span><br><span class="line"></span><br><span class="line">1.技术部</span><br><span class="line"> 1）技术经理</span><br><span class="line"> 2）技术员工</span><br><span class="line">2.财务部</span><br><span class="line"> 1）财务经理</span><br><span class="line"> 2）财务员工</span><br><span class="line">3.市场部</span><br><span class="line"> 1）市场经理</span><br><span class="line"> 2）市场员工</span><br><span class="line">步骤一：命令创建，加组</span><br><span class="line">步骤二：D盘（C盘文件权限设计操作系统，十分复杂）里（只有一块硬盘，自己在虚拟机设置里再添加一块儿硬盘），经理读写，不可删除。普通员工只能查看</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%AE%9E%E9%AA%8C%E4%BD%9C%E4%B8%9A%E5%85%AC%E5%8F%B8%E6%9E%B6%E6%9E%84.4a5cjznp0kk0.jpg" alt="实验作业公司架构"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210408%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B002/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210408%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B002/" class="post-title-link" itemprop="url">20210408信息安全培训笔记02</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-04-26 12:28:27 / 修改时间：12:32:11" itemprop="dateCreated datePublished" datetime="2021-04-26T12:28:27+08:00">2021-04-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">信息安全培训笔记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>虚拟机架构</p>
-<ul>
-<li>寄居架构</li>
-<li>原生架构（VPS、虚拟化、云服务器等）</li>
-</ul>
-<p>虚拟机产品：</p>
-<p>windows开机启动过程：</p>
-<ol>
-<li>开机加电自检（台式机可能会报警报告硬件出现异常）</li>
-<li>引导BIOS（cmos芯片存BIOS程序）</li>
-</ol>
-<p>重装系统的时候就要调BIOS，改变寻找系统的先后顺序</p>
-<p>MBR扇区（第一扇区）：512字节=446（引导程序）+64（分区信息）+2（标识）</p>
-<ol start="3">
-<li>引导系统</li>
-</ol>
-<p>操作系统</p>
-<p>文件系统</p>
-<p>新硬盘是无法存储文件的：</p>
-<ul>
-<li>分区——做文件系统（格式化就是做文件系统）</li>
-<li>做文件系统<ul>
-<li>文件系统<ul>
-<li>FAT系列（这是不牛的：凳子一扔，不摆凳子），单次只能存不超过4个G    </li>
-<li>NTFS（这是牛的：凳子整齐排好）</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>MBR分区：</p>
-<ul>
-<li>主分区（主分区可装系统，可存储数据）</li>
-<li>扩展分区</li>
-<li>逻辑分区</li>
-</ul>
-<p>扩展分区里创逻辑分区</p>
-<p>每创建一个主分区或扩展分区就要占16字节（分区信息，MBR扇区的64字节里），所以最多一共就能建4个（实际上，扩展分区只能建一个）</p>
-<p>大写、小写、字母、特殊符号四选三即可符合密码复杂性要求</p>
-<p>GPT分区方式（？）：扩展卷等。</p>
-<p>vmnet（虚拟网络）</p>
-<ul>
-<li>仅主机模式——交换机：构建局域网<ul>
-<li>仅主机模式可以创建多个</li>
-<li><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/image-20210413192529113.1x1qmowpmhvk.png" alt="image-20210413192529113"></li>
-</ul>
-</li>
-<li>NAT模式（网络地址转换）（不同于桥接模式，不占用宿主同网段的IP，就像家庭宽带多个设备用的都是私有网段的IP）——虚拟机可以上互联网（）</li>
-<li>桥接模式（会分配一个和宿主机一个网段的真实的IP）——虚拟机可以上互联网（但其实是可以上宿主机的连接的网）</li>
-</ul>
-<p>注意：NAT模式和桥接模式的区别</p>
-<p>cm架构（Client-Server）和bm（Browser-Server）架构</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/25/mysql%E9%AB%98%E7%BA%A7/%E4%BF%AE%E6%94%B9mysql%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE02/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2021/04/25/mysql%E9%AB%98%E7%BA%A7/%E4%BF%AE%E6%94%B9mysql%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE02/" class="post-title-link" itemprop="url">修改mysql配置文件位置</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-04-25 13:35:00 / 修改时间：13:39:23" itemprop="dateCreated datePublished" datetime="2021-04-25T13:35:00+08:00">2021-04-25</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/mysql%E9%AB%98%E7%BA%A7/" itemprop="url" rel="index"><span itemprop="name">mysql高级</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="修改mysql配置文件位置"><a href="#修改mysql配置文件位置" class="headerlink" title="修改mysql配置文件位置"></a>修改mysql配置文件位置</h1><p>/usr/share/mysql/mysql-log-rotate</p>
-<p>…..</p>
-<p>配置文件Windows下是在my.ini</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/25/mysql%E9%AB%98%E7%BA%A7/%E6%80%A7%E8%83%BD%E4%B8%8B%E9%99%8DSQL%E6%85%A204/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2021/04/25/mysql%E9%AB%98%E7%BA%A7/%E6%80%A7%E8%83%BD%E4%B8%8B%E9%99%8DSQL%E6%85%A204/" class="post-title-link" itemprop="url">性能下降SQL慢04</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-04-25 13:35:00 / 修改时间：13:39:19" itemprop="dateCreated datePublished" datetime="2021-04-25T13:35:00+08:00">2021-04-25</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/mysql%E9%AB%98%E7%BA%A7/" itemprop="url" rel="index"><span itemprop="name">mysql高级</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="性能下降SQL慢"><a href="#性能下降SQL慢" class="headerlink" title="性能下降SQL慢"></a>性能下降SQL慢</h2><ul>
-<li>执行时间长</li>
-<li>等待时间长</li>
-</ul>
-<blockquote>
-<p>查询语句写的烂</p>
-</blockquote>
-<blockquote>
-<p>索引失效</p>
-</blockquote>
-<ul>
-<li>单值</li>
-<li>复合</li>
-</ul>
-<blockquote>
-<p>关联查询太多join（设计缺陷或不得已的需求）</p>
-</blockquote>
-<blockquote>
-<p>服务器调优及各个参数设置（缓冲、线程数等）</p>
-</blockquote>
-<h2 id="常见的通用的join查询"><a href="#常见的通用的join查询" class="headerlink" title="常见的通用的join查询"></a>常见的通用的join查询</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ...</span><br><span class="line"><span class="keyword">from</span> ... </span><br><span class="line"><span class="keyword">where</span> ...</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> ...</span><br><span class="line"><span class="keyword">having</span> ...</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> ... </span><br><span class="line"><span class="keyword">limit</span> ...</span><br></pre></td></tr></table></figure>
-
-<p>连接-处理-引擎-存储</p>
-<p>sql的执行顺序</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ...</span><br><span class="line"><span class="keyword">from</span> ... (<span class="number">1</span>)</span><br><span class="line"><span class="keyword">where</span> ...</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> ...</span><br><span class="line"><span class="keyword">having</span> ...</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> ... </span><br><span class="line"><span class="keyword">limit</span> ...</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/image-20210222143914143.68o1nuglpzs0.png" alt="image-20210222143914143"></p>
-<h3 id="join图"><a href="#join图" class="headerlink" title="join图"></a>join图</h3><p>七个</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/7%E4%B8%ADjoin.7c8bt339exc0.png" alt="7中join"></p>
-<p>但是，需要注意，mysql不支持full全连接，可以使用union联合查询实现（即图左2+图右2）</p>
-<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><h3 id="索引是什么"><a href="#索引是什么" class="headerlink" title="索引是什么"></a>索引是什么</h3><p>MySQL 官方对索引的定义为：索引（index）时帮助mysql高效获取数据的数据结构。可以得到索引的本质：<strong>索引是数据结构</strong>。</p>
-<p style='color='red'>你可以简单理解为“排好序的快速查找数据结构”。</p>
-
-<p>在数据结构外，<strong>数据库系统还维护着满足特定查找算法的数据结构</strong>，这些数据结构以某种方式引用（指向）数据，这样就可以在这些数据结构上实现高级查找算法。这种数据结构就是索引。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/image-20210223155721519.41p3f3l5fyq0.png" alt="image-20210223155721519"></p>
-<p>索引往往以索引文件的形式存储在磁盘上</p>
-<p>我们平常所说的索引，如果没有特别指明，都是指B树索引（多路搜索树、并不一定是二叉树）结构组织索引。其中聚集索引、次要索引、复合索引、前缀索引、唯一索引默认都是使用B+树索引，统称索引，还有哈希索引（hash）。</p>
-<p>delete往往不会物理删除数据，会将数据的状态改为非激活状态，这些数据其他部门还需要继续使用，一般不直接删除，只是在逻辑上删除。</p>
-<p><strong>优势</strong>：</p>
-<ul>
-<li>类似图书目录，提高数据检索的效率，降低数据库的IO成本</li>
-<li>通过索引列对数据进行排序，降低数据排序成本，降低了CPU的消耗</li>
-</ul>
-<p><strong>劣势</strong>：</p>
-<ul>
-<li>实际上索引也是一张表，该表保存了主键与索引的字段，并指向实体表的记录，所以索引列也是要占用空间的</li>
-<li>虽然索引大大提高了查询速度，同时却会降低表的更新速度，更新时mysql不仅要保存数据，还要保存一下索引文件每次更新添加了索引列的字段，调整因为更新所带来的键值变化后的索引信息</li>
-<li>索引只是提高效率的一种因素，如果你的mysql有大数据量的表，就需要花时间研究建立最优秀的索引或优化查询。</li>
-</ul>
-<h3 id="mysql索引分类"><a href="#mysql索引分类" class="headerlink" title="mysql索引分类"></a>mysql索引分类</h3><ul>
-<li><p>单值索引</p>
-<p>即一个索引只包含单个列，一个表可以有多个单列索引</p>
-</li>
-</ul>
-<ul>
-<li><p>唯一索引</p>
-<p>索引列的值必须唯一，但允许有空值</p>
-</li>
-<li><p>复合索引</p>
-<p>即一个索引包含多个列</p>
-</li>
-</ul>
-<p>基本语法：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/image-20210223162407625.2iy52r2dpim0.png" alt="image-20210223162407625"></p>
-<p>有四种方式添加数据表的索引</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/image-20210223162819843.6r8f43ys5640.png" alt="image-20210223162819843"></p>
-<h3 id="mysql索引结构"><a href="#mysql索引结构" class="headerlink" title="mysql索引结构"></a>mysql索引结构</h3><p>BTree索引</p>
-<p>Hash索引*</p>
-<p>full-text全文索引*</p>
-<p>R-Tree索引*</p>
-<h3 id="哪些情况需要创建索引"><a href="#哪些情况需要创建索引" class="headerlink" title="哪些情况需要创建索引"></a>哪些情况需要创建索引</h3><ol>
-<li>主键自动建立唯一索引</li>
-<li>频繁作为查询条件的字段应该创建索引</li>
-<li>查询中与其它表关联的字段，外键关系建立索引</li>
-<li>频繁更新的字段不适合建立索引</li>
-<li>where条件里用不到的字段不创建索引</li>
-<li>单键 / 组合索引的选用问题， who？（在高并发下倾向于创建组合索引）</li>
-<li>查询中排序的字段，排序字段若通过索引去访问将大大提高排序速度</li>
-<li>查询中统计或者分组字段</li>
-</ol>
-<h3 id="哪些情况不要创建索引"><a href="#哪些情况不要创建索引" class="headerlink" title="哪些情况不要创建索引"></a>哪些情况不要创建索引</h3><ol>
-<li>表记录太少（数据300w左右就要考虑建索引了）</li>
-<li>经常增删改的表</li>
-<li>数据重复且分布平均的字表段。如：性别，只有男女，为它建立索引就没有太大的实际效果</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/25/mysql%E9%AB%98%E7%BA%A7/%E9%94%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2021/04/25/mysql%E9%AB%98%E7%BA%A7/%E9%94%81/" class="post-title-link" itemprop="url">锁</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-04-25 13:35:00 / 修改时间：13:39:05" itemprop="dateCreated datePublished" datetime="2021-04-25T13:35:00+08:00">2021-04-25</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/mysql%E9%AB%98%E7%BA%A7/" itemprop="url" rel="index"><span itemprop="name">mysql高级</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h1><p>锁是计算机协调多个进程或线程并发访问某一资源的机制。</p>
-<p>在数据库中，除传统的计算机资源（如CPU、RAM、I/O等）的争用以外，数据也是一种供许多用户共享的资源。如何保证数据并发访问的一致性、有效性是所有数据库必须解决的问题，锁冲突也是影响数据库并发访问性能的一个重要因素。从这个角度来说，锁对数据库而言显得尤为重要，也更加复杂。</p>
-<h2 id="锁的分类"><a href="#锁的分类" class="headerlink" title="锁的分类"></a>锁的分类</h2><p>从对数据操作的类型（读/写）分</p>
-<ul>
-<li>读锁（共享锁）：针对同一份数据，多个读操作可以同时进行而不会互相影响</li>
-<li>写锁（排它锁）：当前写操作没有完成前，它会阻断其它写锁和读锁</li>
-</ul>
-<p>从对数据操作的力度分</p>
-<ul>
-<li>表锁</li>
-<li>行锁</li>
-</ul>
-<p>开销、加锁速度、死锁、粒度、并发性能、只能就具体应用的特点来说哪种锁更合适</p>
-<h2 id="三锁"><a href="#三锁" class="headerlink" title="三锁"></a>三锁</h2><ul>
-<li><p>表锁（偏读）</p>
-<p>偏向MyISAM存储引擎，开销小，加锁快；无死锁；锁定粒度大，发生锁冲突的概率最高，并发度最低。</p>
-<p>【手动增加表锁】</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">lock</span> <span class="keyword">table</span> 表名字<span class="number">1</span> <span class="keyword">read</span>(write),表名字<span class="number">2</span> <span class="keyword">read</span>(write),其它;</span><br></pre></td></tr></table></figure>
-
-<p>【查看表上加过的锁】</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">open</span> <span class="keyword">tables</span>;</span><br></pre></td></tr></table></figure>
-
-<p>【解锁】</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">unlock</span> <span class="keyword">tables</span>;</span><br></pre></td></tr></table></figure>
-
-<p><code>session 1</code>加<strong>读锁</strong>后</p>
-<table>
-<thead>
-<tr>
-<th>session1</th>
-<th>session2（其它session）</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>可以查询被锁表</td>
-<td>可以查询被锁表</td>
-</tr>
-<tr>
-<td>不能查询其它未锁表，当然也不能更新其它未锁表</td>
-<td>可以查询或更新其它未锁表</td>
-</tr>
-<tr>
-<td>插入或更新锁定的表都会提示错误</td>
-<td>插入或更新锁定表会一直等待</td>
-</tr>
-<tr>
-<td>释放所</td>
-<td>插入操作完成</td>
-</tr>
-</tbody></table>
-<p><code>session 1</code>加 <strong>写锁</strong> 后</p>
-<table>
-<thead>
-<tr>
-<th>session1</th>
-<th>session2</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>可以查看更新被锁表</td>
-<td>查询更新被锁表均被阻塞</td>
-</tr>
-<tr>
-<td>不可更新查询其它未锁表</td>
-<td>可以查询和更新未锁表</td>
-</tr>
-</tbody></table>
-<p><strong>简而言之，就是读锁会阻塞写，但是不会阻塞读；写锁会把读和写都堵塞。</strong></p>
-<p>【如何分析表锁分析】</p>
-<p>可以通过检查table_locks_waited和table_locks_immediate状态变量来分析系统上的表锁定</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">status</span> <span class="keyword">like</span> <span class="string">&#x27;table%&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
-<p>Table_locks_immediate：产生表级锁的次数，表示可以立即获得锁的查询次数，每立即获得锁值加1；</p>
-<p>Table_locks_waited：出现表级锁争用而发生等待的次数（不能立即获得锁的查询的次数，每等待一次锁值加1），此值高则说明存在着较严重的表级锁的争用情况；</p>
-<p>此外，Myisam的读写锁调度是写优先，这也是myisam不适合做写为主表的引擎。因为写锁后，其它线程不能做任何操作，大量的更新会使查询很难得到锁，从而造成永远阻塞。所以<strong>表锁偏读</strong>。</p>
-</li>
-<li><p>行锁（偏写）</p>
-<p>偏向InnoDB存储引擎，开销大，加锁慢；会出现死锁；锁定粒度最小，发现锁冲突的概率最低，并发度也最高。</p>
-<p>InnoDB与MyISAM的最大不同有两点：一是支持事务（TRANSACTION）；二是采用了行级锁</p>
-<p>【并发事务处理带来的问题】</p>
-<ul>
-<li><p>更新丢失（Lost Update）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E6%9B%B4%E6%96%B0%E4%B8%A2%E5%A4%B1.5wxmvqj6pww0.jpg" alt="更新丢失"></p>
-</li>
-<li><p>脏读（Dirty Reads）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E8%84%8F%E8%AF%BB.71yat5f83080.jpg" alt="脏读"></p>
-<p>就是你可能读到错误数据了，我还没commit你就读了，或者还要rollback你就把错误的数据读走了。</p>
-</li>
-<li><p>不可重复读（Non-Repeatable Reads）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E4%B8%8D%E5%8F%AF%E9%87%8D%E5%A4%8D%E8%AF%BB.5iesi3ak4kw0.jpg" alt="不可重复读"></p>
-</li>
-<li><p>幻读（Phantom Reads）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%B9%BB%E8%AF%BB.42pq1rztq2o0.jpg" alt="幻读"></p>
-</li>
-</ul>
-<p>行锁基本演示：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E8%A1%8C%E9%94%81%E5%9F%BA%E6%9C%AC%E6%BC%94%E7%A4%BA.3aov0dsoju20.jpg" alt="行锁基本演示"></p>
-<p>【注意：索引失效（如：类型转换）】</p>
-<p>会导致行锁变表锁</p>
-<p>【间隙锁的危害】</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E9%97%B4%E9%9A%99%E9%94%81%E7%9A%84%E5%8D%B1%E5%AE%B3.eglfaluljbc.jpg" alt="间隙锁的危害"></p>
-<p>比如一个会话改where id&lt;5 and id&gt;1（未commit），但是表里边没有2,在另一个会话中insert一个2会被阻塞</p>
-<p>【如何锁定一行】</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%A6%82%E4%BD%95%E9%94%81%E5%AE%9A%E4%B8%80%E8%A1%8C.1gvbpdzzgyps.jpg" alt="如何锁定一行"></p>
-</li>
-<li><p>页锁</p>
-<p>开销和加锁时间介于表锁和行锁之间，会出现死锁；锁定粒度介于表锁和行锁之间，并发度一般。</p>
-</li>
-</ul>
-<h2 id="小总结"><a href="#小总结" class="headerlink" title="小总结"></a>小总结</h2><p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E8%A1%8C%E9%94%81%E6%80%BB%E7%BB%93.6dofk69xapw0.jpg" alt="行锁总结"></p>
-<p>【如何分析行锁】</p>
-<p>通过检查InnoDB_row_lock状态变量来分析系统上的行锁的争夺情况</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show status like &#x27;innodb_row_lock%&#x27;;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E9%94%81%E7%9A%84%E5%90%84%E4%B8%AA%E7%8A%B6%E6%80%81%E9%87%8F%E7%9A%84%E8%AF%B4%E6%98%8E%E5%A6%82%E4%B8%8B.itm1smv4mx.jpg" alt="锁的各个状态量的说明如下"></p>
-<h3 id="优化建议"><a href="#优化建议" class="headerlink" title="优化建议"></a>优化建议</h3><p>尽可能让所有数据检索都通过索引来完成，避免无索引行锁升级为表锁</p>
-<p>合理设计索引，尽量缩小锁的范围</p>
-<p>尽可能较少检索条件，避免间隙锁</p>
-<p>尽量控制事务大小，减少锁定资源量和时间长度</p>
-<p>尽可能低级别事务隔离</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/25/mysql%E9%AB%98%E7%BA%A7/%E7%B4%A2%E5%BC%95%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A506/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2021/04/25/mysql%E9%AB%98%E7%BA%A7/%E7%B4%A2%E5%BC%95%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A506/" class="post-title-link" itemprop="url">索引增删改查06</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-04-25 13:35:00 / 修改时间：13:39:00" itemprop="dateCreated datePublished" datetime="2021-04-25T13:35:00+08:00">2021-04-25</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/mysql%E9%AB%98%E7%BA%A7/" itemprop="url" rel="index"><span itemprop="name">mysql高级</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>建索引</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> [<span class="keyword">unique</span>] <span class="keyword">INDEX</span> indexName <span class="keyword">ON</span> myTable(columnname(<span class="keyword">length</span>));</span><br><span class="line">或</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">TABLE</span> mytable <span class="keyword">ADD</span> [<span class="keyword">unique</span>] <span class="keyword">INDEX</span> [indexName] (columnname(<span class="keyword">length</span>));</span><br></pre></td></tr></table></figure>
-
-<p>删除索引</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">INDEX</span> [indexName] <span class="keyword">on</span> mytable;</span><br></pre></td></tr></table></figure>
-
-<p>查看索引</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">index</span> <span class="keyword">from</span> table_name\G</span><br></pre></td></tr></table></figure>
-
-
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 二维数组的使用：</span></span><br><span class="line"><span class="comment"> * 规定：二维数组分为外层数组的元素，内层数组的元素</span></span><br><span class="line"><span class="comment"> * int[][] arr = new int[4][3];</span></span><br><span class="line"><span class="comment"> * 外层元素 arr[0]，arr[1]等</span></span><br><span class="line"><span class="comment"> * 内层元素 arr[0][0]等</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 数组初始化值的默认情况看</span></span><br><span class="line"><span class="comment"> * 针对初始化方式一：比如 int[][] arr = new int[4][3];</span></span><br><span class="line"><span class="comment"> * 		外层初始化值为地址值</span></span><br><span class="line"><span class="comment"> * 		内层初始化值为：与一维数组初始化情况相同</span></span><br><span class="line"><span class="comment"> * 针对初始化方式二：比如 int[][] arr = new int[3][];</span></span><br><span class="line"><span class="comment"> * 		外层元素初始化值为null</span></span><br><span class="line"><span class="comment"> * 		内层元素初始化值为：不能调用，否则报错</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 基于内存结构进行理解</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> chapter03;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayTest03</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">int</span>[][] arr0 = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">4</span>][<span class="number">3</span>];</span><br><span class="line">		System.out.println(arr0[<span class="number">0</span>][<span class="number">0</span>]);</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">int</span>[][] arr = <span class="keyword">new</span> <span class="keyword">int</span> [<span class="number">4</span>][];</span><br><span class="line">		System.out.println(arr[<span class="number">3</span>]);<span class="comment">//null</span></span><br><span class="line">		<span class="comment">//↓报错：空指针异常</span></span><br><span class="line"><span class="comment">//		System.out.println(arr[3][0]);</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -950,7 +262,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/25/mysql%E9%AB%98%E7%BA%A7/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84Linux01/">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%B8%89%E7%AB%A0/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
@@ -964,7 +276,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/dopphu/2021/04/25/mysql%E9%AB%98%E7%BA%A7/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84Linux01/" class="post-title-link" itemprop="url">数据库学习中的Linux01</a>
+            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%B8%89%E7%AB%A0/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84/" class="post-title-link" itemprop="url">二维数组</a>
         </h2>
 
         <div class="post-meta">
@@ -975,7 +287,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-04-25 13:35:00 / 修改时间：13:38:56" itemprop="dateCreated datePublished" datetime="2021-04-25T13:35:00+08:00">2021-04-25</time>
+              <time title="创建时间：2021-05-05 22:18:37 / 修改时间：21:52:02" itemprop="dateCreated datePublished" datetime="2021-05-05T22:18:37+08:00">2021-05-05</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -983,7 +295,11 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/mysql%E9%AB%98%E7%BA%A7/" itemprop="url" rel="index"><span itemprop="name">mysql高级</span></a>
+                  <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%95%B0%E7%BB%84/" itemprop="url" rel="index"><span itemprop="name">第三章 数组</span></a>
                 </span>
             </span>
 
@@ -998,34 +314,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>查看用户和用户组</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cat /etc/passwd|grep mysql</span><br><span class="line">$ cat /etc/group|grep mysql</span><br></pre></td></tr></table></figure>
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> chapter03;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayTest02</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//初始化01</span></span><br><span class="line">		<span class="keyword">int</span>[][] arr1 = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">5</span>][<span class="number">5</span>];</span><br><span class="line">		System.out.println(arr1[<span class="number">0</span>][<span class="number">0</span>]);</span><br><span class="line">		<span class="comment">//初始化02</span></span><br><span class="line">		<span class="keyword">int</span>[][] arr2 = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">5</span>][];</span><br><span class="line">		arr2[<span class="number">0</span>] = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>];</span><br><span class="line">		<span class="comment">//初始化03</span></span><br><span class="line">		<span class="keyword">int</span>[] arr3[] = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">5</span>][<span class="number">5</span>];</span><br><span class="line">		<span class="comment">//初始化04 </span></span><br><span class="line">		<span class="keyword">int</span> arr4[][] = <span class="keyword">new</span> <span class="keyword">int</span>[][] &#123;&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;,&#123;<span class="number">1</span>&#125;&#125;;</span><br><span class="line"><span class="comment">//		System.out.println(arr3[5][0]);//报错内容如下</span></span><br><span class="line">		<span class="comment">/* 空指针异常</span></span><br><span class="line"><span class="comment">		 * Exception in thread &quot;main&quot; java.lang.ArrayIndexOutOfBoundsException: Index 5 out of bounds for length 5</span></span><br><span class="line"><span class="comment">	at chapter03.ArrayTest02.main(ArrayTest02.java:17)</span></span><br><span class="line"><span class="comment">		*/</span></span><br><span class="line">		<span class="comment">//没有赋值的元素用null填充</span></span><br><span class="line"><span class="comment">//		System.out.println(arr4[1][2]);//??为什么不成功,看来子数组的长度是可以不相同的</span></span><br><span class="line">		System.out.println(arr2[<span class="number">0</span>][<span class="number">0</span>]);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//获取二维数组的长度</span></span><br><span class="line">		System.out.println(arr4.length);<span class="comment">//其实二维数组是一维数组，只是它的元素是一个数组而已</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">//所以这样遍历二维数组</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;arr4.length; i++) &#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j&lt;arr4[i].length; j++) &#123;</span><br><span class="line">				System.out.print(arr4[i][j]+<span class="string">&quot; &quot;</span>);</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println();</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(arr3[<span class="number">0</span>][<span class="number">0</span>]);<span class="comment">//0</span></span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>查看mysql版本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mysql --version</span><br></pre></td></tr></table></figure>
-
-<p>启动mysql服务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ service mysql start</span><br></pre></td></tr></table></figure>
-
-<p>关闭mysql服务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ service mysql stop</span><br></pre></td></tr></table></figure>
-
-<p>查看Linux启动了多长时间</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ top</span><br></pre></td></tr></table></figure>
-
-<p>Linux下查看mysql安装目录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ps -ef|grep mysql</span><br></pre></td></tr></table></figure>
-
-<p>设置开机自启动</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chkconfig mysql on</span><br></pre></td></tr></table></figure>
-
-<p>但是Ubuntu中<code>chkconfig</code>已经被<code>sysv-rc-conf</code>所替代，命令如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$ apt-get update</span><br><span class="line">$ apt-get install sysv-rc-conf</span><br><span class="line">$ sysv-rc-conf mysql on</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看在不同级别下的mysql开机状态</span></span><br><span class="line">$ sysv-rc-conf --list|grep mysql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看不同级别的含义</span></span><br><span class="line">$ cat /etc/inittab<span class="comment">#我的Ubuntu没找到这个文件,那就在网上查吧23333。</span></span><br><span class="line"><span class="comment"># http://bbs.chinaunix.net/thread-3761832-1-1.html</span></span><br><span class="line"><span class="comment"># 查看当前运行级别</span></span><br><span class="line">$ runlevel</span><br><span class="line"></span><br><span class="line"><span class="comment">#查看开机启动服务状况</span></span><br><span class="line">$ sysv-rc-conf</span><br></pre></td></tr></table></figure>
-
-<p>查看Ubuntu版本信息</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat /etc/issue</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://static01.imgkr.com/temp/4de86f506373497ebe837df258e65540.png" alt="image-20210222143914143"></p>
 
       
     </div>
@@ -1045,7 +335,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/25/mysql%E9%AB%98%E7%BA%A7/%E6%89%B9%E9%87%8F%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE%E8%84%9A%E6%9C%AC09/">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%B8%89%E7%AB%A0/%E4%B8%80%E7%BB%B4%E6%95%B0%E7%BB%84%E7%9A%84%E5%A3%B0%E6%98%8E%E5%92%8C%E5%88%9D%E5%A7%8B%E5%8C%96/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
@@ -1059,7 +349,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/dopphu/2021/04/25/mysql%E9%AB%98%E7%BA%A7/%E6%89%B9%E9%87%8F%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE%E8%84%9A%E6%9C%AC09/" class="post-title-link" itemprop="url">批量插入数据脚本</a>
+            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%B8%89%E7%AB%A0/%E4%B8%80%E7%BB%B4%E6%95%B0%E7%BB%84%E7%9A%84%E5%A3%B0%E6%98%8E%E5%92%8C%E5%88%9D%E5%A7%8B%E5%8C%96/" class="post-title-link" itemprop="url">一维数组的声明和初始化</a>
         </h2>
 
         <div class="post-meta">
@@ -1070,7 +360,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-04-25 13:35:00 / 修改时间：13:38:53" itemprop="dateCreated datePublished" datetime="2021-04-25T13:35:00+08:00">2021-04-25</time>
+              <time title="创建时间：2021-05-05 22:18:37 / 修改时间：21:50:57" itemprop="dateCreated datePublished" datetime="2021-05-05T22:18:37+08:00">2021-05-05</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1078,7 +368,11 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/mysql%E9%AB%98%E7%BA%A7/" itemprop="url" rel="index"><span itemprop="name">mysql高级</span></a>
+                  <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%95%B0%E7%BB%84/" itemprop="url" rel="index"><span itemprop="name">第三章 数组</span></a>
                 </span>
             </span>
 
@@ -1093,15 +387,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>创建函数，如果报错：This function has none of deterministic…</p>
-<p>#由于开启过慢查询日志，因为我们开启了bin-log，我们就必须为我们的function指定一个参数。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">global</span> log_bin_trust_function_creators;</span><br><span class="line"><span class="comment"># 设置</span></span><br><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> log_bin_trust_function_creators=<span class="literal">TRUE</span>;</span><br></pre></td></tr></table></figure>
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> chapter03;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayTest</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//1.一维数组的声明和初始化</span></span><br><span class="line">		<span class="keyword">int</span> num;</span><br><span class="line">		num = <span class="number">10</span>;</span><br><span class="line">		<span class="keyword">int</span> id = <span class="number">1001</span>;</span><br><span class="line">		<span class="keyword">int</span>[] ids;<span class="comment">//声明</span></span><br><span class="line">		<span class="comment">//1.1静态初始化：数组的初始化和数组元素的赋值操作同时进行</span></span><br><span class="line">		ids = <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;<span class="number">1001</span>,<span class="number">1002</span>,<span class="number">1003</span>,<span class="number">1004</span>&#125;;</span><br><span class="line">		<span class="comment">//1.2动态初始化：数组的初始化和数组元素的赋值操作分开进行</span></span><br><span class="line">		String[] name = <span class="keyword">new</span> String[<span class="number">3</span>];</span><br><span class="line">		<span class="comment">//数组的角标从0开始，到数组长度-1</span></span><br><span class="line">		name[<span class="number">1</span>] = <span class="string">&quot;Dopphu&quot;</span>;</span><br><span class="line">		name[<span class="number">2</span>] = <span class="string">&quot;户&quot;</span>;</span><br><span class="line"><span class="comment">//		name[0] = &quot;符&quot;;</span></span><br><span class="line">		<span class="comment">//数组元素的默认初始值</span></span><br><span class="line"><span class="comment">/**	 元素类型		默认值</span></span><br><span class="line"><span class="comment"> * &gt; 整型			0</span></span><br><span class="line"><span class="comment"> * &gt; 浮点型		0.0</span></span><br><span class="line"><span class="comment"> * &gt; char		ASCII为0的字符</span></span><br><span class="line"><span class="comment"> * &gt; boolean	false</span></span><br><span class="line"><span class="comment"> * 引用数据类型</span></span><br><span class="line"><span class="comment"> * &gt; String		null</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">		</span><br><span class="line">		System.out.println(name[<span class="number">0</span>]);</span><br><span class="line">		<span class="keyword">char</span>[] testc = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">4</span>];</span><br><span class="line">		System.out.println(<span class="string">&quot;---&quot;</span>+testc[<span class="number">0</span>]+<span class="string">&quot;***&quot;</span>);</span><br><span class="line">		<span class="comment">//获取长度</span></span><br><span class="line">		System.out.println(name.length);	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>这样添加了参数后，如果mysql重启，上述参数又会消失，永久方法：</p>
-<p>Windows下    my.ini[mysqld]加上log_bin_truest_creators=1</p>
-<p>Linux下    /etc/my.cnf下my.cnf[mysqld]加上log_bin_trust_function_creators=1</p>
-<p>创建函数，id与名字各不相同随机产生字符串随机产生数字</p>
-<p><strong>函数自己写吧（狗头）</strong></p>
 
       
     </div>
@@ -1121,7 +408,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/25/mysql%E9%AB%98%E7%BA%A7/%E6%85%A2%E6%9F%A5%E8%AF%A2%E6%97%A5%E5%BF%9708/">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%B8%89%E7%AB%A0/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
@@ -1135,7 +422,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/dopphu/2021/04/25/mysql%E9%AB%98%E7%BA%A7/%E6%85%A2%E6%9F%A5%E8%AF%A2%E6%97%A5%E5%BF%9708/" class="post-title-link" itemprop="url">慢查询日记08</a>
+            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%B8%89%E7%AB%A0/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" class="post-title-link" itemprop="url">二分查找</a>
         </h2>
 
         <div class="post-meta">
@@ -1146,7 +433,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-04-25 13:35:00 / 修改时间：13:38:48" itemprop="dateCreated datePublished" datetime="2021-04-25T13:35:00+08:00">2021-04-25</time>
+              <time title="创建时间：2021-05-05 22:18:37 / 修改时间：21:55:15" itemprop="dateCreated datePublished" datetime="2021-05-05T22:18:37+08:00">2021-05-05</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1154,7 +441,11 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/mysql%E9%AB%98%E7%BA%A7/" itemprop="url" rel="index"><span itemprop="name">mysql高级</span></a>
+                  <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%95%B0%E7%BB%84/" itemprop="url" rel="index"><span itemprop="name">第三章 数组</span></a>
                 </span>
             </span>
 
@@ -1169,47 +460,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="慢查询日志"><a href="#慢查询日志" class="headerlink" title="慢查询日志"></a>慢查询日志</h1><h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><ul>
-<li>MySQL的慢查询日志是MySQL提供的一种日志记录，它用来记录在MySQL中响应时间超过阈值的语句，具体运行时间超过<code>long_query_time</code>值的SQL，则会被记录到慢查询日志中。</li>
-<li>具体运行时间超过<code>long_query_time</code>值的SQL，则会被记录到慢查询日志中。<code>long_query_time</code>的默认值是10，意思是运行10秒以上的语句。（等于10则不会被记录）</li>
-<li>由他来查看哪些SQL超过了我们的最大忍耐时间，比如一条sql执行超过5秒，我们就算慢sql，希望能收集超过5秒的sql，结合之前的explain进行全面分析。</li>
-</ul>
-<h2 id="怎么玩"><a href="#怎么玩" class="headerlink" title="怎么玩"></a>怎么玩</h2><h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>默认情况下，MySQL 数据库没有开启慢查询日志，需要我们手动来设置这个参数。</p>
-<p>当然，如果不是调优需要的话，一般不建议启动该参数，因为开启慢查询日志会或多或少带来一定的性能影响。慢查询日志支持将日志记录写入文件。</p>
-<h3 id="查看是否开启以及如何开启"><a href="#查看是否开启以及如何开启" class="headerlink" title="查看是否开启以及如何开启"></a>查看是否开启以及如何开启</h3><p>默认：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> <span class="keyword">VARIABLES</span> <span class="keyword">LIKE</span> <span class="string">&#x27;%slow_query_log%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 二分查找</span></span><br><span class="line"><span class="comment"> * 前提：数组是有序的</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> chapter03;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BinarySearch</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// int a[] = new int[]&#123;1,2,3,5,44,66&#125;;</span></span><br><span class="line">		<span class="keyword">int</span> a[] = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">5</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">5</span>&#125;;</span><br><span class="line">		<span class="keyword">int</span> dest = <span class="number">5</span>;</span><br><span class="line">		<span class="keyword">int</span> start=<span class="number">0</span>,end=a.length-<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">int</span> mid;</span><br><span class="line">		<span class="keyword">boolean</span> isfind = <span class="keyword">false</span>; </span><br><span class="line">		<span class="keyword">while</span>(start&lt;=end) &#123;</span><br><span class="line">			mid=(start+end)/<span class="number">2</span>;</span><br><span class="line">			<span class="keyword">if</span>(dest == a[mid]) &#123;</span><br><span class="line">				isfind = <span class="keyword">true</span>;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;<span class="keyword">else</span> <span class="keyword">if</span>(dest&lt;a[mid]) &#123;</span><br><span class="line">				end = mid-<span class="number">1</span>;</span><br><span class="line">			&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">				start = mid+<span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(isfind) &#123;</span><br><span class="line">			System.out.print(<span class="string">&quot;找到了&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>开启：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> slow_query_log=<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-
-<p>该设置方法仅对当前数据库有效（退出后进入就需要重新设置），如要永久生效，就必须修改配置文件my.cnf（其它系统变量也是如此）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/image-20210227143634594.2z45tm6uenk0.png" alt="image-20210227143634594"></p>
-<p>示例配置</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E7%A4%BA%E4%BE%8B%E9%85%8D%E7%BD%AE.4pn5aycf2rs0.jpg" alt="示例配置"></p>
-<p>使用命令</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> long_query_time=<span class="number">3</span>;</span><br></pre></td></tr></table></figure>
-
-<p>修改到阈值到3秒钟的就是慢SQL</p>
-<h3 id="为什么设置后看不出变化？"><a href="#为什么设置后看不出变化？" class="headerlink" title="为什么设置后看不出变化？"></a>为什么设置后看不出变化？</h3><p>需要重新连接或开一个会话才能看到修改值</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">&#x27;%long_query_time%&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
-<h3 id="强行睡4秒"><a href="#强行睡4秒" class="headerlink" title="强行睡4秒"></a>强行睡4秒</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">sleep</span>(<span class="number">4</span>);</span><br></pre></td></tr></table></figure>
-
-<h3 id="查询当前有多少条慢查询记录"><a href="#查询当前有多少条慢查询记录" class="headerlink" title="查询当前有多少条慢查询记录"></a>查询当前有多少条慢查询记录</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">global</span> <span class="keyword">status</span> <span class="keyword">like</span> <span class="string">&#x27;%Slow_queries%&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
-<h2 id="日志分析工具MySQLdumpslow"><a href="#日志分析工具MySQLdumpslow" class="headerlink" title="日志分析工具MySQLdumpslow"></a>日志分析工具MySQLdumpslow</h2><h3 id="查看MySQLdumpslow的帮助信息"><a href="#查看MySQLdumpslow的帮助信息" class="headerlink" title="查看MySQLdumpslow的帮助信息"></a>查看MySQLdumpslow的帮助信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ MySQLdumpslow --<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
-
-<p>S：是表示按照何种方式进行排序</p>
-<p>c：访问次数</p>
-<p>l：锁定时间</p>
-<p>r：返回记录</p>
-<p>t：查询时间</p>
-<p>al：平均锁定时间</p>
-<p>ar：平均返回记录数</p>
-<p>at：平均查询时间</p>
-<p>t：即为返回前面多少条的数据</p>
-<p>g：后边搭配一个正则表达式，大小写不敏感</p>
-<h3 id="工作日常参考"><a href="#工作日常参考" class="headerlink" title="工作日常参考"></a>工作日常参考</h3><p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%B8%B8%E5%8F%82%E8%80%83.61zsl17et3c0.jpg" alt="工作日常参考"></p>
 
       
     </div>
@@ -1229,7 +481,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/25/mysql%E9%AB%98%E7%BA%A7/%E6%9F%A5%E8%AF%A2%E6%88%AA%E5%8F%96%E5%88%86%E6%9E%9007/">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E7%AE%97%E6%95%B0%E8%BF%90%E7%AE%97%E7%AC%A6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
@@ -1243,7 +495,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/dopphu/2021/04/25/mysql%E9%AB%98%E7%BA%A7/%E6%9F%A5%E8%AF%A2%E6%88%AA%E5%8F%96%E5%88%86%E6%9E%9007/" class="post-title-link" itemprop="url">查询截取分析07</a>
+            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E7%AE%97%E6%95%B0%E8%BF%90%E7%AE%97%E7%AC%A6/" class="post-title-link" itemprop="url">算数运算符</a>
         </h2>
 
         <div class="post-meta">
@@ -1254,7 +506,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-04-25 13:35:00 / 修改时间：13:38:44" itemprop="dateCreated datePublished" datetime="2021-04-25T13:35:00+08:00">2021-04-25</time>
+              <time title="创建时间：2021-05-05 21:42:43 / 修改时间：21:39:06" itemprop="dateCreated datePublished" datetime="2021-05-05T21:42:43+08:00">2021-05-05</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1262,7 +514,11 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/mysql%E9%AB%98%E7%BA%A7/" itemprop="url" rel="index"><span itemprop="name">mysql高级</span></a>
+                  <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">第二章 基本语法</span></a>
                 </span>
             </span>
 
@@ -1277,21 +533,373 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>分析步骤：</p>
-<ol>
-<li>观察，至少跑一天，看看 生产的慢SQL情况</li>
-<li>开启慢查询日志， 设置阈值，比如超过5秒就是慢SQL，并将它抓去出来</li>
-<li>explain+慢SQL分析</li>
-<li>show profile</li>
-<li>运维经理 or DBA，进行SQL数据库服务器的参数调优</li>
-</ol>
-<p>总结：</p>
-<p>1 慢查询的开启并捕获</p>
-<p>2 explain + 慢SQL分析</p>
-<p>3 show profile查询SQL在MySQL服务器里面的执行细节和生命周期情况</p>
-<p>4 SQL数据库服务器的参数调优</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/in%E4%B8%8Eexists%E5%AF%B9%E6%AF%94.674wmlz4wnw0.jpg" alt="in与exists对比"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/image-20210225181556935.30io97nllaa0.jpg" alt="image-20210225181556935"></p>
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    运算符之一：算数运算符</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">operatortest</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        <span class="comment">//除号</span></span><br><span class="line">        <span class="keyword">int</span> num1=<span class="number">12</span>;</span><br><span class="line">        <span class="keyword">int</span> num2=<span class="number">5</span>;</span><br><span class="line">        System.out.println(num1/num2);</span><br><span class="line">        System.out.println(num1/(num2+<span class="number">0.0</span>));</span><br><span class="line">        System.out.println(<span class="number">2</span>%<span class="number">1.13</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;----------------&quot;</span>);</span><br><span class="line">        <span class="comment">//测试取模运算符</span></span><br><span class="line">        <span class="keyword">int</span> m1=<span class="number">12</span>;</span><br><span class="line">        <span class="keyword">int</span> n1=<span class="number">5</span>;</span><br><span class="line">        System.out.println(m1%n1);<span class="comment">//2</span></span><br><span class="line">        <span class="keyword">int</span> m2=-<span class="number">12</span>;</span><br><span class="line">        <span class="keyword">int</span> n2=<span class="number">5</span>;</span><br><span class="line">        System.out.println(m2%n2);<span class="comment">//-2</span></span><br><span class="line">        <span class="keyword">int</span> m3=<span class="number">12</span>;</span><br><span class="line">        <span class="keyword">int</span> n3=-<span class="number">5</span>;</span><br><span class="line">        System.out.println(m3%n3);<span class="comment">//2</span></span><br><span class="line">        <span class="keyword">int</span> m4=-<span class="number">12</span>;</span><br><span class="line">        <span class="keyword">int</span> n4=-<span class="number">5</span>;</span><br><span class="line">        System.out.println(m4%n4);<span class="comment">//-2</span></span><br><span class="line">        <span class="comment">//自增自减</span></span><br><span class="line">        <span class="keyword">int</span> a=<span class="number">9</span>;</span><br><span class="line">        System.out.println(a++);</span><br><span class="line">        a=<span class="number">9</span>;</span><br><span class="line">        System.out.println(++a);</span><br><span class="line">        a=<span class="number">9</span>;</span><br><span class="line">        System.out.println(a--);</span><br><span class="line">        System.out.println(<span class="string">&quot;***************************&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//三位数输出其个位十位百位</span></span><br><span class="line">        <span class="keyword">int</span> b = <span class="number">123</span>;</span><br><span class="line">        <span class="keyword">int</span> b1 = b%<span class="number">10</span>;</span><br><span class="line">        <span class="keyword">int</span> b2 = (b%<span class="number">100</span>-b1)/<span class="number">10</span>;</span><br><span class="line">        <span class="keyword">int</span> b3 = (b-b2*<span class="number">10</span>-b1)/<span class="number">100</span>;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;个位:&quot;</span>+b1);</span><br><span class="line">        System.out.println(<span class="string">&quot;十位:&quot;</span>+b2);</span><br><span class="line">        System.out.println(<span class="string">&quot;百位:&quot;</span>+b3);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6/" class="post-title-link" itemprop="url">赋值运算符</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-05 21:42:43 / 修改时间：21:34:34" itemprop="dateCreated datePublished" datetime="2021-05-05T21:42:43+08:00">2021-05-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">第二章 基本语法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">testF</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//连续赋值</span></span><br><span class="line">        <span class="keyword">int</span> j1=<span class="number">1</span>,j2=<span class="number">3</span>;</span><br><span class="line">        j1=j2=<span class="number">100</span>;</span><br><span class="line">        System.out.println(<span class="string">&quot;j1=&quot;</span>+j1+<span class="string">&quot;\nj2=&quot;</span>+j2);</span><br><span class="line">        <span class="keyword">short</span> s1=<span class="number">1</span>;</span><br><span class="line">        <span class="comment">// s1=s1+1;//编译失败</span></span><br><span class="line">        s1+=<span class="number">1</span>;<span class="comment">//这样的写法不会改变数据类型</span></span><br><span class="line">        System.out.println(s1);</span><br><span class="line">        System.out.print(j1=<span class="number">9</span>);<span class="comment">//赋值运算返回左值：9</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6/" class="post-title-link" itemprop="url">逻辑运算符</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-05 21:42:43 / 修改时间：21:35:02" itemprop="dateCreated datePublished" datetime="2021-05-05T21:42:43+08:00">2021-05-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">第二章 基本语法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 短路或——||</span></span><br><span class="line"><span class="comment"> * 短路与——&amp;&amp;</span></span><br><span class="line"><span class="comment"> * 开发中短路求值用的多一些</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestL</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">int</span> k = <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">if</span>(i&gt;<span class="number">0</span>|(i++&gt;<span class="number">0</span>))&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;i=&quot;</span>+i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(k&gt;<span class="number">0</span>||(k++)&gt;<span class="number">0</span>)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;k=&quot;</span>+k);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E9%94%AE%E7%9B%98%E8%BE%93%E5%85%A5%E4%B8%89%E4%B8%AA%E6%95%B4%E6%95%B0,%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F%E5%B9%B6%E8%BE%93%E5%87%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E9%94%AE%E7%9B%98%E8%BE%93%E5%85%A5%E4%B8%89%E4%B8%AA%E6%95%B4%E6%95%B0,%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F%E5%B9%B6%E8%BE%93%E5%87%BA/" class="post-title-link" itemprop="url">键盘输入三个整数,进行排序并输出</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-05 21:42:43 / 修改时间：21:31:32" itemprop="dateCreated datePublished" datetime="2021-05-05T21:42:43+08:00">2021-05-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">第二章 基本语法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 键盘输入三个整数，进行排序并输出</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">testOrder</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner scan = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        System.out.println(<span class="string">&quot;请输入第一个整数：&quot;</span>);</span><br><span class="line">        <span class="keyword">int</span> num1=scan.nextInt();</span><br><span class="line">        System.out.println(<span class="string">&quot;请输入第二个整数：&quot;</span>);</span><br><span class="line">        <span class="keyword">int</span> num2=scan.nextInt();</span><br><span class="line">        System.out.println(<span class="string">&quot;请输入第三个整数：&quot;</span>);</span><br><span class="line">        <span class="keyword">int</span> num3=scan.nextInt();</span><br><span class="line">        <span class="comment">//if...else可以嵌套使用，但开发当中不建议过多嵌套</span></span><br><span class="line">        <span class="keyword">if</span>(num1&gt;num2)&#123;</span><br><span class="line">            <span class="keyword">if</span>(num1&lt;num3)&#123;</span><br><span class="line">                System.out.println(num3);</span><br><span class="line">                System.out.println(num1);</span><br><span class="line">                System.out.println(num2);</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(num2&gt;num3)&#123;</span><br><span class="line">                System.out.println(num1);</span><br><span class="line">                System.out.println(num2);</span><br><span class="line">                System.out.println(num3);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                System.out.println(num1);</span><br><span class="line">                System.out.println(num3);</span><br><span class="line">                System.out.println(num2);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(num2&lt;num3)&#123;</span><br><span class="line">                System.out.println(num3);</span><br><span class="line">                System.out.println(num2);</span><br><span class="line">                System.out.println(num1);</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(num3&lt;num1)&#123;</span><br><span class="line">                System.out.println(num2);</span><br><span class="line">                System.out.println(num1);</span><br><span class="line">                System.out.println(num3);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                System.out.println(num2);</span><br><span class="line">                System.out.println(num3);</span><br><span class="line">                System.out.println(num1);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        scan.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%85%B3%E4%BA%8E%E8%BF%9B%E5%88%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%85%B3%E4%BA%8E%E8%BF%9B%E5%88%B6/" class="post-title-link" itemprop="url">关于进制</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-05 21:42:43 / 修改时间：21:34:07" itemprop="dateCreated datePublished" datetime="2021-05-05T21:42:43+08:00">2021-05-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">第二章 基本语法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">test_base_system</span></span>&#123;<span class="comment">//关于进制</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> num1=<span class="number">0b110</span>;</span><br><span class="line">        <span class="keyword">int</span> num2=<span class="number">110</span>;</span><br><span class="line">        <span class="keyword">int</span> num3=<span class="number">0127</span>;</span><br><span class="line">        <span class="keyword">int</span> num4=<span class="number">0x110A</span>;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;num = &quot;</span>+num1);</span><br><span class="line">        System.out.println(<span class="string">&quot;num = &quot;</span>+num2);</span><br><span class="line">        System.out.println(<span class="string">&quot;num = &quot;</span>+num3);</span><br><span class="line">        System.out.println(<span class="string">&quot;num = &quot;</span>+num4);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E4%BD%8D%E8%BF%90%E7%AE%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E4%BD%8D%E8%BF%90%E7%AE%97/" class="post-title-link" itemprop="url">位运算符</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-05 21:42:43 / 修改时间：21:36:34" itemprop="dateCreated datePublished" datetime="2021-05-05T21:42:43+08:00">2021-05-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">第二章 基本语法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 二进制上位移运算</span></span><br><span class="line"><span class="comment"> * 1.位运算符操作的都是整型的数据</span></span><br><span class="line"><span class="comment"> * 2.在一定范围内相当于*2或/2的操作</span></span><br><span class="line"><span class="comment"> * &gt;&gt;：符号位不变,其它补0</span></span><br><span class="line"><span class="comment"> * 面试题：最高效的方式计算2*8</span></span><br><span class="line"><span class="comment"> * 2&lt;&lt;3     8&lt;&lt;1 这两个的时间复杂度都是O(1)</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestW</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">byte</span> i=-<span class="number">21</span>;</span><br><span class="line">        System.out.println(i&lt;&lt;<span class="number">27</span>);</span><br><span class="line">        System.out.println(i&gt;&gt;<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//练习：交换两个变量的值</span></span><br><span class="line">        <span class="keyword">int</span> num1=<span class="number">10</span>;</span><br><span class="line">        <span class="keyword">int</span> num2=<span class="number">11</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//方式1：临时变量</span></span><br><span class="line">        <span class="comment">//方式2：如下(仅限数值型交换，并且有溢出风险)</span></span><br><span class="line">        num1 = num1+num2;</span><br><span class="line">        num2 = num1-num2;</span><br><span class="line">        num1 = num1-num2;</span><br><span class="line">        System.out.println(<span class="string">&quot;num1 = &quot;</span>+num1);</span><br><span class="line">        System.out.println(<span class="string">&quot;num2 = &quot;</span>+num2);</span><br><span class="line">        <span class="comment">//方式三：位运算</span></span><br><span class="line">        num1 = num1^num2;</span><br><span class="line">        num2 = num1^num2;</span><br><span class="line">        num1 = num1^num2;</span><br><span class="line"></span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -1310,7 +918,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/dopphu/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/dopphu/">1</a><a class="page-number" href="/dopphu/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/dopphu/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/dopphu/page/11/">11</a><a class="extend next" rel="next" href="/dopphu/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/dopphu/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/dopphu/">1</a><a class="page-number" href="/dopphu/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/dopphu/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/dopphu/page/13/">13</a><a class="extend next" rel="next" href="/dopphu/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1378,14 +986,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/dopphu/archives/">
         
-          <span class="site-state-item-count">105</span>
+          <span class="site-state-item-count">129</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/dopphu/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">

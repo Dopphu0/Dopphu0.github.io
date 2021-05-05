@@ -189,7 +189,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/25/mysql%E9%AB%98%E7%BA%A7/%E7%AC%94%E8%AE%B003/">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
@@ -203,7 +203,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/dopphu/2021/04/25/mysql%E9%AB%98%E7%BA%A7/%E7%AC%94%E8%AE%B003/" class="post-title-link" itemprop="url">笔记03</a>
+            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" class="post-title-link" itemprop="url">冒泡排序</a>
         </h2>
 
         <div class="post-meta">
@@ -214,615 +214,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-04-25 13:35:00 / 修改时间：13:38:40" itemprop="dateCreated datePublished" datetime="2021-04-25T13:35:00+08:00">2021-04-25</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/mysql%E9%AB%98%E7%BA%A7/" itemprop="url" rel="index"><span itemprop="name">mysql高级</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>查看字符集</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">&#x27;character%&#x27;</span>;</span><br><span class="line">或</span><br><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">&#x27;%char%&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
-<p>二进制日志lob-bin：主从复制</p>
-<p>错误日志log-error：默认是关闭的，记录严重的警告和错误信息，每次启动和关闭的详细信息。</p>
-<p>查询日志log</p>
-<p>数据文件 : linux 下路径 /var/lib/mysql</p>
-<ul>
-<li>frm：存放表结构</li>
-<li>myd：存放表数据</li>
-<li>myi：存放索引</li>
-</ul>
-<h2 id="mysql逻辑架构"><a href="#mysql逻辑架构" class="headerlink" title="mysql逻辑架构"></a>mysql逻辑架构</h2><p>和其他数据库相比，mysql有点与众不同，它的架构可以在多种不同的场景中应用并发挥良好作用。主要体现在存储引擎的架构上，<strong>插件式的存储引擎架构将查询处理和其它的系统任务以及数据的存储提取相分离。</strong>这种架构可以根据业务的需求和实际需要选择合适的存储引擎。</p>
-<p>me：哪层出事找哪层解决。</p>
-<p>1.连接层 2.服务层 3.引擎层 4.存储层</p>
-<h2 id="存储引擎简介"><a href="#存储引擎简介" class="headerlink" title="存储引擎简介"></a>存储引擎简介</h2><p>常用的两个：innodb和MYISAM</p>
-<ol>
-<li><p>查看你的mysql现在提供的存储引擎</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show engines;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看你的mysql当前默认的存储引擎</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show variables like &#x27;%storage_engine%&#x27;;</span><br></pre></td></tr></table></figure></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/25/mysql%E9%AB%98%E7%BA%A7/MySql%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%9005/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2021/04/25/mysql%E9%AB%98%E7%BA%A7/MySql%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%9005/" class="post-title-link" itemprop="url">MySQL性能分析05</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-04-25 13:35:00 / 修改时间：13:39:27" itemprop="dateCreated datePublished" datetime="2021-04-25T13:35:00+08:00">2021-04-25</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/mysql%E9%AB%98%E7%BA%A7/" itemprop="url" rel="index"><span itemprop="name">mysql高级</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><strong>MySQL Query Optimizer</strong></p>
-<p>mysql 会 ‘ 按自己理解进行优化 ’</p>
-<p><strong>MySQL常见瓶颈</strong></p>
-<p>CPU：CPU在饱和的时候一般发生在数据装入内存或从磁盘上读取数据的时候</p>
-<p>IO：磁盘I/O瓶颈发生在装入数据远大于内存容量的时候</p>
-<p>服务器硬件的性能瓶颈：top，free，iostat和vmstat来查看系统的性能状态</p>
-<p><strong>Explain</strong></p>
-<p>是什么：官网</p>
-<p>能干吗</p>
-<ul>
-<li>表的读取顺序</li>
-<li>数据读取操作的类型</li>
-<li>哪些些索引可以使用</li>
-<li>哪些索引被实际使用</li>
-<li>表之间的引用</li>
-<li>每张表有多少行被优化器查询</li>
-</ul>
-<p>怎么玩</p>
-<ul>
-<li><p>Explain + SQL语句</p>
-</li>
-<li><p>执行计划包含的信息</p>
-<ul>
-<li>id</li>
-<li>select_type</li>
-<li>table</li>
-<li>type</li>
-<li>possible_keys</li>
-<li>key</li>
-<li>key_len</li>
-<li>ref</li>
-<li>rows</li>
-<li>Extra</li>
-</ul>
-</li>
-</ul>
-<p>各字段解释</p>
-<h4 id="id"><a href="#id" class="headerlink" title="id"></a>id</h4><ol>
-<li><p>id相同</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/id%E7%9B%B8%E5%90%8C.1cgztjz8xn7k.jpg" alt="id相同"></p>
-</li>
-<li><p>id不同</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/image-20210223171906278.11iudbukzv80.png" alt="image-20210223171906278"></p>
-</li>
-<li><p>不同相同同时存在</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E4%B8%8D%E5%90%8C%E7%9B%B8%E5%90%8C%E5%90%8C%E6%97%B6%E5%AD%98%E5%9C%A8.m1qfmohbnds.jpg" alt="不同相同同时存在"></p>
-</li>
-</ol>
-<h4 id="select-type"><a href="#select-type" class="headerlink" title="select_type"></a>select_type</h4><p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/image-20210224125954736.5dc52qxrb2o0.png" alt="image-20210224125954736"></p>
-<ul>
-<li><p>simple</p>
-<p>简单的select查询，查询中不包含子查询或union</p>
-</li>
-<li><p>primary</p>
-<p>查询中若包含任何复杂的子部分，最外层查询则被标记为primary</p>
-</li>
-<li><p>subquery</p>
-<p>在select或where中包含子查询</p>
-</li>
-<li><p>derived</p>
-<p>在from列表中包含的子查询被标记为derived（衍生）MySQL会递归执行这些子查询，把结果放在临时表里。</p>
-</li>
-<li><p>union</p>
-<p>若第二个select出现在union之后，则被标记为union，若union包含在from子句的子查询中，外层select将被标记为derived</p>
-</li>
-<li><p>union result</p>
-<p>从union表中获取结果的select</p>
-</li>
-</ul>
-<h4 id="table"><a href="#table" class="headerlink" title="table"></a>table</h4><p>显示这一行数据是关于哪张表的</p>
-<h4 id="type"><a href="#type" class="headerlink" title="type"></a>type</h4><p>常见的几种</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/image-20210224131707846.63bnb6dttmk0.png" alt="image-20210224131707846"></p>
-<p>从最好到最差依次是（实际应用中达到<strong>ref</strong>已经很好了）</p>
-<p>system &gt; const&gt; eq_ref &gt; ref &gt; range &gt; index &gt; ALL</p>
-<ul>
-<li><p>system</p>
-<p>表只有一行记录（等于系统表），这是const类型的特例，平时不会出现</p>
-</li>
-<li><p>const</p>
-<p>表示通过索引一次就找到了，const用于比较primary key或者unique索引。因为只匹配一行数据，所以很快。如将主键置于where列表中，MySQL就能将该查询转换为一个常量。</p>
-</li>
-<li><p>eq_ref</p>
-<p>唯一性索引扫描，对于每个索引键，表中只有一条记录与之匹配。常见于主键或唯一索引扫描</p>
-<p>me：ceo一个人一个部门号</p>
-</li>
-<li><p>ref</p>
-<p>非唯一性索引扫描，返回匹配某个单独值的所有行。本质上也是一种索引访问，它返回所有匹配某个单独值的行，然而，它可能会找到多个符合条件的行，所以他应该属于查找和扫描的混合体。</p>
-<p>me：程序员 很多人一个部门号 </p>
-</li>
-<li><p>range</p>
-<p>只检索给定范围的行，使用一个索引来选择行。key列显示使用了哪个索引，一般就是在你的where语句中出现了between、&gt; 、&lt; 、in等的查询，这种范围扫描索引扫描比全表扫描要好，因为它只需要开始于索引的某一点，而结束于另一点，不用扫描全部索引。</p>
-</li>
-<li><p>index</p>
-<p>Full Index Scan，index与ALL区别为index类型只遍历索引树。这通常比ALL快，因为索引文件通常比数据文件小。（也就是说虽然ALL和index都是读全表，但index是从索引中读取的，而ALL是从硬盘中读取的）</p>
-<p>e.g. <code>select id from table1；</code></p>
-</li>
-<li><p>ALL</p>
-<p>Full Table Scan，将会遍历全表以找到匹配的行。</p>
-</li>
-</ul>
-<p>备注：一般来说，得保证查询<strong>至少要达到range</strong>级别，<strong>最好能达到ref</strong></p>
-<h4 id="possible-keys"><a href="#possible-keys" class="headerlink" title="possible_keys"></a>possible_keys</h4><p>显示可能应用到这张表的索引，一个或多个</p>
-<p>查询涉及到的字段上若存在索引，则该索引将被列出，但不一定被查询实际使用</p>
-<h4 id="key"><a href="#key" class="headerlink" title="key"></a>key</h4><p>实际使用的索引。如果为NULL，则没有使用索引</p>
-<p>查询中若涉及覆盖索引，则该索引仅出现在key列表中</p>
-<p>补充：<strong>索引覆盖</strong>——就是建立的索引顺序与查询字段顺序一致</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/image-20210224140707068.1rw8eocqft0g.png" alt="image-20210224140707068"></p>
-<h4 id="key-len"><a href="#key-len" class="headerlink" title="key_len"></a>key_len</h4><p>表示索引中使用的字节数，可以通过该列计算查询中使用的索引的长度。在不损失精确性的情况下，长度越短越好。key_len显示的值为索引字段的最大可能长度，并非实际使用长度，即key_len，是根据表定义计算而得，不是通过表内检索出的</p>
-<h4 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h4><p>显示索引的哪一列被使用了，如果可能的话，是一个常数，哪些列或常量被用于查找索引列上的值</p>
-<h4 id="rows"><a href="#rows" class="headerlink" title="rows"></a>rows</h4><p>根据表统计信息及索引选用情况，大致估算出找到所需的记录所需要读取的行数，如图</p>
-<p>建索引与不建索引</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/image-20210224175825326.26eafg3mn00w.png" alt="image-20210224175825326"></p>
-<h4 id="Extra"><a href="#Extra" class="headerlink" title="Extra"></a>Extra</h4><p>包含不适合在其它列显示又十分重要的额外信息，如下：（前三个重要）</p>
-<ol>
-<li><p><strong>Using filesort</strong> （文件内排序）</p>
-<p>说明MySQL会对数据使用一个外部的索引排序，而不是按照表内的索引顺序进行读取。MySQL中无法利用索引完成的排序操作成为 “ 文件排序 ” </p>
-<p>![Using filesort](<a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/Using">https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/Using</a> filesort.1wfom72r6vvk.jpg)</p>
-</li>
-<li><p><strong>Using temporary</strong></p>
-<p>使用了临时表保存中间结果，MySQL在对查询结果排序时使用临时表。常见于排序order by 和 分组查询 group by</p>
-<p>![Using temporary](<a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/Using">https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/Using</a> temporary.2h278atqp9q0.jpg)</p>
-</li>
-<li><p><strong>Using index</strong></p>
-<p>表示相应的select操作中使用了覆盖索引（Covering Index），避免访问了表的数据行，效率不错！</p>
-<p>如果同时出现 using where ，表明索引被用来执行索引键值的查找</p>
-<p>如果没有同时出现 using where ，表明索引用来读取数据而非执行查找动作</p>
-<p><strong>覆盖索引</strong> （Covering Index），一说为索引覆盖</p>
-<p>​    理解方式一（推荐）：就是select的数据列只从索引中就能够取得，MySQL可以利用索引返回select列表中的字段，而不必根据索引再次读取数据文件。换句或说<strong>查询列要被所建的索引覆盖</strong>。</p>
-<p>​    理解方式二：索引是高效找到行的一个方法，但是一般数据库也能使用索引找到一个列的数据，因此它不必读取整个行。毕竟索引叶子节点存储了它们索引的数据。当能通过读取索引就可以得到想要的数据，那就不需要读取行了。一个索引包含了（或覆盖了）满足查询结果的数据就叫做覆盖索引。</p>
-<p>![Using index](<a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/Using">https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/Using</a> index.21cx30x4zjuo.jpg)</p>
-<p>注意：</p>
-<p>​    如果要使用覆盖索引，一定要注意select列表中只取出需要的列，不可select * </p>
-<p>​    因为如果将所有字段一起做索引会导致索引文件过大，查询性能下降</p>
-</li>
-<li><p>Using where</p>
-</li>
-<li><p>using join buffer</p>
-<p>使用了连接缓存</p>
-</li>
-<li><p>impossible where</p>
-<p>where子句的值总是false，不能用来获取任何元组。</p>
-</li>
-<li><p>select tables optimized away</p>
-<p>在没有GROUP BY子句的情况下，基于索引优化MIN/MAX操作或者对于MYISAM存储引擎优化COUNT(*)操作，不必等到执行阶段再计算，查询执行计划生成阶段即可完成优化。</p>
-</li>
-<li><p>distinct</p>
-<p>优化 distinct 操作，在找到第一匹配的元祖后即停止找同样值的操作。</p>
-</li>
-</ol>
-<h4 id="一个热身case"><a href="#一个热身case" class="headerlink" title="一个热身case"></a>一个热身case</h4><p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/image-20210224191718084.23egz7jnbgrk.png" alt="image-20210224191718084"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/25/mysql%E9%AB%98%E7%BA%A7/11%E5%85%A8%E5%B1%80%E6%9F%A5%E8%AF%A2%E6%97%A5%E5%BF%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2021/04/25/mysql%E9%AB%98%E7%BA%A7/11%E5%85%A8%E5%B1%80%E6%9F%A5%E8%AF%A2%E6%97%A5%E5%BF%97/" class="post-title-link" itemprop="url">全局查询日志11</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-04-25 13:35:00 / 修改时间：13:39:38" itemprop="dateCreated datePublished" datetime="2021-04-25T13:35:00+08:00">2021-04-25</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/mysql%E9%AB%98%E7%BA%A7/" itemprop="url" rel="index"><span itemprop="name">mysql高级</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="全局查询日志"><a href="#全局查询日志" class="headerlink" title="全局查询日志"></a>全局查询日志</h1><p>永远不要在生产环境中开启这个功能！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！</p>
-<p>！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！</p>
-<p>（测试环境中使用）</p>
-<h2 id="配置启用"><a href="#配置启用" class="headerlink" title="配置启用"></a>配置启用</h2><p>在mysql的my.cnf中，设置如下：</p>
-<p>#开启</p>
-<p>general_log=1</p>
-<p>#记录日志文件的路径</p>
-<p>general_log_file=/path/logfile</p>
-<p>#输出格式</p>
-<p>log_output=FILE</p>
-<h2 id="编码使用"><a href="#编码使用" class="headerlink" title="编码使用"></a>编码使用</h2><p><img src="https://static01.imgkr.com/temp/fa291b2c3bad4439959768c4589a9a8a.jpg" alt="image-20210227170335059"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/25/mysql%E9%AB%98%E7%BA%A7/10Show%20Profile/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2021/04/25/mysql%E9%AB%98%E7%BA%A7/10Show%20Profile/" class="post-title-link" itemprop="url">Show Profile 10</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-25 13:35:00" itemprop="dateCreated datePublished" datetime="2021-04-25T13:35:00+08:00">2021-04-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-05 15:43:32" itemprop="dateModified" datetime="2021-05-05T15:43:32+08:00">2021-05-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/mysql%E9%AB%98%E7%BA%A7/" itemprop="url" rel="index"><span itemprop="name">mysql高级</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Show-Profile"><a href="#Show-Profile" class="headerlink" title="Show Profile"></a>Show Profile</h1><p>是什么：是mysql 提供的可以用来分析当前会话中语句执行的资源消耗情况。可以用与SQL的调优的测量</p>
-<p>默认情况下，参数出于关闭状态，并保存最近15次的运行结果</p>
-<p>分析步骤：</p>
-<ol>
-<li><p>是否支持，看看当前的mysql版本是否支持</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">&#x27;%profiling%&#x27;</span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>开启功能，默认是关闭，使用前需开启</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> profiling = <span class="keyword">on</span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>运行SQL</p>
-</li>
-<li><p>查看结果，<code>show profiles;</code></p>
-</li>
-<li><p>诊断SQL</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> profile cpu,<span class="keyword">block</span> io <span class="keyword">for</span> <span class="keyword">query</span> 上一步前面的问题<span class="keyword">SQL</span>数字号码;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/showprofile%E7%9B%B8%E5%85%B3%E5%8F%82%E6%95%B0.4h35gwq1qzy0.jpg" alt="showprofile相关参数"></p>
-<p>这四种出现一中就够你受的的</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E4%B8%80%E7%A7%8D%E5%B0%B1%E5%A4%9F%E4%BD%A0%E5%8F%97%E7%9A%84%E7%9A%84.3vg3rqwiru00.jpg" alt="一种就够你受的的"></p>
-</li>
-<li><p>日常开发需要注意的结论</p>
-<p>这四种出现一中就够你受的的</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E4%B8%80%E7%A7%8D%E5%B0%B1%E5%A4%9F%E4%BD%A0%E5%8F%97%E7%9A%84%E7%9A%84.57yutlfjcwg0.jpg" alt="一种就够你受的的"></p>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/25/mysql%E9%AB%98%E7%BA%A7/06%E7%B4%A2%E5%BC%95%E4%BC%98%E5%8C%96/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2021/04/25/mysql%E9%AB%98%E7%BA%A7/06%E7%B4%A2%E5%BC%95%E4%BC%98%E5%8C%96/" class="post-title-link" itemprop="url">索引优化06</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-04-25 13:35:00 / 修改时间：13:39:30" itemprop="dateCreated datePublished" datetime="2021-04-25T13:35:00+08:00">2021-04-25</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/mysql%E9%AB%98%E7%BA%A7/" itemprop="url" rel="index"><span itemprop="name">mysql高级</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="索引分析"><a href="#索引分析" class="headerlink" title="索引分析"></a>索引分析</h2><h3 id="单表"><a href="#单表" class="headerlink" title="单表"></a>单表</h3><p>分析</p>
-<h3 id="两表"><a href="#两表" class="headerlink" title="两表"></a>两表</h3><p>左连接 建右表索引</p>
-<p>如果已经存在索引，则用相应高效的连接（如左表索引，用右连接，而不是让DBA去修改索引，索引又不是为你一个人建立的）</p>
-<h3 id="三表"><a href="#三表" class="headerlink" title="三表"></a>三表</h3><p>【结论】</p>
-<p>尽可能减少join语句中的NestedLoop的循环总次数：永远用小结果集驱动大的结果集。优先优化 NestedLoop的内层循环；</p>
-<p>保证join语句中被驱动表上join条件字段已经被索引；</p>
-<h2 id="索引失效（应该避免）"><a href="#索引失效（应该避免）" class="headerlink" title="索引失效（应该避免）"></a>索引失效（应该避免）</h2><ol>
-<li><p>全值匹配我最爱</p>
-</li>
-<li><p>最佳左前缀法则</p>
-<p>不能拆一楼：<strong>带头大哥不能少</strong></p>
-<p>也不能拆二楼还要上三楼：<strong>中间兄弟不能断</strong></p>
-</li>
-<li><p>不在索引列上做任何操作（计算、函数、（自动或手动）类型转换），否则会导致索引失效而转向全表扫描</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E4%B8%8D%E8%83%BD%E5%9C%A8%E7%B4%A2%E5%BC%95%E5%88%97%E4%B8%8A%E5%81%9A%E4%BB%BB%E4%BD%95%E6%93%8D%E4%BD%9C.6mnhqg70mak0.jpg" alt="不能在索引列上做任何操作"></p>
-</li>
-<li><p>存储引擎不能使用索引中范围条件右边的列（<strong>范围之后全失效</strong>）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E8%8C%83%E5%9B%B4%E4%B9%8B%E5%90%8E%E5%85%A8%E5%A4%B1%E6%95%88.4yoh08t09bg0.jpg" alt="范围之后全失效"></p>
-</li>
-<li><p>尽量使用覆盖索引（只访问索引的查询（查序列和索引列一致）），减少select * </p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%B0%BD%E9%87%8F%E7%B4%A2%E5%BC%95%E8%A6%86%E7%9B%96.2crwog7e6gcg.jpg" alt="尽量索引覆盖"></p>
-</li>
-<li><p>mysql在使用不等于（!=或&lt;&gt;）的时候，无法使用索引，会导致全表扫描</p>
-<p>但注意，该写还是要写</p>
-</li>
-<li><p>is null、is not null 也无法使用索引</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/null%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8%E7%B4%A2%E5%BC%95.5tysvlce0940.jpg" alt="null无法使用索引"></p>
-</li>
-<li><p>like以通配符开头的mysql索引会失效，会变成全表扫描的操作</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E7%99%BE%E5%88%86%E5%8F%B7like.1txvugwypqww.jpg" alt="百分号like"></p>
-<p>所以，尽量使用右%号，实在要用双%可用索引覆盖进行优化</p>
-</li>
-<li><p>字符串不加单引号索引失效</p>
-<p>varchar类型绝对不能漏写单引号，否则会被骂死（滑稽）</p>
-</li>
-<li><p>少用or，用它来连接时索引失效</p>
-</li>
-</ol>
-<p>补充：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/mysql%E8%87%AA%E5%B7%B1%E4%BC%9A%E4%BC%98%E5%8C%96.7mtucwj8124.jpg" alt="mysql自己会优化"></p>
-<p>mysql底层会自己优化一下</p>
-<p>![group by](<a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/group">https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/group</a> by.3n0u2xu3t3a0.jpg)</p>
-<p>group by 基本上都需要进行排序，会有临时表产生</p>
-<p><img src="https://static01.imgkr.com/temp/d2871dd8430b4e849f2d059c28d72cc0.jpg" alt="image-20210225171241138"></p>
-<p>me：注意第六行和第七行的对比</p>
-<h4 id="一般性建议"><a href="#一般性建议" class="headerlink" title="一般性建议"></a>一般性建议</h4><ul>
-<li>对于单键索引，尽量选择针对当前query过滤性更好的索引</li>
-<li>在选择组合索引的时候，当前query中过滤性最好的字段在索引字段顺序中，位置越靠前越好</li>
-<li>再选择组合索引的时候，尽量选择可以能够包含当前query中的where字句中更多字段的索引</li>
-<li>尽可能通过分析统计信息和调整query的写法来达到选择合适索引的目的</li>
-</ul>
-<p><strong>口诀</strong>：</p>
-<p>全值匹配我最爱，最左前缀要遵守</p>
-<p>带头大哥不能死，中间兄弟不能断</p>
-<p>索引列上少计算，范围之后全失效</p>
-<p>LIKE百分写最右，覆盖索引不写星</p>
-<p>不等空值还有or，索引失效要少用</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/15/Java%20Language%20Basics/test/Comparable%E6%8E%A5%E5%8F%A3%E5%92%8CComparator%E6%8E%A5%E5%8F%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2021/04/15/Java%20Language%20Basics/test/Comparable%E6%8E%A5%E5%8F%A3%E5%92%8CComparator%E6%8E%A5%E5%8F%A3/" class="post-title-link" itemprop="url">Comparable接口和Comparator接口</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-04-15 18:17:04 / 修改时间：18:16:50" itemprop="dateCreated datePublished" datetime="2021-04-15T18:17:04+08:00">2021-04-15</time>
+              <time title="创建时间：2021-05-05 21:42:43 / 修改时间：21:37:44" itemprop="dateCreated datePublished" datetime="2021-05-05T21:42:43+08:00">2021-05-05</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -832,6 +224,10 @@
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
                 </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">第二章 基本语法</span></a>
+                </span>
             </span>
 
           
@@ -845,7 +241,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> chapter09;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> chapter09Test.Goods;</span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.Comparator;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 一、说明：Java中的对象，正常情况下，只能进行比较：== 或 != 。不能使用 &gt; 或 &lt; 的。</span></span><br><span class="line"><span class="comment"> * 但是在日常开发场景中，我们需要对多个对象进行排序，言外之意，就需要比较对象的大小。</span></span><br><span class="line"><span class="comment"> * 如何实现？使用两个接口中的任何一个：Comparable 或 Comparator</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 二、Comparable接口与Comparator使用的对比</span></span><br><span class="line"><span class="comment"> *      Comparable接口的方式一旦指定，保证Comparable接口实现类的对象在任何位置都可以比较大小</span></span><br><span class="line"><span class="comment"> *      Comparator接口属于临时性的比较。</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> dopphu</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span> 2021-04-12 17:12</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test16</span> </span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    *   Comparable接口的使用举例：      自然排序</span></span><br><span class="line"><span class="comment">    *   1.像String、包装类等实现了Comparable接口，重写了compareTo(obj)方法，给出了比较两个对象大小的规则</span></span><br><span class="line"><span class="comment">    *   2.像String、包装类等重写了compareTo()方法以后，进行了从小到大的排序</span></span><br><span class="line"><span class="comment">    *   3.重写comparaTo(obj) 的规则：</span></span><br><span class="line"><span class="comment">    *       如果当前对象this大于形参对象obj，则返回正整数；</span></span><br><span class="line"><span class="comment">    *       如果当前对象this小于形参对象obj，则返回负数；</span></span><br><span class="line"><span class="comment">    *       如果当前对象this等于形参对象obj，则返回零</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * */</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span></span>&#123;</span><br><span class="line">        String[] arr = <span class="keyword">new</span> String[]&#123;<span class="string">&quot;AA&quot;</span>,<span class="string">&quot;dd&quot;</span>,<span class="string">&quot;ee&quot;</span>,<span class="string">&quot;CC&quot;</span>&#125;;</span><br><span class="line">        Arrays.sort(arr);</span><br><span class="line"></span><br><span class="line">        System.out.println(arr);</span><br><span class="line">        System.out.println(arr.toString());</span><br><span class="line">        System.out.println(Arrays.toString(arr));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//使用另一个包下的Goods类，有price、name两个属性</span></span><br><span class="line">        Goods[] arr = <span class="keyword">new</span> Goods[<span class="number">4</span>];</span><br><span class="line">        arr[<span class="number">0</span>] = <span class="keyword">new</span> Goods(<span class="string">&quot;huawei华为&quot;</span>,<span class="number">50</span>);</span><br><span class="line">        arr[<span class="number">1</span>] = <span class="keyword">new</span> Goods(<span class="string">&quot;xiaomi小米&quot;</span>,<span class="number">10</span>);</span><br><span class="line">        arr[<span class="number">2</span>] = <span class="keyword">new</span> Goods(<span class="string">&quot;lianxiang联想&quot;</span>,<span class="number">70</span>);</span><br><span class="line">        arr[<span class="number">3</span>] = <span class="keyword">new</span> Goods(<span class="string">&quot;shuangfeiyan双飞燕&quot;</span>,<span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">        Arrays.sort(arr);</span><br><span class="line">        System.out.println(Arrays.toString(arr));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    * Comparator接口的使用：定制排序</span></span><br><span class="line"><span class="comment">    * 1.背景：</span></span><br><span class="line"><span class="comment">    * 当元素的类型没有实现java.long.Comparable接口而又不方便修改代码，</span></span><br><span class="line"><span class="comment">    * 或者实现了java.lang.Comparable接口的排序规则不适合当前操作</span></span><br><span class="line"><span class="comment">    * 那么可以考虑使用 Comparator 的对象来排序</span></span><br><span class="line"><span class="comment">    * 2.重写compare(Object o1, Object o2)方法，比较o1和o2的大小：</span></span><br><span class="line"><span class="comment">    *   如果方法返回正整数，则表示o1大于o2；</span></span><br><span class="line"><span class="comment">    *   如果返回0，表示相等</span></span><br><span class="line"><span class="comment">    *   返回负数，表示o1小于o2</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * */</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test3</span><span class="params">()</span></span>&#123;</span><br><span class="line">        String[] arr = <span class="keyword">new</span> String[]&#123;<span class="string">&quot;AA&quot;</span>,<span class="string">&quot;dd&quot;</span>,<span class="string">&quot;ee&quot;</span>,<span class="string">&quot;CC&quot;</span>&#125;;</span><br><span class="line">        Arrays.sort(arr, <span class="keyword">new</span> Comparator&lt;String&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(String o1, String o2)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(o1 <span class="keyword">instanceof</span> String &amp;&amp; o2 <span class="keyword">instanceof</span> String)&#123;</span><br><span class="line">                    String s1 = (String) o1;</span><br><span class="line">                    String s2 = (String) o2;</span><br><span class="line">                    <span class="keyword">return</span> -s1.compareTo(s2);<span class="comment">//默认从小到大，加一个负号变从大到小</span></span><br><span class="line">                &#125;</span><br><span class="line"><span class="comment">//                return 0;</span></span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">&quot;输入的类型不一致&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        System.out.println(Arrays.toString(arr));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test4</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//使用另一个包下的Goods类，有price、name两个属性</span></span><br><span class="line">        Goods[] arr = <span class="keyword">new</span> Goods[<span class="number">4</span>];</span><br><span class="line">        arr[<span class="number">0</span>] = <span class="keyword">new</span> Goods(<span class="string">&quot;h华为&quot;</span>,<span class="number">50</span>);</span><br><span class="line">        arr[<span class="number">1</span>] = <span class="keyword">new</span> Goods(<span class="string">&quot;x小米&quot;</span>,<span class="number">10</span>);</span><br><span class="line">        arr[<span class="number">2</span>] = <span class="keyword">new</span> Goods(<span class="string">&quot;l联想&quot;</span>,<span class="number">70</span>);</span><br><span class="line">        arr[<span class="number">3</span>] = <span class="keyword">new</span> Goods(<span class="string">&quot;s双飞燕&quot;</span>,<span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">        Arrays.sort(arr, <span class="keyword">new</span> Comparator() &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//指明商品比较大小的方式：按照产品名称从低到高排序，在按照价格从低到高排序</span></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Object o1, Object o2)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(o1 <span class="keyword">instanceof</span> Goods &amp;&amp; o2 <span class="keyword">instanceof</span> Goods)&#123;</span><br><span class="line">                    Goods g1 = (Goods)o1;</span><br><span class="line">                    Goods g2 = (Goods)o2;</span><br><span class="line">                    <span class="keyword">if</span>(g1.getName().equals(g2.getName()))&#123;</span><br><span class="line">                        <span class="keyword">return</span> -Double.compare(g1.getPrice(), g2.getPrice());</span><br><span class="line">                    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                        <span class="keyword">return</span> g1.getName().compareTo(g2.getName());</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">&quot;数据类型不匹配&quot;</span>);</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        System.out.println(Arrays.toString(arr));</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SortTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] sums=&#123;<span class="number">4</span>,<span class="number">5</span>,<span class="number">0</span>,<span class="number">9</span>&#125;;</span><br><span class="line">        System.out.print(<span class="string">&quot;Before    &quot;</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;sums.length; i++)&#123;</span><br><span class="line">            System.out.print(sums[i]+<span class="string">&quot; &quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;sums.length-<span class="number">1</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j&lt;sums.length-i-<span class="number">1</span>; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(sums[j]&gt;sums[j+<span class="number">1</span>])&#123;</span><br><span class="line">                    <span class="keyword">int</span> temp = sums[j];</span><br><span class="line">                    sums[j] = sums[j+<span class="number">1</span>];</span><br><span class="line">                    sums[j+<span class="number">1</span>] = temp;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">        System.out.print(<span class="string">&quot;After sorting    &quot;</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;sums.length; i++)&#123;</span><br><span class="line">            System.out.print(sums[i]+<span class="string">&quot; &quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -866,7 +262,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/15/Java%20Language%20Basics/test/%E5%85%B3%E4%BA%8EStringBuffer%E5%92%8CStringBuilder%E7%9A%84%E4%BD%BF%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%88%9D%E8%A7%81Scanner%E7%B1%BB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
@@ -880,7 +276,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/dopphu/2021/04/15/Java%20Language%20Basics/test/%E5%85%B3%E4%BA%8EStringBuffer%E5%92%8CStringBuilder%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">关于StringBuffer和StringBuilder的使用</a>
+            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%88%9D%E8%A7%81Scanner%E7%B1%BB/" class="post-title-link" itemprop="url">初见Scanner类</a>
         </h2>
 
         <div class="post-meta">
@@ -891,7 +287,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-04-15 09:07:38 / 修改时间：09:07:15" itemprop="dateCreated datePublished" datetime="2021-04-15T09:07:38+08:00">2021-04-15</time>
+              <time title="创建时间：2021-05-05 21:42:43 / 修改时间：21:40:43" itemprop="dateCreated datePublished" datetime="2021-05-05T21:42:43+08:00">2021-05-05</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -900,6 +296,10 @@
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">第二章 基本语法</span></a>
                 </span>
             </span>
 
@@ -914,7 +314,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> chapter09;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 关于StringBuffer和StringBuilder的使用</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * StringBuffer是线程安全的，方法都加了synchronized 关键字</span></span><br><span class="line"><span class="comment"> *  String 效率最低</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> dopphu</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span> 2021-04-10 20:10</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test07</span> </span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * String、StringBuffer、StringBuilder三者的异同？</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * String：不可变的字符序列：底层使用char[] 进行存储</span></span><br><span class="line"><span class="comment">    * StringBuffer：可变的字符序列，线程安全的，效率低：底层使用char[] 进行存储</span></span><br><span class="line"><span class="comment">    * StringBuilder：可变的字符序列，jdk5.0新增，线程不安全，效率高：底层使用char[] 进行存储</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * 源码分析</span></span><br><span class="line"><span class="comment">    * String str = new String();//char[] value = new char[0];</span></span><br><span class="line"><span class="comment">    * String str1 = new String(&quot;a,b,c&quot;);//char[] value = new char[]&#123;&#x27;a&#x27;,&#x27;b&#x27;,&#x27;c&#x27;&#125;;</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * StringBuffer sb1 = new StringBuffer();//char[] value = new char[16];底层创建了一个长度是16的数组。</span></span><br><span class="line"><span class="comment">    * sb1.append(&#x27;a&#x27;);//value[0] = &#x27;a&#x27;;</span></span><br><span class="line"><span class="comment">    * sb1.append(&#x27;b&#x27;);//value[1] = &#x27;b&#x27;;</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * StringBuffer sb2 = new StringBuffer(&quot;abc&quot;);//char[] value = new char[&quot;abc&quot;.length()+16];</span></span><br><span class="line"><span class="comment">    * 注：StringBuilder也是这么扩容的</span></span><br><span class="line"><span class="comment">    * //问题1，System.out.println(sb2.length());//3</span></span><br><span class="line"><span class="comment">    * //问题2，扩容问题：如果要添加的数据底层数组盛不下了，那就需要扩容底层的数组。</span></span><br><span class="line"><span class="comment">    *       默认情况下，扩容为原来容量的2倍+2，同时、将原有数组中的元素复制的到新的数组中。</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    *        指导意义：建议大家使用：StringBuffer(int capacity) 或 StringBuilder(int capacity)——就是一开始</span></span><br><span class="line"><span class="comment">    *           就指定一个长度，省的不够了再扩容。然后根据是否需要线程安全选择用StringBuffer还是StringBuilder</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * */</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span></span>&#123;</span><br><span class="line">        StringBuffer sb1 = <span class="keyword">new</span> StringBuffer(<span class="string">&quot;abcde&quot;</span>);</span><br><span class="line">        StringBuffer sb2 = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">        System.out.println(sb2.length());<span class="comment">//返回0（不是16啊喂）</span></span><br><span class="line">        sb1.setCharAt(<span class="number">0</span>,<span class="string">&#x27;w&#x27;</span>);</span><br><span class="line">        System.out.println(sb1);</span><br><span class="line">        System.out.println(sb1.length());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 如何从键盘获取不同类型的变量：需要使用Scanner类</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 具体实现步骤:</span></span><br><span class="line"><span class="comment"> * 1.导包：import java.util.Scanner;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ScannerTest</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="comment">/*    Scanner scan = new Scanner(System.in);</span></span><br><span class="line"><span class="comment">        // int num=scan.nextInt();</span></span><br><span class="line"><span class="comment">        String s=scan.nextLine();</span></span><br><span class="line"><span class="comment">        // System.out.println(num);</span></span><br><span class="line"><span class="comment">        System.out.println(s);</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">        //对于字符（char）的获取</span></span><br><span class="line"><span class="comment">        System.out.println(&quot;请输入你的性别：（男/女）&quot;);</span></span><br><span class="line"><span class="comment">        // char c = (scan.next()).charAt(0);</span></span><br><span class="line"><span class="comment">        String gender = scan.next();</span></span><br><span class="line"><span class="comment">        char c = gender.charAt(0);</span></span><br><span class="line"><span class="comment">        System.out.println(gender);//输入中文有问题</span></span><br><span class="line"><span class="comment">        // scan.close();</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//练习</span></span><br><span class="line">    Scanner scan = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">    System.out.println(<span class="string">&quot;请输入小鹏的成绩：（0--100）&quot;</span>);</span><br><span class="line">    <span class="keyword">int</span> score = scan.nextInt();</span><br><span class="line">    <span class="keyword">if</span>(score==<span class="number">100</span>)&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;奖励一辆BMW&quot;</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(score&gt;<span class="number">80</span>&amp;&amp;score&lt;<span class="number">100</span>)&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;奖励一个iPad&quot;</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(score&gt;<span class="number">60</span>)&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;奖励一次游乐园&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    scan.close();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -935,7 +335,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/14/Java%20Language%20Basics/test/%E6%9E%9A%E4%B8%BE%E7%B1%BB/">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%88%9D%E8%A7%81random/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
@@ -949,7 +349,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/dopphu/2021/04/14/Java%20Language%20Basics/test/%E6%9E%9A%E4%B8%BE%E7%B1%BB/" class="post-title-link" itemprop="url">枚举类</a>
+            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%88%9D%E8%A7%81random/" class="post-title-link" itemprop="url">初见random</a>
         </h2>
 
         <div class="post-meta">
@@ -960,7 +360,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-04-14 10:26:04 / 修改时间：10:25:49" itemprop="dateCreated datePublished" datetime="2021-04-14T10:26:04+08:00">2021-04-14</time>
+              <time title="创建时间：2021-05-05 21:42:43 / 修改时间：21:40:08" itemprop="dateCreated datePublished" datetime="2021-05-05T21:42:43+08:00">2021-05-05</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -969,6 +369,10 @@
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">第二章 基本语法</span></a>
                 </span>
             </span>
 
@@ -983,7 +387,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> chapter10;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 一、枚举类的使用</span></span><br><span class="line"><span class="comment"> * 1.枚举类的理解：类的对象只有有限个，确定的，我们就称此类为枚举类</span></span><br><span class="line"><span class="comment"> * 2.当需要定义一组常量时，强烈建议使用枚举类</span></span><br><span class="line"><span class="comment"> * 3.如果枚举类中只有一个对象，则可以作为单例模式的实现方式</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 二、如何定义枚举类</span></span><br><span class="line"><span class="comment"> * 方式一：jdk5.0之前，自定义枚举类</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 方式二：jdk5.0时可以使用enum关键字定义枚举类</span></span><br><span class="line"><span class="comment"> *          说明：定义的枚举类默认继承于java.lang.Enum类</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 三、Enum类的常用方法</span></span><br><span class="line"><span class="comment"> *          values() 方法：返回枚举类型的对象数组。该方法可以很方便地遍历所有的枚举值</span></span><br><span class="line"><span class="comment"> *          valueOf(String str)：可以把一个字符串转换为对应的的枚举类对象。要求字符串必须是枚举类对象名</span></span><br><span class="line"><span class="comment"> *          toString()：返回当前枚举类对象常量的名称</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 四、使用enum关键字定义的枚举类实现接口的情况</span></span><br><span class="line"><span class="comment"> *      情况一：实现接口，在enum类中实现抽象方法</span></span><br><span class="line"><span class="comment"> *      情况二：</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> dopphu</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span> 2021-04-12 18:41</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test01</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Season spring = Season.SPRING;</span><br><span class="line">        System.out.println(spring);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;*********分界线*********&quot;</span>);</span><br><span class="line"></span><br><span class="line">        Season1 summer = Season1.SUMMER;</span><br><span class="line">        <span class="comment">//toString()方法</span></span><br><span class="line">        System.out.println(summer.toString());</span><br><span class="line">        System.out.println(Season1.class.getSuperclass());</span><br><span class="line"></span><br><span class="line">        <span class="comment">//values()</span></span><br><span class="line">        Season1[] values = Season1.values();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; values.length; i++)&#123;</span><br><span class="line">            System.out.println(values[i]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Thread.State[] values1 = Thread.State.values();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;values1.length; i++)&#123;</span><br><span class="line">            System.out.println(values1[i]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//valueOf(String objName)：根据提供的objName返回枚举类中对象名是objName的对象</span></span><br><span class="line">        Season1 winter = Season1.valueOf(<span class="string">&quot;WINTER&quot;</span>);</span><br><span class="line">        <span class="comment">//如果没有objName的枚举类对象，则抛异常：IllegalArgumentException</span></span><br><span class="line"><span class="comment">//        Season1 winter1 = Season1.valueOf(&quot;WINTERasd&quot;);</span></span><br><span class="line">        System.out.println(winter);</span><br><span class="line"><span class="comment">//        System.out.println(winter1);</span></span><br><span class="line"></span><br><span class="line">        summer.show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Season</span></span>&#123;</span><br><span class="line">    <span class="comment">//声明Season对象的属性,private final 修饰</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String seasonName;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String seasonDesc;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//1.私有化类的构造器</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Season</span><span class="params">(String seasonName, String seasonDesc)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.seasonDesc = seasonDesc;</span><br><span class="line">        <span class="keyword">this</span>.seasonName = seasonName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//3.提供当前枚举类的多个对象</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Season SPRING = <span class="keyword">new</span> Season(<span class="string">&quot;春天&quot;</span>,<span class="string">&quot;春暖花开&quot;</span>);</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Season SUMMER = <span class="keyword">new</span> Season(<span class="string">&quot;夏天&quot;</span>,<span class="string">&quot;夏日炎炎&quot;</span>);</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Season AUTUMN = <span class="keyword">new</span> Season(<span class="string">&quot;秋天&quot;</span>,<span class="string">&quot;秋高气爽&quot;</span>);</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Season WINTER = <span class="keyword">new</span> Season(<span class="string">&quot;冬天&quot;</span>,<span class="string">&quot;冬日凌冽&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//4.其他诉求1：获取枚举类对象的属性</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getSeasonName</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> seasonName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getSeasonDesc</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> seasonDesc;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//4.其他诉求2：提供toString()</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Season&#123;&quot;</span> +</span><br><span class="line">                <span class="string">&quot;seasonName=&#x27;&quot;</span> + seasonName + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&quot;, seasonDesc=&#x27;&quot;</span> + seasonDesc + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&#x27;&#125;&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用enum关键字来定义枚举类</span></span><br><span class="line"><span class="keyword">enum</span> Season1 implements Info&#123;</span><br><span class="line">    <span class="comment">//1.提供当前枚举类的对象，多个对象之间用“,”隔开，末尾对象“;”结束</span></span><br><span class="line">    SPRING(<span class="string">&quot;春天&quot;</span>,<span class="string">&quot;春暖花开&quot;</span>)&#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;春天是不灭之握&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    SUMMER(<span class="string">&quot;夏天&quot;</span>,<span class="string">&quot;夏日炎炎&quot;</span>)&#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;夏天我有小秘密，就不告诉你&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    AUTUMN(<span class="string">&quot;秋天&quot;</span>,<span class="string">&quot;秋高气爽&quot;</span>)&#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;秋天里没有爱情&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    WINTER(<span class="string">&quot;冬天&quot;</span>,<span class="string">&quot;冬雷震震&quot;</span>)&#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;大约在冬季&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//2.声明Season对象的属性：private final 修饰</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String seasonName;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String seasonDesc;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//3.私有化类的构造器</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Season1</span><span class="params">(String seasonName, String seasonDesc)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.seasonName = seasonName;</span><br><span class="line">        <span class="keyword">this</span>.seasonDesc = seasonDesc;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//其他诉求1：获取枚举类对象的属性</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getSeasonName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> seasonName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getSeasonDesc</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> seasonDesc;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//    //其他诉求2：提供toString()//enum先不重写,有需要再重写</span></span><br><span class="line"><span class="comment">//    @Override</span></span><br><span class="line"><span class="comment">//    public String toString() &#123;</span></span><br><span class="line"><span class="comment">//        return &quot;Season1&#123;&quot; +</span></span><br><span class="line"><span class="comment">//                &quot;seasonName=&#x27;&quot; + seasonName + &#x27;\&#x27;&#x27; +</span></span><br><span class="line"><span class="comment">//                &quot;, seasonDesc=&#x27;&quot; + seasonDesc + &#x27;\&#x27;&#x27; +</span></span><br><span class="line"><span class="comment">//                &#x27;&#125;&#x27;;</span></span><br><span class="line"><span class="comment">//    &#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//情况一</span></span><br><span class="line"><span class="comment">//    @Override</span></span><br><span class="line"><span class="comment">//    public void show() &#123;</span></span><br><span class="line"><span class="comment">//        System.out.println(&quot;这是一个季节&quot;);</span></span><br><span class="line"><span class="comment">//    &#125;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Info</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">randomtest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> num = (<span class="keyword">int</span>)(Math.random()*<span class="number">10</span>);</span><br><span class="line">        System.out.println(num);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -1004,7 +408,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/10/Java%20Language%20Basics/test/%E6%8E%A5%E5%8F%A3JDk8/">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8B%E9%97%B4%E7%9A%84%E8%BF%90%E7%AE%97%E8%A7%84%E5%88%99/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
@@ -1018,7 +422,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/dopphu/2021/04/10/Java%20Language%20Basics/test/%E6%8E%A5%E5%8F%A3JDk8/" class="post-title-link" itemprop="url">接口JDK8</a>
+            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8B%E9%97%B4%E7%9A%84%E8%BF%90%E7%AE%97%E8%A7%84%E5%88%99/" class="post-title-link" itemprop="url">基本数据类型之间的运算规则</a>
         </h2>
 
         <div class="post-meta">
@@ -1029,7 +433,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-04-10 11:12:28 / 修改时间：11:12:16" itemprop="dateCreated datePublished" datetime="2021-04-10T11:12:28+08:00">2021-04-10</time>
+              <time title="创建时间：2021-05-05 21:42:43 / 修改时间：21:42:08" itemprop="dateCreated datePublished" datetime="2021-05-05T21:42:43+08:00">2021-05-05</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1038,6 +442,10 @@
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">第二章 基本语法</span></a>
                 </span>
             </span>
 
@@ -1052,7 +460,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**（接口）</span></span><br><span class="line"><span class="comment"> * JDK8（以后） 除了定义全局常量和抽象方法之外，可以定义静态方法、默认方法</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> chapter06;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test13</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SubClass s = <span class="keyword">new</span> SubClass();</span><br><span class="line">		</span><br><span class="line"><span class="comment">//		s.method1();//调不了</span></span><br><span class="line">		<span class="comment">//接口中定义的静态方法，只能通过接口来调用</span></span><br><span class="line">		CompareA.method1();</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//通过实现类的对象，可以调用接口的默认方法</span></span><br><span class="line">		<span class="comment">//如果实现类重写了接口中的默认方法，则调用重写后的方法</span></span><br><span class="line">		s.method2();</span><br><span class="line">		s.method3();</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//知识点：类优先原则</span></span><br><span class="line">		<span class="comment">//如果子类（或实现类）继承的父类和实现的接口中声明了同名同参数的默认方法，</span></span><br><span class="line">		<span class="comment">//那么子类在没有重写此方法的情况下，默认调用的是父类中同名同参数的默认方法</span></span><br><span class="line">		</span><br><span class="line">		s.method3();</span><br><span class="line">		<span class="comment">//那么要是多实现呢？实现的多个接口中有同名同参数的默认方法，则会报错：接口冲突</span></span><br><span class="line">		<span class="comment">//冲突了你还想用，那就必须重写了</span></span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">CompareA</span></span>&#123;</span><br><span class="line">	<span class="comment">//静态方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">method1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;CompareAMethod&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//默认方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">default</span> <span class="keyword">void</span> <span class="title">method2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;CompareA：上海&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">method3</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;CompareMethod3&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubClass</span> <span class="keyword">extends</span> <span class="title">SuperClass</span> <span class="keyword">implements</span> <span class="title">CompareA</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;method2重写&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method3</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;接口实现重写的method&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">myMethod</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		method3();<span class="comment">//重写的方法</span></span><br><span class="line">		<span class="keyword">super</span>.method3();<span class="comment">//调用父类中的方法</span></span><br><span class="line">		<span class="comment">//知识点：如何实现调用接口中的默认方法</span></span><br><span class="line">		CompareA.<span class="keyword">super</span>.method3();<span class="comment">//调用接口中的默认方法</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SuperClass</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method3</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;SuperClass的method3&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    基本数据类型之间的运算规则</span></span><br><span class="line"><span class="comment">    前提：这里只讨论7种基本数据类型变量间的运算。不包含boolean类型</span></span><br><span class="line"><span class="comment">    1.自动类型提升</span></span><br><span class="line"><span class="comment">        当容量小的变量和容量大的变量进行运算时，结果自动提升为容量大的数据类型。</span></span><br><span class="line"><span class="comment">        byte--&gt;short--&gt;int--&gt;long--&gt;float--&gt;double</span></span><br><span class="line"><span class="comment">        字符char、short、byte三种类型的变量做运算时，结果为int型（me：令我没想到的是同类型运算结果也是int型，不过char和char运算倒是可以理解结果为int）</span></span><br><span class="line"><span class="comment">        弹幕：书上说java在做运算的时候，如果操作数均在int范围内，那么一律在int的空间内进行运算</span></span><br><span class="line"><span class="comment">        说明：此时的容量大小指的是，表示数的范围大小。比如float和int（都是4字节），float的容量大些</span></span><br><span class="line"><span class="comment">    2.强制类型转化</span></span><br><span class="line"><span class="comment">        1）需要使用强转符：()</span></span><br><span class="line"><span class="comment">        2）注意点：强制类型转换可能会导致精度损失（比如浮点数转整型数）</span></span><br><span class="line"><span class="comment">    补充：两个小问题（见下）</span></span><br><span class="line"><span class="comment">    1.</span></span><br><span class="line"><span class="comment">    2.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">test01</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//1.</span></span><br><span class="line">        <span class="comment">// byte a = 2;</span></span><br><span class="line">        <span class="comment">// int b = 129;</span></span><br><span class="line">        <span class="comment">// byte d=12;</span></span><br><span class="line">        <span class="comment">// char demo = &#x27;a&#x27;;</span></span><br><span class="line">        <span class="comment">// // byte c = a+b;//编译不通过</span></span><br><span class="line">        <span class="comment">// // float c = a+b;</span></span><br><span class="line">        <span class="comment">// byte c = a+d;</span></span><br><span class="line">        <span class="comment">// System.out.println(c);</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//2.</span></span><br><span class="line">        <span class="keyword">double</span> d1 = <span class="number">23.5</span>;</span><br><span class="line">        <span class="keyword">int</span> a=<span class="number">128</span>;</span><br><span class="line">        <span class="keyword">byte</span> res = (<span class="keyword">byte</span>)a;</span><br><span class="line">        System.out.println(res);<span class="comment">//-128，和二进制有关</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//补充</span></span><br><span class="line">            <span class="comment">//1.</span></span><br><span class="line">            <span class="keyword">long</span> l1 = <span class="number">121212</span>;<span class="comment">//末尾忘记加上l/L，没报错</span></span><br><span class="line">            <span class="comment">// long l2 = 78364872364872364;//报错超过了int类型的范围（The literal 78364872364872364 of type int is out of range ），末尾加上l/L就好了</span></span><br><span class="line">            <span class="comment">//float e2 = 123.2;//不加f就会报错，flaot必须加f/F</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//2.</span></span><br><span class="line">            <span class="comment">//float f1 = b+12.3;//编译失败，右边会被认为是double类型</span></span><br><span class="line">            <span class="keyword">float</span> f2 = a+<span class="number">0.2f</span>;<span class="comment">//不报错</span></span><br><span class="line">            System.out.println(f2);</span><br><span class="line">        <span class="keyword">do</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;你好&quot;</span>);</span><br><span class="line"></span><br><span class="line">        &#125;<span class="keyword">while</span>(<span class="keyword">false</span> );</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -1073,7 +481,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/10/Java%20Language%20Basics/test/%E6%8E%A5%E5%8F%A3%E7%9A%84%E4%BD%BF%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%BE%AA%E7%8E%AF%E6%B1%82%E6%9C%80%E5%A4%A7%E5%85%AC%E5%80%8D%E6%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
@@ -1087,7 +495,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/dopphu/2021/04/10/Java%20Language%20Basics/test/%E6%8E%A5%E5%8F%A3%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">接口的使用</a>
+            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%BE%AA%E7%8E%AF%E6%B1%82%E6%9C%80%E5%A4%A7%E5%85%AC%E5%80%8D%E6%95%B0/" class="post-title-link" itemprop="url">循环求最大公倍数</a>
         </h2>
 
         <div class="post-meta">
@@ -1096,16 +504,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-04-10 11:10:34" itemprop="dateCreated datePublished" datetime="2021-04-10T11:10:34+08:00">2021-04-10</time>
+              <time title="创建时间：2021-05-05 21:42:43 / 修改时间：21:38:21" itemprop="dateCreated datePublished" datetime="2021-05-05T21:42:43+08:00">2021-05-05</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-29 12:44:41" itemprop="dateModified" datetime="2021-04-29T12:44:41+08:00">2021-04-29</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -1113,6 +515,10 @@
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">第二章 基本语法</span></a>
                 </span>
             </span>
 
@@ -1127,7 +533,372 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 接口的使用,，满足多态性</span></span><br><span class="line"><span class="comment"> * 接口，实际上是定义了一种规范</span></span><br><span class="line"><span class="comment"> * 在开发中体会面向接口编程</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> chapter06;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test11</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Computer com = <span class="keyword">new</span> Computer();</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//1.创建了接口的非匿名实现类的非匿名对象</span></span><br><span class="line">		Flash flash = <span class="keyword">new</span> Flash();</span><br><span class="line">		com.transferData(flash);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//2.创建了接口的非匿名实现类的匿名对象</span></span><br><span class="line">		com.transferData(<span class="keyword">new</span> Printer());</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//3.创建了接口的匿名实现类的非匿名对象</span></span><br><span class="line">		USB phone = <span class="keyword">new</span> USB() &#123;</span><br><span class="line">		</span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span> </span>&#123;</span><br><span class="line">				System.out.println(<span class="string">&quot;手机开始工作&quot;</span>);</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">				System.out.println(<span class="string">&quot;手机停止工作&quot;</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//4.创建匿名实现类的匿名对象</span></span><br><span class="line">		com.transferData(<span class="keyword">new</span> USB() &#123;</span><br><span class="line"></span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span> </span>&#123;</span><br><span class="line">				<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">				System.out.println(<span class="string">&quot;mp3开始工作&quot;</span>);</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">				<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">				System.out.println(<span class="string">&quot;mp3停止工作&quot;</span>);</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">		&#125;);</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Computer</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">transferData</span><span class="params">(USB usb)</span> </span>&#123;</span><br><span class="line">		usb.start();</span><br><span class="line">		</span><br><span class="line">		System.out.println(<span class="string">&quot;具体的工作&quot;</span>);</span><br><span class="line">		usb.stop();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">USB</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//常量：定义了长、宽、高最大最小的传输速度</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">start</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Flash</span> <span class="keyword">implements</span> <span class="title">USB</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;U盘开始工作&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;U盘结束工作&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Printer</span> <span class="keyword">implements</span> <span class="title">USB</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;打印机开始工作&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;打印机结束工作&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LowestCommonMultipleTest</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> num1=<span class="number">12</span>,num2=<span class="number">15</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=num2; i&lt;num1*num2;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>((i%num2==<span class="number">0</span>) &amp;&amp; (i%num1==<span class="number">0</span>))&#123;</span><br><span class="line">                System.out.println(i);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%BE%AA%E7%8E%AF%E7%BB%83%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%BE%AA%E7%8E%AF%E7%BB%83%E4%B9%A0/" class="post-title-link" itemprop="url">循环练习</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-05 21:42:43 / 修改时间：21:37:14" itemprop="dateCreated datePublished" datetime="2021-05-05T21:42:43+08:00">2021-05-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">第二章 基本语法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// import java.util.Scanner;</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// System.out.println(&quot;请输入数字，输入0结束输入&quot;);</span></span><br><span class="line">        <span class="comment">// int count = 0;</span></span><br><span class="line">        <span class="comment">// Scanner scan= new Scanner(System.in);</span></span><br><span class="line">        <span class="comment">// int sum=-1;</span></span><br><span class="line">        <span class="comment">// while(sum!=0)&#123;</span></span><br><span class="line">            </span><br><span class="line">        <span class="comment">//     if(sum%2==0)&#123;</span></span><br><span class="line">        <span class="comment">//         count++;</span></span><br><span class="line">        <span class="comment">//     &#125;</span></span><br><span class="line">        <span class="comment">//     sum=scan.nextInt();</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line">        <span class="comment">// System.out.println(&quot;偶数的个数为：&quot;+count);</span></span><br><span class="line">        <span class="comment">// scan.close();</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;<span class="number">4</span>;i++)&#123;</span><br><span class="line">           <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j&lt;=i;j++)&#123;</span><br><span class="line">                System.out.print(<span class="string">&quot;*&quot;</span>);</span><br><span class="line">           &#125; </span><br><span class="line">           System.out.println();</span><br><span class="line">        &#125;<span class="comment">//进阶：菱形星打印</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//九九乘法表</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;=<span class="number">9</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j&lt;=i;j++)&#123;</span><br><span class="line">                System.out.print(i+<span class="string">&quot;*&quot;</span>+j+<span class="string">&quot;=&quot;</span>+i*j+<span class="string">&quot;    &quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//获取当前时间</span></span><br><span class="line">        <span class="comment">// long start = System.currentTimeMillis();</span></span><br><span class="line">        <span class="comment">//一百以内质数的输出</span></span><br><span class="line">        <span class="comment">// int flag=1;</span></span><br><span class="line">        <span class="comment">// for(int i = 2;i&lt;=1000;i++)&#123;</span></span><br><span class="line">        <span class="comment">//     flag=1;</span></span><br><span class="line">        <span class="comment">//     for(int j = 2; j &lt; Math.sqrt(i); j++)&#123;</span></span><br><span class="line">        <span class="comment">//         if(i%j==0)&#123;</span></span><br><span class="line">        <span class="comment">//             flag=0;</span></span><br><span class="line">        <span class="comment">//             break;</span></span><br><span class="line">        <span class="comment">//         &#125;</span></span><br><span class="line">        <span class="comment">//     &#125;</span></span><br><span class="line">        <span class="comment">//     if(flag==1)&#123;</span></span><br><span class="line">        <span class="comment">//         System.out.println(i);</span></span><br><span class="line">        <span class="comment">//     &#125;</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line">        <span class="comment">// long end = System.currentTimeMillis();</span></span><br><span class="line">        <span class="comment">// System.out.println(end-start);</span></span><br><span class="line">        <span class="comment">// 另一个方法</span></span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        demo:<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>;i&lt;=<span class="number">10</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">2</span>; j &lt;= Math.sqrt(i); j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(i%j==<span class="number">0</span>)&#123;</span><br><span class="line">                    <span class="keyword">continue</span> demo;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">           count++;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(count);</span><br><span class="line">        System.out.println(Math.sqrt(<span class="number">2</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6/" class="post-title-link" itemprop="url">比较运算符</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-05 21:42:43 / 修改时间：21:32:51" itemprop="dateCreated datePublished" datetime="2021-05-05T21:42:43+08:00">2021-05-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">第二章 基本语法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 比较运算符</span></span><br><span class="line"><span class="comment"> *  ==  !=  &gt;   &lt;   &gt;=  &lt;=  instanceof</span></span><br><span class="line"><span class="comment"> * 比较运算符的结果是boolean类型</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestB</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E4%B8%89%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E4%B8%89%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6/" class="post-title-link" itemprop="url">三元运算符</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-05 21:42:43 / 修改时间：21:35:45" itemprop="dateCreated datePublished" datetime="2021-05-05T21:42:43+08:00">2021-05-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">第二章 基本语法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 三元运算符（三目运算符）：</span></span><br><span class="line"><span class="comment"> *      (条件表达式)?表达式1:表达式2</span></span><br><span class="line"><span class="comment"> * 表达式1和表达式2 得能用一个类型接收</span></span><br><span class="line"><span class="comment"> * 比如：()?字符串:数字——这到底用字符串接收还是用数值类型接收呢，所以错误</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 凡是可以用三元运算符，都可以改写为if...else；反之不成立</span></span><br><span class="line"><span class="comment"> * 当两者都可时，优先使用三元运算符，原因：简洁、执行效率高</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestS</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//三元运算符可以嵌套使用</span></span><br><span class="line">        <span class="keyword">int</span> m=<span class="number">12</span>,n=<span class="number">44</span>;</span><br><span class="line">        String maxStr = (m&gt;n) ? <span class="string">&quot;m打&quot;</span> : ((m&lt;n) ? <span class="string">&quot;n大&quot;</span> : <span class="string">&quot;m和n相等&quot;</span>);</span><br><span class="line">        System.out.println(maxStr);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/switch%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/switch%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">switch使用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-05 21:42:43 / 修改时间：21:41:13" itemprop="dateCreated datePublished" datetime="2021-05-05T21:42:43+08:00">2021-05-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">第二章 基本语法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">switchTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//语法和执行逻辑和C语言一致</span></span><br><span class="line">        <span class="comment">//switch 中的表达式，只能是一下数据类型byte、short、char、int，枚举（JDK5.0新增）、String（JDK7.0新增）</span></span><br><span class="line">        <span class="comment">//case后只能跟变量，不能跟条件表达式（可以这么理解，返回布尔，布尔不行，故不行）</span></span><br><span class="line">        <span class="comment">//if..else和switch都可时，优先使用switch效率较高</span></span><br><span class="line">        <span class="comment">// switch (key) &#123;</span></span><br><span class="line">        <span class="comment">//     case value:</span></span><br><span class="line">                </span><br><span class="line">        <span class="comment">//         break;</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//     default:</span></span><br><span class="line">        <span class="comment">//         break;</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//一个比较有意思的情况。default放在最前面</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">switch</span> (<span class="number">5</span>) &#123;</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                System.out.println(<span class="string">&quot;默认情况！&quot;</span>);</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                System.out.println(<span class="string">&quot;你好&quot;</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;<span class="comment">//先对case 进行匹配，发现没有，就执行default的内容，因为default后没有break，所以就继续执行case 1的语句，然后从case 1执行break出去</span></span><br><span class="line">        System.out.println(<span class="string">&quot;-------------------------------&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> score = <span class="number">58</span>;</span><br><span class="line">        <span class="keyword">switch</span> (score/<span class="number">10</span>) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">            <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">            <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">            <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">                System.out.println(<span class="string">&quot;不及格&quot;</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                System.out.println(<span class="string">&quot;及格&quot;</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//进一步改进</span></span><br><span class="line">        <span class="keyword">switch</span> (score/<span class="number">60</span>) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">                System.out.println(<span class="string">&quot;不及格&quot;</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                System.out.println(<span class="string">&quot;及格&quot;</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;----------------------分割线----------------------&quot;</span>);</span><br><span class="line">        Scanner scan = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        System.out.println(<span class="string">&quot;2019年，请输入月份：&quot;</span>);</span><br><span class="line">        <span class="keyword">int</span> month = scan.nextInt();</span><br><span class="line">        System.out.println(<span class="string">&quot;请输入&quot;</span>+month+<span class="string">&quot;月的第几日：&quot;</span>);</span><br><span class="line">        <span class="keyword">int</span> day=scan.nextInt();</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">switch</span> (month-<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">11</span>:</span><br><span class="line">                res+=<span class="number">30</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">10</span>:</span><br><span class="line">                res+=<span class="number">31</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">9</span>:</span><br><span class="line">                res+=<span class="number">30</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">8</span>:</span><br><span class="line">                res+=<span class="number">31</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">7</span>:</span><br><span class="line">                res+=<span class="number">31</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">                res+=<span class="number">30</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">                res+=<span class="number">31</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">                res+=<span class="number">30</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">                res+=<span class="number">31</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">                res+=<span class="number">28</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                res+=<span class="number">31</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">                res+=day;</span><br><span class="line">                System.out.println(month+<span class="string">&quot;月&quot;</span>+day+<span class="string">&quot;日&quot;</span>+<span class="string">&quot;是2019年的第&quot;</span>+res+<span class="string">&quot;天.&quot;</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        </span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                System.out.println(<span class="string">&quot;月份输入有误！&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        scan.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/if_else/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/if_else/" class="post-title-link" itemprop="url">if_else</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-05 21:42:43 / 修改时间：21:39:30" itemprop="dateCreated datePublished" datetime="2021-05-05T21:42:43+08:00">2021-05-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">第二章 基本语法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只有一行的话 if...else后的大括号是可以省略的。但是不建议省略（方便后续添加语句）,没有大括号时if和else就近配对</span></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">if_else</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner scan = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> score = scan.nextInt();</span><br><span class="line">        <span class="keyword">if</span>(score&lt;<span class="number">60</span>)</span><br><span class="line">            System.out.println(<span class="string">&quot;不及格&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(score&lt;<span class="number">80</span>)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;良好&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;优秀&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        scan.close();</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -1147,7 +918,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/dopphu/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/dopphu/">1</a><span class="space">&hellip;</span><a class="page-number" href="/dopphu/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/dopphu/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/dopphu/page/11/">11</a><a class="extend next" rel="next" href="/dopphu/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/dopphu/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/dopphu/">1</a><span class="space">&hellip;</span><a class="page-number" href="/dopphu/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/dopphu/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/dopphu/page/13/">13</a><a class="extend next" rel="next" href="/dopphu/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1215,14 +986,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/dopphu/archives/">
         
-          <span class="site-state-item-count">105</span>
+          <span class="site-state-item-count">129</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/dopphu/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">

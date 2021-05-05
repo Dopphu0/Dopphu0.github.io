@@ -189,7 +189,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%BE%AA%E7%8E%AF%E6%B1%82%E6%9C%80%E5%A4%A7%E5%85%AC%E5%80%8D%E6%95%B0/">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E5%9B%9B%E7%AB%A0/06%20%E6%96%B9%E6%B3%95%E7%9A%84%E9%87%8D%E8%BD%BD(overload)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
@@ -203,7 +203,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%BE%AA%E7%8E%AF%E6%B1%82%E6%9C%80%E5%A4%A7%E5%85%AC%E5%80%8D%E6%95%B0/" class="post-title-link" itemprop="url">循环求最大公倍数</a>
+            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E5%9B%9B%E7%AB%A0/06%20%E6%96%B9%E6%B3%95%E7%9A%84%E9%87%8D%E8%BD%BD(overload)/" class="post-title-link" itemprop="url">06 方法的重载(overload)</a>
         </h2>
 
         <div class="post-meta">
@@ -214,7 +214,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-05-05 21:42:43 / 修改时间：21:38:21" itemprop="dateCreated datePublished" datetime="2021-05-05T21:42:43+08:00">2021-05-05</time>
+              <time title="创建时间：2021-05-05 22:18:37 / 修改时间：22:06:28" itemprop="dateCreated datePublished" datetime="2021-05-05T22:18:37+08:00">2021-05-05</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -226,7 +226,7 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">第二章 基本语法</span></a>
+                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E4%B8%8A/" itemprop="url" rel="index"><span itemprop="name">第四章 面向对象(上)</span></a>
                 </span>
             </span>
 
@@ -241,7 +241,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LowestCommonMultipleTest</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> num1=<span class="number">12</span>,num2=<span class="number">15</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=num2; i&lt;num1*num2;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>((i%num2==<span class="number">0</span>) &amp;&amp; (i%num1==<span class="number">0</span>))&#123;</span><br><span class="line">                System.out.println(i);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 方法的重载(overload) </span></span><br><span class="line"><span class="comment"> * 1.定义：在同一个类中，允许存在一个以上的重名方法，只要它们的参数个数或类型不同即可</span></span><br><span class="line"><span class="comment"> * 2.举例</span></span><br><span class="line"><span class="comment"> * 		Arrays类中重载的sort() / binarySearch()</span></span><br><span class="line"><span class="comment"> * 3.重载和方法权限修饰符、返回值类型、形参变量名、方法体都没有关系</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> chapter04;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test0406</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		OverLoadTest demo = <span class="keyword">new</span> OverLoadTest();</span><br><span class="line">		demo.test1();</span><br><span class="line">		demo.test1(<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OverLoadTest</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;test1 no params&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">test1</span><span class="params">(<span class="keyword">int</span> a)</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;test1 with 1 int param&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -262,7 +262,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%BE%AA%E7%8E%AF%E7%BB%83%E4%B9%A0/">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E5%9B%9B%E7%AB%A0/04%20%E5%AF%B9%E8%B1%A1%E6%95%B0%E7%BB%84%E7%BB%83%E4%B9%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
@@ -276,7 +276,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%BE%AA%E7%8E%AF%E7%BB%83%E4%B9%A0/" class="post-title-link" itemprop="url">循环练习</a>
+            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E5%9B%9B%E7%AB%A0/04%20%E5%AF%B9%E8%B1%A1%E6%95%B0%E7%BB%84%E7%BB%83%E4%B9%A0/" class="post-title-link" itemprop="url">04 对象数组练习</a>
         </h2>
 
         <div class="post-meta">
@@ -287,7 +287,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-05-05 21:42:43 / 修改时间：21:37:14" itemprop="dateCreated datePublished" datetime="2021-05-05T21:42:43+08:00">2021-05-05</time>
+              <time title="创建时间：2021-05-05 22:18:37 / 修改时间：22:03:28" itemprop="dateCreated datePublished" datetime="2021-05-05T22:18:37+08:00">2021-05-05</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -299,7 +299,7 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">第二章 基本语法</span></a>
+                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E4%B8%8A/" itemprop="url" rel="index"><span itemprop="name">第四章 面向对象(上)</span></a>
                 </span>
             </span>
 
@@ -314,7 +314,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// import java.util.Scanner;</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// System.out.println(&quot;请输入数字，输入0结束输入&quot;);</span></span><br><span class="line">        <span class="comment">// int count = 0;</span></span><br><span class="line">        <span class="comment">// Scanner scan= new Scanner(System.in);</span></span><br><span class="line">        <span class="comment">// int sum=-1;</span></span><br><span class="line">        <span class="comment">// while(sum!=0)&#123;</span></span><br><span class="line">            </span><br><span class="line">        <span class="comment">//     if(sum%2==0)&#123;</span></span><br><span class="line">        <span class="comment">//         count++;</span></span><br><span class="line">        <span class="comment">//     &#125;</span></span><br><span class="line">        <span class="comment">//     sum=scan.nextInt();</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line">        <span class="comment">// System.out.println(&quot;偶数的个数为：&quot;+count);</span></span><br><span class="line">        <span class="comment">// scan.close();</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;<span class="number">4</span>;i++)&#123;</span><br><span class="line">           <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j&lt;=i;j++)&#123;</span><br><span class="line">                System.out.print(<span class="string">&quot;*&quot;</span>);</span><br><span class="line">           &#125; </span><br><span class="line">           System.out.println();</span><br><span class="line">        &#125;<span class="comment">//进阶：菱形星打印</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//九九乘法表</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;=<span class="number">9</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j&lt;=i;j++)&#123;</span><br><span class="line">                System.out.print(i+<span class="string">&quot;*&quot;</span>+j+<span class="string">&quot;=&quot;</span>+i*j+<span class="string">&quot;    &quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//获取当前时间</span></span><br><span class="line">        <span class="comment">// long start = System.currentTimeMillis();</span></span><br><span class="line">        <span class="comment">//一百以内质数的输出</span></span><br><span class="line">        <span class="comment">// int flag=1;</span></span><br><span class="line">        <span class="comment">// for(int i = 2;i&lt;=1000;i++)&#123;</span></span><br><span class="line">        <span class="comment">//     flag=1;</span></span><br><span class="line">        <span class="comment">//     for(int j = 2; j &lt; Math.sqrt(i); j++)&#123;</span></span><br><span class="line">        <span class="comment">//         if(i%j==0)&#123;</span></span><br><span class="line">        <span class="comment">//             flag=0;</span></span><br><span class="line">        <span class="comment">//             break;</span></span><br><span class="line">        <span class="comment">//         &#125;</span></span><br><span class="line">        <span class="comment">//     &#125;</span></span><br><span class="line">        <span class="comment">//     if(flag==1)&#123;</span></span><br><span class="line">        <span class="comment">//         System.out.println(i);</span></span><br><span class="line">        <span class="comment">//     &#125;</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line">        <span class="comment">// long end = System.currentTimeMillis();</span></span><br><span class="line">        <span class="comment">// System.out.println(end-start);</span></span><br><span class="line">        <span class="comment">// 另一个方法</span></span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        demo:<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>;i&lt;=<span class="number">10</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">2</span>; j &lt;= Math.sqrt(i); j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(i%j==<span class="number">0</span>)&#123;</span><br><span class="line">                    <span class="keyword">continue</span> demo;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">           count++;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(count);</span><br><span class="line">        System.out.println(Math.sqrt(<span class="number">2</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 对象数组练习：</span></span><br><span class="line"><span class="comment"> * 		定义类Student，包含三个属性：学号number(int)，年级state(int)，成绩score(int)。</span></span><br><span class="line"><span class="comment"> * 	创建20个学生对象，学号为1到20，年级和成绩都由随机数确定</span></span><br><span class="line"><span class="comment"> * 	问题1：打印出3年级（state值为3）的学生信息</span></span><br><span class="line"><span class="comment"> * 	问题2：使用冒泡排序按学生成绩排序，并遍历所有学生信息</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 提示：随机数Math.random() 返回值类型double；四舍五入取整Math.round(double d),返回值类型long</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> chapter04;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test0404</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> count = <span class="number">20</span>;</span><br><span class="line">		Student students[] = <span class="keyword">new</span> Student[count];</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;students.length; i++) &#123;</span><br><span class="line">			<span class="comment">//我第一次就没有加这句，警钟长鸣啊</span></span><br><span class="line">			students[i] = <span class="keyword">new</span> Student();</span><br><span class="line">			</span><br><span class="line">			students[i].number = i+<span class="number">1</span>;</span><br><span class="line">			students[i].state = (<span class="keyword">int</span>)(Math.random()*<span class="number">4</span>+<span class="number">1</span>);</span><br><span class="line">			students[i].score = (<span class="keyword">int</span>)(Math.random()*<span class="number">100</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//冒泡排序</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;students.length-<span class="number">1</span>; i++) &#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j&lt;(students.length-i-<span class="number">1</span>); j++) &#123;</span><br><span class="line">				<span class="keyword">if</span>(students[j].score&gt;students[j+<span class="number">1</span>].score) &#123;</span><br><span class="line">					Student temp = students[j];</span><br><span class="line">					students[j] = students[j+<span class="number">1</span>];</span><br><span class="line">					students[j+<span class="number">1</span>] = temp;</span><br><span class="line">					</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		Test0404 demo = <span class="keyword">new</span> Test0404();</span><br><span class="line">		demo.print(students);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="comment">//遍历输出</span></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@author</span> </span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> stu</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">(Student[] stu)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;stu.length; i++) &#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;学号：&quot;</span>+stu[i].number+<span class="string">&quot;\t年级：&quot;</span>+stu[i].state+<span class="string">&quot;\t成绩&quot;</span>+stu[i].score+<span class="string">&quot;\t&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//Student类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> score;</span><br><span class="line">	<span class="keyword">int</span> number;</span><br><span class="line">	<span class="keyword">int</span> state;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -335,7 +335,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6/">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E5%9B%9B%E7%AB%A0/05%20%E4%B8%87%E4%BA%8B%E4%B8%87%E7%89%A9%E7%9A%86%E5%AF%B9%E8%B1%A1and%E5%86%85%E5%AD%98%E8%A7%A3%E6%9E%90and%E5%8C%BF%E5%90%8D%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
@@ -349,7 +349,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6/" class="post-title-link" itemprop="url">比较运算符</a>
+            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E5%9B%9B%E7%AB%A0/05%20%E4%B8%87%E4%BA%8B%E4%B8%87%E7%89%A9%E7%9A%86%E5%AF%B9%E8%B1%A1and%E5%86%85%E5%AD%98%E8%A7%A3%E6%9E%90and%E5%8C%BF%E5%90%8D%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">05 万事万物皆对象and内存解析and匿名对象的使用</a>
         </h2>
 
         <div class="post-meta">
@@ -360,7 +360,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-05-05 21:42:43 / 修改时间：21:32:51" itemprop="dateCreated datePublished" datetime="2021-05-05T21:42:43+08:00">2021-05-05</time>
+              <time title="创建时间：2021-05-05 22:18:37 / 修改时间：22:14:55" itemprop="dateCreated datePublished" datetime="2021-05-05T22:18:37+08:00">2021-05-05</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -372,7 +372,7 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">第二章 基本语法</span></a>
+                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E4%B8%8A/" itemprop="url" rel="index"><span itemprop="name">第四章 面向对象(上)</span></a>
                 </span>
             </span>
 
@@ -387,8 +387,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 比较运算符</span></span><br><span class="line"><span class="comment"> *  ==  !=  &gt;   &lt;   &gt;=  &lt;=  instanceof</span></span><br><span class="line"><span class="comment"> * 比较运算符的结果是boolean类型</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestB</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 一、理解万事万物皆对象</span></span><br><span class="line"><span class="comment"> * 1.在JAVA语言范畴中，我们都将功能结构等封装到类中，通过类的实例化，来调用具体的功能结构</span></span><br><span class="line"><span class="comment"> * 		&gt;Scanenr、String等</span></span><br><span class="line"><span class="comment"> * 		&gt;文件：File</span></span><br><span class="line"><span class="comment"> * 		&gt;网络资源：URL</span></span><br><span class="line"><span class="comment"> * 2.涉及到Java语言与前端HTML、后端数据库交互时，前后端的结构在Java层面交互时，都体现为类、对象。</span></span><br><span class="line"><span class="comment"> * 二、内存解析的说明</span></span><br><span class="line"><span class="comment"> * 	 引用类型的变量，只可能存储两类值：null或地址</span></span><br><span class="line"><span class="comment"> * 三、匿名对象的使用</span></span><br><span class="line"><span class="comment"> * 	1.我们创建的对象没有显式赋给一个变量名，即为匿名对象</span></span><br><span class="line"><span class="comment"> * 	2.特征：匿名对象只能调用一次</span></span><br><span class="line"><span class="comment"> *  3.使用</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> chapter04;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test0405</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Phone p = <span class="keyword">new</span> Phone();</span><br><span class="line">		System.out.println(p);</span><br><span class="line">		</span><br><span class="line">		p.sendEmail();</span><br><span class="line">		p.playGame();</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//匿名对象</span></span><br><span class="line">		<span class="keyword">new</span> Phone().sendEmail();</span><br><span class="line">		<span class="keyword">new</span> Phone().playGame();</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//匿名对象的使用</span></span><br><span class="line">		PhoneMall demo = <span class="keyword">new</span> PhoneMall();</span><br><span class="line">		demo.show(p);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PhoneMall</span></span>&#123;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment">	 * Description:</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@author</span> </span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> p</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">(Phone p)</span> </span>&#123;</span><br><span class="line">		p.playGame();</span><br><span class="line">		p.sendEmail();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Phone</span></span>&#123;</span><br><span class="line">	<span class="keyword">double</span> price;<span class="comment">//价格</span></span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendEmail</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;发送邮件&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">playGame</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;打游戏&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>内存解析:</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98%E8%A7%A3%E6%9E%90.46stu5nofh00.jpg" alt="对象的内存解析"></p>
 
       
     </div>
@@ -408,7 +410,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E4%B8%89%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6/">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E5%9B%9B%E7%AB%A0/03%20%E7%AE%80%E5%8D%95Circle%E7%B1%BB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
@@ -422,7 +424,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E4%B8%89%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6/" class="post-title-link" itemprop="url">三元运算符</a>
+            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E5%9B%9B%E7%AB%A0/03%20%E7%AE%80%E5%8D%95Circle%E7%B1%BB/" class="post-title-link" itemprop="url">03 简单Circle类</a>
         </h2>
 
         <div class="post-meta">
@@ -433,7 +435,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-05-05 21:42:43 / 修改时间：21:35:45" itemprop="dateCreated datePublished" datetime="2021-05-05T21:42:43+08:00">2021-05-05</time>
+              <time title="创建时间：2021-05-05 22:18:37 / 修改时间：22:04:15" itemprop="dateCreated datePublished" datetime="2021-05-05T22:18:37+08:00">2021-05-05</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -445,7 +447,7 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">第二章 基本语法</span></a>
+                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E4%B8%8A/" itemprop="url" rel="index"><span itemprop="name">第四章 面向对象(上)</span></a>
                 </span>
             </span>
 
@@ -460,7 +462,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 三元运算符（三目运算符）：</span></span><br><span class="line"><span class="comment"> *      (条件表达式)?表达式1:表达式2</span></span><br><span class="line"><span class="comment"> * 表达式1和表达式2 得能用一个类型接收</span></span><br><span class="line"><span class="comment"> * 比如：()?字符串:数字——这到底用字符串接收还是用数值类型接收呢，所以错误</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 凡是可以用三元运算符，都可以改写为if...else；反之不成立</span></span><br><span class="line"><span class="comment"> * 当两者都可时，优先使用三元运算符，原因：简洁、执行效率高</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestS</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//三元运算符可以嵌套使用</span></span><br><span class="line">        <span class="keyword">int</span> m=<span class="number">12</span>,n=<span class="number">44</span>;</span><br><span class="line">        String maxStr = (m&gt;n) ? <span class="string">&quot;m打&quot;</span> : ((m&lt;n) ? <span class="string">&quot;n大&quot;</span> : <span class="string">&quot;m和n相等&quot;</span>);</span><br><span class="line">        System.out.println(maxStr);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 设计Circle类，计算圆的面积</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> chapter04;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test0403</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Circle c1 = <span class="keyword">new</span> Circle();</span><br><span class="line">		c1.radius = <span class="number">2</span>;</span><br><span class="line">		System.out.println(c1.Area());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//圆</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Circle</span></span>&#123;</span><br><span class="line">	<span class="comment">//属性</span></span><br><span class="line">	<span class="keyword">double</span> radius;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//求圆的面积</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">Area</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> Math.PI*radius*radius;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -481,7 +483,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/switch%E4%BD%BF%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E5%9B%9B%E7%AB%A0/02%20%E7%B1%BB%E4%B8%AD%E6%96%B9%E6%B3%95%E7%9A%84%E5%A3%B0%E6%98%8E%E5%92%8C%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
@@ -495,7 +497,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/switch%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">switch使用</a>
+            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E5%9B%9B%E7%AB%A0/02%20%E7%B1%BB%E4%B8%AD%E6%96%B9%E6%B3%95%E7%9A%84%E5%A3%B0%E6%98%8E%E5%92%8C%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">02 类中方法的声明和使用</a>
         </h2>
 
         <div class="post-meta">
@@ -506,7 +508,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-05-05 21:42:43 / 修改时间：21:41:13" itemprop="dateCreated datePublished" datetime="2021-05-05T21:42:43+08:00">2021-05-05</time>
+              <time title="创建时间：2021-05-05 22:18:37 / 修改时间：22:03:59" itemprop="dateCreated datePublished" datetime="2021-05-05T22:18:37+08:00">2021-05-05</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -518,7 +520,7 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">第二章 基本语法</span></a>
+                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E4%B8%8A/" itemprop="url" rel="index"><span itemprop="name">第四章 面向对象(上)</span></a>
                 </span>
             </span>
 
@@ -533,7 +535,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">switchTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//语法和执行逻辑和C语言一致</span></span><br><span class="line">        <span class="comment">//switch 中的表达式，只能是一下数据类型byte、short、char、int，枚举（JDK5.0新增）、String（JDK7.0新增）</span></span><br><span class="line">        <span class="comment">//case后只能跟变量，不能跟条件表达式（可以这么理解，返回布尔，布尔不行，故不行）</span></span><br><span class="line">        <span class="comment">//if..else和switch都可时，优先使用switch效率较高</span></span><br><span class="line">        <span class="comment">// switch (key) &#123;</span></span><br><span class="line">        <span class="comment">//     case value:</span></span><br><span class="line">                </span><br><span class="line">        <span class="comment">//         break;</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//     default:</span></span><br><span class="line">        <span class="comment">//         break;</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//一个比较有意思的情况。default放在最前面</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">switch</span> (<span class="number">5</span>) &#123;</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                System.out.println(<span class="string">&quot;默认情况！&quot;</span>);</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                System.out.println(<span class="string">&quot;你好&quot;</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;<span class="comment">//先对case 进行匹配，发现没有，就执行default的内容，因为default后没有break，所以就继续执行case 1的语句，然后从case 1执行break出去</span></span><br><span class="line">        System.out.println(<span class="string">&quot;-------------------------------&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> score = <span class="number">58</span>;</span><br><span class="line">        <span class="keyword">switch</span> (score/<span class="number">10</span>) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">            <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">            <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">            <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">                System.out.println(<span class="string">&quot;不及格&quot;</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                System.out.println(<span class="string">&quot;及格&quot;</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//进一步改进</span></span><br><span class="line">        <span class="keyword">switch</span> (score/<span class="number">60</span>) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">                System.out.println(<span class="string">&quot;不及格&quot;</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                System.out.println(<span class="string">&quot;及格&quot;</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;----------------------分割线----------------------&quot;</span>);</span><br><span class="line">        Scanner scan = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        System.out.println(<span class="string">&quot;2019年，请输入月份：&quot;</span>);</span><br><span class="line">        <span class="keyword">int</span> month = scan.nextInt();</span><br><span class="line">        System.out.println(<span class="string">&quot;请输入&quot;</span>+month+<span class="string">&quot;月的第几日：&quot;</span>);</span><br><span class="line">        <span class="keyword">int</span> day=scan.nextInt();</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">switch</span> (month-<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">11</span>:</span><br><span class="line">                res+=<span class="number">30</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">10</span>:</span><br><span class="line">                res+=<span class="number">31</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">9</span>:</span><br><span class="line">                res+=<span class="number">30</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">8</span>:</span><br><span class="line">                res+=<span class="number">31</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">7</span>:</span><br><span class="line">                res+=<span class="number">31</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">                res+=<span class="number">30</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">                res+=<span class="number">31</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">                res+=<span class="number">30</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">                res+=<span class="number">31</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">                res+=<span class="number">28</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                res+=<span class="number">31</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">                res+=day;</span><br><span class="line">                System.out.println(month+<span class="string">&quot;月&quot;</span>+day+<span class="string">&quot;日&quot;</span>+<span class="string">&quot;是2019年的第&quot;</span>+res+<span class="string">&quot;天.&quot;</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        </span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                System.out.println(<span class="string">&quot;月份输入有误！&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        scan.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 类中方法的声明和使用</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 方法：描述类应该具有的功能</span></span><br><span class="line"><span class="comment"> * 比如：Math类：sqrt()\random()\...</span></span><br><span class="line"><span class="comment"> * 	   Scanner类：nextXxx()...</span></span><br><span class="line"><span class="comment"> * 方法的声明：权限修饰符 返回值类型 方法名(形参列表)&#123;</span></span><br><span class="line"><span class="comment"> * 				方法体</span></span><br><span class="line"><span class="comment"> * 			&#125;</span></span><br><span class="line"><span class="comment"> * 		注意：static、final、abstract 来修饰的方法，后面再讲</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 说明：</span></span><br><span class="line"><span class="comment"> * 		1.关于权限修饰符</span></span><br><span class="line"><span class="comment"> * 			java规定的4种权限修饰符：private、public、缺省、protected</span></span><br><span class="line"><span class="comment"> * 		2.返回值类型：有返回值 VS 无返回值</span></span><br><span class="line"><span class="comment"> * 			1）如果方法有返回值，则必须在方法声明时，指定返回值类型。同时方法中需要使用</span></span><br><span class="line"><span class="comment"> * 			return关键字来返回指定类型的变量或常量</span></span><br><span class="line"><span class="comment"> * 			2）如果方法没有返回值，则方法声明时，使用void来表示。通常，没有返回值的方法就不使用</span></span><br><span class="line"><span class="comment"> * 			return了，但是，如果使用的话，只能“return;”表示结束此方法的意思。</span></span><br><span class="line"><span class="comment"> * 		3.方法名：见名知意，属于标识符，遵循其规范</span></span><br><span class="line"><span class="comment"> * 		4.形参列表：形参0个或多个</span></span><br><span class="line"><span class="comment"> * 		5.方法体：方法功能的体现</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * return关键字的使用</span></span><br><span class="line"><span class="comment"> * 		1.使用范围：使用在方法体中</span></span><br><span class="line"><span class="comment"> * 		2.作用：</span></span><br><span class="line"><span class="comment"> * 			（1）结束方法</span></span><br><span class="line"><span class="comment"> * 			（2）针对有返回值类型的方法，使用“return 数据”方法返回所要的数据</span></span><br><span class="line"><span class="comment"> * 		3.注意点：return 关键字后不可以声明执行语句</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 方法的使用：方法中可以调用其它方法，方法不能嵌套定义</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> chapter04;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test0402</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Customer c1 = <span class="keyword">new</span> Customer();</span><br><span class="line">		c1.name = <span class="string">&quot;Cats&quot;</span>;</span><br><span class="line">		System.out.println(c1.getNation(<span class="string">&quot;China&quot;</span>));</span><br><span class="line">		c1.test();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//客户类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Customer</span></span>&#123;</span><br><span class="line">	<span class="comment">//属性</span></span><br><span class="line">	String name;</span><br><span class="line">	<span class="keyword">int</span> age;</span><br><span class="line">	<span class="keyword">boolean</span> isMale;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;客户吃饭&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sleep</span><span class="params">(<span class="keyword">int</span> hour)</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;休息了&quot;</span>+hour+<span class="string">&quot;小时&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getNation</span><span class="params">(String nation)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">&quot;我的国际是&quot;</span>+nation;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;这算是缺省么&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -554,7 +556,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/if_else/">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E5%9B%9B%E7%AB%A0/01%20%E7%B1%BB%E4%B8%AD%E5%B1%9E%E6%80%A7%E7%9A%84%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
@@ -568,7 +570,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/if_else/" class="post-title-link" itemprop="url">if_else</a>
+            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E5%9B%9B%E7%AB%A0/01%20%E7%B1%BB%E4%B8%AD%E5%B1%9E%E6%80%A7%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">01 类中属性的使用</a>
         </h2>
 
         <div class="post-meta">
@@ -579,7 +581,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-05-05 21:42:43 / 修改时间：21:39:30" itemprop="dateCreated datePublished" datetime="2021-05-05T21:42:43+08:00">2021-05-05</time>
+              <time title="创建时间：2021-05-05 22:18:37 / 修改时间：22:04:24" itemprop="dateCreated datePublished" datetime="2021-05-05T22:18:37+08:00">2021-05-05</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -591,7 +593,7 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">第二章 基本语法</span></a>
+                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E4%B8%8A/" itemprop="url" rel="index"><span itemprop="name">第四章 面向对象(上)</span></a>
                 </span>
             </span>
 
@@ -606,7 +608,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只有一行的话 if...else后的大括号是可以省略的。但是不建议省略（方便后续添加语句）,没有大括号时if和else就近配对</span></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">if_else</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner scan = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> score = scan.nextInt();</span><br><span class="line">        <span class="keyword">if</span>(score&lt;<span class="number">60</span>)</span><br><span class="line">            System.out.println(<span class="string">&quot;不及格&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(score&lt;<span class="number">80</span>)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;良好&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;优秀&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        scan.close();</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 类中属性的使用</span></span><br><span class="line"><span class="comment"> * 属性（成员变量）	VS	局部变量</span></span><br><span class="line"><span class="comment"> * 1.相同点</span></span><br><span class="line"><span class="comment"> * 		1.1定义变量的格式：数据类型	变量名 = 变量值;</span></span><br><span class="line"><span class="comment"> * 		1.2先声明，后使用</span></span><br><span class="line"><span class="comment"> * 		1.3变量都有其相对应的作用域</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 2.不同点</span></span><br><span class="line"><span class="comment"> * 		2.1在类中声明的位置不同</span></span><br><span class="line"><span class="comment"> * 		属性：直接定义在类的一对&#123;&#125;内</span></span><br><span class="line"><span class="comment"> * 		局部变量：声明在方法内、方法形参、代码块内、构造器形参、构造器内部的变量</span></span><br><span class="line"><span class="comment"> * 		2.2关于权限修饰符的不同</span></span><br><span class="line"><span class="comment"> * 		属性：可以在声明属性时，指明其权限，使用权限修饰符。</span></span><br><span class="line"><span class="comment"> * 		常用的权限修饰符：private、public、缺省、protected ——&gt;封装性</span></span><br><span class="line"><span class="comment"> * 		2.3默认初始化值的情况</span></span><br><span class="line"><span class="comment"> * 		属性：类的属性根据其类型，都有默认初始化值</span></span><br><span class="line"><span class="comment"> * 			整型（byte、short、int、long）：0</span></span><br><span class="line"><span class="comment"> * 			浮点型（float、double）：0.0</span></span><br><span class="line"><span class="comment"> * 			字符型（char）：0或&#x27;\u0000&#x27;</span></span><br><span class="line"><span class="comment"> * 			布尔型（boolean）：false</span></span><br><span class="line"><span class="comment"> * 			应用数据类型（类、数组、接口）：null</span></span><br><span class="line"><span class="comment"> * 		</span></span><br><span class="line"><span class="comment"> * 		局部变量：没有默认初始化值</span></span><br><span class="line"><span class="comment"> * 			意味着，我们在调用局部变量之前，一定要显式赋值</span></span><br><span class="line"><span class="comment"> * 			特别的，形参在调用时，赋值即可</span></span><br><span class="line"><span class="comment"> * 		2.4在内存中加载的位置不同</span></span><br><span class="line"><span class="comment"> * 		属性：加载到堆空间中（非static）</span></span><br><span class="line"><span class="comment"> * 		局部变量：加载到栈空间</span></span><br><span class="line"><span class="comment"> */</span>	</span><br><span class="line"><span class="keyword">package</span> chapter04;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test0401</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		User demo = <span class="keyword">new</span> User();</span><br><span class="line">		demo.talk(<span class="string">&quot;普通话&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span>&#123;</span><br><span class="line">	String name;</span><br><span class="line">	<span class="keyword">int</span> age;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">talk</span><span class="params">(String language)</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;我们使用&quot;</span>+language+<span class="string">&quot;进行交流。&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">think</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> time;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -627,7 +629,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/String%E7%B1%BB%E5%9E%8B%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%BF%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E5%9B%9B%E7%AB%A0/00%20%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1%20%E5%88%9D%E8%A7%81/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
@@ -641,7 +643,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/String%E7%B1%BB%E5%9E%8B%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">String类型变量的使用</a>
+            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E5%9B%9B%E7%AB%A0/00%20%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1%20%E5%88%9D%E8%A7%81/" class="post-title-link" itemprop="url">00 类和对象 初见</a>
         </h2>
 
         <div class="post-meta">
@@ -652,7 +654,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-05-05 21:42:43 / 修改时间：21:30:24" itemprop="dateCreated datePublished" datetime="2021-05-05T21:42:43+08:00">2021-05-05</time>
+              <time title="创建时间：2021-05-05 22:18:37 / 修改时间：22:04:40" itemprop="dateCreated datePublished" datetime="2021-05-05T22:18:37+08:00">2021-05-05</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -664,7 +666,7 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">第二章 基本语法</span></a>
+                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E4%B8%8A/" itemprop="url" rel="index"><span itemprop="name">第四章 面向对象(上)</span></a>
                 </span>
             </span>
 
@@ -679,7 +681,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * String类型变量的使用</span></span><br><span class="line"><span class="comment"> * 1.String属于引用数据类型，翻译为：字符串</span></span><br><span class="line"><span class="comment"> * 2.声明String类型变量时，使用一对 &quot;&quot;</span></span><br><span class="line"><span class="comment"> * 3.可以为空字符串</span></span><br><span class="line"><span class="comment"> * 4.String可以和8种基本数据类型做运算，且只能是连接运算 + //运算似乎先算左边的（没有括号的情况下）</span></span><br><span class="line"><span class="comment"> *      运算结果仍为String类型</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StringTest</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        String s1 = <span class="string">&quot;Hello ！&quot;</span>;</span><br><span class="line">        <span class="comment">// String ss = &quot;a&quot;;</span></span><br><span class="line">        System.out.println(s1+(<span class="string">&#x27;A&#x27;</span>+<span class="number">1</span>));<span class="comment">//+ ：连接运算</span></span><br><span class="line">        System.out.println(<span class="string">&#x27;a&#x27;</span>+<span class="number">1</span>+s1);</span><br><span class="line">        System.out.println(Integer.parseInt(<span class="string">&quot;123512123&quot;</span>));</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">j * 一、设计类，其实就是设计类的成员</span></span><br><span class="line"><span class="comment"> * 属性 = 成员变量 = field = 域、字段</span></span><br><span class="line"><span class="comment"> * 方法 = 成员方法 = 函数 =method</span></span><br><span class="line"><span class="comment"> * 创建类的对象 = 类的实例化 = 实例化</span></span><br><span class="line"><span class="comment"> * 二、类和对象的使用（面向对象思想落地的实现）</span></span><br><span class="line"><span class="comment"> * 1.创建类，设计类的成员</span></span><br><span class="line"><span class="comment"> * 2.创建类的对象</span></span><br><span class="line"><span class="comment"> * 3.通过“对象.属性”、“对象.方法”调用对象的结构</span></span><br><span class="line"><span class="comment"> * 三、如果创建了一个类的多个对象，则每个对象都独立拥有一套类的属性。（非static）</span></span><br><span class="line"><span class="comment"> * 意味着，如果我们修改了一个对象的属性a，则不影响其他对象的属性a的值</span></span><br><span class="line"><span class="comment"> * 四、对象的内存解析https://www.bilibili.com/video/BV1Kb411W75N?p=183</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> chapter04;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test0400</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//创建Person类的对象</span></span><br><span class="line">		Person p1 = <span class="keyword">new</span> Person();</span><br><span class="line">		<span class="comment">//调用类的属性、方法</span></span><br><span class="line">		p1.name = <span class="string">&quot;Dopp&quot;</span>;</span><br><span class="line">		System.out.println(p1.name);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//调用方法</span></span><br><span class="line">		p1.eat();</span><br><span class="line">		</span><br><span class="line">		Person p2 = <span class="keyword">new</span> Person();</span><br><span class="line">		System.out.println(p2.name);<span class="comment">//null</span></span><br><span class="line">		</span><br><span class="line">		Person p3 = p1;</span><br><span class="line">		System.out.println(p3.name);<span class="comment">//Dopp</span></span><br><span class="line"></span><br><span class="line">		<span class="comment">//似乎这么做不会影响实参的值</span></span><br><span class="line">		<span class="keyword">int</span> a = <span class="number">200</span>;</span><br><span class="line">		Test0400 t = <span class="keyword">new</span> Test0400();</span><br><span class="line">		t.test(a);</span><br><span class="line"><span class="comment">//		t.useArr(&#123;1,2,3&#125;);//这么做并不可以</span></span><br><span class="line">		System.out.println(a);</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span> a)</span> </span>&#123;</span><br><span class="line">		a = <span class="number">12</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useArr</span><span class="params">(<span class="keyword">int</span>[] a)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">	<span class="comment">//属性</span></span><br><span class="line">	String name;</span><br><span class="line">	<span class="keyword">int</span> age = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">boolean</span> isMale;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;人可以吃饭&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sleep</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;人可以睡觉&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -700,7 +702,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210426%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B006/">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%B8%89%E7%AB%A0/%E6%95%B0%E7%BB%84%E5%A4%8D%E5%88%B6%E7%9A%84%E6%B5%8B%E8%AF%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
@@ -714,7 +716,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/dopphu/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210426%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B006/" class="post-title-link" itemprop="url">20210426信息安全培训笔记06</a>
+            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%B8%89%E7%AB%A0/%E6%95%B0%E7%BB%84%E5%A4%8D%E5%88%B6%E7%9A%84%E6%B5%8B%E8%AF%95/" class="post-title-link" itemprop="url">数组复制的测试</a>
         </h2>
 
         <div class="post-meta">
@@ -725,7 +727,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-04-26 23:22:02 / 修改时间：23:22:28" itemprop="dateCreated datePublished" datetime="2021-04-26T23:22:02+08:00">2021-04-26</time>
+              <time title="创建时间：2021-05-05 22:18:37 / 修改时间：21:53:38" itemprop="dateCreated datePublished" datetime="2021-05-05T22:18:37+08:00">2021-05-05</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -733,7 +735,11 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">信息安全培训笔记</span></a>
+                  <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%95%B0%E7%BB%84/" itemprop="url" rel="index"><span itemprop="name">第三章 数组</span></a>
                 </span>
             </span>
 
@@ -748,96 +754,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>共享文件夹占用的端口——137、138、（前两个UDP）139、445（后两个TCP）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%85%B1%E4%BA%AB%E6%89%80%E5%8D%A0%E7%94%A8%E7%9A%84%E7%AB%AF%E5%8F%A3.5jalfwv5gm00.jpg" alt="共享所占用的端口"></p>
-<ul>
-<li>共享权限<ul>
-<li>完全控制</li>
-<li>读取</li>
-<li>更改</li>
-</ul>
-</li>
-<li>本地权限</li>
-</ul>
-<p>两者冲突小的（安全）生效，将完全控制勾选，就可以通过本地权限进行访问控制了（因为共享权限太大了）</p>
-<ul>
-<li><p>如何做</p>
-<ul>
-<li><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%88%9B%E5%BB%BA%E5%85%B1%E4%BA%AB.2x6ucmw7a8y0.jpg" alt="创建共享"></li>
-</ul>
-</li>
-<li><p>如何访问</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%85%B1%E4%BA%AB%E8%AE%BF%E9%97%AE.6odtj63toxs0.jpg" alt="共享访问"></p>
-<p>忘记权限——注销后即可</p>
-<p>后面也可以加上文件路径——访问指定的共享文件夹（外层的就看不到了）</p>
-</li>
-<li><p>隐藏共享</p>
-<ul>
-<li>共享名后加上$</li>
-<li><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E9%9A%90%E8%97%8F%E5%85%B1%E4%BA%AB.5pabvzwtwyg0.jpg" alt="隐藏共享"></li>
-</ul>
-</li>
-<li><p>权限管理——实际上仍然是利用NTFS的权限管理</p>
-</li>
-</ul>
-<p>对等网→C-S架构（Client-Server）</p>
-<p>补充内容：</p>
-<p>拿到一块全新的磁盘以后</p>
-<ol>
-<li><p>联机</p>
-</li>
-<li><p>初始化</p>
-</li>
-<li><p>分区方式</p>
-<ol>
-<li>MBR</li>
-</ol>
-</li>
-</ol>
-<ol start="2">
-<li><p>GPT（只能存数据，不能装系统?）</p>
-<ol>
-<li>优点：读写速度快、跨磁盘、安全（镜像卷）</li>
-<li>缺点：占用空间大</li>
-<li>卷：<ul>
-<li>简单卷<ul>
-<li>普通分区</li>
-<li>动态扩容</li>
-</ul>
-</li>
-<li>跨区卷<ul>
-<li>至少两个磁盘，最多可以32块硬盘</li>
-<li>融盘（跨盘）</li>
-<li>读写速度一般（一块存完再存下一块）</li>
-<li>动态扩容</li>
-<li>可以扩展，可以压缩</li>
-</ul>
-</li>
-<li>带区卷<ul>
-<li>2-32</li>
-<li>多硬盘同时读取</li>
-<li>每块大小要相同，<del>这也决定了扩容时也要扩的一样大</del> 不可扩展</li>
-</ul>
-</li>
-<li>镜像卷<ul>
-<li>2</li>
-<li>利用率低，只有50%</li>
-<li>不可扩展</li>
-</ul>
-</li>
-<li>raid-5<ul>
-<li>3-32</li>
-<li>通错的同时照顾了利用率（两份数据一份校验，三者损其一可通过另外两个将损失的那个复原；校验部分属于无效数据（只是为了安全，由两个数据部分生成，并不是我们需要使用的数据））</li>
-<li>不可扩展</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-</li>
-</ol>
-<p>注：只有简单卷和跨区卷可以扩展，其它的卷都不能扩展</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">作业：会建立各种分区、各种卷</span><br></pre></td></tr></table></figure>
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 数组复制的测试</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> chapter03;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayCopyTest</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span>[] arr1,arr2;</span><br><span class="line">		<span class="keyword">int</span>[][] demo = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">1</span>][<span class="number">1</span>];</span><br><span class="line">		arr1 = <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;<span class="number">11</span>,<span class="number">22</span>,<span class="number">33</span>,<span class="number">44</span>,<span class="number">55</span>&#125;;</span><br><span class="line"><span class="comment">//		arr2 = new int[5];</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;arr1.length; i++) &#123;</span><br><span class="line">			System.out.print(arr1[i]+<span class="string">&quot;\t&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		arr2 = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">7</span>];</span><br><span class="line">		System.out.print(<span class="string">&quot;\n&quot;</span>+arr2.length);</span><br><span class="line"></span><br><span class="line">		System.out.println();</span><br><span class="line">		<span class="comment">//不能称作数组的复制,只能说是赋值</span></span><br><span class="line">		arr2 = arr1;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;arr2.length; i=i+<span class="number">2</span>) &#123;</span><br><span class="line"><span class="comment">//			System.out.print(arr2[i]+&quot;\t&quot;);</span></span><br><span class="line">			arr2[i]=i;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;arr1.length; i++) &#123;</span><br><span class="line">			System.out.print(arr1[i]+<span class="string">&quot;\t&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.print(<span class="string">&quot;\n&quot;</span>+arr2.length);</span><br><span class="line">		<span class="comment">//解释了为什么二维数组的地址不能赋给一维数组的地址，因为存的不只是地址</span></span><br><span class="line">		System.out.println(arr1);</span><br><span class="line">		System.out.println(demo);</span><br><span class="line">		System.out.println(<span class="string">&quot;-------------这样复制-------------&quot;</span>);</span><br><span class="line">		<span class="keyword">int</span> arr3[];</span><br><span class="line">		arr3 = <span class="keyword">new</span> <span class="keyword">int</span>[arr1.length];</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;arr3.length; i++) &#123;</span><br><span class="line">			arr3[i] = arr1[i];</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//数组的反转</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;arr3.length; i++) &#123;</span><br><span class="line">			System.out.print(arr3[i]+<span class="string">&quot;\t&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">&quot;\n-------------反转-------------&quot;</span>);</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;=arr3.length/<span class="number">2</span>; i++) &#123;</span><br><span class="line">			<span class="keyword">int</span> temp = arr3[i];</span><br><span class="line">			arr3[i] = arr3[arr3.length-i-<span class="number">1</span>];</span><br><span class="line">			arr3[arr3.length-i-<span class="number">1</span>] = temp; </span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;arr3.length; i++) &#123;</span><br><span class="line">			System.out.print(arr3[i]+<span class="string">&quot;\t&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(<span class="string">&quot;asd&quot;</span>.equals(<span class="string">&quot;asd&quot;</span>))System.out.println(<span class="string">&quot;\n他们是相同的&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
       
@@ -858,7 +775,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210413%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B003/">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%B8%89%E7%AB%A0/%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E5%B8%B8%E8%A7%81%E5%BC%82%E5%B8%B8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
@@ -872,7 +789,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/dopphu/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210413%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B003/" class="post-title-link" itemprop="url">20210413信息安全培训笔记03</a>
+            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%B8%89%E7%AB%A0/%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E5%B8%B8%E8%A7%81%E5%BC%82%E5%B8%B8/" class="post-title-link" itemprop="url">数组中的常见异常</a>
         </h2>
 
         <div class="post-meta">
@@ -883,7 +800,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-04-26 12:28:27 / 修改时间：12:32:39" itemprop="dateCreated datePublished" datetime="2021-04-26T12:28:27+08:00">2021-04-26</time>
+              <time title="创建时间：2021-05-05 22:18:37 / 修改时间：21:54:00" itemprop="dateCreated datePublished" datetime="2021-05-05T22:18:37+08:00">2021-05-05</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -891,7 +808,11 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">信息安全培训笔记</span></a>
+                  <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%95%B0%E7%BB%84/" itemprop="url" rel="index"><span itemprop="name">第三章 数组</span></a>
                 </span>
             </span>
 
@@ -906,27 +827,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="用户、用户组、组的管理"><a href="#用户、用户组、组的管理" class="headerlink" title="用户、用户组、组的管理"></a>用户、用户组、组的管理</h2><p>用户账户拥有唯一的安全标识符SID</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打开命令行查看SID命令</span></span><br><span class="line">$ whoami -user</span><br><span class="line"><span class="comment">#</span></span><br></pre></td></tr></table></figure>
-
-<p>SID=系统ID+用户ID（用户ID如下面最后的500，另外Windows系统的管理员用户均为ID为500，普通账户从1000开始）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/image-20210413193931980.17ejhfj95j40.png" alt="image-20210413193931980"></p>
-<p>同一个系统下的用户的系统ID相同，用户ID不同</p>
-<p>注册表：regedit.exe</p>
-<p>虚拟机中用 <code>ctrl+alt+insert</code> 代替 <code>ctrl+alt+delete</code> （以免与真实机热键冲突）</p>
-<h3 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h3><h4 id="1-如何查看用户"><a href="#1-如何查看用户" class="headerlink" title="1.如何查看用户"></a>1.如何查看用户</h4><ol>
-<li><h5 id="图形化界面"><a href="#图形化界面" class="headerlink" title="图形化界面"></a>图形化界面</h5><p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7.ptabbx5cgk.jpg" alt="图形化界面管理用户"></p>
-</li>
-<li><h5 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h5></li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看用户</span></span><br><span class="line">$ net user</span><br><span class="line"><span class="comment"># 添加用户（默认属于users组）</span></span><br><span class="line">$ net user 用户名 密码/add</span><br><span class="line"><span class="comment"># 重设密码</span></span><br><span class="line">$ net user 用户名 新密码</span><br><span class="line"><span class="comment"># 清空密码（需要在本地安全策略禁用 “密码必须符合复杂性要求” ） </span></span><br><span class="line">$ net user 用户名 <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="comment"># 查看用户详细信息</span></span><br><span class="line">$ net user 用户名</span><br><span class="line"><span class="comment"># 激活用户</span></span><br><span class="line">$ net user 用户名 /active:yes</span><br><span class="line"><span class="comment"># 禁用账户</span></span><br><span class="line">$ net user 用户名 /active:no</span><br><span class="line"><span class="comment"># 删除账户</span></span><br><span class="line">$ net user 用户名 密码/del</span><br><span class="line"><span class="comment"># 如何把普通用户改为管理员（将用户添加到管理员组，涉及用户组的概念）</span></span><br><span class="line">$ net localgroup administrators 用户名/add</span><br><span class="line"><span class="comment"># 将用户从管理员组中踢出</span></span><br><span class="line">$ net localgroup administrators 用户名/del</span><br></pre></td></tr></table></figure>
-
-
-
-<p>内置账户，如：win-server 2008 的Guest（来宾账户，默认是被禁用的，而且一般也要禁用，安全检查时必看）、管理员</p>
-<p>如果一个用户同属于多个组，则权限累加</p>
-<p>msc微软控制台</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看本地安全策略</span></span><br><span class="line">运行——&gt;secpol.msc</span><br></pre></td></tr></table></figure>
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 数组中的常见异常</span></span><br><span class="line"><span class="comment"> * 1.角标越界 java.lang.ArrayIndexOutOfBoundsException</span></span><br><span class="line"><span class="comment"> * 2.空指针异常 java.lang.NullPointerException</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> chapter03;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayExceptionTest</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//1.负数角标、越界角标</span></span><br><span class="line"><span class="comment">//		int arr[] = new int[] &#123;1,2,3&#125;;</span></span><br><span class="line"><span class="comment">//		System.out.println(arr[9]);</span></span><br><span class="line"><span class="comment">//		System.out.println(arr[-1]);</span></span><br><span class="line"><span class="comment">//		</span></span><br><span class="line">		<span class="comment">//2.空指针异常</span></span><br><span class="line">		<span class="keyword">int</span>[][] arr0 = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">5</span>][];</span><br><span class="line"><span class="comment">//		System.out.println(arr0[0][0]);</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">//2.另一种情况</span></span><br><span class="line">		String[] arr1 = <span class="keyword">new</span> String[] &#123;<span class="string">&quot;aa&quot;</span>,<span class="string">&quot;bb&quot;</span>&#125;;</span><br><span class="line">		arr1[<span class="number">0</span>]=<span class="keyword">null</span>;</span><br><span class="line">		System.out.println(arr1[<span class="number">0</span>].toString());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
       
@@ -947,7 +848,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210414%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B004/">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%B8%89%E7%AB%A0/%E5%88%9D%E8%A7%81Arrays%E7%9A%84%E6%96%B9%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
@@ -961,7 +862,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/dopphu/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210414%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B004/" class="post-title-link" itemprop="url">20210414信息安全培训笔记04</a>
+            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%B8%89%E7%AB%A0/%E5%88%9D%E8%A7%81Arrays%E7%9A%84%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">初见Arrays的方法</a>
         </h2>
 
         <div class="post-meta">
@@ -970,23 +871,21 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-04-26 12:28:27" itemprop="dateCreated datePublished" datetime="2021-04-26T12:28:27+08:00">2021-04-26</time>
+              <time title="创建时间：2021-05-05 22:18:37 / 修改时间：21:54:40" itemprop="dateCreated datePublished" datetime="2021-05-05T22:18:37+08:00">2021-05-05</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-27 14:02:16" itemprop="dateModified" datetime="2021-04-27T14:02:16+08:00">2021-04-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">信息安全培训笔记</span></a>
+                  <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%95%B0%E7%BB%84/" itemprop="url" rel="index"><span itemprop="name">第三章 数组</span></a>
                 </span>
             </span>
 
@@ -1001,57 +900,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>内置用户</p>
-<p>与使用者相关的用户</p>
-<p>与Windows组件关联的用户账户</p>
-<ul>
-<li><p>System（本地系统）（权限最高）</p>
-<p>​        为Windows的核心组件访问文件等资源提供权限</p>
-</li>
-<li><p>LOCAL SERVICE</p>
-</li>
-<li><p>NETWORK SERVICE</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看用户组</span></span><br><span class="line">$ net localgroup</span><br><span class="line"><span class="comment"># 创建用户组</span></span><br><span class="line">$ net localgroup 组名 /add</span><br><span class="line"><span class="comment"># 删除用户组</span></span><br><span class="line">$ net lcoalgroup 组名 /del</span><br><span class="line"><span class="comment"># 将用户加入组</span></span><br><span class="line">$ net lcoalgroup 组名 用户名 /add</span><br><span class="line"><span class="comment"># 将用户踢出组</span></span><br><span class="line">$ net lcoalgroup 组名 用户名 /del</span><br></pre></td></tr></table></figure>
-
-<p>组</p>
-<ul>
-<li>内置<ul>
-<li>需要人为添加用户的组<ul>
-<li>administrator</li>
-<li>Guests</li>
-<li>Power Users（为了兼容老版本，无关紧要，了解即可）</li>
-<li>Users（标准用户）</li>
-</ul>
-</li>
-<li>自动添加用户的组（动态包含成员的内置组）、<ul>
-<li>Everyone<ul>
-<li>包含任何用户</li>
-<li>设置开放的权限时经常使用</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>普通组</li>
-</ul>
-<p>计算机默认都在工作组 <code>WORKGROUP</code> （如图，可以在这里改主机名）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/WORKGROUP%E5%B7%A5%E4%BD%9C%E7%BB%84.44eyusl45mm0.jpg" alt="WORKGROUP工作组"></p>
-<p>域环境基于互联网（意味着互联网上任何一台计算机都可以加入域）——把计算机逻辑地组织在一起，统一管理（受 <strong>域控</strong> （？DC）的统一管理）</p>
-<p>想要访问域中资源，要用DC分配给你的域用户进行登录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配静态IP[、子网掩码]</span></span><br><span class="line">$ netsh interface ip <span class="built_in">set</span> address 网卡名 static ip [子网掩码]</span><br><span class="line"><span class="comment"># 配动态IP</span></span><br><span class="line">$ netsh interface ip <span class="built_in">set</span> address 网卡名 dhcp</span><br><span class="line"> <span class="comment"># 查看网络详细信息</span></span><br><span class="line">$ ipcofig -all</span><br><span class="line"><span class="comment"># 重命名主机名</span></span><br><span class="line">$ netdom renamecomputer localhost /newname:新主机名</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ping</span></span><br><span class="line"><span class="comment"># -a 返回主机名</span></span><br><span class="line"><span class="comment"># -l 改变包大小（最大65500，默认32）</span></span><br><span class="line"><span class="comment"># -t 持续发包</span></span><br></pre></td></tr></table></figure>
-
-<p>远程桌面 3389端口</p>
-<p>mstsc（骂死他傻X）——远程控制</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 关闭c$共享（c$、ipc$十分危险，一般都要关闭）</span></span><br><span class="line">$ net share c$ /del</span><br></pre></td></tr></table></figure>
-
-
-
-
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Arrays方法</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> chapter03;</span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArraysTest</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span>[] a = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line">		<span class="keyword">int</span>[] b = &#123;<span class="number">2</span>,<span class="number">1</span>,<span class="number">3</span>&#125;;</span><br><span class="line">		<span class="keyword">boolean</span> isEquals = Arrays.equals(a, a);<span class="comment">//比较两个数组是否相等</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">//toString输出数组信息</span></span><br><span class="line">		System.out.println(Arrays.toString(a));</span><br><span class="line">		<span class="comment">//fill 将指定值填充到数组当中</span></span><br><span class="line">		Arrays.fill(a, <span class="number">10</span>);</span><br><span class="line">		System.out.println(Arrays.toString(a));</span><br><span class="line">		<span class="comment">//排序 sort</span></span><br><span class="line">		Arrays.sort(b);</span><br><span class="line">		System.out.println(Arrays.toString(b));</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//查找索引 binarySearch</span></span><br><span class="line">		<span class="keyword">int</span> index1 = Arrays.binarySearch(b, <span class="number">1</span>);</span><br><span class="line">		<span class="keyword">int</span> index2 = Arrays.binarySearch(a, <span class="number">10</span>);</span><br><span class="line">		System.out.println(index1);<span class="comment">//为什么是1：二分查找的缘故，解决</span></span><br><span class="line">		System.out.println(index2);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -1071,7 +920,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/dopphu/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/dopphu/">1</a><span class="page-number current">2</span><a class="page-number" href="/dopphu/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/dopphu/page/11/">11</a><a class="extend next" rel="next" href="/dopphu/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/dopphu/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/dopphu/">1</a><span class="page-number current">2</span><a class="page-number" href="/dopphu/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/dopphu/page/13/">13</a><a class="extend next" rel="next" href="/dopphu/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1139,14 +988,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/dopphu/archives/">
         
-          <span class="site-state-item-count">105</span>
+          <span class="site-state-item-count">129</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/dopphu/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
