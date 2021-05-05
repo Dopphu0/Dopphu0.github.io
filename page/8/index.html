@@ -189,158 +189,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2020/09/01/%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2020/09/01/%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-09-01 22:42:41" itemprop="dateCreated datePublished" datetime="2020-09-01T22:42:41+08:00">2020-09-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-05 16:21:34" itemprop="dateModified" datetime="2020-08-05T16:21:34+08:00">2020-08-05</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h1><p><strong>$</strong> 析构函数与构造函数的作用几乎正好相反，它是用来完成对象被删除前的一些清理工作。<strong>析构函数是在对象的生存周期即将结束的时刻被自动调用的。</strong>它的调用完成之后对象也就消失了，相应的内存空间也会被释放。</p>
-<p><img src="https://wx1.sbimg.cn/2020/08/05/oCOg6.png" alt="oCOg6.png"></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Clock</span>&#123;</span></span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		Clock();		<span class="comment">//构造函数</span></span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">setTime</span><span class="params">(<span class="keyword">int</span> newH, <span class="keyword">int</span> newM, <span class="keyword">int</span> newS)</span></span>;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">showTime</span><span class="params">()</span></span>;</span><br><span class="line">		~Clock&#123;&#125;</span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">		<span class="keyword">int</span> hour, minute, second; </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2020/09/01/%E4%BD%8D%E5%9F%9F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2020/09/01/%E4%BD%8D%E5%9F%9F/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-09-01 22:42:41" itemprop="dateCreated datePublished" datetime="2020-09-01T22:42:41+08:00">2020-09-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-06 16:31:42" itemprop="dateModified" datetime="2020-08-06T16:31:42+08:00">2020-08-06</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="位域"><a href="#位域" class="headerlink" title="位域"></a>位域</h1><p><img src="https://wx1.sbimg.cn/2020/08/06/o6NMl.png" alt="o6NMl.png"></p>
-<p>课本截图，感jio说的很详细了。</p>
-<p><strong>$</strong> 用个例子感受一下。</p>
-<p>例子：设计一个结构体存储学生的成绩信息，需要包栝学号，年级和成绩3项内容，学号的范围是0-99 999 999，年级分为：freshman，sophomore，junior，senior四种，成绩包栝A，B，C，D四个等级。</p>
-<p>分析：</p>
-<ol>
-<li><p>不使用位域：</p>
-<p>学号用整型4个字节，分别用枚举储存年级和等级（各至少占一个字节）。则共计：6字节</p>
-</li>
-<li><p>使用位域：</p>
-<p>学号要27个二进制位（2<sup>27</sup> = 134 217 728)的有效信息，而年级、成绩各需要两位二进制数就可以了。则共计：4个字节（即可存下）</p>
-</li>
-</ol>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">enum</span> Level &#123;</span><br><span class="line">	PRESHMAN, SOPHOMORE, JUNOR, SENIOR</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">enum</span> Grade &#123;</span><br><span class="line">	A, B, C, D</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> &#123;</span></span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		Student(<span class="keyword">unsigned</span> <span class="keyword">int</span> number, Level level, Grade grade)</span><br><span class="line">		:number(number), level(level), grade(grade) &#123;&#125;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">		<span class="keyword">unsigned</span> number: <span class="number">27</span>;</span><br><span class="line">		Level level : <span class="number">2</span>;</span><br><span class="line">		Grade grade : <span class="number">2</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Student::show</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Number:&quot;</span>&lt;&lt;number&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Level:    &quot;</span>;</span><br><span class="line">	<span class="keyword">switch</span>(level)&#123;</span><br><span class="line">		<span class="keyword">case</span> PRESHMAN:</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;freshman&quot;</span>;<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> SOPHOMORE:</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;sophomore&quot;</span>;<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> JUNOR:</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;junior&quot;</span>;<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> SENIOR:</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;senior&quot;</span>;<span class="keyword">break</span>; </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>; </span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Grade:    &quot;</span>;</span><br><span class="line">	<span class="keyword">switch</span>(grade)&#123;</span><br><span class="line">		<span class="keyword">case</span> A:</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;A&quot;</span>;<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> B:</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;B&quot;</span>;<span class="keyword">break</span>; </span><br><span class="line">		<span class="keyword">case</span> C:</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;C&quot;</span>;<span class="keyword">break</span>; </span><br><span class="line">		<span class="keyword">case</span> D:</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;D&quot;</span>;<span class="keyword">break</span>;  </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="function">Student <span class="title">s</span><span class="params">(<span class="number">123564</span>, SOPHOMORE, C)</span></span>;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Size of Student:&quot;</span>&lt;&lt;<span class="keyword">sizeof</span>(Student)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	s.show();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>运行结果：</p>
-<p><img src="https://wx2.sbimg.cn/2020/08/06/o6FCd.png" alt="o6FCd.png"></p>
-<p>不同编译器第一行的结果可能不同。</p>
-<p><strong>$</strong> 再放一张课本截图吧。</p>
-<p><img src="https://wx1.sbimg.cn/2020/08/06/o6ylU.png" alt="o6ylU.png"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2020/09/01/%E5%A4%96%E9%83%A8%E5%8F%98%E9%87%8F%E5%92%8C%E5%A4%96%E9%83%A8%E5%87%BD%E6%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1086,6 +934,186 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2020/09/01/%E7%B1%BB%E7%9A%84%E9%9D%99%E6%80%81%E6%88%90%E5%91%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2020/09/01/%E7%B1%BB%E7%9A%84%E9%9D%99%E6%80%81%E6%88%90%E5%91%98/" class="post-title-link" itemprop="url">类的静态成员</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-01 22:42:41" itemprop="dateCreated datePublished" datetime="2020-09-01T22:42:41+08:00">2020-09-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-10 20:12:26" itemprop="dateModified" datetime="2020-08-10T20:12:26+08:00">2020-08-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="类的静态成员"><a href="#类的静态成员" class="headerlink" title="类的静态成员"></a>类的静态成员</h1><h2 id="静态数据成员"><a href="#静态数据成员" class="headerlink" title="静态数据成员"></a>静态数据成员</h2><p>教材截图：</p>
+<p><img src="https://wx1.sbimg.cn/2020/08/10/o7tH6.png" alt="o7tH6.png"></p>
+<p><strong>$</strong> <strong>静态数据成员具有静态生存期。</strong>由于静态数据成员不属于任何一个对象可以通过类名进行访问，一般的用法是<code>类名::标识符</code>。在类的定义中仅仅对静态数据成员进行引用性声明，必须在命名空间作用域的某个地方使用类名限定定义性声明，这时也可以进行初始化。例如：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//09类的静态数据成员 </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span>&#123;</span></span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		Point(<span class="keyword">int</span> x=<span class="number">0</span>, <span class="keyword">int</span> y=<span class="number">0</span>):x(x), y(y)&#123;</span><br><span class="line">            <span class="comment">//在构造函数中对count进行累加，所有对象共同维护同一个count</span></span><br><span class="line">			count++;</span><br><span class="line">		&#125;</span><br><span class="line">		Point(Point &amp;p)&#123;</span><br><span class="line">			x = p.x;</span><br><span class="line">			y = p.y;</span><br><span class="line">			count++;</span><br><span class="line">		&#125;</span><br><span class="line">		~Point()&#123;</span><br><span class="line">			count--;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">showCount</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">		<span class="keyword">int</span> x, y;</span><br><span class="line">		<span class="keyword">static</span> <span class="keyword">int</span> count;</span><br><span class="line">&#125;; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Point::showCount</span><span class="params">()</span></span>&#123;			<span class="comment">//输出静态数据成员</span></span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Object count = &quot;</span>&lt;&lt;count&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> Point::count = <span class="number">0</span>;	<span class="comment">//静态数据成员定义和初始化，使用类名限定</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function">Point <span class="title">a</span><span class="params">(<span class="number">4</span>, <span class="number">5</span>)</span></span>;</span><br><span class="line">	a.showCount();</span><br><span class="line">	</span><br><span class="line">    <span class="function">Point <span class="title">b</span><span class="params">(a)</span></span>;</span><br><span class="line">	b.showCount();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可是没有创建对象时，想要知道count的值怎么办？这就看静态成员函数了。</p>
+<h2 id="静态成员函数"><a href="#静态成员函数" class="headerlink" title="静态成员函数"></a>静态成员函数</h2><p><strong>$</strong> 静态成员函数可以直接访问该类的静态数据和函数成员。而访问非静态成员，必须通过对象名。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span>&#123;</span></span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">	...</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">showCount</span><span class="params">()</span></span>;<span class="comment">//非静态成员函数</span></span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">		<span class="keyword">int</span> x, y;</span><br><span class="line">		<span class="keyword">static</span> <span class="keyword">int</span> count;</span><br><span class="line">&#125;; </span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ...</span><br><span class="line">	Point::showCount();<span class="comment">//这是错误的,对于普通函数成员的调用必须通过对象名。</span></span><br><span class="line">    ...  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>再请看</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> &#123;</span></span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">    	<span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">(A a)</span></span>;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">    	<span class="keyword">int</span> x;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">A::f</span><span class="params">(A a)</span></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;x;		<span class="comment">//对x的引用是错误的</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;a.x;		<span class="comment">//正确</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，通过静态成员访问非静态成员是相当麻烦的，一般情况下，它主要用来访问同一个类中的静态数据成员，维护对象之间共享的数据。</p>
+<p><img src="https://wx1.sbimg.cn/2020/08/10/o7bNG.png" alt="o7bNG.png"></p>
+<p><img src="https://wx2.sbimg.cn/2020/08/10/o7rkT.png" alt="o7rkT.png"></p>
+<p>下面是一个完整的例子：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//09类的静态数据成员 </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span>&#123;</span></span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		Point(<span class="keyword">int</span> x=<span class="number">0</span>, <span class="keyword">int</span> y=<span class="number">0</span>):x(x), y(y)&#123;</span><br><span class="line">			count++;</span><br><span class="line">		&#125;</span><br><span class="line">		Point(Point &amp;p)&#123;</span><br><span class="line">			x = p.x;</span><br><span class="line">			y = p.y;</span><br><span class="line">			count++;</span><br><span class="line">		&#125;</span><br><span class="line">		~Point()&#123;</span><br><span class="line">			count--;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">showCount</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">		<span class="keyword">int</span> x, y;</span><br><span class="line">		<span class="keyword">static</span> <span class="keyword">int</span> count;</span><br><span class="line">&#125;; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Point::showCount</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Object count = &quot;</span>&lt;&lt;count&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> Point::count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	Point::showCount();<span class="comment">//不依赖任何对象，直接访问静态数据</span></span><br><span class="line">	<span class="function">Point <span class="title">a</span><span class="params">(<span class="number">4</span>, <span class="number">5</span>)</span></span>;</span><br><span class="line">	a.showCount();</span><br><span class="line">	<span class="function">Point <span class="title">b</span><span class="params">(a)</span></span>;</span><br><span class="line">	Point::showCount();</span><br><span class="line">	b.showCount();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<p><img src="https://wx1.sbimg.cn/2020/08/10/o7Osw.png" alt="o7Osw.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2020/09/01/%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF%E4%B8%8E%E6%B4%BE%E7%94%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2020/09/01/%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF%E4%B8%8E%E6%B4%BE%E7%94%9F/" class="post-title-link" itemprop="url">类的继承和派生</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-01 22:42:41" itemprop="dateCreated datePublished" datetime="2020-09-01T22:42:41+08:00">2020-09-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-18 17:24:14" itemprop="dateModified" datetime="2020-08-18T17:24:14+08:00">2020-08-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="类的继承与派生"><a href="#类的继承与派生" class="headerlink" title="类的继承与派生"></a>类的继承与派生</h1><h2 id="继承和派生关系简述"><a href="#继承和派生关系简述" class="headerlink" title="继承和派生关系简述"></a>继承和派生关系简述</h2><p>所谓继承就是从先辈处得到属性和行为特征。<strong>类的继承，是新类从已有类那里得到已有的特性</strong>。从另一个角度来看这个问题，<strong>从已有类产生新类的过程就是类的派生</strong>。有原有的类产生新类，新类便包含了原有类的特征，同时也可以加入自己所特有的新特性。原有的类称为<strong>基类</strong>或<strong>父类</strong>，产生的新类称为<strong>派生类</strong>或<strong>子类</strong>。派生类仍可以作为基类派生新的类，这样就形成了类的层次结构。</p>
+<p>类的派生实际是一种演化发展的过程，即通过扩展、更改、和特殊化，从一个已知类出发建立一个新类。通过类的派生可以建立具有共同关键特征的对象家族，从而实现代码的重用。<strong>这种继承和派生的机制对于已有程序的发展和改进，是极为有利的</strong>。</p>
+<h2 id="派生类的定义"><a href="#派生类的定义" class="headerlink" title="派生类的定义"></a>派生类的定义</h2><p>在C++中，派生类的一般定义语法为：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> 派生类:</span>继承方式 基类名<span class="number">1</span>, 继承方式 基类名<span class="number">2</span>,···, 继承方式 基类名n</span><br><span class="line">&#123;</span><br><span class="line">  	派生成员声明;  </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>例如：假设激烈 <code>Base1</code> 和 <code>Base2</code> 是已经定义的类，下面的语句定义了一个名为 <code>Derived</code> 的派生类，该类从基类 <code>Base1</code> 和 <code>Base2</code> 派生而来。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derived</span>:</span><span class="keyword">public</span> Base1, <span class="keyword">private</span> Base2</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    	Derived();</span><br><span class="line">    	~Derived();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>$</strong> <strong>一个派生类，可以同时有多个基类，这种情况称为多继承，一个派生类只有一个直接基类的情况，称为单继承</strong>。</p>
+<p><strong>$</strong> 在类族中，直接参与派生出某类的基类称为<strong>直接基类</strong>，基类的基类甚至更高层的基类称为<strong>间接基类</strong>。</p>
+<p><strong>$</strong> 在派生类的定义中，除了要指定基类外，还需要指定继承方式。<strong>继承方式规定了如何访问从基类继承的成员</strong>。在派生类的定义语句中，每一个“继承方式”，只限定紧随其后的基类。继承方式关键字为：<code>public</code>、<code>protected</code> 和 <code>private</code>，分别表示<strong>公有继承</strong>、<strong>保护继承</strong>和<strong>私有继承</strong>。如果不显式地给出继承方式关键字，系统默认值就认为是私有继承（private）。不同继承方式的区别：<a href="#1">访问控制</a></p>
+<p><img src="https://www.zx95.net/images/2020/08/15/image14a607eb7a005c67.png" alt="image14a607eb7a005c67.png"></p>
+<h2 id="派生类的生成过程"><a href="#派生类的生成过程" class="headerlink" title="派生类的生成过程"></a>派生类的生成过程</h2><p>经历三个步骤：<strong>吸收基类成员</strong>，<strong>改造基类成员</strong>、<strong>添加新的成员</strong>。</p>
+<p>其中，<strong>如果派生类声明了一个和某基类成员同名的新成员（如果是函数名，则参数表也要相同，参数不同的情况属于重载），派生的新成员就隐藏了外层同名成员</strong>。此时在派生类中或者通过派生类的对象，直接使用成员名就只能访问到派生类中声明的同名成员，这叫做<strong>同名隐藏</strong>。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -1157,14 +1185,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/dopphu/archives/">
         
-          <span class="site-state-item-count">90</span>
+          <span class="site-state-item-count">88</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/dopphu/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">

@@ -22,19 +22,29 @@
     var CONFIG = {"hostname":"gitee.com","root":"/dopphu/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="建索引 123create [unique] INDEX indexName ON myTable(columnname(length));或alter TABLE mytable ADD [unique] INDEX [indexName] (columnname(length));  删除索引 1DROP INDEX [indexName] on mytable;  查看索引 1show in">
+  <meta name="description" content="锁锁是计算机协调多个进程或线程并发访问某一资源的机制。 在数据库中，除传统的计算机资源（如CPU、RAM、I&#x2F;O等）的争用以外，数据也是一种供许多用户共享的资源。如何保证数据并发访问的一致性、有效性是所有数据库必须解决的问题，锁冲突也是影响数据库并发访问性能的一个重要因素。从这个角度来说，锁对数据库而言显得尤为重要，也更加复杂。 锁的分类从对数据操作的类型（读&#x2F;写）分  读锁（共享锁）：针对同一份">
 <meta property="og:type" content="article">
-<meta property="og:title" content="索引增删改查06">
-<meta property="og:url" content="https://gitee.com/dopphu/dopphu.git/2021/04/25/%E7%B4%A2%E5%BC%95%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A506/index.html">
+<meta property="og:title" content="锁">
+<meta property="og:url" content="https://gitee.com/dopphu/dopphu.git/2021/04/25/mysql%E9%AB%98%E7%BA%A7/%E9%94%81/index.html">
 <meta property="og:site_name" content="Welcome to Dopphu&#39;s Blog">
-<meta property="og:description" content="建索引 123create [unique] INDEX indexName ON myTable(columnname(length));或alter TABLE mytable ADD [unique] INDEX [indexName] (columnname(length));  删除索引 1DROP INDEX [indexName] on mytable;  查看索引 1show in">
+<meta property="og:description" content="锁锁是计算机协调多个进程或线程并发访问某一资源的机制。 在数据库中，除传统的计算机资源（如CPU、RAM、I&#x2F;O等）的争用以外，数据也是一种供许多用户共享的资源。如何保证数据并发访问的一致性、有效性是所有数据库必须解决的问题，锁冲突也是影响数据库并发访问性能的一个重要因素。从这个角度来说，锁对数据库而言显得尤为重要，也更加复杂。 锁的分类从对数据操作的类型（读&#x2F;写）分  读锁（共享锁）：针对同一份">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-04-25T05:35:00.345Z">
-<meta property="article:modified_time" content="2021-04-25T05:39:00.315Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E6%9B%B4%E6%96%B0%E4%B8%A2%E5%A4%B1.5wxmvqj6pww0.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E8%84%8F%E8%AF%BB.71yat5f83080.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E4%B8%8D%E5%8F%AF%E9%87%8D%E5%A4%8D%E8%AF%BB.5iesi3ak4kw0.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%B9%BB%E8%AF%BB.42pq1rztq2o0.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E8%A1%8C%E9%94%81%E5%9F%BA%E6%9C%AC%E6%BC%94%E7%A4%BA.3aov0dsoju20.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E9%97%B4%E9%9A%99%E9%94%81%E7%9A%84%E5%8D%B1%E5%AE%B3.eglfaluljbc.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%A6%82%E4%BD%95%E9%94%81%E5%AE%9A%E4%B8%80%E8%A1%8C.1gvbpdzzgyps.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E8%A1%8C%E9%94%81%E6%80%BB%E7%BB%93.6dofk69xapw0.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E9%94%81%E7%9A%84%E5%90%84%E4%B8%AA%E7%8A%B6%E6%80%81%E9%87%8F%E7%9A%84%E8%AF%B4%E6%98%8E%E5%A6%82%E4%B8%8B.itm1smv4mx.jpg">
+<meta property="article:published_time" content="2021-04-25T05:35:00.346Z">
+<meta property="article:modified_time" content="2021-04-25T05:39:05.943Z">
 <meta property="article:author" content="Dopphu">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E6%9B%B4%E6%96%B0%E4%B8%A2%E5%A4%B1.5wxmvqj6pww0.jpg">
 
-<link rel="canonical" href="https://gitee.com/dopphu/dopphu.git/2021/04/25/%E7%B4%A2%E5%BC%95%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A506/">
+<link rel="canonical" href="https://gitee.com/dopphu/dopphu.git/2021/04/25/mysql%E9%AB%98%E7%BA%A7/%E9%94%81/">
 
 
 <script id="page-configurations">
@@ -47,7 +57,7 @@
   };
 </script>
 
-  <title>索引增删改查06 | Welcome to Dopphu's Blog</title>
+  <title>锁 | Welcome to Dopphu's Blog</title>
   
 
 
@@ -192,7 +202,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/25/%E7%B4%A2%E5%BC%95%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A506/">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/25/mysql%E9%AB%98%E7%BA%A7/%E9%94%81/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
@@ -205,7 +215,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          索引增删改查06
+          锁
         </h1>
 
         <div class="post-meta">
@@ -216,7 +226,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-04-25 13:35:00 / 修改时间：13:39:00" itemprop="dateCreated datePublished" datetime="2021-04-25T13:35:00+08:00">2021-04-25</time>
+              <time title="创建时间：2021-04-25 13:35:00 / 修改时间：13:39:05" itemprop="dateCreated datePublished" datetime="2021-04-25T13:35:00+08:00">2021-04-25</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -239,17 +249,126 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>建索引</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> [<span class="keyword">unique</span>] <span class="keyword">INDEX</span> indexName <span class="keyword">ON</span> myTable(columnname(<span class="keyword">length</span>));</span><br><span class="line">或</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">TABLE</span> mytable <span class="keyword">ADD</span> [<span class="keyword">unique</span>] <span class="keyword">INDEX</span> [indexName] (columnname(<span class="keyword">length</span>));</span><br></pre></td></tr></table></figure>
+        <h1 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h1><p>锁是计算机协调多个进程或线程并发访问某一资源的机制。</p>
+<p>在数据库中，除传统的计算机资源（如CPU、RAM、I/O等）的争用以外，数据也是一种供许多用户共享的资源。如何保证数据并发访问的一致性、有效性是所有数据库必须解决的问题，锁冲突也是影响数据库并发访问性能的一个重要因素。从这个角度来说，锁对数据库而言显得尤为重要，也更加复杂。</p>
+<h2 id="锁的分类"><a href="#锁的分类" class="headerlink" title="锁的分类"></a>锁的分类</h2><p>从对数据操作的类型（读/写）分</p>
+<ul>
+<li>读锁（共享锁）：针对同一份数据，多个读操作可以同时进行而不会互相影响</li>
+<li>写锁（排它锁）：当前写操作没有完成前，它会阻断其它写锁和读锁</li>
+</ul>
+<p>从对数据操作的力度分</p>
+<ul>
+<li>表锁</li>
+<li>行锁</li>
+</ul>
+<p>开销、加锁速度、死锁、粒度、并发性能、只能就具体应用的特点来说哪种锁更合适</p>
+<h2 id="三锁"><a href="#三锁" class="headerlink" title="三锁"></a>三锁</h2><ul>
+<li><p>表锁（偏读）</p>
+<p>偏向MyISAM存储引擎，开销小，加锁快；无死锁；锁定粒度大，发生锁冲突的概率最高，并发度最低。</p>
+<p>【手动增加表锁】</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">lock</span> <span class="keyword">table</span> 表名字<span class="number">1</span> <span class="keyword">read</span>(write),表名字<span class="number">2</span> <span class="keyword">read</span>(write),其它;</span><br></pre></td></tr></table></figure>
 
-<p>删除索引</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">INDEX</span> [indexName] <span class="keyword">on</span> mytable;</span><br></pre></td></tr></table></figure>
+<p>【查看表上加过的锁】</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">open</span> <span class="keyword">tables</span>;</span><br></pre></td></tr></table></figure>
 
-<p>查看索引</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">index</span> <span class="keyword">from</span> table_name\G</span><br></pre></td></tr></table></figure>
+<p>【解锁】</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">unlock</span> <span class="keyword">tables</span>;</span><br></pre></td></tr></table></figure>
 
+<p><code>session 1</code>加<strong>读锁</strong>后</p>
+<table>
+<thead>
+<tr>
+<th>session1</th>
+<th>session2（其它session）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>可以查询被锁表</td>
+<td>可以查询被锁表</td>
+</tr>
+<tr>
+<td>不能查询其它未锁表，当然也不能更新其它未锁表</td>
+<td>可以查询或更新其它未锁表</td>
+</tr>
+<tr>
+<td>插入或更新锁定的表都会提示错误</td>
+<td>插入或更新锁定表会一直等待</td>
+</tr>
+<tr>
+<td>释放所</td>
+<td>插入操作完成</td>
+</tr>
+</tbody></table>
+<p><code>session 1</code>加 <strong>写锁</strong> 后</p>
+<table>
+<thead>
+<tr>
+<th>session1</th>
+<th>session2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>可以查看更新被锁表</td>
+<td>查询更新被锁表均被阻塞</td>
+</tr>
+<tr>
+<td>不可更新查询其它未锁表</td>
+<td>可以查询和更新未锁表</td>
+</tr>
+</tbody></table>
+<p><strong>简而言之，就是读锁会阻塞写，但是不会阻塞读；写锁会把读和写都堵塞。</strong></p>
+<p>【如何分析表锁分析】</p>
+<p>可以通过检查table_locks_waited和table_locks_immediate状态变量来分析系统上的表锁定</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">status</span> <span class="keyword">like</span> <span class="string">&#x27;table%&#x27;</span>;</span><br></pre></td></tr></table></figure>
 
+<p>Table_locks_immediate：产生表级锁的次数，表示可以立即获得锁的查询次数，每立即获得锁值加1；</p>
+<p>Table_locks_waited：出现表级锁争用而发生等待的次数（不能立即获得锁的查询的次数，每等待一次锁值加1），此值高则说明存在着较严重的表级锁的争用情况；</p>
+<p>此外，Myisam的读写锁调度是写优先，这也是myisam不适合做写为主表的引擎。因为写锁后，其它线程不能做任何操作，大量的更新会使查询很难得到锁，从而造成永远阻塞。所以<strong>表锁偏读</strong>。</p>
+</li>
+<li><p>行锁（偏写）</p>
+<p>偏向InnoDB存储引擎，开销大，加锁慢；会出现死锁；锁定粒度最小，发现锁冲突的概率最低，并发度也最高。</p>
+<p>InnoDB与MyISAM的最大不同有两点：一是支持事务（TRANSACTION）；二是采用了行级锁</p>
+<p>【并发事务处理带来的问题】</p>
+<ul>
+<li><p>更新丢失（Lost Update）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E6%9B%B4%E6%96%B0%E4%B8%A2%E5%A4%B1.5wxmvqj6pww0.jpg" alt="更新丢失"></p>
+</li>
+<li><p>脏读（Dirty Reads）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E8%84%8F%E8%AF%BB.71yat5f83080.jpg" alt="脏读"></p>
+<p>就是你可能读到错误数据了，我还没commit你就读了，或者还要rollback你就把错误的数据读走了。</p>
+</li>
+<li><p>不可重复读（Non-Repeatable Reads）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E4%B8%8D%E5%8F%AF%E9%87%8D%E5%A4%8D%E8%AF%BB.5iesi3ak4kw0.jpg" alt="不可重复读"></p>
+</li>
+<li><p>幻读（Phantom Reads）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%B9%BB%E8%AF%BB.42pq1rztq2o0.jpg" alt="幻读"></p>
+</li>
+</ul>
+<p>行锁基本演示：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E8%A1%8C%E9%94%81%E5%9F%BA%E6%9C%AC%E6%BC%94%E7%A4%BA.3aov0dsoju20.jpg" alt="行锁基本演示"></p>
+<p>【注意：索引失效（如：类型转换）】</p>
+<p>会导致行锁变表锁</p>
+<p>【间隙锁的危害】</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E9%97%B4%E9%9A%99%E9%94%81%E7%9A%84%E5%8D%B1%E5%AE%B3.eglfaluljbc.jpg" alt="间隙锁的危害"></p>
+<p>比如一个会话改where id&lt;5 and id&gt;1（未commit），但是表里边没有2,在另一个会话中insert一个2会被阻塞</p>
+<p>【如何锁定一行】</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%A6%82%E4%BD%95%E9%94%81%E5%AE%9A%E4%B8%80%E8%A1%8C.1gvbpdzzgyps.jpg" alt="如何锁定一行"></p>
+</li>
+<li><p>页锁</p>
+<p>开销和加锁时间介于表锁和行锁之间，会出现死锁；锁定粒度介于表锁和行锁之间，并发度一般。</p>
+</li>
+</ul>
+<h2 id="小总结"><a href="#小总结" class="headerlink" title="小总结"></a>小总结</h2><p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E8%A1%8C%E9%94%81%E6%80%BB%E7%BB%93.6dofk69xapw0.jpg" alt="行锁总结"></p>
+<p>【如何分析行锁】</p>
+<p>通过检查InnoDB_row_lock状态变量来分析系统上的行锁的争夺情况</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show status like &#x27;innodb_row_lock%&#x27;;</span><br></pre></td></tr></table></figure>
 
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E9%94%81%E7%9A%84%E5%90%84%E4%B8%AA%E7%8A%B6%E6%80%81%E9%87%8F%E7%9A%84%E8%AF%B4%E6%98%8E%E5%A6%82%E4%B8%8B.itm1smv4mx.jpg" alt="锁的各个状态量的说明如下"></p>
+<h3 id="优化建议"><a href="#优化建议" class="headerlink" title="优化建议"></a>优化建议</h3><p>尽可能让所有数据检索都通过索引来完成，避免无索引行锁升级为表锁</p>
+<p>合理设计索引，尽量缩小锁的范围</p>
+<p>尽可能较少检索条件，避免间隙锁</p>
+<p>尽量控制事务大小，减少锁定资源量和时间长度</p>
+<p>尽可能低级别事务隔离</p>
 
     </div>
 
@@ -284,12 +403,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/dopphu/2021/04/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84Linux01/" rel="prev" title="数据库学习中的Linux01">
-      <i class="fa fa-chevron-left"></i> 数据库学习中的Linux01
+    <a href="/dopphu/2021/04/25/mysql%E9%AB%98%E7%BA%A7/%E7%B4%A2%E5%BC%95%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A506/" rel="prev" title="索引增删改查06">
+      <i class="fa fa-chevron-left"></i> 索引增删改查06
     </a></div>
       <div class="post-nav-item">
-    <a href="/dopphu/2021/04/25/%E9%94%81/" rel="next" title="锁">
-      锁 <i class="fa fa-chevron-right"></i>
+    <a href="/dopphu/2021/04/25/mysql%E9%AB%98%E7%BA%A7/%E6%80%A7%E8%83%BD%E4%B8%8B%E9%99%8DSQL%E6%85%A204/" rel="next" title="性能下降SQL慢04">
+      性能下降SQL慢04 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -349,6 +468,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%94%81"><span class="nav-number">1.</span> <span class="nav-text">锁</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%81%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">1.1.</span> <span class="nav-text">锁的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E9%94%81"><span class="nav-number">1.2.</span> <span class="nav-text">三锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E6%80%BB%E7%BB%93"><span class="nav-number">1.3.</span> <span class="nav-text">小总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E5%BB%BA%E8%AE%AE"><span class="nav-number">1.3.1.</span> <span class="nav-text">优化建议</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -364,14 +484,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/dopphu/archives/">
         
-          <span class="site-state-item-count">90</span>
+          <span class="site-state-item-count">88</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/dopphu/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
