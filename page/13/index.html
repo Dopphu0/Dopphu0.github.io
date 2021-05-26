@@ -189,7 +189,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/10/Java%20Language%20Basics/test/0705%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F2/">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%BE%AA%E7%8E%AF%E7%BB%83%E4%B9%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
@@ -203,7 +203,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/dopphu/2021/04/10/Java%20Language%20Basics/test/0705%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F2/" class="post-title-link" itemprop="url">异常处理方式二：throws + 异常类型</a>
+            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%BE%AA%E7%8E%AF%E7%BB%83%E4%B9%A0/" class="post-title-link" itemprop="url">循环练习</a>
         </h2>
 
         <div class="post-meta">
@@ -214,7 +214,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-04-10 00:10:45 / 修改时间：00:14:37" itemprop="dateCreated datePublished" datetime="2021-04-10T00:10:45+08:00">2021-04-10</time>
+              <time title="创建时间：2021-05-05 21:42:43 / 修改时间：21:37:14" itemprop="dateCreated datePublished" datetime="2021-05-05T21:42:43+08:00">2021-05-05</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -223,6 +223,10 @@
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">第二章 基本语法</span></a>
                 </span>
             </span>
 
@@ -237,7 +241,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 异常处理方式二：throws + 异常类型</span></span><br><span class="line"><span class="comment"> * 往上抛，让上一级处理</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 1. &quot;throws + 异常类型&quot;写在方法的声明处。指明此方法执行时，可能会抛出异常类型。</span></span><br><span class="line"><span class="comment"> * 一旦方法体执行时，仍会在异常的代码处生成一个异常类的对象，此对象满足throws后异常类型时，就会抛出。</span></span><br><span class="line"><span class="comment"> * 异常代码后续的代码就不会再执行了</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 2.体会：try-catch-finally真正将异常处理掉了</span></span><br><span class="line"><span class="comment"> * 		throws的方式只是将异常抛给了方法的调用者，并没有真正将异常处理掉</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 3.开发中如何选择try-catch-finally 还是使用throws</span></span><br><span class="line"><span class="comment"> * 		1）如果父类中被重写的方法没有throws方式处理异常，则子类重写的方法也不能使用throws。意味着，</span></span><br><span class="line"><span class="comment"> * 	如果子类重写的方法中有异常，必须使用try-catch-finally方式处理</span></span><br><span class="line"><span class="comment"> * 		2）执行的方法中，先后有调用了另外几个方法，这几个方法是递进关系执行的，我们建议这几个方法用throws的方式</span></span><br><span class="line"><span class="comment"> * 	进行处理，而最外层的方法可以考虑使用try-catch-finally的方式进行处理</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> chapter07;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test05</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">method1</span><span class="params">()</span> <span class="keyword">throws</span> ArithmeticException</span>&#123;</span><br><span class="line">		System.out.println(<span class="number">10</span>/<span class="number">0</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			method1();</span><br><span class="line">		&#125;<span class="keyword">catch</span>(ArithmeticException e) &#123;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// import java.util.Scanner;</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// System.out.println(&quot;请输入数字，输入0结束输入&quot;);</span></span><br><span class="line">        <span class="comment">// int count = 0;</span></span><br><span class="line">        <span class="comment">// Scanner scan= new Scanner(System.in);</span></span><br><span class="line">        <span class="comment">// int sum=-1;</span></span><br><span class="line">        <span class="comment">// while(sum!=0)&#123;</span></span><br><span class="line">            </span><br><span class="line">        <span class="comment">//     if(sum%2==0)&#123;</span></span><br><span class="line">        <span class="comment">//         count++;</span></span><br><span class="line">        <span class="comment">//     &#125;</span></span><br><span class="line">        <span class="comment">//     sum=scan.nextInt();</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line">        <span class="comment">// System.out.println(&quot;偶数的个数为：&quot;+count);</span></span><br><span class="line">        <span class="comment">// scan.close();</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;<span class="number">4</span>;i++)&#123;</span><br><span class="line">           <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j&lt;=i;j++)&#123;</span><br><span class="line">                System.out.print(<span class="string">&quot;*&quot;</span>);</span><br><span class="line">           &#125; </span><br><span class="line">           System.out.println();</span><br><span class="line">        &#125;<span class="comment">//进阶：菱形星打印</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//九九乘法表</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;=<span class="number">9</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j&lt;=i;j++)&#123;</span><br><span class="line">                System.out.print(i+<span class="string">&quot;*&quot;</span>+j+<span class="string">&quot;=&quot;</span>+i*j+<span class="string">&quot;    &quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//获取当前时间</span></span><br><span class="line">        <span class="comment">// long start = System.currentTimeMillis();</span></span><br><span class="line">        <span class="comment">//一百以内质数的输出</span></span><br><span class="line">        <span class="comment">// int flag=1;</span></span><br><span class="line">        <span class="comment">// for(int i = 2;i&lt;=1000;i++)&#123;</span></span><br><span class="line">        <span class="comment">//     flag=1;</span></span><br><span class="line">        <span class="comment">//     for(int j = 2; j &lt; Math.sqrt(i); j++)&#123;</span></span><br><span class="line">        <span class="comment">//         if(i%j==0)&#123;</span></span><br><span class="line">        <span class="comment">//             flag=0;</span></span><br><span class="line">        <span class="comment">//             break;</span></span><br><span class="line">        <span class="comment">//         &#125;</span></span><br><span class="line">        <span class="comment">//     &#125;</span></span><br><span class="line">        <span class="comment">//     if(flag==1)&#123;</span></span><br><span class="line">        <span class="comment">//         System.out.println(i);</span></span><br><span class="line">        <span class="comment">//     &#125;</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line">        <span class="comment">// long end = System.currentTimeMillis();</span></span><br><span class="line">        <span class="comment">// System.out.println(end-start);</span></span><br><span class="line">        <span class="comment">// 另一个方法</span></span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        demo:<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>;i&lt;=<span class="number">10</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">2</span>; j &lt;= Math.sqrt(i); j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(i%j==<span class="number">0</span>)&#123;</span><br><span class="line">                    <span class="keyword">continue</span> demo;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">           count++;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(count);</span><br><span class="line">        System.out.println(Math.sqrt(<span class="number">2</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
       
@@ -258,7 +262,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/08/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B001/">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
@@ -272,7 +276,619 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/dopphu/2021/04/08/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B001/" class="post-title-link" itemprop="url">20210407</a>
+            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6/" class="post-title-link" itemprop="url">比较运算符</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-05 21:42:43 / 修改时间：21:32:51" itemprop="dateCreated datePublished" datetime="2021-05-05T21:42:43+08:00">2021-05-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">第二章 基本语法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 比较运算符</span></span><br><span class="line"><span class="comment"> *  ==  !=  &gt;   &lt;   &gt;=  &lt;=  instanceof</span></span><br><span class="line"><span class="comment"> * 比较运算符的结果是boolean类型</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestB</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E4%B8%89%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E4%B8%89%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6/" class="post-title-link" itemprop="url">三元运算符</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-05 21:42:43 / 修改时间：21:35:45" itemprop="dateCreated datePublished" datetime="2021-05-05T21:42:43+08:00">2021-05-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">第二章 基本语法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 三元运算符（三目运算符）：</span></span><br><span class="line"><span class="comment"> *      (条件表达式)?表达式1:表达式2</span></span><br><span class="line"><span class="comment"> * 表达式1和表达式2 得能用一个类型接收</span></span><br><span class="line"><span class="comment"> * 比如：()?字符串:数字——这到底用字符串接收还是用数值类型接收呢，所以错误</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 凡是可以用三元运算符，都可以改写为if...else；反之不成立</span></span><br><span class="line"><span class="comment"> * 当两者都可时，优先使用三元运算符，原因：简洁、执行效率高</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestS</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//三元运算符可以嵌套使用</span></span><br><span class="line">        <span class="keyword">int</span> m=<span class="number">12</span>,n=<span class="number">44</span>;</span><br><span class="line">        String maxStr = (m&gt;n) ? <span class="string">&quot;m打&quot;</span> : ((m&lt;n) ? <span class="string">&quot;n大&quot;</span> : <span class="string">&quot;m和n相等&quot;</span>);</span><br><span class="line">        System.out.println(maxStr);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/switch%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/switch%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">switch使用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-05 21:42:43 / 修改时间：21:41:13" itemprop="dateCreated datePublished" datetime="2021-05-05T21:42:43+08:00">2021-05-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">第二章 基本语法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">switchTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//语法和执行逻辑和C语言一致</span></span><br><span class="line">        <span class="comment">//switch 中的表达式，只能是一下数据类型byte、short、char、int，枚举（JDK5.0新增）、String（JDK7.0新增）</span></span><br><span class="line">        <span class="comment">//case后只能跟变量，不能跟条件表达式（可以这么理解，返回布尔，布尔不行，故不行）</span></span><br><span class="line">        <span class="comment">//if..else和switch都可时，优先使用switch效率较高</span></span><br><span class="line">        <span class="comment">// switch (key) &#123;</span></span><br><span class="line">        <span class="comment">//     case value:</span></span><br><span class="line">                </span><br><span class="line">        <span class="comment">//         break;</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//     default:</span></span><br><span class="line">        <span class="comment">//         break;</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//一个比较有意思的情况。default放在最前面</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">switch</span> (<span class="number">5</span>) &#123;</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                System.out.println(<span class="string">&quot;默认情况！&quot;</span>);</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                System.out.println(<span class="string">&quot;你好&quot;</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;<span class="comment">//先对case 进行匹配，发现没有，就执行default的内容，因为default后没有break，所以就继续执行case 1的语句，然后从case 1执行break出去</span></span><br><span class="line">        System.out.println(<span class="string">&quot;-------------------------------&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> score = <span class="number">58</span>;</span><br><span class="line">        <span class="keyword">switch</span> (score/<span class="number">10</span>) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">            <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">            <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">            <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">                System.out.println(<span class="string">&quot;不及格&quot;</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                System.out.println(<span class="string">&quot;及格&quot;</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//进一步改进</span></span><br><span class="line">        <span class="keyword">switch</span> (score/<span class="number">60</span>) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">                System.out.println(<span class="string">&quot;不及格&quot;</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                System.out.println(<span class="string">&quot;及格&quot;</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;----------------------分割线----------------------&quot;</span>);</span><br><span class="line">        Scanner scan = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        System.out.println(<span class="string">&quot;2019年，请输入月份：&quot;</span>);</span><br><span class="line">        <span class="keyword">int</span> month = scan.nextInt();</span><br><span class="line">        System.out.println(<span class="string">&quot;请输入&quot;</span>+month+<span class="string">&quot;月的第几日：&quot;</span>);</span><br><span class="line">        <span class="keyword">int</span> day=scan.nextInt();</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">switch</span> (month-<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">11</span>:</span><br><span class="line">                res+=<span class="number">30</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">10</span>:</span><br><span class="line">                res+=<span class="number">31</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">9</span>:</span><br><span class="line">                res+=<span class="number">30</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">8</span>:</span><br><span class="line">                res+=<span class="number">31</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">7</span>:</span><br><span class="line">                res+=<span class="number">31</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">                res+=<span class="number">30</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">                res+=<span class="number">31</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">                res+=<span class="number">30</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">                res+=<span class="number">31</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">                res+=<span class="number">28</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                res+=<span class="number">31</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">                res+=day;</span><br><span class="line">                System.out.println(month+<span class="string">&quot;月&quot;</span>+day+<span class="string">&quot;日&quot;</span>+<span class="string">&quot;是2019年的第&quot;</span>+res+<span class="string">&quot;天.&quot;</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        </span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                System.out.println(<span class="string">&quot;月份输入有误！&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        scan.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/if_else/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/if_else/" class="post-title-link" itemprop="url">if_else</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-05 21:42:43 / 修改时间：21:39:30" itemprop="dateCreated datePublished" datetime="2021-05-05T21:42:43+08:00">2021-05-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">第二章 基本语法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只有一行的话 if...else后的大括号是可以省略的。但是不建议省略（方便后续添加语句）,没有大括号时if和else就近配对</span></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">if_else</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner scan = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> score = scan.nextInt();</span><br><span class="line">        <span class="keyword">if</span>(score&lt;<span class="number">60</span>)</span><br><span class="line">            System.out.println(<span class="string">&quot;不及格&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(score&lt;<span class="number">80</span>)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;良好&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;优秀&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        scan.close();</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/String%E7%B1%BB%E5%9E%8B%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/String%E7%B1%BB%E5%9E%8B%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">String类型变量的使用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-05 21:42:43 / 修改时间：21:30:24" itemprop="dateCreated datePublished" datetime="2021-05-05T21:42:43+08:00">2021-05-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">第二章 基本语法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * String类型变量的使用</span></span><br><span class="line"><span class="comment"> * 1.String属于引用数据类型，翻译为：字符串</span></span><br><span class="line"><span class="comment"> * 2.声明String类型变量时，使用一对 &quot;&quot;</span></span><br><span class="line"><span class="comment"> * 3.可以为空字符串</span></span><br><span class="line"><span class="comment"> * 4.String可以和8种基本数据类型做运算，且只能是连接运算 + //运算似乎先算左边的（没有括号的情况下）</span></span><br><span class="line"><span class="comment"> *      运算结果仍为String类型</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StringTest</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        String s1 = <span class="string">&quot;Hello ！&quot;</span>;</span><br><span class="line">        <span class="comment">// String ss = &quot;a&quot;;</span></span><br><span class="line">        System.out.println(s1+(<span class="string">&#x27;A&#x27;</span>+<span class="number">1</span>));<span class="comment">//+ ：连接运算</span></span><br><span class="line">        System.out.println(<span class="string">&#x27;a&#x27;</span>+<span class="number">1</span>+s1);</span><br><span class="line">        System.out.println(Integer.parseInt(<span class="string">&quot;123512123&quot;</span>));</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210426%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B006/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210426%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B006/" class="post-title-link" itemprop="url">20210426信息安全培训笔记06</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-26 23:22:02 / 修改时间：23:22:28" itemprop="dateCreated datePublished" datetime="2021-04-26T23:22:02+08:00">2021-04-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">信息安全培训笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>共享文件夹占用的端口——137、138、（前两个UDP）139、445（后两个TCP）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%85%B1%E4%BA%AB%E6%89%80%E5%8D%A0%E7%94%A8%E7%9A%84%E7%AB%AF%E5%8F%A3.5jalfwv5gm00.jpg" alt="共享所占用的端口"></p>
+<ul>
+<li>共享权限<ul>
+<li>完全控制</li>
+<li>读取</li>
+<li>更改</li>
+</ul>
+</li>
+<li>本地权限</li>
+</ul>
+<p>两者冲突小的（安全）生效，将完全控制勾选，就可以通过本地权限进行访问控制了（因为共享权限太大了）</p>
+<ul>
+<li><p>如何做</p>
+<ul>
+<li><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%88%9B%E5%BB%BA%E5%85%B1%E4%BA%AB.2x6ucmw7a8y0.jpg" alt="创建共享"></li>
+</ul>
+</li>
+<li><p>如何访问</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%85%B1%E4%BA%AB%E8%AE%BF%E9%97%AE.6odtj63toxs0.jpg" alt="共享访问"></p>
+<p>忘记权限——注销后即可</p>
+<p>后面也可以加上文件路径——访问指定的共享文件夹（外层的就看不到了）</p>
+</li>
+<li><p>隐藏共享</p>
+<ul>
+<li>共享名后加上$</li>
+<li><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E9%9A%90%E8%97%8F%E5%85%B1%E4%BA%AB.5pabvzwtwyg0.jpg" alt="隐藏共享"></li>
+</ul>
+</li>
+<li><p>权限管理——实际上仍然是利用NTFS的权限管理</p>
+</li>
+</ul>
+<p>对等网→C-S架构（Client-Server）</p>
+<p>补充内容：</p>
+<p>拿到一块全新的磁盘以后</p>
+<ol>
+<li><p>联机</p>
+</li>
+<li><p>初始化</p>
+</li>
+<li><p>分区方式</p>
+<ol>
+<li>MBR</li>
+</ol>
+</li>
+</ol>
+<ol start="2">
+<li><p>GPT（只能存数据，不能装系统?）</p>
+<ol>
+<li>优点：读写速度快、跨磁盘、安全（镜像卷）</li>
+<li>缺点：占用空间大</li>
+<li>卷：<ul>
+<li>简单卷<ul>
+<li>普通分区</li>
+<li>动态扩容</li>
+</ul>
+</li>
+<li>跨区卷<ul>
+<li>至少两个磁盘，最多可以32块硬盘</li>
+<li>融盘（跨盘）</li>
+<li>读写速度一般（一块存完再存下一块）</li>
+<li>动态扩容</li>
+<li>可以扩展，可以压缩</li>
+</ul>
+</li>
+<li>带区卷<ul>
+<li>2-32</li>
+<li>多硬盘同时读取</li>
+<li>每块大小要相同，<del>这也决定了扩容时也要扩的一样大</del> 不可扩展</li>
+</ul>
+</li>
+<li>镜像卷<ul>
+<li>2</li>
+<li>利用率低，只有50%</li>
+<li>不可扩展</li>
+</ul>
+</li>
+<li>raid-5<ul>
+<li>3-32</li>
+<li>通错的同时照顾了利用率（两份数据一份校验，三者损其一可通过另外两个将损失的那个复原；校验部分属于无效数据（只是为了安全，由两个数据部分生成，并不是我们需要使用的数据））</li>
+<li>不可扩展</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<p>注：只有简单卷和跨区卷可以扩展，其它的卷都不能扩展</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">作业：会建立各种分区、各种卷</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210413%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B003/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210413%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B003/" class="post-title-link" itemprop="url">20210413信息安全培训笔记03</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-26 12:28:27 / 修改时间：12:32:39" itemprop="dateCreated datePublished" datetime="2021-04-26T12:28:27+08:00">2021-04-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">信息安全培训笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="用户、用户组、组的管理"><a href="#用户、用户组、组的管理" class="headerlink" title="用户、用户组、组的管理"></a>用户、用户组、组的管理</h2><p>用户账户拥有唯一的安全标识符SID</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打开命令行查看SID命令</span></span><br><span class="line">$ whoami -user</span><br><span class="line"><span class="comment">#</span></span><br></pre></td></tr></table></figure>
+
+<p>SID=系统ID+用户ID（用户ID如下面最后的500，另外Windows系统的管理员用户均为ID为500，普通账户从1000开始）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/image-20210413193931980.17ejhfj95j40.png" alt="image-20210413193931980"></p>
+<p>同一个系统下的用户的系统ID相同，用户ID不同</p>
+<p>注册表：regedit.exe</p>
+<p>虚拟机中用 <code>ctrl+alt+insert</code> 代替 <code>ctrl+alt+delete</code> （以免与真实机热键冲突）</p>
+<h3 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h3><h4 id="1-如何查看用户"><a href="#1-如何查看用户" class="headerlink" title="1.如何查看用户"></a>1.如何查看用户</h4><ol>
+<li><h5 id="图形化界面"><a href="#图形化界面" class="headerlink" title="图形化界面"></a>图形化界面</h5><p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7.ptabbx5cgk.jpg" alt="图形化界面管理用户"></p>
+</li>
+<li><h5 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h5></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看用户</span></span><br><span class="line">$ net user</span><br><span class="line"><span class="comment"># 添加用户（默认属于users组）</span></span><br><span class="line">$ net user 用户名 密码/add</span><br><span class="line"><span class="comment"># 重设密码</span></span><br><span class="line">$ net user 用户名 新密码</span><br><span class="line"><span class="comment"># 清空密码（需要在本地安全策略禁用 “密码必须符合复杂性要求” ） </span></span><br><span class="line">$ net user 用户名 <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="comment"># 查看用户详细信息</span></span><br><span class="line">$ net user 用户名</span><br><span class="line"><span class="comment"># 激活用户</span></span><br><span class="line">$ net user 用户名 /active:yes</span><br><span class="line"><span class="comment"># 禁用账户</span></span><br><span class="line">$ net user 用户名 /active:no</span><br><span class="line"><span class="comment"># 删除账户</span></span><br><span class="line">$ net user 用户名 密码/del</span><br><span class="line"><span class="comment"># 如何把普通用户改为管理员（将用户添加到管理员组，涉及用户组的概念）</span></span><br><span class="line">$ net localgroup administrators 用户名/add</span><br><span class="line"><span class="comment"># 将用户从管理员组中踢出</span></span><br><span class="line">$ net localgroup administrators 用户名/del</span><br></pre></td></tr></table></figure>
+
+
+
+<p>内置账户，如：win-server 2008 的Guest（来宾账户，默认是被禁用的，而且一般也要禁用，安全检查时必看）、管理员</p>
+<p>如果一个用户同属于多个组，则权限累加</p>
+<p>msc微软控制台</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看本地安全策略</span></span><br><span class="line">运行——&gt;secpol.msc</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210414%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B004/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210414%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B004/" class="post-title-link" itemprop="url">20210414信息安全培训笔记04</a>
         </h2>
 
         <div class="post-meta">
@@ -282,14 +898,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-04-08 09:03:38" itemprop="dateCreated datePublished" datetime="2021-04-08T09:03:38+08:00">2021-04-08</time>
+              <time title="创建时间：2021-04-26 12:28:27" itemprop="dateCreated datePublished" datetime="2021-04-26T12:28:27+08:00">2021-04-26</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-26 12:31:19" itemprop="dateModified" datetime="2021-04-26T12:31:19+08:00">2021-04-26</time>
+                <time title="修改时间：2021-04-27 14:02:16" itemprop="dateModified" datetime="2021-04-27T14:02:16+08:00">2021-04-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -312,64 +928,58 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>《中华人民共和国刑法》第二百八十六条</p>
-<h2 id="IP地址详解"><a href="#IP地址详解" class="headerlink" title="IP地址详解"></a>IP地址详解</h2><p>计算机、交换器、路由器等网络设备用电缆等传输介质进行连接——&gt;网络</p>
-<p>世界互联——&gt;互联网</p>
-<p>适配器——&gt;网卡</p>
-<p>MAC地址理论上不能改，实际上是可以的，比如ARP攻击、中间人攻击（流量都经过我）</p>
-<p>MAC地址——&gt;六段、十六进制</p>
-<p>IP由两部分组成</p>
+          <p>内置用户</p>
+<p>与使用者相关的用户</p>
+<p>与Windows组件关联的用户账户</p>
 <ul>
-<li>网络部分（NETWORK）</li>
-<li>主机部分（HOST）</li>
+<li><p>System（本地系统）（权限最高）</p>
+<p>​        为Windows的核心组件访问文件等资源提供权限</p>
+</li>
+<li><p>LOCAL SERVICE</p>
+</li>
+<li><p>NETWORK SERVICE</p>
+</li>
 </ul>
-<p>我们能接触到的IP只有A（1-126）、B（128）、C（192）</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>A</th>
-<th>B</th>
-<th>C</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>网络位</td>
-<td>1（8位）</td>
-<td>2（16位）</td>
-<td>3（24位）</td>
-</tr>
-<tr>
-<td>主机位</td>
-<td>3</td>
-<td>2</td>
-<td>1</td>
-</tr>
-</tbody></table>
-<p>127为本机回环地址，用来测试本机</p>
-<p>子网掩码口诀：网络位全为1，主机位全为0（但是并不符合所有情况）</p>
-<p><strong>结论一：</strong> 已知网络位和主机位可得</p>
-<p>1）子网掩码（网络位全为1、主机位全为0）</p>
-<p>2）求网段：网络位不变，主机位为0</p>
-<p>​        e.g. IP 192.168.1.1；子网掩码 255.255.255.0； 网段 192.168.1.0（1.255【广播地址】和1.0【代表整个网段】都不能用）【me】</p>
-<p><em>另一种表示方法：192.168.1.1/24</em></p>
-<h2 id="私有地址"><a href="#私有地址" class="headerlink" title="私有地址"></a>私有地址</h2><ul>
-<li>满足企业用户在内部网络中使用的需求</li>
-<li>私有地址不能在互联网上使用</li>
-<li>私有地址包括三组<ul>
-<li>A类：10.0.0.0~10.255.255.255</li>
-<li>B类：172.16.0.0~172.31.255.255</li>
-<li>C类：192.168.0.0~192.168.255.255</li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看用户组</span></span><br><span class="line">$ net localgroup</span><br><span class="line"><span class="comment"># 创建用户组</span></span><br><span class="line">$ net localgroup 组名 /add</span><br><span class="line"><span class="comment"># 删除用户组</span></span><br><span class="line">$ net lcoalgroup 组名 /del</span><br><span class="line"><span class="comment"># 将用户加入组</span></span><br><span class="line">$ net lcoalgroup 组名 用户名 /add</span><br><span class="line"><span class="comment"># 将用户踢出组</span></span><br><span class="line">$ net lcoalgroup 组名 用户名 /del</span><br></pre></td></tr></table></figure>
+
+<p>组</p>
+<ul>
+<li>内置<ul>
+<li>需要人为添加用户的组<ul>
+<li>administrator</li>
+<li>Guests</li>
+<li>Power Users（为了兼容老版本，无关紧要，了解即可）</li>
+<li>Users（标准用户）</li>
+</ul>
+</li>
+<li>自动添加用户的组（动态包含成员的内置组）、<ul>
+<li>Everyone<ul>
+<li>包含任何用户</li>
+<li>设置开放的权限时经常使用</li>
 </ul>
 </li>
 </ul>
-<p>DHCP-Server自动分配（自己搭建，自己规定如何分配）</p>
-<ul>
-<li>IP（没有DHCP-Server，则电脑自己给自己一个168开头的）</li>
-<li>网关（要和IP地址要在同一段）</li>
-<li>DNS（8.8.8.8——谷歌的国际DNS）</li>
-<li>子网掩码</li>
+</li>
 </ul>
+</li>
+<li>普通组</li>
+</ul>
+<p>计算机默认都在工作组 <code>WORKGROUP</code> （如图，可以在这里改主机名）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/WORKGROUP%E5%B7%A5%E4%BD%9C%E7%BB%84.44eyusl45mm0.jpg" alt="WORKGROUP工作组"></p>
+<p>域环境基于互联网（意味着互联网上任何一台计算机都可以加入域）——把计算机逻辑地组织在一起，统一管理（受 <strong>域控</strong> （？DC）的统一管理）</p>
+<p>想要访问域中资源，要用DC分配给你的域用户进行登录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配静态IP[、子网掩码]</span></span><br><span class="line">$ netsh interface ip <span class="built_in">set</span> address 网卡名 static ip [子网掩码]</span><br><span class="line"><span class="comment"># 配动态IP</span></span><br><span class="line">$ netsh interface ip <span class="built_in">set</span> address 网卡名 dhcp</span><br><span class="line"> <span class="comment"># 查看网络详细信息</span></span><br><span class="line">$ ipcofig -all</span><br><span class="line"><span class="comment"># 重命名主机名</span></span><br><span class="line">$ netdom renamecomputer localhost /newname:新主机名</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ping</span></span><br><span class="line"><span class="comment"># -a 返回主机名</span></span><br><span class="line"><span class="comment"># -l 改变包大小（最大65500，默认32）</span></span><br><span class="line"><span class="comment"># -t 持续发包</span></span><br></pre></td></tr></table></figure>
+
+<p>远程桌面 3389端口</p>
+<p>mstsc（骂死他傻X）——远程控制</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 关闭c$共享（c$、ipc$十分危险，一般都要关闭）</span></span><br><span class="line">$ net share c$ /del</span><br></pre></td></tr></table></figure>
+
+
+
+
+
 
       
     </div>
@@ -389,7 +999,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/08/Java%20Language%20Basics/test/%E5%8D%95%E5%88%97%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%88%9D%E8%A7%81/">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210415%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B005/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
@@ -403,7 +1013,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/dopphu/2021/04/08/Java%20Language%20Basics/test/%E5%8D%95%E5%88%97%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%88%9D%E8%A7%81/" class="post-title-link" itemprop="url">单例设计模式初见</a>
+            <a href="/dopphu/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210415%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B005/" class="post-title-link" itemprop="url">20210415信息安全培训笔记05</a>
         </h2>
 
         <div class="post-meta">
@@ -414,7 +1024,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-04-08 08:58:13 / 修改时间：08:59:56" itemprop="dateCreated datePublished" datetime="2021-04-08T08:58:13+08:00">2021-04-08</time>
+              <time title="创建时间：2021-04-26 12:28:27 / 修改时间：12:33:17" itemprop="dateCreated datePublished" datetime="2021-04-26T12:28:27+08:00">2021-04-26</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -422,7 +1032,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                  <a href="/dopphu/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">信息安全培训笔记</span></a>
                 </span>
             </span>
 
@@ -437,479 +1047,94 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 单例设计模式：</span></span><br><span class="line"><span class="comment"> * 		1.所谓单例设计模式，就是采用一定的方法保证在整个软件体系中，对某个类只能存在一个对象实例</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 		2.如何实现</span></span><br><span class="line"><span class="comment"> * 			懒汉式 VS　饿汉式</span></span><br><span class="line"><span class="comment"> * 		3.区分懒汉式和饿汉式</span></span><br><span class="line"><span class="comment"> * 			饿汉式：</span></span><br><span class="line"><span class="comment"> * 				缺点：对象加载时间过长</span></span><br><span class="line"><span class="comment"> * 				优点：懒汉式是线程安全的</span></span><br><span class="line"><span class="comment"> * 			懒汉式：</span></span><br><span class="line"><span class="comment"> * 				优点：延迟对象的创建（不用的时候不占内存）</span></span><br><span class="line"><span class="comment"> * 				目前的写法缺点：线程不安全——&gt;到线程内容时，再修改让它变成安全的</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> chapter06;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test03</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">		Order o1 = Order.getInstance();</span><br><span class="line">		Order o2 = Order.getInstance();</span><br><span class="line">		System.out.println(o1==o2);</span><br><span class="line">		</span><br><span class="line">		Bank b1 = Bank.getInstance();</span><br><span class="line">		Bank b2 = Bank.getInstance();</span><br><span class="line">		System.out.println(b1==b2);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//饿汉式</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bank</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//1.私有化类的构造器</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">Bank</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//2.内部创建类的对象</span></span><br><span class="line">	<span class="comment">//4.要求此对象也必须声明为静态的</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> Bank instance = <span class="keyword">new</span> Bank();</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//3.提供公共的方法，返回类的对象</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Bank <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> instance;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//懒汉式（巧记：比较懒，用的时候再造）</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Order</span></span>&#123;</span><br><span class="line"><span class="comment">//	1.私有化类的构造器</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">Order</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//2.声明当前类对象，没有初始化</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> Order instance = <span class="keyword">null</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//3.声明public、static的返回当前类对象的方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Order <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(instance==<span class="keyword">null</span>) &#123;</span><br><span class="line">			instance = <span class="keyword">new</span> Order();	</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> instance;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/07/Java%20Language%20Basics/test/%E8%AF%A1%E5%BC%82%E7%9A%84%E9%A2%98%E7%9B%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2021/04/07/Java%20Language%20Basics/test/%E8%AF%A1%E5%BC%82%E7%9A%84%E9%A2%98%E7%9B%AE/" class="post-title-link" itemprop="url">诡异的题目</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-04-07 10:57:44 / 修改时间：11:06:54" itemprop="dateCreated datePublished" datetime="2021-04-07T10:57:44+08:00">2021-04-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> chapter04;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">Test</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> arr1[] = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line">		<span class="keyword">char</span> arr2[]= <span class="keyword">new</span> <span class="keyword">char</span>[] &#123;<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>&#125;;</span><br><span class="line"><span class="comment">//		System.out.println(arr1+&quot;\n&quot;+arr2);</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">//你查看这两个println其实不是一个方法，而是运算符重载，多态</span></span><br><span class="line">		System.out.println(arr1);</span><br><span class="line">		System.out.println(arr2);<span class="comment">//abc</span></span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/03/18/%E4%B8%80%E4%B8%AAcmd%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2021/03/18/%E4%B8%80%E4%B8%AAcmd%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/" class="post-title-link" itemprop="url">一个cmd的小技巧</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-03-18 16:28:37 / 修改时间：16:30:20" itemprop="dateCreated datePublished" datetime="2021-03-18T16:28:37+08:00">2021-03-18</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>直接在路径位置输出cmd，然后按回车命令行打开后就直接在该路径下了。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/02/22/%E8%A7%86%E5%9B%BE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2021/02/22/%E8%A7%86%E5%9B%BE/" class="post-title-link" itemprop="url">视图</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-02-22 16:05:52 / 修改时间：16:05:43" itemprop="dateCreated datePublished" datetime="2021-02-22T16:05:52+08:00">2021-02-22</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">数据库学习</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#视图</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	含义：虚拟表</span></span><br><span class="line"><span class="comment">	mysql 5.1 版本出现的新特性，是通过表动态生成的数据</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">	比如：学校的舞蹈班和普通版的对比</span></span><br><span class="line"><span class="comment">	me：视图相当于一个表类型的临时变量，一个新的表</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">	作用：</span></span><br><span class="line"><span class="comment">		1）重用复杂sql语句</span></span><br><span class="line"><span class="comment">		2）简化复杂的sql操作，不必知道它的查询细节</span></span><br><span class="line"><span class="comment">		3）保护数据，提高安全性	</span></span><br><span class="line"><span class="comment">		创建语法的关键字	是否实际占用（等量）空间	增删改</span></span><br><span class="line"><span class="comment">	视图：	create view		仅保存了sql逻辑			一般不能</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">	表：	create table		保存了数据			√</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">#案例：查询员工的员工名和部门名</span></span><br><span class="line"><span class="comment">#用连接查询</span></span><br><span class="line"><span class="keyword">SELECT</span> last_name,department_name</span><br><span class="line"><span class="keyword">FROM</span> employees e</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> departments d</span><br><span class="line"><span class="keyword">ON</span> e.department_id = d.department_id;</span><br><span class="line"></span><br><span class="line"><span class="comment">#视图</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">VIEW</span> v1</span><br><span class="line"><span class="keyword">AS</span></span><br><span class="line"><span class="keyword">SELECT</span> last_name,department_name</span><br><span class="line"><span class="keyword">FROM</span> employees e</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> departments d</span><br><span class="line"><span class="keyword">ON</span> e.department_id = d.department_id;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> v1;</span><br><span class="line"></span><br><span class="line"><span class="comment">#一、创建视图</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	语法：</span></span><br><span class="line"><span class="comment">		create view 视图名</span></span><br><span class="line"><span class="comment">		as</span></span><br><span class="line"><span class="comment">		查询语句;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">#1.查询姓名中包含a字符的员工名、部门名和工种信息</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">VIEW</span> myv1</span><br><span class="line"><span class="keyword">AS</span></span><br><span class="line"><span class="keyword">SELECT</span> email,last_name,department_name,job_title</span><br><span class="line"><span class="keyword">FROM</span> employees e</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> departments d <span class="keyword">ON</span> e.department_id=d.department_id</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> jobs j <span class="keyword">ON</span> j.job_id = e.job_id;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> myv1</span><br><span class="line"><span class="keyword">WHERE</span> last_name <span class="keyword">LIKE</span> <span class="string">&#x27;%a%&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#2.查询各部门平均工资级别</span></span><br><span class="line"><span class="keyword">SELECT</span> department_id,<span class="keyword">AVG</span>(salary),grade_level</span><br><span class="line"><span class="keyword">FROM</span> employees e</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> job_grades jd</span><br><span class="line"><span class="keyword">ON</span> e.salary <span class="keyword">BETWEEN</span> jd.lowest_sal <span class="keyword">AND</span> jd.highest_sal</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> department_id;</span><br><span class="line"><span class="comment">#视图</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">VIEW</span> myv2;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">VIEW</span> myv2</span><br><span class="line"><span class="keyword">AS</span> </span><br><span class="line"><span class="keyword">SELECT</span> department_id,<span class="keyword">AVG</span>(salary) ag</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> department_id;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> myv2;</span><br><span class="line"><span class="comment">#3.查询平均工资最低的部门信息</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> myv2 <span class="keyword">ORDER</span> <span class="keyword">BY</span> ag;</span><br><span class="line"><span class="comment">#4.查询平均工资最低的部门名和工资</span></span><br><span class="line"><span class="keyword">SELECT</span> department_name,myv2.*</span><br><span class="line"><span class="keyword">FROM</span> departments d</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> myv2 <span class="keyword">ON</span> myv2.department_id = d.department_id</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> ag <span class="keyword">LIMIT</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#二、视图的修改</span></span><br><span class="line"><span class="comment">#方式一</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	create or replace view 视图名</span></span><br><span class="line"><span class="comment">	as</span></span><br><span class="line"><span class="comment">	查询语句;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#方式二</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	语法：</span></span><br><span class="line"><span class="comment">	alter view 视图名</span></span><br><span class="line"><span class="comment">	as</span></span><br><span class="line"><span class="comment">	查询语句;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">VIEW</span> myv2</span><br><span class="line"><span class="keyword">AS</span> </span><br><span class="line"><span class="keyword">SELECT</span> department_id,<span class="keyword">AVG</span>(salary)</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> department_id;</span><br><span class="line"></span><br><span class="line"><span class="comment">#三、删除视图</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	语法：(可以一次删多个)</span></span><br><span class="line"><span class="comment">	drop view 视图名,视图名...;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#四、查看视图</span></span><br><span class="line"></span><br><span class="line">DESC myv2;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">CREATE</span> <span class="keyword">VIEW</span> myv2;</span><br><span class="line"></span><br><span class="line"><span class="comment">#习题</span></span><br><span class="line"><span class="comment">#1.创建视图emp_v1要求查询电话号码以`011`开头的员工姓名和工资及邮箱</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> <span class="keyword">REPLACE</span> <span class="keyword">VIEW</span> emp_v1</span><br><span class="line"><span class="keyword">AS</span></span><br><span class="line"><span class="keyword">SELECT</span> phone_number,last_name,salary,email</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> phone_number <span class="keyword">LIKE</span> <span class="string">&#x27;011%&#x27;</span>;</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> emp_v1;</span><br><span class="line"></span><br><span class="line"><span class="comment">#2.创建视图emp_v2要求查询部门最高工资高于12000的部门信息</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> <span class="keyword">REPLACE</span> <span class="keyword">VIEW</span> emp_v2</span><br><span class="line"><span class="keyword">AS</span> </span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MAX</span>(salary) m,d.*</span><br><span class="line"><span class="keyword">FROM</span> employees e</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> departments d <span class="keyword">ON</span> d.department_id = e.department_id </span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> department_id</span><br><span class="line"><span class="keyword">HAVING</span> m&gt;<span class="number">12000</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#五、视图的更新</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	更改视图的数据</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> <span class="keyword">REPLACE</span> <span class="keyword">VIEW</span> myv1</span><br><span class="line"><span class="keyword">AS</span> </span><br><span class="line"><span class="keyword">SELECT</span> last_name,email,salary*<span class="number">12</span>*(<span class="number">1</span>+<span class="keyword">IFNULL</span>(commission_pct,<span class="number">0</span>)) <span class="string">&quot;annual salary&quot;</span></span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> <span class="keyword">REPLACE</span> <span class="keyword">VIEW</span> myv1</span><br><span class="line"><span class="keyword">AS</span> </span><br><span class="line"><span class="keyword">SELECT</span> last_name,email</span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> myv1;</span><br><span class="line"></span><br><span class="line"><span class="comment">#1.插入</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> myv1 <span class="keyword">VALUES</span>(<span class="string">&#x27;张飞&#x27;</span>,<span class="string">&#x27;zf.qq.com&#x27;</span>，<span class="number">10000</span>);<span class="comment">#me：原始表没有，故不能插入</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> myv1 <span class="keyword">VALUES</span>(<span class="string">&#x27;张飞&#x27;</span>,<span class="string">&#x27;zf.qq.com&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> last_name=<span class="string">&#x27;张飞&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#2.修改</span></span><br><span class="line"><span class="keyword">UPDATE</span> myv1 <span class="keyword">SET</span> last_name = <span class="string">&#x27;张翼德&#x27;</span> <span class="keyword">WHERE</span> last_name=<span class="string">&#x27;张飞&#x27;</span>;</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> employees;</span><br><span class="line"></span><br><span class="line"><span class="comment">#3.删除</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> myv1 <span class="keyword">WHERE</span> last_name = <span class="string">&#x27;张翼德&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#出于安全考虑，视图往往只读，以上修改视图的语句很少使用</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#具备以下特点的视图是不允许更新的(The target table v1 of the UPDATE is not updatable)</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	此处将插入、删除、修改统称为不能更新</span></span><br><span class="line"><span class="comment">	1.包含以下关键字</span></span><br><span class="line"><span class="comment">		分组函数、distinct、group by、having、union或union all</span></span><br><span class="line"><span class="comment">	2.常量视图</span></span><br><span class="line"><span class="comment">		create or replace view v1</span></span><br><span class="line"><span class="comment">		as </span></span><br><span class="line"><span class="comment">		select &#x27;join&#x27; name;</span></span><br><span class="line"><span class="comment">		select * from v1; </span></span><br><span class="line"><span class="comment">		update v1 set name=&#x27;hah&#x27;;</span></span><br><span class="line"><span class="comment">	3.join</span></span><br><span class="line"><span class="comment">	4.select 中包含子查询</span></span><br><span class="line"><span class="comment">	5.select from 一个不能改的视图</span></span><br><span class="line"><span class="comment">	6.where子句的子查询引用了from中的表</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/02/22/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2021/02/22/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84/" class="post-title-link" itemprop="url">流程控制结构</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-02-22 16:03:59 / 修改时间：16:03:43" itemprop="dateCreated datePublished" datetime="2021-02-22T16:03:59+08:00">2021-02-22</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">数据库学习</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#流程控制结构</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	顺序结构</span></span><br><span class="line"><span class="comment">	分支结构</span></span><br><span class="line"><span class="comment">	循环结构</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#一、分支结构</span></span><br><span class="line"><span class="comment">#1.if函数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#功能：实现简单的双分支</span></span><br><span class="line">语法：</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">IF</span>(表达式<span class="number">1</span>,表达式<span class="number">2</span>,表达式<span class="number">3</span>)</span><br><span class="line">执行顺序：</span><br><span class="line">表达式<span class="number">1</span>成立 则 <span class="keyword">IF</span> 函数返回表达式<span class="number">2</span>的值 ，否则返回表达式<span class="number">3</span>的值</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#2.case结构</span></span><br><span class="line"><span class="comment">#情况一：类似switch语句，一般用于实现等值判断</span></span><br><span class="line">语法：</span><br><span class="line">	<span class="keyword">CASE</span> 变量|表达式|字段</span><br><span class="line">	<span class="keyword">WHEN</span> 要判断的值 <span class="keyword">THEN</span> 返回的值<span class="number">1</span>或语句<span class="number">1</span>;</span><br><span class="line">	WHEN 要判断的值 THEN 返回的值2或语句2;</span><br><span class="line">	···</span><br><span class="line">	ELSE 要返回的值n或语句n</span><br><span class="line">	<span class="keyword">END</span> <span class="keyword">CASE</span>;</span><br><span class="line"><span class="comment">#情况二：类似多重if，一般用实现区间判断</span></span><br><span class="line"></span><br><span class="line">语法：</span><br><span class="line">	CASE </span><br><span class="line">	WHEN 要判断的条件1 THEN 返回的值1或语句1;</span><br><span class="line">	WHEN 要判断的条件2 THEN 返回的值2或语句2;</span><br><span class="line">	···</span><br><span class="line">	ELSE 要返回的值n或语句n</span><br><span class="line">	<span class="keyword">END</span> <span class="keyword">CASE</span>;</span><br><span class="line">	</span><br><span class="line"><span class="comment">/*特点：</span></span><br><span class="line"><span class="comment">1.</span></span><br><span class="line"><span class="comment">    可以作为表达式，嵌套在其他语句中使用，可以放在任何地方， BEGIN END 中或 BEGIN END 外</span></span><br><span class="line"><span class="comment">可以作为独立的语句去使用，只能放在 BEGIN END 中</span></span><br><span class="line"><span class="comment">2.</span></span><br><span class="line"><span class="comment">    如果 WHEN 中的值满足或条件成立，则执行对应then后面的语句，并且结束 CASE</span></span><br><span class="line"><span class="comment">    如果都不满足，则执行对应的 ELSE 后面的语句</span></span><br><span class="line"><span class="comment">    ELSE 可以省略，如果 ELSE 省略了，并且所有 WHEN 条件都不满足，返回null</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#案例</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#创建存储过程，根据传入的成绩，来显示等级，比如传入的成绩：</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">A：90-100 </span></span><br><span class="line"><span class="comment">B：80-90</span></span><br><span class="line"><span class="comment">C：60-80</span></span><br><span class="line"><span class="comment">D：其它</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">DELIMITER $</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> test_case(<span class="keyword">IN</span> score <span class="built_in">INT</span>)</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">	<span class="keyword">CASE</span> </span><br><span class="line">	<span class="keyword">WHEN</span> score&gt;=<span class="number">90</span> <span class="keyword">AND</span> score&lt;=<span class="number">100</span> <span class="keyword">THEN</span> <span class="keyword">SELECT</span> <span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">	WHEN score&gt;=80 THEN SELECT &#x27;B&#x27;;</span><br><span class="line">	WHEN score&gt;=60 THEN SELECT &#x27;C&#x27;;</span><br><span class="line">	ELSE <span class="keyword">SELECT</span> <span class="string">&#x27;D&#x27;</span>;</span><br><span class="line">	<span class="keyword">END</span> <span class="keyword">CASE</span>;</span><br><span class="line"><span class="keyword">END</span> $</span><br><span class="line"><span class="keyword">CALL</span> test_case(<span class="number">95</span>) $</span><br><span class="line"></span><br><span class="line"><span class="comment">#3.if结构</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	功能：实现多重分支</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">	语法：</span></span><br><span class="line"><span class="comment">		if 条件1 then 语句1</span></span><br><span class="line"><span class="comment">		elseif 条件2 then 语句2</span></span><br><span class="line"><span class="comment">		...</span></span><br><span class="line"><span class="comment">		【else 语句n;】</span></span><br><span class="line"><span class="comment">		end if;</span></span><br><span class="line"><span class="comment">	应用：</span></span><br><span class="line"><span class="comment">		只能应用在begin end中</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#案例</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#根据传入的成绩，来显示等级，比如传入的成绩：</span></span><br><span class="line"><span class="comment">/*返回值</span></span><br><span class="line"><span class="comment">A：90-100 </span></span><br><span class="line"><span class="comment">B：80-90</span></span><br><span class="line"><span class="comment">C：60-80</span></span><br><span class="line"><span class="comment">D：其它</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">FUNCTION</span> test_if(score <span class="built_in">INT</span>) <span class="keyword">RETURNS</span> <span class="built_in">CHAR</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">	<span class="keyword">IF</span> score &gt;=<span class="number">90</span> <span class="keyword">AND</span> score&lt;=<span class="number">100</span> <span class="keyword">THEN</span> <span class="keyword">RETURN</span> <span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">	ELSEIF score&gt;=80 THEN RETURN &#x27;B&#x27;;</span><br><span class="line">	ELSEIF score&gt;=60 THEN RETURN &#x27;C&#x27;;</span><br><span class="line">	ELSE RETURN &#x27;D&#x27;;</span><br><span class="line">	<span class="keyword">END</span> <span class="keyword">IF</span>;</span><br><span class="line"><span class="keyword">END</span> $</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#二、循环结构</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	分类：</span></span><br><span class="line"><span class="comment">		while</span></span><br><span class="line"><span class="comment">		loop</span></span><br><span class="line"><span class="comment">		repeat</span></span><br><span class="line"><span class="comment">	循环控制：</span></span><br><span class="line"><span class="comment">		iterate	类似continue	 #vt.重做;重述;反复…;重述…</span></span><br><span class="line"><span class="comment">		leave	类似break</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#1.while</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	语法：（写上标签可以搭配循环控制使用）</span></span><br><span class="line"><span class="comment">	【标签:】while 循环条件 do</span></span><br><span class="line"><span class="comment">	循环体;</span></span><br><span class="line"><span class="comment">	end while 【标签】;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#2.loop</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	语法：</span></span><br><span class="line"><span class="comment">	【标签:】loop</span></span><br><span class="line"><span class="comment">	循环体;</span></span><br><span class="line"><span class="comment">	end loop 【标签】;</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">	可以用来模拟简单的死循环</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#3.repeat</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	语法：</span></span><br><span class="line"><span class="comment">	【标签:】repeat</span></span><br><span class="line"><span class="comment">	循环体;</span></span><br><span class="line"><span class="comment">	until 结束循环的条件</span></span><br><span class="line"><span class="comment">	end repeat 【标签】;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#没有添加循环控制语句</span></span><br><span class="line"><span class="comment">#案例：批量插入，根据次数插入admin表中多条记录</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> pro_while1(<span class="keyword">IN</span> insertCount <span class="built_in">INT</span>)</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">	<span class="keyword">DECLARE</span> i <span class="built_in">INT</span> <span class="keyword">DEFAULT</span> <span class="number">1</span>;</span><br><span class="line">	WHILE i&lt;=insertCount DO</span><br><span class="line">		<span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">admin</span>(username,<span class="string">`password`</span>) <span class="keyword">VALUES</span>(<span class="keyword">CONCAT</span>(<span class="string">&quot;Rose&quot;</span>,i),<span class="string">&#x27;123&#x27;</span>);</span><br><span class="line">		<span class="keyword">SET</span> i = i+<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">END</span> <span class="keyword">WHILE</span>;</span><br><span class="line"><span class="keyword">END</span> $</span><br><span class="line"></span><br><span class="line"><span class="keyword">CALL</span> pro_while1(<span class="number">100</span>)$</span><br><span class="line"></span><br><span class="line"><span class="comment">#2.添加leave语句</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#案例：批量插入，根据次数插入admin表中多条记录，如果次数大于20则停止</span></span><br><span class="line"><span class="keyword">TRUNCATE</span> <span class="keyword">TABLE</span> <span class="keyword">admin</span>$</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">PROCEDURE</span> test_while1$</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> test_while1(<span class="keyword">IN</span> insertCount <span class="built_in">INT</span>)</span><br><span class="line"><span class="keyword">BEGIN</span> </span><br><span class="line">	<span class="keyword">DECLARE</span> i <span class="built_in">INT</span> <span class="keyword">DEFAULT</span> <span class="number">1</span>;</span><br><span class="line">	a:WHILE i&lt;=insertCount DO</span><br><span class="line">		<span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">admin</span>(username,<span class="string">`password`</span>) <span class="keyword">VALUES</span>(<span class="keyword">CONCAT</span>(<span class="string">&#x27;Asaka&#x27;</span>,i),<span class="string">&#x27;618&#x27;</span>);</span><br><span class="line">		IF i&gt;=20 THEN LEAVE a;</span><br><span class="line">		<span class="keyword">END</span> <span class="keyword">IF</span>;</span><br><span class="line">		<span class="keyword">SET</span> i = i+<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">END</span> <span class="keyword">WHILE</span> a;</span><br><span class="line"><span class="keyword">END</span> $</span><br><span class="line"><span class="keyword">CALL</span> test_while1(<span class="number">33</span>)$</span><br><span class="line"></span><br><span class="line"><span class="comment">#3.添加iterate语句</span></span><br><span class="line"><span class="comment">#案例：批量插入，根据次数插入到admin表中多条记录，只插入偶数次</span></span><br><span class="line"><span class="keyword">TRUNCATE</span> <span class="keyword">TABLE</span> <span class="keyword">admin</span>$</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">PROCEDURE</span> test_while1$</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> test_while1(<span class="keyword">IN</span> insertCount <span class="built_in">INT</span>)</span><br><span class="line"><span class="keyword">BEGIN</span> </span><br><span class="line">	<span class="keyword">DECLARE</span> i <span class="built_in">INT</span> <span class="keyword">DEFAULT</span> <span class="number">0</span>;</span><br><span class="line">	a:WHILE i&lt;insertCount DO</span><br><span class="line">		<span class="keyword">SET</span> i = i+<span class="number">1</span>;</span><br><span class="line">		IF i%2!=0 THEN ITERATE a;</span><br><span class="line">		<span class="keyword">END</span> <span class="keyword">IF</span>; </span><br><span class="line">		<span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">admin</span>(username,<span class="string">`password`</span>) <span class="keyword">VALUES</span>(<span class="keyword">CONCAT</span>(<span class="string">&#x27;Asaka&#x27;</span>,i),<span class="string">&#x27;618&#x27;</span>);</span><br><span class="line">	<span class="keyword">END</span> <span class="keyword">WHILE</span> a;</span><br><span class="line"><span class="keyword">END</span> $</span><br><span class="line"><span class="keyword">CALL</span> test_while1(<span class="number">33</span>)$</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	案例：已知表stringcontent</span></span><br><span class="line"><span class="comment">	其中字段</span></span><br><span class="line"><span class="comment">	id 自增长</span></span><br><span class="line"><span class="comment">	content varchar(20)</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">	向该表插入指定个数的、随机的字符串</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">DROP</span> </span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> stringcontent(</span><br><span class="line">	<span class="keyword">id</span> <span class="built_in">INT</span> PRIMARY <span class="keyword">KEY</span> AUTO_INCREMENT,</span><br><span class="line">	<span class="keyword">content</span> <span class="built_in">VARCHAR</span>(<span class="number">20</span>)</span><br><span class="line">);</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> pro_insert(<span class="keyword">IN</span> insertCount <span class="built_in">INT</span>)</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">	<span class="keyword">DECLARE</span> i <span class="built_in">INT</span> <span class="keyword">DEFAULT</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">DECLARE</span> s <span class="built_in">VARCHAR</span>(<span class="number">26</span>) <span class="keyword">DEFAULT</span> <span class="string">&#x27;abcdefghijklmnopqrstuvwxyz&#x27;</span>;</span><br><span class="line">	<span class="keyword">DECLARE</span> startIndex <span class="built_in">INT</span> <span class="keyword">DEFAULT</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">DECLARE</span> <span class="keyword">len</span> <span class="built_in">INT</span> <span class="keyword">DEFAULT</span> <span class="number">1</span>;</span><br><span class="line">	WHILE i&lt;=insertCount DO</span><br><span class="line">		<span class="keyword">SET</span> startIndex = <span class="keyword">FLOOR</span>(<span class="keyword">RAND</span>()*<span class="number">26</span> + <span class="number">1</span>);</span><br><span class="line">		<span class="keyword">SET</span> <span class="keyword">len</span>=<span class="keyword">FLOOR</span>(<span class="keyword">RAND</span>()*(<span class="number">20</span>-startIndex+<span class="number">1</span>)+<span class="number">1</span>);</span><br><span class="line">		<span class="keyword">INSERT</span> <span class="keyword">INTO</span> stringcontent(<span class="keyword">content</span>) <span class="keyword">VALUES</span>(<span class="keyword">SUBSTR</span>(s,startIndex,<span class="keyword">len</span>));</span><br><span class="line">		<span class="keyword">SET</span> i=i+<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">END</span> <span class="keyword">WHILE</span>;</span><br><span class="line"><span class="keyword">END</span> $</span><br><span class="line"></span><br><span class="line"><span class="keyword">CALL</span> pro_insert(<span class="number">10</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/02/20/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8F%98%E9%87%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2021/02/20/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8F%98%E9%87%8F/" class="post-title-link" itemprop="url">变量</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-02-20 15:22:34 / 修改时间：15:19:36" itemprop="dateCreated datePublished" datetime="2021-02-20T15:22:34+08:00">2021-02-20</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">数据库学习</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#变量</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	系统变量：</span></span><br><span class="line"><span class="comment">		全局变量</span></span><br><span class="line"><span class="comment">			作用域：</span></span><br><span class="line"><span class="comment">				服务器每次启动将为所有的全局变量赋初始值</span></span><br><span class="line"><span class="comment">				针对所有的会话（连接）有效，但不能跨重启</span></span><br><span class="line"><span class="comment">		会话变量（客户端的一次连接）</span></span><br><span class="line"><span class="comment">			作用域：</span></span><br><span class="line"><span class="comment">				仅仅针对当前会话（连接）有效</span></span><br><span class="line"><span class="comment">	自定义变量</span></span><br><span class="line"><span class="comment">		用户变量</span></span><br><span class="line"><span class="comment">		局部变量</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#一、系统变量</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	说明：</span></span><br><span class="line"><span class="comment">		量由系统提供，不是用户定义，属于服务器层面</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">#语法</span></span><br><span class="line"><span class="comment">#1.查看所有的系统变量</span></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">VARIABLES</span>;<span class="comment">#查看所有系统变量</span></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">SESSION</span> <span class="keyword">VARIABLES</span>;<span class="comment">#查看会话变量</span></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">GLOBAL</span> <span class="keyword">VARIABLES</span>;<span class="comment">#查看全局变量</span></span><br><span class="line"><span class="comment">#2.查看满足条件的部分系统变量</span></span><br><span class="line"><span class="comment">#e.g.</span></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">GLOBAL</span> <span class="keyword">VARIABLES</span> <span class="keyword">LIKE</span> <span class="string">&#x27;%char%&#x27;</span>;</span><br><span class="line"><span class="comment">#3.查看指定某个系统变量的值</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">select @@系统变量;#默认是会话变量</span></span><br><span class="line"><span class="comment">select @@global|【session】.系统变量名;</span></span><br><span class="line"><span class="comment">select @@global.character_sets_dir</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">#4.为某个具体的系统变量赋值</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	set global|【session】 系统变量名 = 值;</span></span><br><span class="line"><span class="comment">	或</span></span><br><span class="line"><span class="comment">	set @@global|【session】.系统变量名 = 值</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">注意事项：</span></span><br><span class="line"><span class="comment">	全局级别要加global</span></span><br><span class="line"><span class="comment">	会话级别要加session</span></span><br><span class="line"><span class="comment">	如果不写，默认session</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">#下面是一些演示</span></span><br><span class="line"><span class="comment">#查看所有的全局变量</span></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">GLOBAL</span> <span class="keyword">VARIABLES</span>;</span><br><span class="line"><span class="comment">#查看部分的全局变量</span></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">GLOBAL</span> <span class="keyword">VARIABLES</span> <span class="keyword">LIKE</span> <span class="string">&#x27;%char%&#x27;</span>;</span><br><span class="line"><span class="comment">#查看指定变量的值</span></span><br><span class="line"><span class="keyword">SELECT</span> @@tx_isolation;</span><br><span class="line"><span class="comment">#为某个指定的变量赋值</span></span><br><span class="line"><span class="keyword">SET</span> @@autocommit = <span class="number">0</span>;</span><br><span class="line"><span class="comment">#查看会话变量</span></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">VARIABLES</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#二、自定义变量</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	说明：变量是用户自定义的，不是由系统定义的</span></span><br><span class="line"><span class="comment">	使用步骤：</span></span><br><span class="line"><span class="comment">	声明</span></span><br><span class="line"><span class="comment">	赋值</span></span><br><span class="line"><span class="comment">	使用（查看、比较、运算等）</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">#1.用户变量</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	作用域：针对于当前会话（连接）有效，同于会话变量的作用域</span></span><br><span class="line"><span class="comment">	应用在任何地方，也就是begin end里边或外边</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">#1）声明的同时必须初始化(存疑-如果使用没有初始化的变量，其值是NULL。https://www.cnblogs.com/awishfullyway/p/6485070.html)</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">SET @用户变量名=值;</span></span><br><span class="line"><span class="comment">或</span></span><br><span class="line"><span class="comment">SET @用户变量名:=值;</span></span><br><span class="line"><span class="comment">或</span></span><br><span class="line"><span class="comment">SELECT @用户变量名:=值;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">#2）赋值（更新用户变量的值）</span></span><br><span class="line"><span class="comment">#方式一：通过set或select</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">SET @用户变量名=值;</span></span><br><span class="line"><span class="comment">或</span></span><br><span class="line"><span class="comment">SET @用户变量名:=值;</span></span><br><span class="line"><span class="comment">或</span></span><br><span class="line"><span class="comment">SELECT @用户变量名:=值;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">#案例：</span></span><br><span class="line"><span class="keyword">SET</span> @<span class="keyword">name</span>=<span class="string">&#x27;join&#x27;</span>;</span><br><span class="line"><span class="keyword">SET</span> @<span class="keyword">name</span>:=<span class="number">100</span>;</span><br><span class="line"><span class="comment">#方式二：select into</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	select 字段 into 变量名</span></span><br><span class="line"><span class="comment">	from 表;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*) <span class="keyword">INTO</span> @<span class="keyword">count</span></span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"></span><br><span class="line"><span class="comment">#3）查看用户变量的值</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	select @用户变量名;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">SELECT</span> @<span class="keyword">count</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#2.局部变量</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	作用域：仅仅在定义它的begin end 中有效</span></span><br><span class="line"><span class="comment">	应用在begin end中的第一句话！！！</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#1）声明（可以不初始化）</span></span><br><span class="line"><span class="keyword">DECLARE</span> 变量名 类型;</span><br><span class="line"><span class="keyword">DECLARE</span> 变量名 类型 <span class="keyword">DEFAULT</span> 值;<span class="comment">#声明同时初始化</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#2）赋值</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">方式一：</span></span><br><span class="line"><span class="comment">SET 局部量名=值;</span></span><br><span class="line"><span class="comment">或</span></span><br><span class="line"><span class="comment">SET 用局部变量名:=值;</span></span><br><span class="line"><span class="comment">或</span></span><br><span class="line"><span class="comment">SELECT @局部变量名:=值;</span></span><br><span class="line"><span class="comment">方式二:</span></span><br><span class="line"><span class="comment">select 字段 into @局部变量名</span></span><br><span class="line"><span class="comment">from 表;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#3）使用</span></span><br><span class="line"><span class="keyword">SELECT</span> 局部变量名;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#对比用户变量和局部变量</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">		作用域		定义和使用的位置		语法</span></span><br><span class="line"><span class="comment">用户变量	当前会话	会话中的任何地方		必须加@</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">局部变量	begin end中	只能在begin end中的第一句话	分情况加或不加，需要限定类型</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#案例：声明两个变量并赋初值，求和并打印</span></span><br><span class="line"><span class="comment">#1.用户变量</span></span><br><span class="line"><span class="keyword">SET</span> @a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">SET</span> @b = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">SET</span> @<span class="keyword">sum</span> = @a+@b;</span><br><span class="line"><span class="keyword">SELECT</span> @<span class="keyword">sum</span>;</span><br><span class="line"><span class="comment">#2.局部变量</span></span><br><span class="line"><span class="comment">#报错，因为在begin end中的第一句话使用</span></span><br><span class="line"><span class="keyword">DECLARE</span> a <span class="built_in">INT</span> <span class="keyword">DEFAULT</span> <span class="number">1</span>;</span><br><span class="line"><span class="keyword">DECLARE</span> b <span class="built_in">FLOAT</span> <span class="keyword">DEFAULT</span> <span class="number">22</span>;</span><br><span class="line"><span class="keyword">DECLARE</span> c <span class="built_in">INT</span>;</span><br><span class="line"><span class="keyword">SET</span> c=a+b;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/02/20/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2021/02/20/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/" class="post-title-link" itemprop="url">存储过程</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-02-20 15:22:17 / 修改时间：15:21:12" itemprop="dateCreated datePublished" datetime="2021-02-20T15:22:17+08:00">2021-02-20</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">数据库学习</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#存储过程和函数</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	存储过程和函数：类似Java中的方法</span></span><br><span class="line"><span class="comment">	好处：</span></span><br><span class="line"><span class="comment">	1.提高代码的重用性</span></span><br><span class="line"><span class="comment">	2.简化操作</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#存储过程</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	含义：一组预先编译好的SQL语句的集合，类似批处理语句</span></span><br><span class="line"><span class="comment">	1.提高代码的重用性</span></span><br><span class="line"><span class="comment">	2.简化操作</span></span><br><span class="line"><span class="comment">	3.减少了编译以及连接数据库服务器的次数，提高了效率</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#一、创建语法</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> 存储过程名(参数列表)</span><br><span class="line"><span class="keyword">BEGIN</span> </span><br><span class="line">	存储过程体（一组合法有效的<span class="keyword">SQL</span>语句）</span><br><span class="line"><span class="keyword">END</span></span><br><span class="line"></span><br><span class="line">注意：</span><br><span class="line"><span class="number">1.</span>参数列表包含三部分</span><br><span class="line">参数模式，参数名，参数类型</span><br><span class="line">举例：</span><br><span class="line"><span class="keyword">IN</span> stuname <span class="built_in">VARCHAR</span>(<span class="number">20</span>)</span><br><span class="line">参数模式：（<span class="keyword">in</span>可以省略，也就是说默认是<span class="keyword">in</span>）</span><br><span class="line"><span class="keyword">IN</span>	该参数可以作为输入，也就是该参数需要调用方传入值</span><br><span class="line"><span class="keyword">OUT</span>	该参数可以作为输出，也就是该参数可以作为返回值</span><br><span class="line">INOUT	该参数既可以作为输入又可以作为输出，也就是该参数既需要传入值，又可以返回值</span><br><span class="line"><span class="number">2.</span>如果存储过程体仅仅只有一句话， <span class="keyword">BEGIN</span> <span class="keyword">END</span> 可以省略</span><br><span class="line">存储过程体的每条<span class="keyword">SQL</span>语句的结尾要求必须分号。</span><br><span class="line">存储过程的结尾可以使用 DELIMITER 重新设置</span><br><span class="line">语法：</span><br><span class="line">DELIMITER 结束标记</span><br><span class="line">演示：</span><br><span class="line">DELIMITER $ <span class="comment">#将$设为结束标记</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#二、调用语法</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">CALL</span> 存储过程名(实参列表);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#1.空参列表</span></span><br><span class="line"><span class="comment">#案例：插入admin表中五条记录</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">admin</span>;</span><br><span class="line"></span><br><span class="line">DELIMITER $</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> myp1()</span><br><span class="line"><span class="keyword">BEGIN</span> </span><br><span class="line">	<span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">admin</span>(username,<span class="string">`password`</span>)</span><br><span class="line">	<span class="keyword">VALUES</span>(<span class="string">&#x27;join1&#x27;</span>,<span class="string">&#x27;1234&#x27;</span>),(<span class="string">&#x27;join&#x27;</span>,<span class="string">&#x27;1234&#x27;</span>),(<span class="string">&#x27;zm&#x27;</span>,<span class="string">&#x27;1234&#x27;</span>),(<span class="string">&#x27;jo1&#x27;</span>,<span class="string">&#x27;1234&#x27;</span>),(<span class="string">&#x27;j1&#x27;</span>,<span class="string">&#x27;1234&#x27;</span>);</span><br><span class="line"><span class="keyword">END</span> $</span><br><span class="line"></span><br><span class="line"><span class="comment">#调用</span></span><br><span class="line"><span class="keyword">CALL</span> myp1()$</span><br><span class="line"></span><br><span class="line"><span class="comment">#2.创建in模式的存储过程</span></span><br><span class="line"><span class="comment">#案例1：创建存储过程实现 根据女神名查询对应男神信息</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> myp2(<span class="keyword">IN</span> beautyName <span class="built_in">VARCHAR</span>(<span class="number">20</span>))</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">	<span class="keyword">SELECT</span> bo.*</span><br><span class="line">	<span class="keyword">FROM</span> boys bo</span><br><span class="line">	<span class="keyword">RIGHT</span> <span class="keyword">JOIN</span> beauty b <span class="keyword">ON</span> bo.id = b.boyfriend_id</span><br><span class="line">	<span class="keyword">WHERE</span> b.name = beautyName;<span class="comment">#不加表名限定，默认是局部变量</span></span><br><span class="line"><span class="keyword">END</span> $</span><br><span class="line"><span class="keyword">SET</span> <span class="keyword">NAMES</span> gbk</span><br><span class="line"><span class="comment">#调用</span></span><br><span class="line"><span class="keyword">CALL</span> myp2(<span class="string">&#x27;小昭&#x27;</span>)$</span><br><span class="line"></span><br><span class="line"><span class="comment">#案例2：创建存储过程来实现 用户是否登录成功</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">PROCEDURE</span> myp3;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> myp3(<span class="keyword">IN</span> username <span class="built_in">VARCHAR</span>(<span class="number">20</span>),<span class="keyword">IN</span> <span class="keyword">PASSWORD</span> <span class="built_in">VARCHAR</span>(<span class="number">20</span>))</span><br><span class="line"><span class="keyword">BEGIN</span> </span><br><span class="line">	<span class="keyword">DECLARE</span> <span class="keyword">result</span> <span class="built_in">INT</span> <span class="keyword">DEFAULT</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*) <span class="keyword">INTO</span> <span class="keyword">result</span><span class="comment">#赋值</span></span><br><span class="line">	<span class="keyword">FROM</span> <span class="keyword">admin</span> a</span><br><span class="line">	<span class="keyword">WHERE</span> a.username = username</span><br><span class="line">	<span class="keyword">AND</span> a.password = <span class="keyword">PASSWORD</span>;</span><br><span class="line">	<span class="keyword">SELECT</span> <span class="keyword">IF</span>(<span class="keyword">result</span>&gt;<span class="number">0</span>,<span class="string">&#x27;成功&#x27;</span>,<span class="string">&#x27;失败&#x27;</span>) ;<span class="comment">#使用变量</span></span><br><span class="line"><span class="keyword">END</span> $</span><br><span class="line"><span class="comment">#调用</span></span><br><span class="line"><span class="keyword">CALL</span> myp3(<span class="string">&#x27;john&#x27;</span>,<span class="string">&#x27;8888&#x27;</span>)$</span><br><span class="line"></span><br><span class="line"><span class="comment">#3.创建out模式的存储过程</span></span><br><span class="line"><span class="comment">#案例1：根据女神名返回对应男神名</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> myp5(<span class="keyword">IN</span> beautyName <span class="built_in">VARCHAR</span>(<span class="number">20</span>),<span class="keyword">OUT</span> boyName <span class="built_in">VARCHAR</span>(<span class="number">20</span>))</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">	<span class="keyword">SELECT</span> bo.boyName <span class="keyword">INTO</span> boyName</span><br><span class="line">	<span class="keyword">FROM</span> boys bo</span><br><span class="line">	<span class="keyword">INNER</span> <span class="keyword">JOIN</span> beauty b <span class="keyword">ON</span> b.boyfriend_id = bo.id</span><br><span class="line">	<span class="keyword">WHERE</span> b.name = beautyName;</span><br><span class="line"><span class="keyword">END</span> $</span><br><span class="line"></span><br><span class="line"><span class="comment">#调用</span></span><br><span class="line"><span class="keyword">SET</span> @tem $</span><br><span class="line"><span class="comment">#注：可以不定义tem</span></span><br><span class="line"><span class="keyword">CALL</span> myp5(<span class="string">&#x27;小昭&#x27;</span>,@tem) $</span><br><span class="line"><span class="keyword">SELECT</span> @tem $</span><br><span class="line"></span><br><span class="line"><span class="comment">#案例2：根据女神名，返回对应男神名和魅力值</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> myp6(<span class="keyword">IN</span> beautyName <span class="built_in">VARCHAR</span>(<span class="number">20</span>),<span class="keyword">OUT</span> boyName <span class="built_in">VARCHAR</span>(<span class="number">20</span>),<span class="keyword">OUT</span> cp <span class="built_in">INT</span>)</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">	<span class="keyword">SELECT</span> bo.boyName,bo.userCP <span class="keyword">INTO</span> boyName,cp</span><br><span class="line">	<span class="keyword">FROM</span> boys bo</span><br><span class="line">	<span class="keyword">INNER</span> <span class="keyword">JOIN</span> beauty b <span class="keyword">ON</span> bo.id = b.boyfriend_id</span><br><span class="line">	<span class="keyword">WHERE</span> b.name=beautyName;</span><br><span class="line"><span class="keyword">END</span> $</span><br><span class="line"><span class="comment">#调用</span></span><br><span class="line"><span class="keyword">CALL</span> myp6(<span class="string">&#x27;小昭&#x27;</span>,@bName,@cpPoint)$</span><br><span class="line"><span class="comment">#查看一下</span></span><br><span class="line"><span class="keyword">SELECT</span> @bName,@cpPoint$</span><br><span class="line"></span><br><span class="line"><span class="comment">#4.创建innout模式的存储过程</span></span><br><span class="line"><span class="comment">#案例1：穿入a和b，最终使得a和b翻倍并返回</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> myp8(INOUT a <span class="built_in">INT</span>,INOUT b <span class="built_in">INT</span>)</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">	<span class="keyword">SET</span> a=a*<span class="number">2</span>;</span><br><span class="line">	<span class="keyword">SET</span> b=b*<span class="number">2</span>;</span><br><span class="line"><span class="keyword">END</span> $;</span><br><span class="line"><span class="keyword">SET</span> @demo1 =<span class="number">10</span>,@demo2=<span class="number">90</span> $</span><br><span class="line"><span class="keyword">CALL</span> myp8(@demo1,@demo2) $</span><br><span class="line"><span class="keyword">SELECT</span> @demo1,@demo2; </span><br><span class="line"></span><br><span class="line"><span class="comment">#三、删除存储过程</span></span><br><span class="line"><span class="comment">#一次只能删除一个</span></span><br><span class="line">语法： <span class="keyword">DROP</span> <span class="keyword">PROCEDURE</span> 存储过程名</span><br><span class="line">DELIMITER ;</span><br><span class="line"> <span class="comment">#四、查看存储过程的信息</span></span><br><span class="line"> <span class="keyword">SHOW</span> <span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> myp2;</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/02/20/%E5%87%BD%E6%95%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2021/02/20/%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">函数</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-02-20 15:22:17 / 修改时间：15:21:59" itemprop="dateCreated datePublished" datetime="2021-02-20T15:22:17+08:00">2021-02-20</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">数据库学习</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#函数</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	存储过程和函数：类似Java中的方法</span></span><br><span class="line"><span class="comment">	好处：</span></span><br><span class="line"><span class="comment">	1.提高代码的重用性</span></span><br><span class="line"><span class="comment">	2.简化操作</span></span><br><span class="line"><span class="comment">	3.减少了编译以及连接数据库服务器的次数，提高了效率</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">	区别：</span></span><br><span class="line"><span class="comment">	存储过程：可以有0个返回，多个返回。适合做批量插入、批量更新</span></span><br><span class="line"><span class="comment">	函数：有且仅有1个返回。适合做数据处理后返回一个结果</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#一、创建语法</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">function</span> 函数名(参数列表) <span class="keyword">returns</span> 返回类型</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">	函数体</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	注意：</span></span><br><span class="line"><span class="comment">		1.参数列表 包含两部分：参数名 参数类型</span></span><br><span class="line"><span class="comment">		</span></span><br><span class="line"><span class="comment">		2.函数体：肯定会有return 语句，如果没有会报错</span></span><br><span class="line"><span class="comment">			如果return语句没有放在函数体的最后也不会报错，但不建议</span></span><br><span class="line"><span class="comment">		</span></span><br><span class="line"><span class="comment">		return 值;</span></span><br><span class="line"><span class="comment">		3.函数体中只有一句话，则可以省略begin end</span></span><br><span class="line"><span class="comment">		4.使用delimiter语句设置结束标记</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#二、调用</span></span><br><span class="line"><span class="keyword">select</span> 函数名(参数列表)</span><br><span class="line"></span><br><span class="line"><span class="comment">#---------------------------------案例演示---------------------------------</span></span><br><span class="line"><span class="comment">#1，无参数有返回</span></span><br><span class="line"><span class="comment">#案例：返回公司员工个数</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">function</span> func1()<span class="keyword">returns</span> <span class="built_in">int</span></span><br><span class="line"><span class="keyword">begin</span>	</span><br><span class="line">	<span class="keyword">declare</span> res <span class="built_in">int</span> <span class="keyword">default</span> <span class="number">0</span>;<span class="comment">#定义变量</span></span><br><span class="line">	<span class="keyword">select</span> <span class="keyword">count</span>(*) <span class="keyword">into</span> res<span class="comment">#赋值</span></span><br><span class="line">	<span class="keyword">from</span> employees;</span><br><span class="line">	return res;</span><br><span class="line"><span class="keyword">end</span> $</span><br><span class="line"><span class="comment">#调用</span></span><br><span class="line"><span class="keyword">select</span> func1()</span><br><span class="line"></span><br><span class="line"><span class="comment">#2.有参数有返回</span></span><br><span class="line"><span class="comment">#案例1：根据员工名返回他的工资</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">function</span> func2(employeeName <span class="built_in">varchar</span>(<span class="number">20</span>))<span class="keyword">returns</span> <span class="keyword">double</span></span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">	<span class="keyword">set</span> @sal = <span class="number">0</span>;<span class="comment">#定义用户变量</span></span><br><span class="line">	<span class="keyword">select</span> salary <span class="keyword">into</span> @sal</span><br><span class="line">	<span class="keyword">from</span> employees</span><br><span class="line">	<span class="keyword">where</span> last_name = employeeName;</span><br><span class="line">	return @sal;</span><br><span class="line"><span class="keyword">end</span> $</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> func2(<span class="string">&#x27;Kochhar&#x27;</span>) $</span><br><span class="line"></span><br><span class="line"><span class="comment">#案例2：根据部门名返回该部门的平均工资</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">function</span> func3(departName <span class="built_in">varchar</span>(<span class="number">20</span>))<span class="keyword">returns</span> <span class="keyword">double</span></span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">	<span class="keyword">declare</span> sal <span class="keyword">double</span>;</span><br><span class="line">	<span class="keyword">select</span> <span class="keyword">avg</span>(salary) <span class="keyword">into</span> sal</span><br><span class="line">	<span class="keyword">from</span> employees e</span><br><span class="line">	<span class="keyword">inner</span> <span class="keyword">join</span> departments d <span class="keyword">on</span> e.department_id = d.department_id</span><br><span class="line">	<span class="keyword">where</span> d.department_name = departName;</span><br><span class="line">	return sal;</span><br><span class="line"><span class="keyword">end</span> $</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> func3(<span class="string">&#x27;IT&#x27;</span>) $</span><br><span class="line"></span><br><span class="line"><span class="comment">#三、查看函数</span></span><br><span class="line"><span class="comment">#基本信息可以在 数据库mysql-&gt;proc表中找到</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">function</span> func3</span><br><span class="line"><span class="comment">#四、删除函数</span></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">function</span> 函数名;</span><br><span class="line"></span><br><span class="line"><span class="comment">#案例：创建函数传入两个float，返回二者之和 </span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">function</span> test_func(n1 <span class="built_in">float</span>,n2 <span class="built_in">float</span>)<span class="keyword">returns</span> <span class="built_in">float</span></span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">	<span class="keyword">declare</span> res <span class="built_in">float</span> <span class="keyword">default</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">set</span> res = n1+n2;</span><br><span class="line">	return res;</span><br><span class="line"><span class="keyword">end</span> $</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> test_func(<span class="number">2</span>,<span class="number">4</span>)$</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+          <p><a href="#1">点击</a></p>
+<p>NTFS（New Technology File System）：有分区就可以做文件系统，可以将两个分区各取一部分构成一个新的分区</p>
+<p>NTFS 权限</p>
+<ul>
+<li>NTFS文件系统</li>
+<li>设置文件权限</li>
+<li>设置文件夹权限</li>
+<li>权限的分类</li>
+</ul>
+<p>NTFS权限规则</p>
+<ul>
+<li>权限的累加</li>
+<li>拒绝权限</li>
+<li>继承权限</li>
+<li>特别的权限<ul>
+<li>特殊权限↓<ul>
+<li>读取权限的权限</li>
+<li>更改权限的权限</li>
+<li>取得所有权</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><a style="color:red;" id="1">123123</a></p>
+<p>NTFS文件系统特点</p>
+<ul>
+<li><p>提高硬盘读写性能</p>
+</li>
+<li><p>可靠性</p>
+<ul>
+<li>加密文件系统</li>
+<li>访问控制列表（ACL）</li>
+</ul>
+</li>
+<li><p>磁盘利用率</p>
+<ul>
+<li>压缩</li>
+<li>磁盘配额（磁盘空间的分配额度）</li>
+</ul>
+</li>
+</ul>
+<p>常见文件权限：</p>
+<ul>
+<li>读取数据</li>
+<li>写入数据</li>
+<li>附加数据</li>
+<li>删除</li>
+<li>执行文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">一个实验</span><br><span class="line">校长：除了不能删除，其它都可</span><br><span class="line">老师：可以增改查，不可删除</span><br><span class="line">学生：只能看</span><br><span class="line">保安：无任何权限</span><br><span class="line">e.g.</span><br><span class="line">	张三在A用户组，也在B用户组。A可以修改，B不可以修改，那么张三不可以修改（权限冲突时，say no优先（拒绝优先）；不冲突就累加）</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%8F%96%E6%B6%88%E5%8B%BE%E9%80%89%E4%BB%8E%E8%AF%A5%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%88%B6%E7%BA%A7%E7%BB%A7%E6%89%BF%E7%9A%84%E6%9D%83%E9%99%90.48naigh4m1o0.jpg" alt="取消勾选从该对象的父级继承的权限"></p>
+<p>将勾选去掉</p>
+<p>不进入文件的ACL里，就啥也干不了</p>
+<p>权限规则：</p>
+<ul>
+<li><ol>
+<li>默认继承（主要针对文件夹）</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>阻止继承</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>强制生效</li>
+</ol>
+<ul>
+<li><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%BC%BA%E5%88%B6%E7%94%9F%E6%95%88.6adl3ov1gqo0.jpg" alt="强制生效"></li>
+</ul>
+</li>
+<li><ol start="4">
+<li>权限不冲突——累加</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>权限冲突（隶属的不同组的冲突，用户和组的冲突）</li>
+</ol>
+</li>
+<li><ol start="6">
+<li>取得所有权</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">实验作业：</span><br><span class="line">公司的组织架构</span><br><span class="line">三个部门：</span><br><span class="line"></span><br><span class="line">1.技术部</span><br><span class="line"> 1）技术经理</span><br><span class="line"> 2）技术员工</span><br><span class="line">2.财务部</span><br><span class="line"> 1）财务经理</span><br><span class="line"> 2）财务员工</span><br><span class="line">3.市场部</span><br><span class="line"> 1）市场经理</span><br><span class="line"> 2）市场员工</span><br><span class="line">步骤一：命令创建，加组</span><br><span class="line">步骤二：D盘（C盘文件权限设计操作系统，十分复杂）里（只有一块硬盘，自己在虚拟机设置里再添加一块儿硬盘），经理读写，不可删除。普通员工只能查看</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%AE%9E%E9%AA%8C%E4%BD%9C%E4%B8%9A%E5%85%AC%E5%8F%B8%E6%9E%B6%E6%9E%84.4a5cjznp0kk0.jpg" alt="实验作业公司架构"></p>
 
       
     </div>
@@ -928,7 +1153,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/dopphu/page/12/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/dopphu/">1</a><span class="space">&hellip;</span><a class="page-number" href="/dopphu/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/dopphu/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/dopphu/page/19/">19</a><a class="extend next" rel="next" href="/dopphu/page/14/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/dopphu/page/12/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/dopphu/">1</a><span class="space">&hellip;</span><a class="page-number" href="/dopphu/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/dopphu/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/dopphu/page/21/">21</a><a class="extend next" rel="next" href="/dopphu/page/14/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -996,14 +1221,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/dopphu/archives/">
         
-          <span class="site-state-item-count">183</span>
+          <span class="site-state-item-count">204</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/dopphu/categories/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
