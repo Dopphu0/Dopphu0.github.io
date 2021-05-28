@@ -189,6 +189,375 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210413%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B003/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210413%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B003/" class="post-title-link" itemprop="url">20210413信息安全培训笔记03</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-26 12:28:27 / 修改时间：12:32:39" itemprop="dateCreated datePublished" datetime="2021-04-26T12:28:27+08:00">2021-04-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">信息安全培训笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="用户、用户组、组的管理"><a href="#用户、用户组、组的管理" class="headerlink" title="用户、用户组、组的管理"></a>用户、用户组、组的管理</h2><p>用户账户拥有唯一的安全标识符SID</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打开命令行查看SID命令</span></span><br><span class="line">$ whoami -user</span><br><span class="line"><span class="comment">#</span></span><br></pre></td></tr></table></figure>
+
+<p>SID=系统ID+用户ID（用户ID如下面最后的500，另外Windows系统的管理员用户均为ID为500，普通账户从1000开始）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/image-20210413193931980.17ejhfj95j40.png" alt="image-20210413193931980"></p>
+<p>同一个系统下的用户的系统ID相同，用户ID不同</p>
+<p>注册表：regedit.exe</p>
+<p>虚拟机中用 <code>ctrl+alt+insert</code> 代替 <code>ctrl+alt+delete</code> （以免与真实机热键冲突）</p>
+<h3 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h3><h4 id="1-如何查看用户"><a href="#1-如何查看用户" class="headerlink" title="1.如何查看用户"></a>1.如何查看用户</h4><ol>
+<li><h5 id="图形化界面"><a href="#图形化界面" class="headerlink" title="图形化界面"></a>图形化界面</h5><p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7.ptabbx5cgk.jpg" alt="图形化界面管理用户"></p>
+</li>
+<li><h5 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h5></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看用户</span></span><br><span class="line">$ net user</span><br><span class="line"><span class="comment"># 添加用户（默认属于users组）</span></span><br><span class="line">$ net user 用户名 密码/add</span><br><span class="line"><span class="comment"># 重设密码</span></span><br><span class="line">$ net user 用户名 新密码</span><br><span class="line"><span class="comment"># 清空密码（需要在本地安全策略禁用 “密码必须符合复杂性要求” ） </span></span><br><span class="line">$ net user 用户名 <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="comment"># 查看用户详细信息</span></span><br><span class="line">$ net user 用户名</span><br><span class="line"><span class="comment"># 激活用户</span></span><br><span class="line">$ net user 用户名 /active:yes</span><br><span class="line"><span class="comment"># 禁用账户</span></span><br><span class="line">$ net user 用户名 /active:no</span><br><span class="line"><span class="comment"># 删除账户</span></span><br><span class="line">$ net user 用户名 密码/del</span><br><span class="line"><span class="comment"># 如何把普通用户改为管理员（将用户添加到管理员组，涉及用户组的概念）</span></span><br><span class="line">$ net localgroup administrators 用户名/add</span><br><span class="line"><span class="comment"># 将用户从管理员组中踢出</span></span><br><span class="line">$ net localgroup administrators 用户名/del</span><br></pre></td></tr></table></figure>
+
+
+
+<p>内置账户，如：win-server 2008 的Guest（来宾账户，默认是被禁用的，而且一般也要禁用，安全检查时必看）、管理员</p>
+<p>如果一个用户同属于多个组，则权限累加</p>
+<p>msc微软控制台</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看本地安全策略</span></span><br><span class="line">运行——&gt;secpol.msc</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210414%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B004/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210414%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B004/" class="post-title-link" itemprop="url">20210414信息安全培训笔记04</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-26 12:28:27" itemprop="dateCreated datePublished" datetime="2021-04-26T12:28:27+08:00">2021-04-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-27 14:02:16" itemprop="dateModified" datetime="2021-04-27T14:02:16+08:00">2021-04-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">信息安全培训笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>内置用户</p>
+<p>与使用者相关的用户</p>
+<p>与Windows组件关联的用户账户</p>
+<ul>
+<li><p>System（本地系统）（权限最高）</p>
+<p>​        为Windows的核心组件访问文件等资源提供权限</p>
+</li>
+<li><p>LOCAL SERVICE</p>
+</li>
+<li><p>NETWORK SERVICE</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看用户组</span></span><br><span class="line">$ net localgroup</span><br><span class="line"><span class="comment"># 创建用户组</span></span><br><span class="line">$ net localgroup 组名 /add</span><br><span class="line"><span class="comment"># 删除用户组</span></span><br><span class="line">$ net lcoalgroup 组名 /del</span><br><span class="line"><span class="comment"># 将用户加入组</span></span><br><span class="line">$ net lcoalgroup 组名 用户名 /add</span><br><span class="line"><span class="comment"># 将用户踢出组</span></span><br><span class="line">$ net lcoalgroup 组名 用户名 /del</span><br></pre></td></tr></table></figure>
+
+<p>组</p>
+<ul>
+<li>内置<ul>
+<li>需要人为添加用户的组<ul>
+<li>administrator</li>
+<li>Guests</li>
+<li>Power Users（为了兼容老版本，无关紧要，了解即可）</li>
+<li>Users（标准用户）</li>
+</ul>
+</li>
+<li>自动添加用户的组（动态包含成员的内置组）、<ul>
+<li>Everyone<ul>
+<li>包含任何用户</li>
+<li>设置开放的权限时经常使用</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>普通组</li>
+</ul>
+<p>计算机默认都在工作组 <code>WORKGROUP</code> （如图，可以在这里改主机名）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/WORKGROUP%E5%B7%A5%E4%BD%9C%E7%BB%84.44eyusl45mm0.jpg" alt="WORKGROUP工作组"></p>
+<p>域环境基于互联网（意味着互联网上任何一台计算机都可以加入域）——把计算机逻辑地组织在一起，统一管理（受 <strong>域控</strong> （？DC）的统一管理）</p>
+<p>想要访问域中资源，要用DC分配给你的域用户进行登录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配静态IP[、子网掩码]</span></span><br><span class="line">$ netsh interface ip <span class="built_in">set</span> address 网卡名 static ip [子网掩码]</span><br><span class="line"><span class="comment"># 配动态IP</span></span><br><span class="line">$ netsh interface ip <span class="built_in">set</span> address 网卡名 dhcp</span><br><span class="line"> <span class="comment"># 查看网络详细信息</span></span><br><span class="line">$ ipcofig -all</span><br><span class="line"><span class="comment"># 重命名主机名</span></span><br><span class="line">$ netdom renamecomputer localhost /newname:新主机名</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ping</span></span><br><span class="line"><span class="comment"># -a 返回主机名</span></span><br><span class="line"><span class="comment"># -l 改变包大小（最大65500，默认32）</span></span><br><span class="line"><span class="comment"># -t 持续发包</span></span><br></pre></td></tr></table></figure>
+
+<p>远程桌面 3389端口</p>
+<p>mstsc（骂死他傻X）——远程控制</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 关闭c$共享（c$、ipc$十分危险，一般都要关闭）</span></span><br><span class="line">$ net share c$ /del</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210415%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B005/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210415%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B005/" class="post-title-link" itemprop="url">20210415信息安全培训笔记05</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-26 12:28:27 / 修改时间：12:33:17" itemprop="dateCreated datePublished" datetime="2021-04-26T12:28:27+08:00">2021-04-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">信息安全培训笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a href="#1">点击</a></p>
+<p>NTFS（New Technology File System）：有分区就可以做文件系统，可以将两个分区各取一部分构成一个新的分区</p>
+<p>NTFS 权限</p>
+<ul>
+<li>NTFS文件系统</li>
+<li>设置文件权限</li>
+<li>设置文件夹权限</li>
+<li>权限的分类</li>
+</ul>
+<p>NTFS权限规则</p>
+<ul>
+<li>权限的累加</li>
+<li>拒绝权限</li>
+<li>继承权限</li>
+<li>特别的权限<ul>
+<li>特殊权限↓<ul>
+<li>读取权限的权限</li>
+<li>更改权限的权限</li>
+<li>取得所有权</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><a style="color:red;" id="1">123123</a></p>
+<p>NTFS文件系统特点</p>
+<ul>
+<li><p>提高硬盘读写性能</p>
+</li>
+<li><p>可靠性</p>
+<ul>
+<li>加密文件系统</li>
+<li>访问控制列表（ACL）</li>
+</ul>
+</li>
+<li><p>磁盘利用率</p>
+<ul>
+<li>压缩</li>
+<li>磁盘配额（磁盘空间的分配额度）</li>
+</ul>
+</li>
+</ul>
+<p>常见文件权限：</p>
+<ul>
+<li>读取数据</li>
+<li>写入数据</li>
+<li>附加数据</li>
+<li>删除</li>
+<li>执行文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">一个实验</span><br><span class="line">校长：除了不能删除，其它都可</span><br><span class="line">老师：可以增改查，不可删除</span><br><span class="line">学生：只能看</span><br><span class="line">保安：无任何权限</span><br><span class="line">e.g.</span><br><span class="line">	张三在A用户组，也在B用户组。A可以修改，B不可以修改，那么张三不可以修改（权限冲突时，say no优先（拒绝优先）；不冲突就累加）</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%8F%96%E6%B6%88%E5%8B%BE%E9%80%89%E4%BB%8E%E8%AF%A5%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%88%B6%E7%BA%A7%E7%BB%A7%E6%89%BF%E7%9A%84%E6%9D%83%E9%99%90.48naigh4m1o0.jpg" alt="取消勾选从该对象的父级继承的权限"></p>
+<p>将勾选去掉</p>
+<p>不进入文件的ACL里，就啥也干不了</p>
+<p>权限规则：</p>
+<ul>
+<li><ol>
+<li>默认继承（主要针对文件夹）</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>阻止继承</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>强制生效</li>
+</ol>
+<ul>
+<li><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%BC%BA%E5%88%B6%E7%94%9F%E6%95%88.6adl3ov1gqo0.jpg" alt="强制生效"></li>
+</ul>
+</li>
+<li><ol start="4">
+<li>权限不冲突——累加</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>权限冲突（隶属的不同组的冲突，用户和组的冲突）</li>
+</ol>
+</li>
+<li><ol start="6">
+<li>取得所有权</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">实验作业：</span><br><span class="line">公司的组织架构</span><br><span class="line">三个部门：</span><br><span class="line"></span><br><span class="line">1.技术部</span><br><span class="line"> 1）技术经理</span><br><span class="line"> 2）技术员工</span><br><span class="line">2.财务部</span><br><span class="line"> 1）财务经理</span><br><span class="line"> 2）财务员工</span><br><span class="line">3.市场部</span><br><span class="line"> 1）市场经理</span><br><span class="line"> 2）市场员工</span><br><span class="line">步骤一：命令创建，加组</span><br><span class="line">步骤二：D盘（C盘文件权限设计操作系统，十分复杂）里（只有一块硬盘，自己在虚拟机设置里再添加一块儿硬盘），经理读写，不可删除。普通员工只能查看</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%AE%9E%E9%AA%8C%E4%BD%9C%E4%B8%9A%E5%85%AC%E5%8F%B8%E6%9E%B6%E6%9E%84.4a5cjznp0kk0.jpg" alt="实验作业公司架构"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210408%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B002/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -962,286 +1331,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/25/mysql%E9%AB%98%E7%BA%A7/%E6%85%A2%E6%9F%A5%E8%AF%A2%E6%97%A5%E5%BF%9708/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2021/04/25/mysql%E9%AB%98%E7%BA%A7/%E6%85%A2%E6%9F%A5%E8%AF%A2%E6%97%A5%E5%BF%9708/" class="post-title-link" itemprop="url">慢查询日记08</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-04-25 13:35:00 / 修改时间：13:38:48" itemprop="dateCreated datePublished" datetime="2021-04-25T13:35:00+08:00">2021-04-25</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/mysql%E9%AB%98%E7%BA%A7/" itemprop="url" rel="index"><span itemprop="name">mysql高级</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="慢查询日志"><a href="#慢查询日志" class="headerlink" title="慢查询日志"></a>慢查询日志</h1><h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><ul>
-<li>MySQL的慢查询日志是MySQL提供的一种日志记录，它用来记录在MySQL中响应时间超过阈值的语句，具体运行时间超过<code>long_query_time</code>值的SQL，则会被记录到慢查询日志中。</li>
-<li>具体运行时间超过<code>long_query_time</code>值的SQL，则会被记录到慢查询日志中。<code>long_query_time</code>的默认值是10，意思是运行10秒以上的语句。（等于10则不会被记录）</li>
-<li>由他来查看哪些SQL超过了我们的最大忍耐时间，比如一条sql执行超过5秒，我们就算慢sql，希望能收集超过5秒的sql，结合之前的explain进行全面分析。</li>
-</ul>
-<h2 id="怎么玩"><a href="#怎么玩" class="headerlink" title="怎么玩"></a>怎么玩</h2><h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>默认情况下，MySQL 数据库没有开启慢查询日志，需要我们手动来设置这个参数。</p>
-<p>当然，如果不是调优需要的话，一般不建议启动该参数，因为开启慢查询日志会或多或少带来一定的性能影响。慢查询日志支持将日志记录写入文件。</p>
-<h3 id="查看是否开启以及如何开启"><a href="#查看是否开启以及如何开启" class="headerlink" title="查看是否开启以及如何开启"></a>查看是否开启以及如何开启</h3><p>默认：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> <span class="keyword">VARIABLES</span> <span class="keyword">LIKE</span> <span class="string">&#x27;%slow_query_log%&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
-<p>开启：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> slow_query_log=<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-
-<p>该设置方法仅对当前数据库有效（退出后进入就需要重新设置），如要永久生效，就必须修改配置文件my.cnf（其它系统变量也是如此）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/image-20210227143634594.2z45tm6uenk0.png" alt="image-20210227143634594"></p>
-<p>示例配置</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E7%A4%BA%E4%BE%8B%E9%85%8D%E7%BD%AE.4pn5aycf2rs0.jpg" alt="示例配置"></p>
-<p>使用命令</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> long_query_time=<span class="number">3</span>;</span><br></pre></td></tr></table></figure>
-
-<p>修改到阈值到3秒钟的就是慢SQL</p>
-<h3 id="为什么设置后看不出变化？"><a href="#为什么设置后看不出变化？" class="headerlink" title="为什么设置后看不出变化？"></a>为什么设置后看不出变化？</h3><p>需要重新连接或开一个会话才能看到修改值</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">&#x27;%long_query_time%&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
-<h3 id="强行睡4秒"><a href="#强行睡4秒" class="headerlink" title="强行睡4秒"></a>强行睡4秒</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">sleep</span>(<span class="number">4</span>);</span><br></pre></td></tr></table></figure>
-
-<h3 id="查询当前有多少条慢查询记录"><a href="#查询当前有多少条慢查询记录" class="headerlink" title="查询当前有多少条慢查询记录"></a>查询当前有多少条慢查询记录</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">global</span> <span class="keyword">status</span> <span class="keyword">like</span> <span class="string">&#x27;%Slow_queries%&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
-<h2 id="日志分析工具MySQLdumpslow"><a href="#日志分析工具MySQLdumpslow" class="headerlink" title="日志分析工具MySQLdumpslow"></a>日志分析工具MySQLdumpslow</h2><h3 id="查看MySQLdumpslow的帮助信息"><a href="#查看MySQLdumpslow的帮助信息" class="headerlink" title="查看MySQLdumpslow的帮助信息"></a>查看MySQLdumpslow的帮助信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ MySQLdumpslow --<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
-
-<p>S：是表示按照何种方式进行排序</p>
-<p>c：访问次数</p>
-<p>l：锁定时间</p>
-<p>r：返回记录</p>
-<p>t：查询时间</p>
-<p>al：平均锁定时间</p>
-<p>ar：平均返回记录数</p>
-<p>at：平均查询时间</p>
-<p>t：即为返回前面多少条的数据</p>
-<p>g：后边搭配一个正则表达式，大小写不敏感</p>
-<h3 id="工作日常参考"><a href="#工作日常参考" class="headerlink" title="工作日常参考"></a>工作日常参考</h3><p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%B8%B8%E5%8F%82%E8%80%83.61zsl17et3c0.jpg" alt="工作日常参考"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/25/mysql%E9%AB%98%E7%BA%A7/%E6%9F%A5%E8%AF%A2%E6%88%AA%E5%8F%96%E5%88%86%E6%9E%9007/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2021/04/25/mysql%E9%AB%98%E7%BA%A7/%E6%9F%A5%E8%AF%A2%E6%88%AA%E5%8F%96%E5%88%86%E6%9E%9007/" class="post-title-link" itemprop="url">查询截取分析07</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-04-25 13:35:00 / 修改时间：13:38:44" itemprop="dateCreated datePublished" datetime="2021-04-25T13:35:00+08:00">2021-04-25</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/mysql%E9%AB%98%E7%BA%A7/" itemprop="url" rel="index"><span itemprop="name">mysql高级</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>分析步骤：</p>
-<ol>
-<li>观察，至少跑一天，看看 生产的慢SQL情况</li>
-<li>开启慢查询日志， 设置阈值，比如超过5秒就是慢SQL，并将它抓去出来</li>
-<li>explain+慢SQL分析</li>
-<li>show profile</li>
-<li>运维经理 or DBA，进行SQL数据库服务器的参数调优</li>
-</ol>
-<p>总结：</p>
-<p>1 慢查询的开启并捕获</p>
-<p>2 explain + 慢SQL分析</p>
-<p>3 show profile查询SQL在MySQL服务器里面的执行细节和生命周期情况</p>
-<p>4 SQL数据库服务器的参数调优</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/in%E4%B8%8Eexists%E5%AF%B9%E6%AF%94.674wmlz4wnw0.jpg" alt="in与exists对比"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/image-20210225181556935.30io97nllaa0.jpg" alt="image-20210225181556935"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/25/mysql%E9%AB%98%E7%BA%A7/%E7%AC%94%E8%AE%B003/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2021/04/25/mysql%E9%AB%98%E7%BA%A7/%E7%AC%94%E8%AE%B003/" class="post-title-link" itemprop="url">笔记03</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-04-25 13:35:00 / 修改时间：13:38:40" itemprop="dateCreated datePublished" datetime="2021-04-25T13:35:00+08:00">2021-04-25</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/mysql%E9%AB%98%E7%BA%A7/" itemprop="url" rel="index"><span itemprop="name">mysql高级</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>查看字符集</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">&#x27;character%&#x27;</span>;</span><br><span class="line">或</span><br><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">&#x27;%char%&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
-<p>二进制日志lob-bin：主从复制</p>
-<p>错误日志log-error：默认是关闭的，记录严重的警告和错误信息，每次启动和关闭的详细信息。</p>
-<p>查询日志log</p>
-<p>数据文件 : linux 下路径 /var/lib/mysql</p>
-<ul>
-<li>frm：存放表结构</li>
-<li>myd：存放表数据</li>
-<li>myi：存放索引</li>
-</ul>
-<h2 id="mysql逻辑架构"><a href="#mysql逻辑架构" class="headerlink" title="mysql逻辑架构"></a>mysql逻辑架构</h2><p>和其他数据库相比，mysql有点与众不同，它的架构可以在多种不同的场景中应用并发挥良好作用。主要体现在存储引擎的架构上，<strong>插件式的存储引擎架构将查询处理和其它的系统任务以及数据的存储提取相分离。</strong>这种架构可以根据业务的需求和实际需要选择合适的存储引擎。</p>
-<p>me：哪层出事找哪层解决。</p>
-<p>1.连接层 2.服务层 3.引擎层 4.存储层</p>
-<h2 id="存储引擎简介"><a href="#存储引擎简介" class="headerlink" title="存储引擎简介"></a>存储引擎简介</h2><p>常用的两个：innodb和MYISAM</p>
-<ol>
-<li><p>查看你的mysql现在提供的存储引擎</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show engines;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看你的mysql当前默认的存储引擎</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show variables like &#x27;%storage_engine%&#x27;;</span><br></pre></td></tr></table></figure></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1313,14 +1402,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/dopphu/archives/">
         
-          <span class="site-state-item-count">204</span>
+          <span class="site-state-item-count">207</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/dopphu/categories/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
