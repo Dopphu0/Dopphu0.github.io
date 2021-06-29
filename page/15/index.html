@@ -189,6 +189,79 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%BE%AA%E7%8E%AF%E7%BB%83%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%BE%AA%E7%8E%AF%E7%BB%83%E4%B9%A0/" class="post-title-link" itemprop="url">循环练习</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-05 21:42:43 / 修改时间：21:37:14" itemprop="dateCreated datePublished" datetime="2021-05-05T21:42:43+08:00">2021-05-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">第二章 基本语法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// import java.util.Scanner;</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// System.out.println(&quot;请输入数字，输入0结束输入&quot;);</span></span><br><span class="line">        <span class="comment">// int count = 0;</span></span><br><span class="line">        <span class="comment">// Scanner scan= new Scanner(System.in);</span></span><br><span class="line">        <span class="comment">// int sum=-1;</span></span><br><span class="line">        <span class="comment">// while(sum!=0)&#123;</span></span><br><span class="line">            </span><br><span class="line">        <span class="comment">//     if(sum%2==0)&#123;</span></span><br><span class="line">        <span class="comment">//         count++;</span></span><br><span class="line">        <span class="comment">//     &#125;</span></span><br><span class="line">        <span class="comment">//     sum=scan.nextInt();</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line">        <span class="comment">// System.out.println(&quot;偶数的个数为：&quot;+count);</span></span><br><span class="line">        <span class="comment">// scan.close();</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;<span class="number">4</span>;i++)&#123;</span><br><span class="line">           <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j&lt;=i;j++)&#123;</span><br><span class="line">                System.out.print(<span class="string">&quot;*&quot;</span>);</span><br><span class="line">           &#125; </span><br><span class="line">           System.out.println();</span><br><span class="line">        &#125;<span class="comment">//进阶：菱形星打印</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//九九乘法表</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;=<span class="number">9</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j&lt;=i;j++)&#123;</span><br><span class="line">                System.out.print(i+<span class="string">&quot;*&quot;</span>+j+<span class="string">&quot;=&quot;</span>+i*j+<span class="string">&quot;    &quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//获取当前时间</span></span><br><span class="line">        <span class="comment">// long start = System.currentTimeMillis();</span></span><br><span class="line">        <span class="comment">//一百以内质数的输出</span></span><br><span class="line">        <span class="comment">// int flag=1;</span></span><br><span class="line">        <span class="comment">// for(int i = 2;i&lt;=1000;i++)&#123;</span></span><br><span class="line">        <span class="comment">//     flag=1;</span></span><br><span class="line">        <span class="comment">//     for(int j = 2; j &lt; Math.sqrt(i); j++)&#123;</span></span><br><span class="line">        <span class="comment">//         if(i%j==0)&#123;</span></span><br><span class="line">        <span class="comment">//             flag=0;</span></span><br><span class="line">        <span class="comment">//             break;</span></span><br><span class="line">        <span class="comment">//         &#125;</span></span><br><span class="line">        <span class="comment">//     &#125;</span></span><br><span class="line">        <span class="comment">//     if(flag==1)&#123;</span></span><br><span class="line">        <span class="comment">//         System.out.println(i);</span></span><br><span class="line">        <span class="comment">//     &#125;</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line">        <span class="comment">// long end = System.currentTimeMillis();</span></span><br><span class="line">        <span class="comment">// System.out.println(end-start);</span></span><br><span class="line">        <span class="comment">// 另一个方法</span></span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        demo:<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>;i&lt;=<span class="number">10</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">2</span>; j &lt;= Math.sqrt(i); j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(i%j==<span class="number">0</span>)&#123;</span><br><span class="line">                    <span class="keyword">continue</span> demo;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">           count++;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(count);</span><br><span class="line">        System.out.println(Math.sqrt(<span class="number">2</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1077,125 +1150,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210408%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B002/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210408%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B002/" class="post-title-link" itemprop="url">20210408信息安全培训笔记02</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-04-26 12:28:27 / 修改时间：12:32:11" itemprop="dateCreated datePublished" datetime="2021-04-26T12:28:27+08:00">2021-04-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">信息安全培训笔记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>虚拟机架构</p>
-<ul>
-<li>寄居架构</li>
-<li>原生架构（VPS、虚拟化、云服务器等）</li>
-</ul>
-<p>虚拟机产品：</p>
-<p>windows开机启动过程：</p>
-<ol>
-<li>开机加电自检（台式机可能会报警报告硬件出现异常）</li>
-<li>引导BIOS（cmos芯片存BIOS程序）</li>
-</ol>
-<p>重装系统的时候就要调BIOS，改变寻找系统的先后顺序</p>
-<p>MBR扇区（第一扇区）：512字节=446（引导程序）+64（分区信息）+2（标识）</p>
-<ol start="3">
-<li>引导系统</li>
-</ol>
-<p>操作系统</p>
-<p>文件系统</p>
-<p>新硬盘是无法存储文件的：</p>
-<ul>
-<li>分区——做文件系统（格式化就是做文件系统）</li>
-<li>做文件系统<ul>
-<li>文件系统<ul>
-<li>FAT系列（这是不牛的：凳子一扔，不摆凳子），单次只能存不超过4个G    </li>
-<li>NTFS（这是牛的：凳子整齐排好）</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>MBR分区：</p>
-<ul>
-<li>主分区（主分区可装系统，可存储数据）</li>
-<li>扩展分区</li>
-<li>逻辑分区</li>
-</ul>
-<p>扩展分区里创逻辑分区</p>
-<p>每创建一个主分区或扩展分区就要占16字节（分区信息，MBR扇区的64字节里），所以最多一共就能建4个（实际上，扩展分区只能建一个）</p>
-<p>大写、小写、字母、特殊符号四选三即可符合密码复杂性要求</p>
-<p>GPT分区方式（？）：扩展卷等。</p>
-<p>vmnet（虚拟网络）</p>
-<ul>
-<li>仅主机模式——交换机：构建局域网<ul>
-<li>仅主机模式可以创建多个</li>
-<li><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/image-20210413192529113.1x1qmowpmhvk.png" alt="image-20210413192529113"></li>
-</ul>
-</li>
-<li>NAT模式（网络地址转换）（不同于桥接模式，不占用宿主同网段的IP，就像家庭宽带多个设备用的都是私有网段的IP）——虚拟机可以上互联网（）</li>
-<li>桥接模式（会分配一个和宿主机一个网段的真实的IP）——虚拟机可以上互联网（但其实是可以上宿主机的连接的网）</li>
-</ul>
-<p>注意：NAT模式和桥接模式的区别</p>
-<p>cm架构（Client-Server）和bm（Browser-Server）架构</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1267,7 +1221,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/dopphu/archives/">
         
-          <span class="site-state-item-count">223</span>
+          <span class="site-state-item-count">224</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

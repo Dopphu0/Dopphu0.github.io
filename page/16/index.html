@@ -189,6 +189,125 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210408%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B002/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210408%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B002/" class="post-title-link" itemprop="url">20210408信息安全培训笔记02</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-26 12:28:27 / 修改时间：12:32:11" itemprop="dateCreated datePublished" datetime="2021-04-26T12:28:27+08:00">2021-04-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">信息安全培训笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>虚拟机架构</p>
+<ul>
+<li>寄居架构</li>
+<li>原生架构（VPS、虚拟化、云服务器等）</li>
+</ul>
+<p>虚拟机产品：</p>
+<p>windows开机启动过程：</p>
+<ol>
+<li>开机加电自检（台式机可能会报警报告硬件出现异常）</li>
+<li>引导BIOS（cmos芯片存BIOS程序）</li>
+</ol>
+<p>重装系统的时候就要调BIOS，改变寻找系统的先后顺序</p>
+<p>MBR扇区（第一扇区）：512字节=446（引导程序）+64（分区信息）+2（标识）</p>
+<ol start="3">
+<li>引导系统</li>
+</ol>
+<p>操作系统</p>
+<p>文件系统</p>
+<p>新硬盘是无法存储文件的：</p>
+<ul>
+<li>分区——做文件系统（格式化就是做文件系统）</li>
+<li>做文件系统<ul>
+<li>文件系统<ul>
+<li>FAT系列（这是不牛的：凳子一扔，不摆凳子），单次只能存不超过4个G    </li>
+<li>NTFS（这是牛的：凳子整齐排好）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>MBR分区：</p>
+<ul>
+<li>主分区（主分区可装系统，可存储数据）</li>
+<li>扩展分区</li>
+<li>逻辑分区</li>
+</ul>
+<p>扩展分区里创逻辑分区</p>
+<p>每创建一个主分区或扩展分区就要占16字节（分区信息，MBR扇区的64字节里），所以最多一共就能建4个（实际上，扩展分区只能建一个）</p>
+<p>大写、小写、字母、特殊符号四选三即可符合密码复杂性要求</p>
+<p>GPT分区方式（？）：扩展卷等。</p>
+<p>vmnet（虚拟网络）</p>
+<ul>
+<li>仅主机模式——交换机：构建局域网<ul>
+<li>仅主机模式可以创建多个</li>
+<li><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/image-20210413192529113.1x1qmowpmhvk.png" alt="image-20210413192529113"></li>
+</ul>
+</li>
+<li>NAT模式（网络地址转换）（不同于桥接模式，不占用宿主同网段的IP，就像家庭宽带多个设备用的都是私有网段的IP）——虚拟机可以上互联网（）</li>
+<li>桥接模式（会分配一个和宿主机一个网段的真实的IP）——虚拟机可以上互联网（但其实是可以上宿主机的连接的网）</li>
+</ul>
+<p>注意：NAT模式和桥接模式的区别</p>
+<p>cm架构（Client-Server）和bm（Browser-Server）架构</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/25/mysql%E9%AB%98%E7%BA%A7/%E4%BF%AE%E6%94%B9mysql%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE02/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1123,223 +1242,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/25/mysql%E9%AB%98%E7%BA%A7/MySql%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%9005/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2021/04/25/mysql%E9%AB%98%E7%BA%A7/MySql%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%9005/" class="post-title-link" itemprop="url">MySQL性能分析05</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-04-25 13:35:00 / 修改时间：13:39:27" itemprop="dateCreated datePublished" datetime="2021-04-25T13:35:00+08:00">2021-04-25</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/mysql%E9%AB%98%E7%BA%A7/" itemprop="url" rel="index"><span itemprop="name">mysql高级</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><strong>MySQL Query Optimizer</strong></p>
-<p>mysql 会 ‘ 按自己理解进行优化 ’</p>
-<p><strong>MySQL常见瓶颈</strong></p>
-<p>CPU：CPU在饱和的时候一般发生在数据装入内存或从磁盘上读取数据的时候</p>
-<p>IO：磁盘I/O瓶颈发生在装入数据远大于内存容量的时候</p>
-<p>服务器硬件的性能瓶颈：top，free，iostat和vmstat来查看系统的性能状态</p>
-<p><strong>Explain</strong></p>
-<p>是什么：官网</p>
-<p>能干吗</p>
-<ul>
-<li>表的读取顺序</li>
-<li>数据读取操作的类型</li>
-<li>哪些些索引可以使用</li>
-<li>哪些索引被实际使用</li>
-<li>表之间的引用</li>
-<li>每张表有多少行被优化器查询</li>
-</ul>
-<p>怎么玩</p>
-<ul>
-<li><p>Explain + SQL语句</p>
-</li>
-<li><p>执行计划包含的信息</p>
-<ul>
-<li>id</li>
-<li>select_type</li>
-<li>table</li>
-<li>type</li>
-<li>possible_keys</li>
-<li>key</li>
-<li>key_len</li>
-<li>ref</li>
-<li>rows</li>
-<li>Extra</li>
-</ul>
-</li>
-</ul>
-<p>各字段解释</p>
-<h4 id="id"><a href="#id" class="headerlink" title="id"></a>id</h4><ol>
-<li><p>id相同</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/id%E7%9B%B8%E5%90%8C.1cgztjz8xn7k.jpg" alt="id相同"></p>
-</li>
-<li><p>id不同</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/image-20210223171906278.11iudbukzv80.png" alt="image-20210223171906278"></p>
-</li>
-<li><p>不同相同同时存在</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E4%B8%8D%E5%90%8C%E7%9B%B8%E5%90%8C%E5%90%8C%E6%97%B6%E5%AD%98%E5%9C%A8.m1qfmohbnds.jpg" alt="不同相同同时存在"></p>
-</li>
-</ol>
-<h4 id="select-type"><a href="#select-type" class="headerlink" title="select_type"></a>select_type</h4><p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/image-20210224125954736.5dc52qxrb2o0.png" alt="image-20210224125954736"></p>
-<ul>
-<li><p>simple</p>
-<p>简单的select查询，查询中不包含子查询或union</p>
-</li>
-<li><p>primary</p>
-<p>查询中若包含任何复杂的子部分，最外层查询则被标记为primary</p>
-</li>
-<li><p>subquery</p>
-<p>在select或where中包含子查询</p>
-</li>
-<li><p>derived</p>
-<p>在from列表中包含的子查询被标记为derived（衍生）MySQL会递归执行这些子查询，把结果放在临时表里。</p>
-</li>
-<li><p>union</p>
-<p>若第二个select出现在union之后，则被标记为union，若union包含在from子句的子查询中，外层select将被标记为derived</p>
-</li>
-<li><p>union result</p>
-<p>从union表中获取结果的select</p>
-</li>
-</ul>
-<h4 id="table"><a href="#table" class="headerlink" title="table"></a>table</h4><p>显示这一行数据是关于哪张表的</p>
-<h4 id="type"><a href="#type" class="headerlink" title="type"></a>type</h4><p>常见的几种</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/image-20210224131707846.63bnb6dttmk0.png" alt="image-20210224131707846"></p>
-<p>从最好到最差依次是（实际应用中达到<strong>ref</strong>已经很好了）</p>
-<p>system &gt; const&gt; eq_ref &gt; ref &gt; range &gt; index &gt; ALL</p>
-<ul>
-<li><p>system</p>
-<p>表只有一行记录（等于系统表），这是const类型的特例，平时不会出现</p>
-</li>
-<li><p>const</p>
-<p>表示通过索引一次就找到了，const用于比较primary key或者unique索引。因为只匹配一行数据，所以很快。如将主键置于where列表中，MySQL就能将该查询转换为一个常量。</p>
-</li>
-<li><p>eq_ref</p>
-<p>唯一性索引扫描，对于每个索引键，表中只有一条记录与之匹配。常见于主键或唯一索引扫描</p>
-<p>me：ceo一个人一个部门号</p>
-</li>
-<li><p>ref</p>
-<p>非唯一性索引扫描，返回匹配某个单独值的所有行。本质上也是一种索引访问，它返回所有匹配某个单独值的行，然而，它可能会找到多个符合条件的行，所以他应该属于查找和扫描的混合体。</p>
-<p>me：程序员 很多人一个部门号 </p>
-</li>
-<li><p>range</p>
-<p>只检索给定范围的行，使用一个索引来选择行。key列显示使用了哪个索引，一般就是在你的where语句中出现了between、&gt; 、&lt; 、in等的查询，这种范围扫描索引扫描比全表扫描要好，因为它只需要开始于索引的某一点，而结束于另一点，不用扫描全部索引。</p>
-</li>
-<li><p>index</p>
-<p>Full Index Scan，index与ALL区别为index类型只遍历索引树。这通常比ALL快，因为索引文件通常比数据文件小。（也就是说虽然ALL和index都是读全表，但index是从索引中读取的，而ALL是从硬盘中读取的）</p>
-<p>e.g. <code>select id from table1；</code></p>
-</li>
-<li><p>ALL</p>
-<p>Full Table Scan，将会遍历全表以找到匹配的行。</p>
-</li>
-</ul>
-<p>备注：一般来说，得保证查询<strong>至少要达到range</strong>级别，<strong>最好能达到ref</strong></p>
-<h4 id="possible-keys"><a href="#possible-keys" class="headerlink" title="possible_keys"></a>possible_keys</h4><p>显示可能应用到这张表的索引，一个或多个</p>
-<p>查询涉及到的字段上若存在索引，则该索引将被列出，但不一定被查询实际使用</p>
-<h4 id="key"><a href="#key" class="headerlink" title="key"></a>key</h4><p>实际使用的索引。如果为NULL，则没有使用索引</p>
-<p>查询中若涉及覆盖索引，则该索引仅出现在key列表中</p>
-<p>补充：<strong>索引覆盖</strong>——就是建立的索引顺序与查询字段顺序一致</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/image-20210224140707068.1rw8eocqft0g.png" alt="image-20210224140707068"></p>
-<h4 id="key-len"><a href="#key-len" class="headerlink" title="key_len"></a>key_len</h4><p>表示索引中使用的字节数，可以通过该列计算查询中使用的索引的长度。在不损失精确性的情况下，长度越短越好。key_len显示的值为索引字段的最大可能长度，并非实际使用长度，即key_len，是根据表定义计算而得，不是通过表内检索出的</p>
-<h4 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h4><p>显示索引的哪一列被使用了，如果可能的话，是一个常数，哪些列或常量被用于查找索引列上的值</p>
-<h4 id="rows"><a href="#rows" class="headerlink" title="rows"></a>rows</h4><p>根据表统计信息及索引选用情况，大致估算出找到所需的记录所需要读取的行数，如图</p>
-<p>建索引与不建索引</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/image-20210224175825326.26eafg3mn00w.png" alt="image-20210224175825326"></p>
-<h4 id="Extra"><a href="#Extra" class="headerlink" title="Extra"></a>Extra</h4><p>包含不适合在其它列显示又十分重要的额外信息，如下：（前三个重要）</p>
-<ol>
-<li><p><strong>Using filesort</strong> （文件内排序）</p>
-<p>说明MySQL会对数据使用一个外部的索引排序，而不是按照表内的索引顺序进行读取。MySQL中无法利用索引完成的排序操作成为 “ 文件排序 ” </p>
-<p>![Using filesort](<a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/Using">https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/Using</a> filesort.1wfom72r6vvk.jpg)</p>
-</li>
-<li><p><strong>Using temporary</strong></p>
-<p>使用了临时表保存中间结果，MySQL在对查询结果排序时使用临时表。常见于排序order by 和 分组查询 group by</p>
-<p>![Using temporary](<a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/Using">https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/Using</a> temporary.2h278atqp9q0.jpg)</p>
-</li>
-<li><p><strong>Using index</strong></p>
-<p>表示相应的select操作中使用了覆盖索引（Covering Index），避免访问了表的数据行，效率不错！</p>
-<p>如果同时出现 using where ，表明索引被用来执行索引键值的查找</p>
-<p>如果没有同时出现 using where ，表明索引用来读取数据而非执行查找动作</p>
-<p><strong>覆盖索引</strong> （Covering Index），一说为索引覆盖</p>
-<p>​    理解方式一（推荐）：就是select的数据列只从索引中就能够取得，MySQL可以利用索引返回select列表中的字段，而不必根据索引再次读取数据文件。换句或说<strong>查询列要被所建的索引覆盖</strong>。</p>
-<p>​    理解方式二：索引是高效找到行的一个方法，但是一般数据库也能使用索引找到一个列的数据，因此它不必读取整个行。毕竟索引叶子节点存储了它们索引的数据。当能通过读取索引就可以得到想要的数据，那就不需要读取行了。一个索引包含了（或覆盖了）满足查询结果的数据就叫做覆盖索引。</p>
-<p>![Using index](<a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/Using">https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/Using</a> index.21cx30x4zjuo.jpg)</p>
-<p>注意：</p>
-<p>​    如果要使用覆盖索引，一定要注意select列表中只取出需要的列，不可select * </p>
-<p>​    因为如果将所有字段一起做索引会导致索引文件过大，查询性能下降</p>
-</li>
-<li><p>Using where</p>
-</li>
-<li><p>using join buffer</p>
-<p>使用了连接缓存</p>
-</li>
-<li><p>impossible where</p>
-<p>where子句的值总是false，不能用来获取任何元组。</p>
-</li>
-<li><p>select tables optimized away</p>
-<p>在没有GROUP BY子句的情况下，基于索引优化MIN/MAX操作或者对于MYISAM存储引擎优化COUNT(*)操作，不必等到执行阶段再计算，查询执行计划生成阶段即可完成优化。</p>
-</li>
-<li><p>distinct</p>
-<p>优化 distinct 操作，在找到第一匹配的元祖后即停止找同样值的操作。</p>
-</li>
-</ol>
-<h4 id="一个热身case"><a href="#一个热身case" class="headerlink" title="一个热身case"></a>一个热身case</h4><p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/image-20210224191718084.23egz7jnbgrk.png" alt="image-20210224191718084"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1411,7 +1313,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/dopphu/archives/">
         
-          <span class="site-state-item-count">223</span>
+          <span class="site-state-item-count">224</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

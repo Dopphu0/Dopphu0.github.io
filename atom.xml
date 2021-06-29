@@ -6,7 +6,7 @@
   <link href="https://gitee.com/dopphu/dopphu.git/atom.xml" rel="self"/>
   
   <link href="https://gitee.com/dopphu/dopphu.git/"/>
-  <updated>2021-06-29T11:50:24.274Z</updated>
+  <updated>2021-06-29T12:29:47.419Z</updated>
   <id>https://gitee.com/dopphu/dopphu.git/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://gitee.com/dopphu/dopphu.git/2021/06/29/%E8%B6%85%E8%B5%9E/hexo%E5%8D%9A%E6%96%87%E6%8A%A5%E9%94%99localhost%E4%B8%8D%E8%83%BD%E5%87%BA%E7%8E%B0/"/>
+    <id>https://gitee.com/dopphu/dopphu.git/2021/06/29/%E8%B6%85%E8%B5%9E/hexo%E5%8D%9A%E6%96%87%E6%8A%A5%E9%94%99localhost%E4%B8%8D%E8%83%BD%E5%87%BA%E7%8E%B0/</id>
+    <published>2021-06-29T12:24:42.617Z</published>
+    <updated>2021-06-29T12:29:47.419Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>hexo踩坑–报错hexoTypeError[ERR_INVALID_URL] <code>http://127.0.0.1:8000</code>拒绝访问与undefine‘load‘</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">我的hexo文章是用markdown编辑的然后推送md文件到博客上去，但是这里会有一个需要注意的点是在一些技术性的文章中在文章内容中会出现本机地址&#96;http:&#x2F;&#x2F;127.0.0.1:8000&#96;时那么这时候hexo就会报错TypeError[ERR_INVALID_URL]，网上有的文章中会说是node.js的版本的原因，需要更换到稳定版本，这个可以视各人情况而定</span><br><span class="line">另一个报错也是在技术性的文章内容中出现&#123;% load XXX %&#125;那么hexo默认为是你想要引入某个文件，这时找不到这个文件就会报错了。</span><br><span class="line">————————————————</span><br></pre></td></tr></table></figure><p>版权声明：本文为CSDN博主「近来」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<code>https://blog.csdn.net/qq_45841239/article/details/107725247</code></p><p>一下子解决我的报错，太赞了！！！感谢抱拳，不能出现导致连文章都只能写在代码框里（哈哈哈）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;strong&gt;hexo踩坑–报错hexoTypeError[ERR_INVALID_URL] &lt;code&gt;http://127.0.0.1:8000&lt;/code&gt;拒绝访问与undefine‘load‘&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlig</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Tomcat笔记</title>
@@ -466,30 +487,6 @@
     <category term="Java Language Basics" scheme="https://gitee.com/dopphu/dopphu.git/categories/Java-Language-Basics/"/>
     
     <category term="第十二章 泛型" scheme="https://gitee.com/dopphu/dopphu.git/categories/Java-Language-Basics/%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0-%E6%B3%9B%E5%9E%8B/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>11 Employee类</title>
-    <link href="https://gitee.com/dopphu/dopphu.git/2021/05/26/Java%20Language%20Basics/%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0/11%E7%AB%A0%20Employee/"/>
-    <id>https://gitee.com/dopphu/dopphu.git/2021/05/26/Java%20Language%20Basics/%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0/11%E7%AB%A0%20Employee/</id>
-    <published>2021-05-26T04:56:53.703Z</published>
-    <updated>2021-05-26T04:55:31.446Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Chapter11exer;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 定义一个Employee类</span></span><br><span class="line"><span class="comment"> *  该类包含：private成员变量name、age、birthday，其中birthday 为 MyDate 类的对象。</span></span><br><span class="line"><span class="comment"> *  并未每一个属性定义getter和setter方法</span></span><br><span class="line"><span class="comment"> *  并重写 toString() 方法输出 name、age、birthday</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> dopphu</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span> 2021-04-16 20:11</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Employee</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> MyDate birthday;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> MyDate <span class="title">getBirthday</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> birthday;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBirthday</span><span class="params">(MyDate birthday)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.birthday = birthday;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Employee&#123;&quot;</span> +</span><br><span class="line">                <span class="string">&quot;name=&#x27;&quot;</span> + name + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&quot;, birthday=&quot;</span> + birthday +</span><br><span class="line">                <span class="string">&quot;, age=&quot;</span> + age +</span><br><span class="line">                <span class="string">&#x27;&#125;&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=</summary>
-      
-    
-    
-    
-    <category term="Java Language Basics" scheme="https://gitee.com/dopphu/dopphu.git/categories/Java-Language-Basics/"/>
-    
-    <category term="第十一章 集合" scheme="https://gitee.com/dopphu/dopphu.git/categories/Java-Language-Basics/%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0-%E9%9B%86%E5%90%88/"/>
     
     
   </entry>

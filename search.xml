@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title></title>
+      <link href="/dopphu/2021/06/29/%E8%B6%85%E8%B5%9E/hexo%E5%8D%9A%E6%96%87%E6%8A%A5%E9%94%99localhost%E4%B8%8D%E8%83%BD%E5%87%BA%E7%8E%B0/"/>
+      <url>/dopphu/2021/06/29/%E8%B6%85%E8%B5%9E/hexo%E5%8D%9A%E6%96%87%E6%8A%A5%E9%94%99localhost%E4%B8%8D%E8%83%BD%E5%87%BA%E7%8E%B0/</url>
+      
+        <content type="html"><![CDATA[<p><strong>hexo踩坑–报错hexoTypeError[ERR_INVALID_URL] <code>http://127.0.0.1:8000</code>拒绝访问与undefine‘load‘</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">我的hexo文章是用markdown编辑的然后推送md文件到博客上去，但是这里会有一个需要注意的点是在一些技术性的文章中在文章内容中会出现本机地址&#96;http:&#x2F;&#x2F;127.0.0.1:8000&#96;时那么这时候hexo就会报错TypeError[ERR_INVALID_URL]，网上有的文章中会说是node.js的版本的原因，需要更换到稳定版本，这个可以视各人情况而定</span><br><span class="line">另一个报错也是在技术性的文章内容中出现&#123;% load XXX %&#125;那么hexo默认为是你想要引入某个文件，这时找不到这个文件就会报错了。</span><br><span class="line">————————————————</span><br></pre></td></tr></table></figure><p>版权声明：本文为CSDN博主「近来」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<code>https://blog.csdn.net/qq_45841239/article/details/107725247</code></p><p>一下子解决我的报错，太赞了！！！感谢抱拳，不能出现导致连文章都只能写在代码框里（哈哈哈）</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Tomcat笔记</title>
       <link href="/dopphu/2021/06/29/JavaWeb/Tomcat%E7%AC%94%E8%AE%B0/"/>
       <url>/dopphu/2021/06/29/JavaWeb/Tomcat%E7%AC%94%E8%AE%B0/</url>
