@@ -408,79 +408,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/if_else/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/if_else/" class="post-title-link" itemprop="url">if_else</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-05-05 21:42:43 / 修改时间：21:39:30" itemprop="dateCreated datePublished" datetime="2021-05-05T21:42:43+08:00">2021-05-05</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">第二章 基本语法</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只有一行的话 if...else后的大括号是可以省略的。但是不建议省略（方便后续添加语句）,没有大括号时if和else就近配对</span></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">if_else</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner scan = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> score = scan.nextInt();</span><br><span class="line">        <span class="keyword">if</span>(score&lt;<span class="number">60</span>)</span><br><span class="line">            System.out.println(<span class="string">&quot;不及格&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(score&lt;<span class="number">80</span>)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;良好&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;优秀&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        scan.close();</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/String%E7%B1%BB%E5%9E%8B%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -534,6 +461,79 @@
 
       
           <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * String类型变量的使用</span></span><br><span class="line"><span class="comment"> * 1.String属于引用数据类型，翻译为：字符串</span></span><br><span class="line"><span class="comment"> * 2.声明String类型变量时，使用一对 &quot;&quot;</span></span><br><span class="line"><span class="comment"> * 3.可以为空字符串</span></span><br><span class="line"><span class="comment"> * 4.String可以和8种基本数据类型做运算，且只能是连接运算 + //运算似乎先算左边的（没有括号的情况下）</span></span><br><span class="line"><span class="comment"> *      运算结果仍为String类型</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StringTest</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        String s1 = <span class="string">&quot;Hello ！&quot;</span>;</span><br><span class="line">        <span class="comment">// String ss = &quot;a&quot;;</span></span><br><span class="line">        System.out.println(s1+(<span class="string">&#x27;A&#x27;</span>+<span class="number">1</span>));<span class="comment">//+ ：连接运算</span></span><br><span class="line">        System.out.println(<span class="string">&#x27;a&#x27;</span>+<span class="number">1</span>+s1);</span><br><span class="line">        System.out.println(Integer.parseInt(<span class="string">&quot;123512123&quot;</span>));</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/if_else/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2021/05/05/Java%20Language%20Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0/if_else/" class="post-title-link" itemprop="url">if_else</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-05 21:42:43 / 修改时间：21:39:30" itemprop="dateCreated datePublished" datetime="2021-05-05T21:42:43+08:00">2021-05-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">第二章 基本语法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只有一行的话 if...else后的大括号是可以省略的。但是不建议省略（方便后续添加语句）,没有大括号时if和else就近配对</span></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">if_else</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner scan = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> score = scan.nextInt();</span><br><span class="line">        <span class="keyword">if</span>(score&lt;<span class="number">60</span>)</span><br><span class="line">            System.out.println(<span class="string">&quot;不及格&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(score&lt;<span class="number">80</span>)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;良好&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;优秀&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        scan.close();</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -693,6 +693,161 @@
 <p>注：只有简单卷和跨区卷可以扩展，其它的卷都不能扩展</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">作业：会建立各种分区、各种卷</span><br></pre></td></tr></table></figure>
 
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210415%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B005/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210415%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B005/" class="post-title-link" itemprop="url">20210415信息安全培训笔记05</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-26 12:28:27 / 修改时间：12:33:17" itemprop="dateCreated datePublished" datetime="2021-04-26T12:28:27+08:00">2021-04-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">信息安全培训笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a href="#1">点击</a></p>
+<p>NTFS（New Technology File System）：有分区就可以做文件系统，可以将两个分区各取一部分构成一个新的分区</p>
+<p>NTFS 权限</p>
+<ul>
+<li>NTFS文件系统</li>
+<li>设置文件权限</li>
+<li>设置文件夹权限</li>
+<li>权限的分类</li>
+</ul>
+<p>NTFS权限规则</p>
+<ul>
+<li>权限的累加</li>
+<li>拒绝权限</li>
+<li>继承权限</li>
+<li>特别的权限<ul>
+<li>特殊权限↓<ul>
+<li>读取权限的权限</li>
+<li>更改权限的权限</li>
+<li>取得所有权</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><a style="color:red;" id="1">123123</a></p>
+<p>NTFS文件系统特点</p>
+<ul>
+<li><p>提高硬盘读写性能</p>
+</li>
+<li><p>可靠性</p>
+<ul>
+<li>加密文件系统</li>
+<li>访问控制列表（ACL）</li>
+</ul>
+</li>
+<li><p>磁盘利用率</p>
+<ul>
+<li>压缩</li>
+<li>磁盘配额（磁盘空间的分配额度）</li>
+</ul>
+</li>
+</ul>
+<p>常见文件权限：</p>
+<ul>
+<li>读取数据</li>
+<li>写入数据</li>
+<li>附加数据</li>
+<li>删除</li>
+<li>执行文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">一个实验</span><br><span class="line">校长：除了不能删除，其它都可</span><br><span class="line">老师：可以增改查，不可删除</span><br><span class="line">学生：只能看</span><br><span class="line">保安：无任何权限</span><br><span class="line">e.g.</span><br><span class="line">	张三在A用户组，也在B用户组。A可以修改，B不可以修改，那么张三不可以修改（权限冲突时，say no优先（拒绝优先）；不冲突就累加）</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%8F%96%E6%B6%88%E5%8B%BE%E9%80%89%E4%BB%8E%E8%AF%A5%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%88%B6%E7%BA%A7%E7%BB%A7%E6%89%BF%E7%9A%84%E6%9D%83%E9%99%90.48naigh4m1o0.jpg" alt="取消勾选从该对象的父级继承的权限"></p>
+<p>将勾选去掉</p>
+<p>不进入文件的ACL里，就啥也干不了</p>
+<p>权限规则：</p>
+<ul>
+<li><ol>
+<li>默认继承（主要针对文件夹）</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>阻止继承</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>强制生效</li>
+</ol>
+<ul>
+<li><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%BC%BA%E5%88%B6%E7%94%9F%E6%95%88.6adl3ov1gqo0.jpg" alt="强制生效"></li>
+</ul>
+</li>
+<li><ol start="4">
+<li>权限不冲突——累加</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>权限冲突（隶属的不同组的冲突，用户和组的冲突）</li>
+</ol>
+</li>
+<li><ol start="6">
+<li>取得所有权</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">实验作业：</span><br><span class="line">公司的组织架构</span><br><span class="line">三个部门：</span><br><span class="line"></span><br><span class="line">1.技术部</span><br><span class="line"> 1）技术经理</span><br><span class="line"> 2）技术员工</span><br><span class="line">2.财务部</span><br><span class="line"> 1）财务经理</span><br><span class="line"> 2）财务员工</span><br><span class="line">3.市场部</span><br><span class="line"> 1）市场经理</span><br><span class="line"> 2）市场员工</span><br><span class="line">步骤一：命令创建，加组</span><br><span class="line">步骤二：D盘（C盘文件权限设计操作系统，十分复杂）里（只有一块硬盘，自己在虚拟机设置里再添加一块儿硬盘），经理读写，不可删除。普通员工只能查看</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%AE%9E%E9%AA%8C%E4%BD%9C%E4%B8%9A%E5%85%AC%E5%8F%B8%E6%9E%B6%E6%9E%84.4a5cjznp0kk0.jpg" alt="实验作业公司架构"></p>
 
       
     </div>
@@ -907,161 +1062,6 @@
 
 
 
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210415%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B005/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2021/04/26/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/20210415%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B005/" class="post-title-link" itemprop="url">20210415信息安全培训笔记05</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-04-26 12:28:27 / 修改时间：12:33:17" itemprop="dateCreated datePublished" datetime="2021-04-26T12:28:27+08:00">2021-04-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">信息安全培训笔记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a href="#1">点击</a></p>
-<p>NTFS（New Technology File System）：有分区就可以做文件系统，可以将两个分区各取一部分构成一个新的分区</p>
-<p>NTFS 权限</p>
-<ul>
-<li>NTFS文件系统</li>
-<li>设置文件权限</li>
-<li>设置文件夹权限</li>
-<li>权限的分类</li>
-</ul>
-<p>NTFS权限规则</p>
-<ul>
-<li>权限的累加</li>
-<li>拒绝权限</li>
-<li>继承权限</li>
-<li>特别的权限<ul>
-<li>特殊权限↓<ul>
-<li>读取权限的权限</li>
-<li>更改权限的权限</li>
-<li>取得所有权</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p><a style="color:red;" id="1">123123</a></p>
-<p>NTFS文件系统特点</p>
-<ul>
-<li><p>提高硬盘读写性能</p>
-</li>
-<li><p>可靠性</p>
-<ul>
-<li>加密文件系统</li>
-<li>访问控制列表（ACL）</li>
-</ul>
-</li>
-<li><p>磁盘利用率</p>
-<ul>
-<li>压缩</li>
-<li>磁盘配额（磁盘空间的分配额度）</li>
-</ul>
-</li>
-</ul>
-<p>常见文件权限：</p>
-<ul>
-<li>读取数据</li>
-<li>写入数据</li>
-<li>附加数据</li>
-<li>删除</li>
-<li>执行文件</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">一个实验</span><br><span class="line">校长：除了不能删除，其它都可</span><br><span class="line">老师：可以增改查，不可删除</span><br><span class="line">学生：只能看</span><br><span class="line">保安：无任何权限</span><br><span class="line">e.g.</span><br><span class="line">	张三在A用户组，也在B用户组。A可以修改，B不可以修改，那么张三不可以修改（权限冲突时，say no优先（拒绝优先）；不冲突就累加）</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%8F%96%E6%B6%88%E5%8B%BE%E9%80%89%E4%BB%8E%E8%AF%A5%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%88%B6%E7%BA%A7%E7%BB%A7%E6%89%BF%E7%9A%84%E6%9D%83%E9%99%90.48naigh4m1o0.jpg" alt="取消勾选从该对象的父级继承的权限"></p>
-<p>将勾选去掉</p>
-<p>不进入文件的ACL里，就啥也干不了</p>
-<p>权限规则：</p>
-<ul>
-<li><ol>
-<li>默认继承（主要针对文件夹）</li>
-</ol>
-</li>
-<li><ol start="2">
-<li>阻止继承</li>
-</ol>
-</li>
-<li><ol start="3">
-<li>强制生效</li>
-</ol>
-<ul>
-<li><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%BC%BA%E5%88%B6%E7%94%9F%E6%95%88.6adl3ov1gqo0.jpg" alt="强制生效"></li>
-</ul>
-</li>
-<li><ol start="4">
-<li>权限不冲突——累加</li>
-</ol>
-</li>
-<li><ol start="5">
-<li>权限冲突（隶属的不同组的冲突，用户和组的冲突）</li>
-</ol>
-</li>
-<li><ol start="6">
-<li>取得所有权</li>
-</ol>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">实验作业：</span><br><span class="line">公司的组织架构</span><br><span class="line">三个部门：</span><br><span class="line"></span><br><span class="line">1.技术部</span><br><span class="line"> 1）技术经理</span><br><span class="line"> 2）技术员工</span><br><span class="line">2.财务部</span><br><span class="line"> 1）财务经理</span><br><span class="line"> 2）财务员工</span><br><span class="line">3.市场部</span><br><span class="line"> 1）市场经理</span><br><span class="line"> 2）市场员工</span><br><span class="line">步骤一：命令创建，加组</span><br><span class="line">步骤二：D盘（C盘文件权限设计操作系统，十分复杂）里（只有一块硬盘，自己在虚拟机设置里再添加一块儿硬盘），经理读写，不可删除。普通员工只能查看</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%AE%9E%E9%AA%8C%E4%BD%9C%E4%B8%9A%E5%85%AC%E5%8F%B8%E6%9E%B6%E6%9E%84.4a5cjznp0kk0.jpg" alt="实验作业公司架构"></p>
 
       
     </div>
