@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/dopphu/images/pp.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/dopphu/images/pp.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/dopphu/images/pp.jpg">
+  <link rel="mask-icon" href="/dopphu/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/dopphu/css/main.css">
+
+
+<link rel="stylesheet" href="/dopphu/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/dopphu/lib/pace/pace-theme-big-counter.min.css">
+  <script src="/dopphu/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"gitee.com","root":"/dopphu/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="1.JavaWeb的概念a)什么是javawebJavaWeb是指，所有通过java语言编写的可以通过浏览器对象访问的程序的总称，叫javaweb JavaWeb是基于请求和相应来开发的 b)什么是请求请求是指客户端发送给服务器数据，叫请求Request c)什么是响应响应是指服务器给客户端互传数据，叫响应Response 请求和响应是成对出现的 2.Web资源的分类web资源按实现的技术和呈现的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tomcat笔记">
+<meta property="og:url" content="https://gitee.com/dopphu/dopphu.git/2021/06/29/JavaWeb/Tomcat%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Welcome to Dopphu&#39;s Blog">
+<meta property="og:description" content="1.JavaWeb的概念a)什么是javawebJavaWeb是指，所有通过java语言编写的可以通过浏览器对象访问的程序的总称，叫javaweb JavaWeb是基于请求和相应来开发的 b)什么是请求请求是指客户端发送给服务器数据，叫请求Request c)什么是响应响应是指服务器给客户端互传数据，叫响应Response 请求和响应是成对出现的 2.Web资源的分类web资源按实现的技术和呈现的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%B8%B8%E7%94%A8%E7%9A%84web%E6%9C%8D%E5%8A%A1%E5%99%A8.3guwbjdgnye0.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/Tomcat%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%92%8CServlet%E5%AF%B9%E5%BA%94%E7%89%88%E6%9C%AC.55eozbdqfno0.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/Tomcat%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6Connection%E4%BF%AE%E6%94%B9%E4%BD%BF%E7%94%A8%E7%9A%84%E7%AB%AF%E5%8F%A3%E5%8F%B7.3us6eqi3eng0.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E9%83%A8%E7%BD%B2%E5%B7%A5%E7%A8%8B%E7%9A%84%E7%AC%AC%E4%BA%8C%E7%A7%8D%E6%96%B9%E6%B3%95.17wgmejjzqe8.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E6%95%B4%E5%90%88IDEA%E5%92%8CTomcat%E6%9C%8D%E5%8A%A1%E5%99%A8.5rp9v4g0o3g0.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/IDEA%E6%B7%BB%E5%8A%A0Tomcat%E5%90%8E%E5%8F%AF%E4%BB%A5%E9%80%89%E6%8B%A9server%E4%BA%86.43ejbelp3cs0.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/IDEA%E4%B8%AD%E5%8A%A8%E6%80%81Web%E5%B7%A5%E7%A8%8B%E7%9A%84%E5%88%9B%E5%BB%BA1.6p0d9s465t80.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/IDEA%E4%B8%AD%E5%8A%A8%E6%80%81Web%E5%B7%A5%E7%A8%8B%E7%9A%84%E5%88%9B%E5%BB%BA2.5k9jtavtl9s0.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%8A%A8%E6%80%81web%E5%B7%A5%E7%A8%8B%E5%88%9B%E5%BB%BA%E6%88%90%E5%8A%9F.461jyfehix40.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E6%95%B4%E4%B8%AA%E5%8A%A8%E6%80%81web%E5%B7%A5%E7%A8%8B%E7%9B%AE%E5%BD%95%E7%9A%84%E4%BB%8B%E7%BB%8D.3axbuuxjx4s0.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%A6%82%E4%BD%95%E7%BB%99%E5%8A%A8%E6%80%81web%E5%B7%A5%E7%A8%8B%E6%B7%BB%E5%8A%A0%E9%A2%9D%E5%A4%96%E7%9A%84jar%E5%8C%85.6yr3ia7p2l40.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E4%BF%AE%E6%94%B9web%E5%B7%A5%E7%A8%8B%E5%AF%B9%E5%BA%94%E7%9A%84Tomcat%E8%BF%90%E8%A1%8C%E5%AE%9E%E4%BE%8B.26yv9vfnxcpw.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E8%BF%90%E8%A1%8CTomcat%E5%AE%9E%E4%BE%8B.10f2b826b5fk.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E9%87%8D%E6%96%B0%E5%90%AF%E5%8A%A8Tomcat%E8%BF%90%E8%A1%8C%E5%AE%9E%E4%BE%8B.15h80iqeh19c.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E4%BF%AE%E6%94%B9%E6%A8%A1%E5%9D%97%E7%9A%84%E5%B7%A5%E7%A8%8B%E8%B7%AF%E5%BE%84.57lygubtnbg0.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E4%BF%AE%E6%94%B9%E8%BF%90%E8%A1%8C%E7%AB%AF%E5%8F%A3%E5%8F%B7.41zxc7781ne0.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E9%85%8D%E7%BD%AE%E8%B5%84%E6%BA%90%E7%83%AD%E9%83%A8%E7%BD%B2.5br15eb6es80.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/Tomcat%E8%BF%90%E8%A1%8C%E5%AE%9E%E4%BE%8B%E5%AF%B9%E5%BA%94%E5%93%AA%E4%B8%AAmodule%E5%B0%B1%E5%9C%A8%E8%BF%99%E9%87%8C%E8%BF%9B%E8%A1%8C%E4%BF%AE%E6%94%B9.29p4w053x5us.jpg">
+<meta property="article:published_time" content="2021-06-29T11:45:31.080Z">
+<meta property="article:modified_time" content="2021-06-29T11:50:24.274Z">
+<meta property="article:author" content="Dopphu">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%B8%B8%E7%94%A8%E7%9A%84web%E6%9C%8D%E5%8A%A1%E5%99%A8.3guwbjdgnye0.jpg">
+
+<link rel="canonical" href="https://gitee.com/dopphu/dopphu.git/2021/06/29/JavaWeb/Tomcat%E7%AC%94%E8%AE%B0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Tomcat笔记 | Welcome to Dopphu's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/dopphu/atom.xml" title="Welcome to Dopphu's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+<a target="_blank" rel="noopener" href="https://github.com/dopphu" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/dopphu/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Welcome to Dopphu's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">dopphu.github.io</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/dopphu/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/dopphu/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/dopphu/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/dopphu/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/06/29/JavaWeb/Tomcat%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Tomcat笔记
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-06-29 19:45:31 / 修改时间：19:50:24" itemprop="dateCreated datePublished" datetime="2021-06-29T19:45:31+08:00">2021-06-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/JavaWeb/" itemprop="url" rel="index"><span itemprop="name">JavaWeb</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="1-JavaWeb的概念"><a href="#1-JavaWeb的概念" class="headerlink" title="1.JavaWeb的概念"></a>1.JavaWeb的概念</h2><h3 id="a-什么是javaweb"><a href="#a-什么是javaweb" class="headerlink" title="a)什么是javaweb"></a>a)什么是javaweb</h3><p>JavaWeb是指，所有通过java语言编写的可以通过浏览器对象访问的程序的总称，叫javaweb</p>
+<p>JavaWeb是基于请求和相应来开发的</p>
+<h3 id="b-什么是请求"><a href="#b-什么是请求" class="headerlink" title="b)什么是请求"></a>b)什么是请求</h3><p>请求是指客户端发送给服务器数据，叫请求Request</p>
+<h3 id="c-什么是响应"><a href="#c-什么是响应" class="headerlink" title="c)什么是响应"></a>c)什么是响应</h3><p>响应是指服务器给客户端互传数据，叫响应Response</p>
+<p>请求和响应是成对出现的</p>
+<h2 id="2-Web资源的分类"><a href="#2-Web资源的分类" class="headerlink" title="2.Web资源的分类"></a>2.Web资源的分类</h2><p>web资源按实现的技术和呈现的效果的不同，又分为静态资源和动态资源两种。</p>
+<p>静态资源：html、css、js、txt、mp4、jpg···</p>
+<p>动态资源：jsp页面、Servlet程序</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%B8%B8%E7%94%A8%E7%9A%84web%E6%9C%8D%E5%8A%A1%E5%99%A8.3guwbjdgnye0.jpg" alt="常用的web服务器"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/Tomcat%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%92%8CServlet%E5%AF%B9%E5%BA%94%E7%89%88%E6%9C%AC.55eozbdqfno0.jpg" alt="Tomcat服务器和Servlet对应版本"></p>
+<p>Servlet程序从2.5版本是现在市面使用最多的版本（xml配置）</p>
+<p>到了Servlet3.0之后，就是注解版本的Servlet使用</p>
+<h2 id="5-Tomcat的使用"><a href="#5-Tomcat的使用" class="headerlink" title="5.Tomcat的使用"></a>5.Tomcat的使用</h2><h3 id="a-安装"><a href="#a-安装" class="headerlink" title="a)安装"></a>a)安装</h3><p>找到你需要使用的Tomcat版本对应的zip的压缩包，解压到需要安装的目录即可。</p>
+<h3 id="b-目录介绍"><a href="#b-目录介绍" class="headerlink" title="b) 目录介绍"></a>b) 目录介绍</h3><p>bin：专门用来存放Tomcat服务器的可执行程序</p>
+<p>conf：专门用来存放Tomcat服务器的配置文件</p>
+<p>lib：专门用来存放Tomcat服务器的jar包</p>
+<p>logs：专门用来存放Tomcat服务器运行时输出的日记信息</p>
+<p>temp：专门用来存放Tomcat服务器运行时产生的临时数据</p>
+<p>webapps：专门用来存放部署的Web工程</p>
+<p>work：是Tomcat工作时的目录，用来存放Tomcat运行时jsp翻译为Servlet的源码，和session钝化的目录。（钝化：把对象<strong>序列化</strong>到磁盘）</p>
+<h3 id="c-如何启动Tomcat服务器"><a href="#c-如何启动Tomcat服务器" class="headerlink" title="c)如何启动Tomcat服务器"></a>c)如何启动Tomcat服务器</h3><p>找到Tomcat目录下的bin目录下的startup.bat文件，双击就可以启动Tomcat服务器</p>
+<p>如何测试Tomcat服务器启动成功？</p>
+<p>打开浏览器，在地址栏输入以下地址测试：</p>
+<ol>
+<li><code>http://localhost:8080</code></li>
+<li><code>http://127.0.0.1</code></li>
+<li>http://真实ip:8080</li>
+</ol>
+<p>常见的启动失败的情况有：双击startup.bat文件，就会出现一个 小黑窗口一闪而来。</p>
+<p>这个时候，失败的原因基本上都是英文没有配置好JAVA_HOME环境变量</p>
+<p>常见的JAVA_HOME配置错误有以下几种情况：</p>
+<p>一、JAVA_HOME必须全大写</p>
+<p>二、JAVA_HOME中间必须是下划线，不是减号-</p>
+<h4 id="另一种启动Tomcat服务器的方式"><a href="#另一种启动Tomcat服务器的方式" class="headerlink" title="另一种启动Tomcat服务器的方式"></a>另一种启动Tomcat服务器的方式</h4><ol>
+<li>打开命令行</li>
+<li>进入Tomcat的bin目录</li>
+<li>敲入启动命令 <code>catalina run</code> </li>
+</ol>
+<h3 id="d-Tomcat的停止"><a href="#d-Tomcat的停止" class="headerlink" title="d)Tomcat的停止"></a>d)Tomcat的停止</h3><p>方式一：关掉窗口</p>
+<p>方式二：ctrl+C</p>
+<p><strong>方式三</strong>（最常用）：找到Tomcat的bin目录下的shutdown.bat双击，就可以停止Tomcat服务器</p>
+<h3 id="e-如何修改Tomcat的端口号"><a href="#e-如何修改Tomcat的端口号" class="headerlink" title="e)如何修改Tomcat的端口号"></a>e)如何修改Tomcat的端口号</h3><p>MySQL的默认端口号是：3306</p>
+<p>Tomcat默认端口号：8080</p>
+<p>找到Tomcat目录下的conf目录，找到server.xml配置文件</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/Tomcat%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6Connection%E4%BF%AE%E6%94%B9%E4%BD%BF%E7%94%A8%E7%9A%84%E7%AB%AF%E5%8F%A3%E5%8F%B7.3us6eqi3eng0.jpg" alt="Tomcat配置文件Connection修改使用的端口号"></p>
+<p>端口号可选范围：1-65535（一般1000以内都是系统用，往1000以上或8000以上选）</p>
+<p>修改完端口号之后要重启Tomcat服务器才可以生效。</p>
+<p>平时上百度：<code>http://www.baidu.com:80</code></p>
+<p>http协议默认端口号是80</p>
+<h3 id="f-如何部署web工程到Tomcat服务器"><a href="#f-如何部署web工程到Tomcat服务器" class="headerlink" title="f)如何部署web工程到Tomcat服务器"></a>f)如何部署web工程到Tomcat服务器</h3><p>第一种方法：只需要把web工程的目录拷贝到Tomcat的webapps目录下即可。</p>
+<p>第二种方法：</p>
+<p>找到apache-tomcat-9.0.46\conf\Catalina\localhost目录，创建一个xml配置文件</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E9%83%A8%E7%BD%B2%E5%B7%A5%E7%A8%8B%E7%9A%84%E7%AC%AC%E4%BA%8C%E7%A7%8D%E6%96%B9%E6%B3%95.17wgmejjzqe8.jpg" alt="部署工程的第二种方法"></p>
+<p>（但是我失败了呜呜呜我的不知道为什么操作如下）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">02-Jun-2021 18:03:56.522 警告 [main] org.apache.catalina.startup.HostConfig.deployDescriptor 部署描述符[D:\Tomcat\apache-tomcat-9.0.46\conf\Catalina\localhost\abc.xml]中值为[/abc]的路径属性已被忽略</span><br><span class="line">02-Jun-2021 18:03:56.533 警告 [main] org.apache.catalina.startup.HostConfig.deployDescriptor 在主机appBase 中指定了docBase [D:\Tomcat\apache-tomcat-9.0.46\webapps\Book]，将被忽略</span><br><span class="line">02-Jun-2021 18:03:56.556 严重 [main] org.apache.catalina.startup.HostConfig.deployDescriptor 部署描述符[D:\Tomcat\apache-tomcat-9.0.46\conf\Catalina\localhost\abc.xml]时出错</span><br><span class="line">        java.lang.IllegalStateException: 启动子级时出错</span><br><span class="line">                at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:720)</span><br><span class="line">                at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:690)</span><br><span class="line">                at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:692)</span><br><span class="line">                at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:689)</span><br><span class="line">                at org.apache.catalina.startup.HostConfig<span class="variable">$DeployDescriptor</span>.run(HostConfig.java:1881)</span><br><span class="line">                at java.base/java.util.concurrent.Executors<span class="variable">$RunnableAdapter</span>.call(Executors.java:515)</span><br><span class="line">                at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)</span><br><span class="line">                at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)</span><br><span class="line">                at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:118)</span><br><span class="line">                at org.apache.catalina.startup.HostConfig.deployDescriptors(HostConfig.java:582)</span><br><span class="line">                at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:472)</span><br><span class="line">                at org.apache.catalina.startup.HostConfig.start(HostConfig.java:1611)</span><br><span class="line">                at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:319)</span><br><span class="line">                at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:123)</span><br><span class="line">                at org.apache.catalina.util.LifecycleBase.setStateInternal(LifecycleBase.java:423)</span><br><span class="line">                at org.apache.catalina.util.LifecycleBase.setState(LifecycleBase.java:366)</span><br><span class="line">                at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:936)</span><br><span class="line">                at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:829)</span><br><span class="line">                at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)</span><br><span class="line">                at org.apache.catalina.core.ContainerBase<span class="variable">$StartChild</span>.call(ContainerBase.java:1384)</span><br><span class="line">                at org.apache.catalina.core.ContainerBase<span class="variable">$StartChild</span>.call(ContainerBase.java:1374)</span><br><span class="line">                at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)</span><br><span class="line">                at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)</span><br><span class="line">                at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:140)</span><br><span class="line">                at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:909)</span><br><span class="line">                at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:262)</span><br><span class="line">                at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)</span><br><span class="line">                at org.apache.catalina.core.StandardService.startInternal(StandardService.java:433)</span><br><span class="line">                at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)</span><br><span class="line">                at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:930)</span><br><span class="line">                at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)</span><br><span class="line">                at org.apache.catalina.startup.Catalina.start(Catalina.java:772)</span><br><span class="line">                at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)</span><br><span class="line">                at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)</span><br><span class="line">                at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)</span><br><span class="line">                at java.base/java.lang.reflect.Method.invoke(Method.java:566)</span><br><span class="line">                at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:342)</span><br><span class="line">                at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)</span><br><span class="line">        Caused by: org.apache.catalina.LifecycleException: 无法启动组件[org.apache.catalina.webresources.StandardRoot@55dfebeb]</span><br><span class="line">                at org.apache.catalina.util.LifecycleBase.handleSubClassException(LifecycleBase.java:440)</span><br><span class="line">                at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:198)</span><br><span class="line">                at org.apache.catalina.core.StandardContext.resourcesStart(StandardContext.java:4830)</span><br><span class="line">                at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4966)</span><br><span class="line">                at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)</span><br><span class="line">                at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:717)</span><br><span class="line">                ... 37 more</span><br><span class="line">        Caused by: java.lang.IllegalArgumentException: 指定的主资源集 [D:\Tomcat\apache-tomcat-9.0.46\webapps\abc] 无效</span><br><span class="line">                at org.apache.catalina.webresources.StandardRoot.createMainResourceSet(StandardRoot.java:751)</span><br><span class="line">                at org.apache.catalina.webresources.StandardRoot.startInternal(StandardRoot.java:708)</span><br><span class="line">                at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)</span><br><span class="line">                ... 41 more</span><br></pre></td></tr></table></figure>
+
+<h3 id="h-ROOT工程的访问，以及默认index-html页面的访问"><a href="#h-ROOT工程的访问，以及默认index-html页面的访问" class="headerlink" title="h)ROOT工程的访问，以及默认index.html页面的访问"></a>h)ROOT工程的访问，以及默认index.html页面的访问</h3><p>当我们在浏览器地址栏中输入访问地址如下时：</p>
+<p><code>http://ip:port</code> ===&gt;&gt;&gt; 没有工程名的时候，默认访问的是ROOT工程</p>
+<p>当我们在浏览器地址栏中输入的访问地址如下：</p>
+<p><code>http://ip:port/工程名/</code> ===&gt;&gt;&gt; 没有资源名，默认访问index.html页面</p>
+<h2 id="6-整合IDEA和Tomcat"><a href="#6-整合IDEA和Tomcat" class="headerlink" title="6.整合IDEA和Tomcat"></a>6.整合IDEA和Tomcat</h2><p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E6%95%B4%E5%90%88IDEA%E5%92%8CTomcat%E6%9C%8D%E5%8A%A1%E5%99%A8.5rp9v4g0o3g0.jpg" alt="整合IDEA和Tomcat服务器"></p>
+<p>在此处进行添加，之后新建模块时就会看到可以选择server了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/IDEA%E6%B7%BB%E5%8A%A0Tomcat%E5%90%8E%E5%8F%AF%E4%BB%A5%E9%80%89%E6%8B%A9server%E4%BA%86.43ejbelp3cs0.jpg" alt="IDEA添加Tomcat后可以选择server了"></p>
+<h2 id="7-IDEA中动态Web工程的操作"><a href="#7-IDEA中动态Web工程的操作" class="headerlink" title="7.IDEA中动态Web工程的操作"></a>7.IDEA中动态Web工程的操作</h2><p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/IDEA%E4%B8%AD%E5%8A%A8%E6%80%81Web%E5%B7%A5%E7%A8%8B%E7%9A%84%E5%88%9B%E5%BB%BA1.6p0d9s465t80.jpg" alt="IDEA中动态Web工程的创建1"></p>
+<p>2.选择你要创建什么类型的模块</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/IDEA%E4%B8%AD%E5%8A%A8%E6%80%81Web%E5%B7%A5%E7%A8%8B%E7%9A%84%E5%88%9B%E5%BB%BA2.5k9jtavtl9s0.jpg" alt="IDEA中动态Web工程的创建2"></p>
+<p>3.之后输入名称，点击finish</p>
+<p>创建成功如下图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%8A%A8%E6%80%81web%E5%B7%A5%E7%A8%8B%E5%88%9B%E5%BB%BA%E6%88%90%E5%8A%9F.461jyfehix40.jpg" alt="动态web工程创建成功"></p>
+<h3 id="b-整个动态web工程目录的介绍"><a href="#b-整个动态web工程目录的介绍" class="headerlink" title="b)整个动态web工程目录的介绍"></a>b)整个动态web工程目录的介绍</h3><p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E6%95%B4%E4%B8%AA%E5%8A%A8%E6%80%81web%E5%B7%A5%E7%A8%8B%E7%9B%AE%E5%BD%95%E7%9A%84%E4%BB%8B%E7%BB%8D.3axbuuxjx4s0.jpg" alt="整个动态web工程目录的介绍"></p>
+<h3 id="c-如何给动态web工程添加额外的jar包"><a href="#c-如何给动态web工程添加额外的jar包" class="headerlink" title="c)如何给动态web工程添加额外的jar包"></a>c)如何给动态web工程添加额外的jar包</h3><p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%A6%82%E4%BD%95%E7%BB%99%E5%8A%A8%E6%80%81web%E5%B7%A5%E7%A8%8B%E6%B7%BB%E5%8A%A0%E9%A2%9D%E5%A4%96%E7%9A%84jar%E5%8C%85.6yr3ia7p2l40.jpg" alt="如何给动态web工程添加额外的jar包"></p>
+<h3 id="d-如何在IDEA中部署工程到Tomcat上运行"><a href="#d-如何在IDEA中部署工程到Tomcat上运行" class="headerlink" title="d)如何在IDEA中部署工程到Tomcat上运行"></a>d)如何在IDEA中部署工程到Tomcat上运行</h3><ol>
+<li>建议修改web工程对应的Tomcat运行 实例名称</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E4%BF%AE%E6%94%B9web%E5%B7%A5%E7%A8%8B%E5%AF%B9%E5%BA%94%E7%9A%84Tomcat%E8%BF%90%E8%A1%8C%E5%AE%9E%E4%BE%8B.26yv9vfnxcpw.jpg" alt="修改web工程对应的Tomcat运行实例"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E8%BF%90%E8%A1%8CTomcat%E5%AE%9E%E4%BE%8B.10f2b826b5fk.jpg" alt="运行Tomcat实例"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E9%87%8D%E6%96%B0%E5%90%AF%E5%8A%A8Tomcat%E8%BF%90%E8%A1%8C%E5%AE%9E%E4%BE%8B.15h80iqeh19c.jpg" alt="重新启动Tomcat运行实例"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E4%BF%AE%E6%94%B9%E6%A8%A1%E5%9D%97%E7%9A%84%E5%B7%A5%E7%A8%8B%E8%B7%AF%E5%BE%84.57lygubtnbg0.jpg" alt="修改模块的工程路径"></p>
+<p>修改运行端口号</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E4%BF%AE%E6%94%B9%E8%BF%90%E8%A1%8C%E7%AB%AF%E5%8F%A3%E5%8F%B7.41zxc7781ne0.jpg" alt="修改运行端口号"></p>
+<p>配置资源热部署</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E9%85%8D%E7%BD%AE%E8%B5%84%E6%BA%90%E7%83%AD%E9%83%A8%E7%BD%B2.5br15eb6es80.jpg" alt="配置资源热部署"></p>
+<p>一个小点</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/Tomcat%E8%BF%90%E8%A1%8C%E5%AE%9E%E4%BE%8B%E5%AF%B9%E5%BA%94%E5%93%AA%E4%B8%AAmodule%E5%B0%B1%E5%9C%A8%E8%BF%99%E9%87%8C%E8%BF%9B%E8%A1%8C%E4%BF%AE%E6%94%B9.29p4w053x5us.jpg" alt="Tomcat运行实例对应哪个module就在这里进行修改"></p>
+
+    </div>
+
+    
+    
+    
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/dopphu/2021/06/17/Java%20Language%20Basics/%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0/UDP%E5%8D%8F%E8%AE%AE%E7%9A%84%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" rel="prev" title="UDP协议的网络编程">
+      <i class="fa fa-chevron-left"></i> UDP协议的网络编程
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-JavaWeb%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">1.JavaWeb的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#a-%E4%BB%80%E4%B9%88%E6%98%AFjavaweb"><span class="nav-number">1.1.</span> <span class="nav-text">a)什么是javaweb</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#b-%E4%BB%80%E4%B9%88%E6%98%AF%E8%AF%B7%E6%B1%82"><span class="nav-number">1.2.</span> <span class="nav-text">b)什么是请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c-%E4%BB%80%E4%B9%88%E6%98%AF%E5%93%8D%E5%BA%94"><span class="nav-number">1.3.</span> <span class="nav-text">c)什么是响应</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Web%E8%B5%84%E6%BA%90%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">2.</span> <span class="nav-text">2.Web资源的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Tomcat%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">5.Tomcat的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#a-%E5%AE%89%E8%A3%85"><span class="nav-number">3.1.</span> <span class="nav-text">a)安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#b-%E7%9B%AE%E5%BD%95%E4%BB%8B%E7%BB%8D"><span class="nav-number">3.2.</span> <span class="nav-text">b) 目录介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c-%E5%A6%82%E4%BD%95%E5%90%AF%E5%8A%A8Tomcat%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">3.3.</span> <span class="nav-text">c)如何启动Tomcat服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%A6%E4%B8%80%E7%A7%8D%E5%90%AF%E5%8A%A8Tomcat%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="nav-number">3.3.1.</span> <span class="nav-text">另一种启动Tomcat服务器的方式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#d-Tomcat%E7%9A%84%E5%81%9C%E6%AD%A2"><span class="nav-number">3.4.</span> <span class="nav-text">d)Tomcat的停止</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#e-%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9Tomcat%E7%9A%84%E7%AB%AF%E5%8F%A3%E5%8F%B7"><span class="nav-number">3.5.</span> <span class="nav-text">e)如何修改Tomcat的端口号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#f-%E5%A6%82%E4%BD%95%E9%83%A8%E7%BD%B2web%E5%B7%A5%E7%A8%8B%E5%88%B0Tomcat%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">3.6.</span> <span class="nav-text">f)如何部署web工程到Tomcat服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#h-ROOT%E5%B7%A5%E7%A8%8B%E7%9A%84%E8%AE%BF%E9%97%AE%EF%BC%8C%E4%BB%A5%E5%8F%8A%E9%BB%98%E8%AE%A4index-html%E9%A1%B5%E9%9D%A2%E7%9A%84%E8%AE%BF%E9%97%AE"><span class="nav-number">3.7.</span> <span class="nav-text">h)ROOT工程的访问，以及默认index.html页面的访问</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E6%95%B4%E5%90%88IDEA%E5%92%8CTomcat"><span class="nav-number">4.</span> <span class="nav-text">6.整合IDEA和Tomcat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-IDEA%E4%B8%AD%E5%8A%A8%E6%80%81Web%E5%B7%A5%E7%A8%8B%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="nav-number">5.</span> <span class="nav-text">7.IDEA中动态Web工程的操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#b-%E6%95%B4%E4%B8%AA%E5%8A%A8%E6%80%81web%E5%B7%A5%E7%A8%8B%E7%9B%AE%E5%BD%95%E7%9A%84%E4%BB%8B%E7%BB%8D"><span class="nav-number">5.1.</span> <span class="nav-text">b)整个动态web工程目录的介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c-%E5%A6%82%E4%BD%95%E7%BB%99%E5%8A%A8%E6%80%81web%E5%B7%A5%E7%A8%8B%E6%B7%BB%E5%8A%A0%E9%A2%9D%E5%A4%96%E7%9A%84jar%E5%8C%85"><span class="nav-number">5.2.</span> <span class="nav-text">c)如何给动态web工程添加额外的jar包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#d-%E5%A6%82%E4%BD%95%E5%9C%A8IDEA%E4%B8%AD%E9%83%A8%E7%BD%B2%E5%B7%A5%E7%A8%8B%E5%88%B0Tomcat%E4%B8%8A%E8%BF%90%E8%A1%8C"><span class="nav-number">5.3.</span> <span class="nav-text">d)如何在IDEA中部署工程到Tomcat上运行</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dopphu"
+      src="/dopphu/images/dopphu.jpg">
+  <p class="site-author-name" itemprop="name">Dopphu</p>
+  <div class="site-description" itemprop="description">欢迎大家扫描二维码，关注我的微信公众号</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/dopphu/archives/">
+        
+          <span class="site-state-item-count">223</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/dopphu/categories/">
+          
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/dopphu/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://doyyli.github.io/" title="https:&#x2F;&#x2F;doyyli.github.io" rel="noopener" target="_blank">洋洋小伙伴</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dopphu</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/dopphu/lib/anime.min.js"></script>
+  <script src="/dopphu/lib/velocity/velocity.min.js"></script>
+  <script src="/dopphu/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/dopphu/js/utils.js"></script>
+
+<script src="/dopphu/js/motion.js"></script>
+
+
+<script src="/dopphu/js/schemes/pisces.js"></script>
+
+
+<script src="/dopphu/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/dopphu/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

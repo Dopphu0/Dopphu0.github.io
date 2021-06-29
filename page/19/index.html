@@ -189,6 +189,75 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/02/05/06%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2021/02/05/06%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2/" class="post-title-link" itemprop="url">06分组查询</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-02-05 13:41:39 / 修改时间：17:40:37" itemprop="dateCreated datePublished" datetime="2021-02-05T13:41:39+08:00">2021-02-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">数据库学习</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#进阶5：分组查询</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	select 分组函数,列(要求出现在group by的后面)</span></span><br><span class="line"><span class="comment">	from 表</span></span><br><span class="line"><span class="comment">	[where 筛选条件]</span></span><br><span class="line"><span class="comment">	group by 分组的列表</span></span><br><span class="line"><span class="comment">	[order by 子句]</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">	注意：查询列表必须特殊，要求是分组函数和group by后面出现的字段</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">	特点：</span></span><br><span class="line"><span class="comment">		1.分组查询的筛选条件可以分为两类</span></span><br><span class="line"><span class="comment">			——分组前筛选	原始表	where（group by前）</span></span><br><span class="line"><span class="comment">			——分组后筛选	分组后的结果集	having（group by后）</span></span><br><span class="line"><span class="comment">		    分组函数做条件肯定是放在having子句中</span></span><br><span class="line"><span class="comment">		    能用分组前筛选优先使用分组前筛选</span></span><br><span class="line"><span class="comment">		2.group by子句支持单个字段分组，多个字段分组（多个字段之间用逗号隔开且没有顺序要求），表达式或函数分组（使用较少）</span></span><br><span class="line"><span class="comment">		3.也可以添加排序（排序放在整个分组查询的最后）</span></span><br><span class="line"><span class="comment">		</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">#引入：查询每个部门的平均工资</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">AVG</span>(salary) <span class="keyword">FROM</span> employees;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">AVG</span>(salary) <span class="keyword">AS</span> 平均工资,department_id</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> department_id;</span><br><span class="line"><span class="comment">#案例1：每个工种的最高工资</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MAX</span>(salary),job_id</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> job_id;</span><br><span class="line"></span><br><span class="line"><span class="comment">#案例2：每个位置上的部门个数</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*),location_id</span><br><span class="line"><span class="keyword">FROM</span> departments</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> location_id;</span><br><span class="line"></span><br><span class="line"><span class="comment">#添加筛选条件</span></span><br><span class="line"><span class="comment">#案例1：查询邮箱中包含a字符的，每个部门的平均工资</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">AVG</span>(salary),department_id</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> email <span class="keyword">LIKE</span> <span class="string">&#x27;%a%&#x27;</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> department_id;</span><br><span class="line"></span><br><span class="line"><span class="comment">#案例2：查询每个领导手下有奖金的员工的最高工资</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MAX</span>(salary),manager_id</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> commission_pct <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="literal">NULL</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> manager_id;</span><br><span class="line"></span><br><span class="line"><span class="comment">#添加复杂的筛选条件，分组后的筛选</span></span><br><span class="line"><span class="comment">#案例1：查询哪个部门的员工个数&gt;2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#1.查询每个部门的员工个数</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*),department_id</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> department_id;</span><br><span class="line"><span class="comment">#2.根据1的结果进行筛选，查询哪个部门的员工个数&gt;2</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*),department_id</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> department_id</span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">COUNT</span>(*)&gt;<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#案例2：每个工种有奖金的员工的最高工资&gt;12000的工种编号和最高工资</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#1.查询每个工种有奖金的员工的最高工资</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MAX</span>(salary),job_id</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> commission_pct <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="literal">NULL</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> job_id;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> job_id <span class="keyword">FROM</span> employees;</span><br><span class="line"><span class="comment">#2.根据1的结果继续筛选，最高工资&gt;12000</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MAX</span>(salary),job_id</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> commission_pct <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="literal">NULL</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> job_id</span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">MAX</span>(salary)&gt;<span class="number">12000</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#案例3：查询领导编号大于102的每个领导手下的最低工资&gt;5000的领导编号是哪个，以及其最低工资</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MIN</span>(salary),manager_id</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> manager_id&gt;<span class="number">102</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> manager_id</span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">MIN</span>(salary)&gt;<span class="number">5000</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#按表达式或函数分组</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#案例：按员工姓名的长度分组，查询每一组员工的个数，筛选员工个数&gt;5的有哪些</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*) 员工个数,<span class="keyword">LENGTH</span>(last_name) 长度</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">LENGTH</span>(last_name)</span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">COUNT</span>(*)&gt;<span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*) 员工个数,<span class="keyword">LENGTH</span>(last_name) 长度</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> 长度</span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">COUNT</span>(*)&gt;<span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#按多个字段分组</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#案例：每个部门、每个工种的平均工资</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">AVG</span>(salary),department_id,job_id</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> department_id,job_id;	<span class="comment">#两者一致编为一组</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#添加排序</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#查询每个部门、每个工种的员工的平均工资，并且按照平均工资由高到低排序</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">AVG</span>(salary),department_id,job_id</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> department_id <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>		<span class="comment">#可以加上筛选试试</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> department_id,job_id</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">AVG</span>(salary) <span class="keyword">DESC</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#习题</span></span><br><span class="line"><span class="comment">#题目1：查询各job_id的员工的最大值、最小值、平均值、总和，并按job_id升序</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MIN</span>(salary) 最小值,<span class="keyword">MAX</span>(salary) 最大值,<span class="keyword">AVG</span>(salary) 平均值,<span class="keyword">SUM</span>(salary) 总和,job_id </span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> job_id</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> job_id;</span><br><span class="line"><span class="comment">#题目2：查询员工最高工资和最低工资的差距（DIFFERENCE）</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MAX</span>(salary)-<span class="keyword">MIN</span>(salary) <span class="keyword">difference</span></span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br><span class="line"><span class="comment">#题目3：查询各个管理者手下员工的最低工资，其中最低工资不能低于6000，没有管理者的员工不计算在内</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MIN</span>(salary)</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> manager_id <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="literal">NULL</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> manager_id </span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">MIN</span>(salary)&gt;=<span class="number">6000</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#题目4：查询所有部门的编号，员工数量，平均工资并按照平均工资降序</span></span><br><span class="line"><span class="keyword">SELECT</span> department_id,<span class="keyword">COUNT</span>(*),<span class="keyword">AVG</span>(salary)</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> department_id</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">AVG</span>(salary) <span class="keyword">DESC</span>;</span><br><span class="line"><span class="comment">#题目5：各个job_id的员工人数</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*),job_id</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> job_id;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/02/05/05%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1016,68 +1085,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2020/12/07/crc/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2020/12/07/crc/" class="post-title-link" itemprop="url">crc</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-12-07 22:08:01 / 修改时间：22:09:54" itemprop="dateCreated datePublished" datetime="2020-12-07T22:08:01+08:00">2020-12-07</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> binascii</span><br><span class="line"><span class="keyword">import</span> struct</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">file = input(<span class="string">&quot;图片地址：&quot;</span>)</span><br><span class="line">fr = open(file,<span class="string">&#x27;rb&#x27;</span>).read()</span><br><span class="line">data = bytearray(fr[<span class="number">0x0c</span>:<span class="number">0x1d</span>])</span><br><span class="line">crc32key = eval(<span class="string">&#x27;0x&#x27;</span>+str(binascii.b2a_hex(fr[<span class="number">0x1d</span>:<span class="number">0x21</span>]))[<span class="number">2</span>:<span class="number">-1</span>])</span><br><span class="line"><span class="comment">#原来的代码: crc32key = eval(str(fr[29:33]).replace(&#x27;\\x&#x27;,&#x27;&#x27;).replace(&quot;b&#x27;&quot;,&#x27;0x&#x27;).replace(&quot;&#x27;&quot;,&#x27;&#x27;))</span></span><br><span class="line">n = <span class="number">4095</span></span><br><span class="line"><span class="keyword">for</span> w <span class="keyword">in</span> range(n):</span><br><span class="line">    width = bytearray(struct.pack(<span class="string">&#x27;&gt;i&#x27;</span>, w))</span><br><span class="line">    <span class="keyword">for</span> h <span class="keyword">in</span> range(n):</span><br><span class="line">        height = bytearray(struct.pack(<span class="string">&#x27;&gt;i&#x27;</span>, h))</span><br><span class="line">        <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">4</span>):</span><br><span class="line">            data[x+<span class="number">4</span>] = width[x]</span><br><span class="line">            data[x+<span class="number">8</span>] = height[x]</span><br><span class="line">        crc32result = binascii.crc32(data) &amp; <span class="number">0xffffffff</span></span><br><span class="line">        <span class="keyword">if</span> crc32result == crc32key:</span><br><span class="line">            print(width,height)</span><br><span class="line">            newpic = bytearray(fr)</span><br><span class="line">            <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">4</span>):</span><br><span class="line">                newpic[x+<span class="number">16</span>] = width[x]</span><br><span class="line">                newpic[x+<span class="number">20</span>] = height[x]</span><br><span class="line">            fw = open(file+<span class="string">&#x27;.png&#x27;</span>,<span class="string">&#x27;wb&#x27;</span>)</span><br><span class="line">            fw.write(newpic)</span><br><span class="line">            fw.close</span><br><span class="line">            sys.exit()</span><br></pre></td></tr></table></figure>
-
-<p>转载地址：</p>
-<p><a target="_blank" rel="noopener" href="https://h3110w0r1d.com/archives/128/">https://h3110w0r1d.com/archives/128/</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1149,14 +1156,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/dopphu/archives/">
         
-          <span class="site-state-item-count">222</span>
+          <span class="site-state-item-count">223</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/dopphu/categories/">
           
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">

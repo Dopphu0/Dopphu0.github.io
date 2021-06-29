@@ -189,6 +189,68 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2020/12/07/crc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2020/12/07/crc/" class="post-title-link" itemprop="url">crc</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-12-07 22:08:01 / 修改时间：22:09:54" itemprop="dateCreated datePublished" datetime="2020-12-07T22:08:01+08:00">2020-12-07</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> binascii</span><br><span class="line"><span class="keyword">import</span> struct</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">file = input(<span class="string">&quot;图片地址：&quot;</span>)</span><br><span class="line">fr = open(file,<span class="string">&#x27;rb&#x27;</span>).read()</span><br><span class="line">data = bytearray(fr[<span class="number">0x0c</span>:<span class="number">0x1d</span>])</span><br><span class="line">crc32key = eval(<span class="string">&#x27;0x&#x27;</span>+str(binascii.b2a_hex(fr[<span class="number">0x1d</span>:<span class="number">0x21</span>]))[<span class="number">2</span>:<span class="number">-1</span>])</span><br><span class="line"><span class="comment">#原来的代码: crc32key = eval(str(fr[29:33]).replace(&#x27;\\x&#x27;,&#x27;&#x27;).replace(&quot;b&#x27;&quot;,&#x27;0x&#x27;).replace(&quot;&#x27;&quot;,&#x27;&#x27;))</span></span><br><span class="line">n = <span class="number">4095</span></span><br><span class="line"><span class="keyword">for</span> w <span class="keyword">in</span> range(n):</span><br><span class="line">    width = bytearray(struct.pack(<span class="string">&#x27;&gt;i&#x27;</span>, w))</span><br><span class="line">    <span class="keyword">for</span> h <span class="keyword">in</span> range(n):</span><br><span class="line">        height = bytearray(struct.pack(<span class="string">&#x27;&gt;i&#x27;</span>, h))</span><br><span class="line">        <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">4</span>):</span><br><span class="line">            data[x+<span class="number">4</span>] = width[x]</span><br><span class="line">            data[x+<span class="number">8</span>] = height[x]</span><br><span class="line">        crc32result = binascii.crc32(data) &amp; <span class="number">0xffffffff</span></span><br><span class="line">        <span class="keyword">if</span> crc32result == crc32key:</span><br><span class="line">            print(width,height)</span><br><span class="line">            newpic = bytearray(fr)</span><br><span class="line">            <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">4</span>):</span><br><span class="line">                newpic[x+<span class="number">16</span>] = width[x]</span><br><span class="line">                newpic[x+<span class="number">20</span>] = height[x]</span><br><span class="line">            fw = open(file+<span class="string">&#x27;.png&#x27;</span>,<span class="string">&#x27;wb&#x27;</span>)</span><br><span class="line">            fw.write(newpic)</span><br><span class="line">            fw.close</span><br><span class="line">            sys.exit()</span><br></pre></td></tr></table></figure>
+
+<p>转载地址：</p>
+<p><a target="_blank" rel="noopener" href="https://h3110w0r1d.com/archives/128/">https://h3110w0r1d.com/archives/128/</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2020/10/11/2022%E8%80%83%E7%A0%94/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -897,83 +959,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2020/09/01/C++%E7%9A%84%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E7%AC%A6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2020/09/01/C++%E7%9A%84%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E7%AC%A6/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-09-01 22:42:41" itemprop="dateCreated datePublished" datetime="2020-09-01T22:42:41+08:00">2020-09-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-15 11:18:24" itemprop="dateModified" datetime="2020-08-15T11:18:24+08:00">2020-08-15</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="C-的类型转换符"><a href="#C-的类型转换符" class="headerlink" title="C++的类型转换符"></a>C++的类型转换符</h1><h2 id="static-cast"><a href="#static-cast" class="headerlink" title="static_cast"></a>static_cast</h2><p>基于内容的数据类型的转换，比较安全。例子：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">float</span> b = <span class="keyword">static_cast</span>&lt;<span class="keyword">float</span>&gt;(a);</span><br></pre></td></tr></table></figure>
-
-<h2 id="reinterpret-cast"><a href="#reinterpret-cast" class="headerlink" title="reinterpret_cast"></a>reinterpret_cast</h2><p>me：转换指针。教材截图很详细：</p>
-<p><img src="https://www.zx95.net/images/2020/08/15/image.png" alt="image.png"></p>
-<p>关于<code>void指针</code></p>
-<p><img src="https://www.zx95.net/images/2020/08/15/imagef422763dea9751f2.png" alt="imagef422763dea9751f2.png"></p>
-<p>小总结：</p>
-<p><img src="https://www.zx95.net/images/2020/08/15/image01be536d2496c6cb.png" alt="image01be536d2496c6cb.png"></p>
-<h2 id="const-cast"><a href="#const-cast" class="headerlink" title="const_cast"></a>const_cast</h2><p>通俗的说，<code>const_cast</code>可以将数据类型中的 <code>const</code> 属性去除。它可以将常指针转换为普通指针，将常引用转换为普通引用。例如：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> *cp)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> *p = <span class="keyword">const_cast</span>&lt;<span class="keyword">int</span>*&gt;(cp);</span><br><span class="line">    (*p)++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>foo函数“出尔反尔”。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1045,14 +1030,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/dopphu/archives/">
         
-          <span class="site-state-item-count">222</span>
+          <span class="site-state-item-count">223</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/dopphu/categories/">
           
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
