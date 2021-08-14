@@ -189,6 +189,75 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/02/15/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E8%A7%81%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2021/02/15/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E8%A7%81%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="post-title-link" itemprop="url">数据库常见数据类型</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-02-15 11:30:37 / 修改时间：11:29:59" itemprop="dateCreated datePublished" datetime="2021-02-15T11:30:37+08:00">2021-02-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">数据库学习</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#常见的数据类型</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">数值型：</span></span><br><span class="line"><span class="comment">	整型</span></span><br><span class="line"><span class="comment">	小数：</span></span><br><span class="line"><span class="comment">		定点型</span></span><br><span class="line"><span class="comment">		浮点型</span></span><br><span class="line"><span class="comment">字符型：</span></span><br><span class="line"><span class="comment">	较短的文本：char、varchar</span></span><br><span class="line"><span class="comment">	较长的文本：text、blob（较长的二进制数据）</span></span><br><span class="line"><span class="comment">日期型</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#1.整型</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">分类：</span></span><br><span class="line"><span class="comment">	Tinyint			1字节</span></span><br><span class="line"><span class="comment">	Smallint		2字节</span></span><br><span class="line"><span class="comment">	Mediumint		3字节</span></span><br><span class="line"><span class="comment">	Int、integer		4字节</span></span><br><span class="line"><span class="comment">	Bigint			8字节</span></span><br><span class="line"><span class="comment">特点：</span></span><br><span class="line"><span class="comment">	1.默认有符号，无符号需添加关键字unsigned。</span></span><br><span class="line"><span class="comment">	2.插入值超出类型范围会警告（out of range），并且插入值自动变为临界值。</span></span><br><span class="line"><span class="comment">	3.如果不设置长度，会有默认长度（括号中的数字代表域宽而不是数字范围，与零填充有关）</span></span><br><span class="line"><span class="comment">	zerofill 零填充（默认就不支持负数了）</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">#1.如何设置无符号和有符号</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> test_int;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> test_int(</span><br><span class="line">	d1 <span class="built_in">INT</span>(<span class="number">7</span>) ZEROFILL </span><br><span class="line">);</span><br><span class="line">DESC test_int;</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> test_int </span><br><span class="line"><span class="keyword">VALUES</span>(<span class="number">123</span>);</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> test_int;<span class="comment">#显示为0（超过无符号的下界）</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#二、小数</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	分类：</span></span><br><span class="line"><span class="comment">		1.浮点型：</span></span><br><span class="line"><span class="comment">			1.float(M,D)</span></span><br><span class="line"><span class="comment">			2.double(M,D)</span></span><br><span class="line"><span class="comment">		2.定点型：</span></span><br><span class="line"><span class="comment">			dec(M,D);</span></span><br><span class="line"><span class="comment">			decimal(M,D);</span></span><br><span class="line"><span class="comment">		特点：</span></span><br><span class="line"><span class="comment">		1.M和D</span></span><br><span class="line"><span class="comment">			M:整数和小数的总长度</span></span><br><span class="line"><span class="comment">			D:小数位</span></span><br><span class="line"><span class="comment">			如果超过范围，则插入临界值</span></span><br><span class="line"><span class="comment">		2.M和D都可以省略</span></span><br><span class="line"><span class="comment">			如果decimal则M默认为10，D默认为0</span></span><br><span class="line"><span class="comment">			如果float和double，则根据插入数据的精度来决定精度。</span></span><br><span class="line"><span class="comment">		3.定点型精度较高，如货币运算中使用</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> tab_float(</span><br><span class="line">	f1 <span class="built_in">FLOAT</span>(<span class="number">5</span>,<span class="number">2</span>),</span><br><span class="line">	f2 <span class="keyword">DOUBLE</span>(<span class="number">5</span>,<span class="number">2</span>),</span><br><span class="line">	f3 <span class="built_in">DEC</span>(<span class="number">5</span>,<span class="number">2</span>)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> tab_float2(</span><br><span class="line">	f1 <span class="built_in">FLOAT</span>,</span><br><span class="line">	f2 <span class="keyword">DOUBLE</span>,</span><br><span class="line">	f3 <span class="built_in">DEC</span></span><br><span class="line">);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tab_float2 <span class="keyword">VALUES</span>(<span class="number">1123.45</span>,<span class="number">1123.45</span>,<span class="number">1123.45</span>);</span><br><span class="line">DESC tab_float2;</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> tab_float;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">TABLES</span></span><br><span class="line"><span class="comment">#原则：</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	所选择的类型越简单越好，保存数值的情况下越小越好</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#三、字符型</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	较短的文本：</span></span><br><span class="line"><span class="comment">		char</span></span><br><span class="line"><span class="comment">		varchar</span></span><br><span class="line"><span class="comment">		两者的区别		M的含义				空间消耗	效率</span></span><br><span class="line"><span class="comment">	固定长度-	char(M)		最大字符数(可以省略，默认为1)	比较耗费	高</span></span><br><span class="line"><span class="comment">	可变长度-	varchar(M)	最大字符数(不能省略)		比较节省	低</span></span><br><span class="line"><span class="comment">	较长的文本：</span></span><br><span class="line"><span class="comment">		text</span></span><br><span class="line"><span class="comment">		blob（较大的二进制）</span></span><br><span class="line"><span class="comment">		binary和varbinary用于保存二进制</span></span><br><span class="line"><span class="comment">		enum(枚举)</span></span><br><span class="line"><span class="comment">		set</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> tab_char(</span><br><span class="line">	c1 ENUM(<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tab_char</span><br><span class="line"><span class="keyword">VALUES</span>(<span class="string">&#x27;a&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tab_char</span><br><span class="line"><span class="keyword">VALUES</span>(<span class="string">&#x27;b&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tab_char</span><br><span class="line"><span class="keyword">VALUES</span>(<span class="string">&#x27;c&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tab_char</span><br><span class="line"><span class="keyword">VALUES</span>(<span class="string">&#x27;aasd&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tab_char</span><br><span class="line"><span class="keyword">VALUES</span>(<span class="string">&#x27;A&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> tab_char;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> tab_set(</span><br><span class="line">	s1 <span class="keyword">SET</span>(<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>,<span class="string">&#x27;d&#x27;</span>)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tab_set <span class="keyword">VALUES</span>(<span class="string">&#x27;a&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tab_set <span class="keyword">VALUES</span>(<span class="string">&#x27;a,b,c&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tab_set <span class="keyword">VALUES</span>(<span class="string">&#x27;abc&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> tab_set</span><br><span class="line"></span><br><span class="line"><span class="comment">#四、日期型</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	date只保存日期</span></span><br><span class="line"><span class="comment">	time只保存时间</span></span><br><span class="line"><span class="comment">	datetime保存日期+时间（8字节）1000-9999</span></span><br><span class="line"><span class="comment">	year只保存年</span></span><br><span class="line"><span class="comment">	timestamp(与时区有关，受MySQL和SQLMode的影响)（4字节）1970-2038</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> test_date(</span><br><span class="line">	t1 DATETIME,</span><br><span class="line">	t2 <span class="built_in">TIMESTAMP</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> test_date</span><br><span class="line"><span class="keyword">VALUES</span>(<span class="keyword">NOW</span>(),<span class="keyword">NOW</span>());</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> test_date;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">VARIABLES</span> <span class="keyword">LIKE</span> <span class="string">&#x27;time_zone&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SET</span> <span class="keyword">time_zone</span> = <span class="string">&#x27;+9:00&#x27;</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/02/15/DDL01/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -810,90 +879,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/01/23/%E4%BD%A0%E8%BF%98%E5%9C%A8%E8%83%8C%E5%8D%95%E8%AF%8D%E4%B9%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2021/01/23/%E4%BD%A0%E8%BF%98%E5%9C%A8%E8%83%8C%E5%8D%95%E8%AF%8D%E4%B9%88/" class="post-title-link" itemprop="url">你还在背单词吗？</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-01-23 13:55:01 / 修改时间：13:54:39" itemprop="dateCreated datePublished" datetime="2021-01-23T13:55:01+08:00">2021-01-23</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="记单词的方法"><a href="#记单词的方法" class="headerlink" title="记单词的方法"></a>记单词的方法</h2><p>$ 会写的词 形容人的都要会写</p>
-<h3 id="1-联想法"><a href="#1-联想法" class="headerlink" title="1.联想法"></a>1.联想法</h3><p>Vigorous    精力充沛的 </p>
-<p>Trivial    琐碎的 </p>
-<p>Moderate   中庸的，适度的</p>
-<p>isolate   使孤独，使孤立</p>
-<p>$ Caricature（me：汽车爱上猫）  漫画</p>
-<h3 id="2-编故事法"><a href="#2-编故事法" class="headerlink" title="2.编故事法"></a>2.编故事法</h3><p>grope    摸索着做某事，试图做某事</p>
-<p>grain    谷物，谷粒    </p>
-<p>glitter    发光闪光v （me:垃圾前（litter）的哥哥（g）→ 两者对比，哥哥像发着光 →发光、闪光）</p>
-<p>grace    优雅</p>
-<p>$ graceful    优雅的</p>
-<h3 id="3-词根词缀法"><a href="#3-词根词缀法" class="headerlink" title="3.词根词缀法"></a>3.词根词缀法</h3><p><strong>表示人的所有后缀</strong></p>
-<p>-er——beginner；observer</p>
-<p>-or——doctor；collector；instructor</p>
-<p>-ist/ian——artist；journalist</p>
-<h3 id="4-谐音法"><a href="#4-谐音法" class="headerlink" title="4.谐音法"></a>4.谐音法</h3><p>Quest    请求要求 in quest of</p>
-<p>Flee    逃跑v</p>
-<p>Cease    死亡；终止；暂停；n/v</p>
-<p>Champion    冠军</p>
-<p>Chill    寒冷的</p>
-<p>curse    诅咒 cursed被诅咒的</p>
-<p>Ambition    野心；</p>
-<h3 id="5-形近对照发"><a href="#5-形近对照发" class="headerlink" title="5.形近对照发"></a>5.形近对照发</h3><p>Topic</p>
-<p>tropic    热带n</p>
-<p>Brush    刷子，画笔</p>
-<p>bush     灌木丛</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -965,14 +950,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/dopphu/archives/">
         
-          <span class="site-state-item-count">229</span>
+          <span class="site-state-item-count">230</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/dopphu/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
