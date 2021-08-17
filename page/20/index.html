@@ -681,6 +681,91 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/01/15/day01MySql%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dopphu/2021/01/15/day01MySql%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">MySql命令初见</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-01-15 13:38:38 / 修改时间：13:50:02" itemprop="dateCreated datePublished" datetime="2021-01-15T13:38:38+08:00">2021-01-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/dopphu/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">数据库学习</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="MySql常见命令"><a href="#MySql常见命令" class="headerlink" title="MySql常见命令"></a>MySql常见命令</h1><p>实例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ show databases; <span class="comment"># 命令以&quot;;&quot;（推荐）或&quot;\g&quot;结尾</span></span><br><span class="line">$ use <span class="built_in">test</span>;</span><br><span class="line">$ show tables;</span><br><span class="line">$ show tables from mysql; <span class="comment"># 此时还在test数据库中，只是查看一下mysql数据库中的表</span></span><br><span class="line">$ select database(); <span class="comment"># 查看当前所在数据库</span></span><br><span class="line">$ create table stuinfo(...); <span class="comment"># 创建一个表 省略号中添加具体字段信息</span></span><br><span class="line">$ desc stuinfo; <span class="comment"># 查看表的结构 stuinfo是一个表名</span></span><br><span class="line">$ select * from stuinfo; <span class="comment"># 查看表中数据</span></span><br><span class="line">$ select version(); <span class="comment"># 查看数据库服务端版本 或者Dos命令：mysql -V(注意：是大写V)</span></span><br></pre></td></tr></table></figure>
+
+<p>创建表的摸吧版写法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ create table 表名(</span><br><span class="line">	列名 列类型,</span><br><span class="line">	列明 列类型,</span><br><span class="line">	...</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>语法规范：</p>
+<ul>
+<li>不区分大小写，但建议关键字大写，表名、列名小写。</li>
+<li>每条命令最好用分号结尾。</li>
+<li>每条命令根据需要，可以进行缩进或换行。建议关键字单独一行。</li>
+<li>注释：<ul>
+<li>单行注释：#注释文字</li>
+<li>单行注释：– 注释文字（注意有“–”后有空格）</li>
+<li>多行注释：/* 注释文字 */</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/01/15/day01/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -778,91 +863,6 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ mysql -u root -p</span><br><span class="line">$ mysql -h localhost -P 3306 -u root -p</span><br><span class="line"><span class="comment"># 直接加密码</span></span><br><span class="line">$ mysql -h localhost -P 3306 -u root -proot</span><br></pre></td></tr></table></figure>
 
 <p>注：3306为端口号。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/01/15/day01MySql%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dopphu/2021/01/15/day01MySql%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">MySql命令初见</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-01-15 13:38:38 / 修改时间：13:50:02" itemprop="dateCreated datePublished" datetime="2021-01-15T13:38:38+08:00">2021-01-15</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">数据库学习</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="MySql常见命令"><a href="#MySql常见命令" class="headerlink" title="MySql常见命令"></a>MySql常见命令</h1><p>实例：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ show databases; <span class="comment"># 命令以&quot;;&quot;（推荐）或&quot;\g&quot;结尾</span></span><br><span class="line">$ use <span class="built_in">test</span>;</span><br><span class="line">$ show tables;</span><br><span class="line">$ show tables from mysql; <span class="comment"># 此时还在test数据库中，只是查看一下mysql数据库中的表</span></span><br><span class="line">$ select database(); <span class="comment"># 查看当前所在数据库</span></span><br><span class="line">$ create table stuinfo(...); <span class="comment"># 创建一个表 省略号中添加具体字段信息</span></span><br><span class="line">$ desc stuinfo; <span class="comment"># 查看表的结构 stuinfo是一个表名</span></span><br><span class="line">$ select * from stuinfo; <span class="comment"># 查看表中数据</span></span><br><span class="line">$ select version(); <span class="comment"># 查看数据库服务端版本 或者Dos命令：mysql -V(注意：是大写V)</span></span><br></pre></td></tr></table></figure>
-
-<p>创建表的摸吧版写法：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ create table 表名(</span><br><span class="line">	列名 列类型,</span><br><span class="line">	列明 列类型,</span><br><span class="line">	...</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-
-<p>语法规范：</p>
-<ul>
-<li>不区分大小写，但建议关键字大写，表名、列名小写。</li>
-<li>每条命令最好用分号结尾。</li>
-<li>每条命令根据需要，可以进行缩进或换行。建议关键字单独一行。</li>
-<li>注释：<ul>
-<li>单行注释：#注释文字</li>
-<li>单行注释：– 注释文字（注意有“–”后有空格）</li>
-<li>多行注释：/* 注释文字 */</li>
-</ul>
-</li>
-</ul>
 
       
     </div>
