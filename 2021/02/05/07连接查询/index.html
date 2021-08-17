@@ -1,27 +1,12 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.1.1">
-  <link rel="apple-touch-icon" sizes="180x180" href="/dopphu/images/pp.jpg">
-  <link rel="icon" type="image/png" sizes="32x32" href="/dopphu/images/pp.jpg">
-  <link rel="icon" type="image/png" sizes="16x16" href="/dopphu/images/pp.jpg">
-  <link rel="mask-icon" href="/dopphu/images/logo.svg" color="#222">
+  <meta charset="utf-8">
+  
 
-<link rel="stylesheet" href="/dopphu/css/main.css">
-
-
-<link rel="stylesheet" href="/dopphu/lib/font-awesome/css/all.min.css">
-  <link rel="stylesheet" href="/dopphu/lib/pace/pace-theme-big-counter.min.css">
-  <script src="/dopphu/lib/pace/pace.min.js"></script>
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"gitee.com","root":"/dopphu/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
-
+  
+  <title>07连接查询 | Welcome to Dopphu&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
 <meta property="og:type" content="article">
 <meta property="og:title" content="07连接查询">
@@ -33,441 +18,228 @@
 <meta property="article:modified_time" content="2021-02-05T09:40:44.478Z">
 <meta property="article:author" content="Dopphu">
 <meta name="twitter:card" content="summary">
-
-<link rel="canonical" href="https://gitee.com/dopphu/dopphu.git/2021/02/05/07%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
-</script>
-
-  <title>07连接查询 | Welcome to Dopphu's Blog</title>
   
+    <link rel="alternate" href="/dopphu/atom.xml" title="Welcome to Dopphu&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/dopphu/css/style.css">
 
+<meta name="generator" content="Hexo 5.1.1"></head>
 
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-<link rel="alternate" href="/dopphu/atom.xml" title="Welcome to Dopphu's Blog" type="application/atom+xml">
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-<a target="_blank" rel="noopener" href="https://github.com/dopphu" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/dopphu/" id="logo">Welcome to Dopphu&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/dopphu/">Home</a>
+        
+          <a class="main-nav-link" href="/dopphu/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/dopphu/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://gitee.com/dopphu/dopphu.git"></form>
+      </div>
     </div>
   </div>
-
-  <div class="site-meta">
-
-    <a href="/dopphu/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Welcome to Dopphu's Blog</h1>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-      <p class="site-subtitle" itemprop="description">dopphu.github.io</p>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-        <i class="fa fa-search fa-fw fa-lg"></i>
-    </div>
-  </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/dopphu/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/dopphu/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/dopphu/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/dopphu/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
-        </a>
-      </li>
-  </ul>
-</nav>
-
-
-
-  <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-  </div>
-</div>
-
-    </div>
-  </div>
-
-</div>
-    </header>
-
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-07连接查询" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/dopphu/2021/02/05/07%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/" class="article-date">
+  <time datetime="2021-02-05T05:41:39.185Z" itemprop="datePublished">2021-02-05</time>
+</a>
     
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
+  <div class="article-category">
+    <a class="article-category-link" href="/dopphu/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0/">数据库学习</a>
   </div>
 
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content post posts-expand">
-            
-
+  </div>
+  <div class="article-inner">
     
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      07连接查询
+    </h1>
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/02/05/07%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/dopphu/images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          07连接查询
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-02-05 13:41:39 / 修改时间：17:40:44" itemprop="dateCreated datePublished" datetime="2021-02-05T13:41:39+08:00">2021-02-05</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/dopphu/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">数据库学习</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
       </header>
-
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+    <div class="article-entry" itemprop="articleBody">
       
         <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#进阶6：连接查询</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	含义：又称多表查询，当查询字段来自于多个表时，就会用到连接查询</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">	笛卡尔乘积现象：表1 m行		表2 n行		结果m*n行</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">	发生原因：没有有效的连接条件</span></span><br><span class="line"><span class="comment">	如何避免：添加有效的连接条件</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">	分类：</span></span><br><span class="line"><span class="comment">		1.按年代分类</span></span><br><span class="line"><span class="comment">			sql92标准（仅仅支持内连接）</span></span><br><span class="line"><span class="comment">			sql99标准（推荐）：支持内连接+外连接（除全外连接）</span></span><br><span class="line"><span class="comment">		2.按功能分类</span></span><br><span class="line"><span class="comment">			内连接</span></span><br><span class="line"><span class="comment">				等值连接</span></span><br><span class="line"><span class="comment">				非等值连接</span></span><br><span class="line"><span class="comment">				自连接</span></span><br><span class="line"><span class="comment">			外连接</span></span><br><span class="line"><span class="comment">				左外连接</span></span><br><span class="line"><span class="comment">				右外连接</span></span><br><span class="line"><span class="comment">				全外连接</span></span><br><span class="line"><span class="comment">			交叉连接</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">NAME</span> <span class="keyword">FROM</span> beauty;</span><br><span class="line"><span class="keyword">SELECT</span> boyname <span class="keyword">FROM</span> boys;</span><br><span class="line"><span class="comment">#笛卡尔集</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">NAME</span>,boyname <span class="keyword">FROM</span> boys,beauty;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">NAME</span>,boyname <span class="keyword">FROM</span> boys,beauty</span><br><span class="line"><span class="keyword">WHERE</span> beauty.boyfriend_id = boys.id;</span><br><span class="line"></span><br><span class="line"><span class="comment">#一.sql92标准</span></span><br><span class="line"><span class="comment">#1.等值连接</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	1.多表的等值连接的结果为多表的交集部分</span></span><br><span class="line"><span class="comment">	2.n表连接至少需要n-1个连接条件</span></span><br><span class="line"><span class="comment">	3.多表的顺序没有要求</span></span><br><span class="line"><span class="comment">	4.一般需要为表取别名</span></span><br><span class="line"><span class="comment">	5.可以搭配前面介绍的所有子句使用，如：排序、分组、筛选</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#案例1：查询女神名和对应男神名</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">NAME</span>,boyname</span><br><span class="line"><span class="keyword">FROM</span> beauty,boys</span><br><span class="line"><span class="keyword">WHERE</span> beauty.boyfriend_id = boys.id;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#案例2：查询员工名和对应的部门名</span></span><br><span class="line"><span class="keyword">SELECT</span> last_name,department_name</span><br><span class="line"><span class="keyword">FROM</span> employees,departments</span><br><span class="line"><span class="keyword">WHERE</span> employees.department_id = departments.department_id;</span><br><span class="line"></span><br><span class="line"><span class="comment">#2.为表起别名（AS 可以省略）</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	提高语句的简洁度</span></span><br><span class="line"><span class="comment">	区分多个重名字段</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">	注意：如果为表起了别名，则查询的字段就不能使用原来的表名去限定</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">#查询员工名、工种号、工种名</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> last_name,e.job_id,job_title</span><br><span class="line"><span class="keyword">FROM</span> employees <span class="keyword">AS</span> e,jobs <span class="keyword">AS</span> j</span><br><span class="line"><span class="keyword">WHERE</span> e.job_id = j.job_id;</span><br><span class="line"></span><br><span class="line"><span class="comment">#3.两个表的顺序是否可以调换</span></span><br><span class="line"><span class="keyword">SELECT</span> last_name,e.job_id,job_title</span><br><span class="line"><span class="keyword">FROM</span> jobs <span class="keyword">AS</span> j,employees <span class="keyword">AS</span> e</span><br><span class="line"><span class="keyword">WHERE</span> e.job_id = j.job_id;</span><br><span class="line"></span><br><span class="line"><span class="comment">#4.可以加筛选吗？可以的</span></span><br><span class="line"><span class="comment">#案例1：查询有奖金的员工名、部门名</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> last_name,department_name,commission_pct</span><br><span class="line"><span class="keyword">FROM</span> employees e,departments d</span><br><span class="line"><span class="keyword">WHERE</span> e.department_id = d.department_id</span><br><span class="line"><span class="keyword">AND</span> e.commission_pct <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#案例2：查询城市中第二个字符为o的部门名和城市名</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> department_name,city</span><br><span class="line"><span class="keyword">FROM</span> departments d,locations l</span><br><span class="line"><span class="keyword">WHERE</span> d.location_id = l.location_id</span><br><span class="line"><span class="keyword">AND</span> city <span class="keyword">LIKE</span> <span class="string">&#x27;_o%&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#5.可以加分组</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#案例1：查询每个城市的部门个数</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*) 个数,city</span><br><span class="line"><span class="keyword">FROM</span> departments d, locations l</span><br><span class="line"><span class="keyword">WHERE</span> d.location_id = l.location_id</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> city;</span><br><span class="line"></span><br><span class="line"><span class="comment">#案例2：查询有奖金的每个部门的部门名和部门领导编号和部门的最低工资</span></span><br><span class="line"><span class="keyword">SELECT</span> department_name,d.manager_id,<span class="keyword">MIN</span>(salary)</span><br><span class="line"><span class="keyword">FROM</span> departments d,employees e</span><br><span class="line"><span class="keyword">WHERE</span> d.department_id = e.department_id <span class="keyword">AND</span> commission_pct <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="literal">NULL</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> department_name,d.manager_id;</span><br><span class="line"></span><br><span class="line"><span class="comment">#select * from departments;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#6.可以加排序</span></span><br><span class="line"><span class="comment">#案例：查询每个工种的工种名和员工个数，并按照员工个数降序</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> job_title,<span class="keyword">COUNT</span>(*)</span><br><span class="line"><span class="keyword">FROM</span> employees e,jobs j</span><br><span class="line"><span class="keyword">WHERE</span> j.job_id = e.job_id</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> job_title</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">COUNT</span>(*) <span class="keyword">DESC</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> job_title,<span class="keyword">COUNT</span>(*)</span><br><span class="line"><span class="keyword">FROM</span> employees e,jobs j</span><br><span class="line"><span class="keyword">WHERE</span> j.job_id = e.job_id</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> e.job_id</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">COUNT</span>(*) <span class="keyword">DESC</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#7.三表连接</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#案例：查询员工名、部门名和所在的城市</span></span><br><span class="line"><span class="keyword">SELECT</span> last_name,department_name,city</span><br><span class="line"><span class="keyword">FROM</span> employees e,departments d,locations l</span><br><span class="line"><span class="keyword">WHERE</span> d.location_id = l.location_id</span><br><span class="line"><span class="keyword">AND</span> e.department_id = d.department_id</span><br><span class="line"><span class="keyword">AND</span> city <span class="keyword">LIKE</span> <span class="string">&#x27;s%&#x27;</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> d.department_id;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#2.非等值连接</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#案例1：查询员工的工资和工资级别</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> job_grades;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> salary,grade_level</span><br><span class="line"><span class="keyword">FROM</span> employees e,job_grades g</span><br><span class="line"><span class="keyword">WHERE</span> salary <span class="keyword">BETWEEN</span> lowest_sal <span class="keyword">AND</span> highest_sal</span><br><span class="line"><span class="keyword">AND</span> g.grade_level = <span class="string">&#x27;A&#x27;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#3.自连接</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#案例：查询 员工名和上级的名称</span></span><br><span class="line"><span class="keyword">SELECT</span> a.last_name ,b.last_name</span><br><span class="line"><span class="keyword">FROM</span> employees a,employees b</span><br><span class="line"><span class="keyword">WHERE</span> a.manager_id = b.employee_id;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#习题</span></span><br><span class="line"><span class="comment">#题目1：显示员工的最大工资，工资平均值</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MAX</span>(salary),<span class="keyword">AVG</span>(salary)</span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br><span class="line"></span><br><span class="line"><span class="comment">#题目2;查询员工表的employee_id,job_id,last_name 按department_id 降序，salary 升序</span></span><br><span class="line"><span class="keyword">SELECT</span> employee_id,job_id,last_name,salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> department_id <span class="keyword">DESC</span>,salary;</span><br><span class="line"></span><br><span class="line"><span class="comment">#题目3：查询员工表的job_id中包含a和e的，并且a在e的前面</span></span><br><span class="line"><span class="keyword">SELECT</span> job_id </span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> job_id <span class="keyword">LIKE</span> <span class="string">&#x27;%a%e%&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#题目4：显示当前日期，以及去前后空格，截取子字符串中的函数</span></span><br><span class="line"><span class="comment">#select new();</span></span><br><span class="line"><span class="comment">#select trim(字符 from &#x27;&#x27;);</span></span><br><span class="line"><span class="comment">#select substr(,[,]);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#二.sql99标准</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	语法：</span></span><br><span class="line"><span class="comment">		select 查询列表</span></span><br><span class="line"><span class="comment">		from 表名 别名 【连接类型】</span></span><br><span class="line"><span class="comment">		join 表2 别名</span></span><br><span class="line"><span class="comment">		on 连接条件</span></span><br><span class="line"><span class="comment">		【where 筛选条件】</span></span><br><span class="line"><span class="comment">		【group by 字段】</span></span><br><span class="line"><span class="comment">		【having 筛选条件】</span></span><br><span class="line"><span class="comment">		【order by 排序列表】</span></span><br><span class="line"><span class="comment">	分类</span></span><br><span class="line"><span class="comment">	内连接（※）inner</span></span><br><span class="line"><span class="comment">	外连接</span></span><br><span class="line"><span class="comment">		左外（※）left 【outer】</span></span><br><span class="line"><span class="comment">		右外（※）right 【outer】</span></span><br><span class="line"><span class="comment">		全外	  full 【outer】</span></span><br><span class="line"><span class="comment">	交叉连接	cross</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#（一）.内连接</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	语法：</span></span><br><span class="line"><span class="comment">		select 查询列表 </span></span><br><span class="line"><span class="comment">		from 表1 别名</span></span><br><span class="line"><span class="comment">		inner join 表2 别名</span></span><br><span class="line"><span class="comment">		on 连接条件;</span></span><br><span class="line"><span class="comment">		</span></span><br><span class="line"><span class="comment">	分类：</span></span><br><span class="line"><span class="comment">		等值</span></span><br><span class="line"><span class="comment">		非等值</span></span><br><span class="line"><span class="comment">		自连接</span></span><br><span class="line"><span class="comment">	特点：</span></span><br><span class="line"><span class="comment">		1.支持排序、分组、筛选</span></span><br><span class="line"><span class="comment">		2.inner可以省略</span></span><br><span class="line"><span class="comment">		3.筛选条件放在where后面，连接条件放在on后面，提高分离性，便于阅读</span></span><br><span class="line"><span class="comment">		4.inner join连接和sql92语法中的等值连接的效果是一样的，都是查询多表的交集。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#1.等值连接</span></span><br><span class="line"><span class="comment">#案例1：查询员工名、部门名</span></span><br><span class="line"><span class="keyword">SELECT</span> last_name,department_name</span><br><span class="line"><span class="keyword">FROM</span> employees e</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> departments d</span><br><span class="line"><span class="keyword">ON</span> e.department_id = d.department_id;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> last_name,department_name</span><br><span class="line"><span class="keyword">FROM</span> departments d</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> employees e</span><br><span class="line"><span class="keyword">ON</span> e.department_id = d.department_id;</span><br><span class="line"></span><br><span class="line"><span class="comment">#案例2：查询名字中包含e的员工名和工种名（添加筛选）</span></span><br><span class="line"><span class="keyword">SELECT</span> last_name,job_title</span><br><span class="line"><span class="keyword">FROM</span> employees e</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> jobs j</span><br><span class="line"><span class="keyword">ON</span> e.job_id = j.job_id</span><br><span class="line"><span class="keyword">WHERE</span> e.last_name <span class="keyword">LIKE</span> <span class="string">&#x27;%e%&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#案例3：查询部门个数&gt;3的城市名和部门个数（分组+筛选）</span></span><br><span class="line"><span class="comment">#1.查询每个城市的部门个数</span></span><br><span class="line"><span class="comment">#2.进一步筛选</span></span><br><span class="line"><span class="keyword">SELECT</span> city,<span class="keyword">COUNT</span>(*) 部门个数</span><br><span class="line"><span class="keyword">FROM</span> departments d</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> locations l</span><br><span class="line"><span class="keyword">ON</span> d.location_id = l.location_id</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> city</span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">COUNT</span>(*)&gt;<span class="number">3</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#案例4：查询哪个部门名的员工个数&gt;3的部门名和员工个数，并按照员工个数降序（添加排序）</span></span><br><span class="line"><span class="keyword">SELECT</span> d.department_name,<span class="keyword">COUNT</span>(*)</span><br><span class="line"><span class="keyword">FROM</span> departments d</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> employees e</span><br><span class="line"><span class="keyword">ON</span> d.department_id = e.department_id</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> e.department_id</span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">COUNT</span>(*)&gt;<span class="number">3</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">COUNT</span>(*) <span class="keyword">DESC</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#顺序是有些微区别的。如：A和B有关联，B和C有关联，但是A和C（某条数据）没有关联，顺序不同可能导致数据丢失</span></span><br><span class="line"><span class="comment">#案例5：查询员工名、部门名、工种名，并按部门名降序（三表连接）</span></span><br><span class="line"><span class="keyword">SELECT</span> last_name,department_name,job_id</span><br><span class="line"><span class="keyword">FROM</span> employees e</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> departments d <span class="keyword">ON</span> e.department_id = d.department_id</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> jobs j <span class="keyword">ON</span> e.job_id = j.job_id</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> department_name;</span><br><span class="line"></span><br><span class="line"><span class="comment">#2.非等值连接</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#案例：查询员工的工资级别</span></span><br><span class="line"><span class="keyword">SELECT</span> salary,grade_level</span><br><span class="line"><span class="keyword">FROM</span> employees e</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> job_grades j</span><br><span class="line"><span class="keyword">ON</span> e.salary <span class="keyword">BETWEEN</span> j.lowest_sal <span class="keyword">AND</span> j.highest_sal;</span><br><span class="line"></span><br><span class="line"><span class="comment">#案例：查询每个工资级别的个数&gt;的个数，并按工资级别降序</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*),grade_level</span><br><span class="line"><span class="keyword">FROM</span> employees e</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> job_grades j</span><br><span class="line"><span class="keyword">ON</span> e.salary <span class="keyword">BETWEEN</span> j.lowest_sal <span class="keyword">AND</span> j.highest_sal</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> grade_level</span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">COUNT</span>(*)&gt;<span class="number">20</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> grade_level <span class="keyword">DESC</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#3.自连接</span></span><br><span class="line"><span class="comment">#案例：查询员工的名字，上级的名字</span></span><br><span class="line"><span class="keyword">SELECT</span> e.last_name 员工, m.last_name 上级</span><br><span class="line"><span class="keyword">FROM</span> employees e</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> employees m</span><br><span class="line"><span class="keyword">ON</span> e.manager_id = m.employee_id;</span><br><span class="line"><span class="comment">#案例：查询包含字符k的员工的名字，上级的名字</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> e.last_name 员工, m.last_name 上级</span><br><span class="line"><span class="keyword">FROM</span> employees e</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> employees m</span><br><span class="line"><span class="keyword">ON</span> e.manager_id = m.employee_id</span><br><span class="line"><span class="keyword">WHERE</span> e.last_name <span class="keyword">LIKE</span> <span class="string">&#x27;%k%&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#（二）外连接</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	应用场景：一个表中有，一个表中没有</span></span><br><span class="line"><span class="comment">	特点：</span></span><br><span class="line"><span class="comment">		1.外连接的查询结果为主表的所有记录</span></span><br><span class="line"><span class="comment">			如果从表中有和它匹配的，则显示匹配的值</span></span><br><span class="line"><span class="comment">			如果从表中没有和它匹配的，则显示null</span></span><br><span class="line"><span class="comment">			外连接查询结果=内连接结果+主表中有而从表中没有的记录</span></span><br><span class="line"><span class="comment">		2.左外连接，left 左边的是主表</span></span><br><span class="line"><span class="comment">		  右外连接，right join右边是主表</span></span><br><span class="line"><span class="comment">		3.左外和右外交换两个表的顺序，可以实现同样的效果</span></span><br><span class="line"><span class="comment">		4.全外连接=内连接的结果+表1中有但是表2没有的+表2中有表1中没有的</span></span><br><span class="line"><span class="comment">		</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">#引入：查询男生表中没有女神对应男神的女神名</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> beauty;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> boys;</span><br><span class="line"></span><br><span class="line"><span class="comment">#外连接可以当作是分主从表的</span></span><br><span class="line"><span class="comment">#左外连接</span></span><br><span class="line"><span class="keyword">SELECT</span> b.name,bo.*</span><br><span class="line"><span class="keyword">FROM</span> beauty b</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> boys bo</span><br><span class="line"><span class="keyword">ON</span> b.boyfriend_id = bo.id</span><br><span class="line"><span class="keyword">WHERE</span> bo.id <span class="keyword">IS</span> <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#右外连接</span></span><br><span class="line"><span class="keyword">SELECT</span> b.name,bo.*</span><br><span class="line"><span class="keyword">FROM</span> boys bo</span><br><span class="line"><span class="keyword">RIGHT</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> beauty b</span><br><span class="line"><span class="keyword">ON</span> b.boyfriend_id = bo.id</span><br><span class="line"><span class="keyword">WHERE</span> bo.id <span class="keyword">IS</span> <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#案例1：查询哪个部门没有员工</span></span><br><span class="line"><span class="comment">#左外</span></span><br><span class="line"><span class="keyword">SELECT</span> d.*,e.employee_id</span><br><span class="line"><span class="keyword">FROM</span> departments d</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> employees e</span><br><span class="line"><span class="keyword">ON</span> d.department_id = e.department_id</span><br><span class="line"><span class="keyword">WHERE</span> e.employee_id <span class="keyword">IS</span> <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#右外</span></span><br><span class="line"><span class="keyword">SELECT</span> d.*,e.employee_id</span><br><span class="line"><span class="keyword">FROM</span> employees e</span><br><span class="line"><span class="keyword">RIGHT</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> departments d</span><br><span class="line"><span class="keyword">ON</span> d.department_id = e.department_id</span><br><span class="line"><span class="keyword">WHERE</span> e.employee_id <span class="keyword">IS</span> <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#全外连接(mysql不支持)，可以加上where 关键字 is null 可以实现类似对称差集的结果</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#交叉连接</span></span><br><span class="line"><span class="comment">#实现笛卡尔乘积</span></span><br><span class="line"><span class="keyword">SELECT</span> b.*,bo.*</span><br><span class="line"><span class="keyword">FROM</span> beauty b</span><br><span class="line"><span class="keyword">CROSS</span> <span class="keyword">JOIN</span> boys bo;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#小总结：</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	sql92和sql99</span></span><br><span class="line"><span class="comment">	功能：</span></span><br><span class="line"><span class="comment">		sql99支持的较多</span></span><br><span class="line"><span class="comment">	可读性：</span></span><br><span class="line"><span class="comment">		sql99实现连接条件和筛选条件的分离，可读性较高</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#习题</span></span><br><span class="line"><span class="comment">#习题1：查询编号&gt;3的女神的男友信息，如果有则列出详细信息，如果没有用null填充</span></span><br><span class="line"><span class="keyword">SELECT</span> b.id,b.name,bo.*</span><br><span class="line"><span class="keyword">FROM</span> beauty b</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> boys bo</span><br><span class="line"><span class="keyword">ON</span> b.boyfriend_id = bo.id</span><br><span class="line"><span class="keyword">WHERE</span> b.id&gt;<span class="number">3</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#习题2：查询哪些城市没有部门</span></span><br><span class="line"><span class="keyword">SELECT</span> l.city,d.department_id</span><br><span class="line"><span class="keyword">FROM</span> locations l</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> departments d</span><br><span class="line"><span class="keyword">ON</span> l.location_id = d.location_id</span><br><span class="line"><span class="keyword">WHERE</span> d.department_id <span class="keyword">IS</span> <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#习题3：查询部门名为SAL或IT的员工信息</span></span><br><span class="line"><span class="keyword">SELECT</span> e.*,d.department_name</span><br><span class="line"><span class="keyword">FROM</span> departments d</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> employees e</span><br><span class="line"><span class="keyword">ON</span> d.department_id = e.department_id</span><br><span class="line"><span class="keyword">WHERE</span> d.department_name <span class="keyword">IN</span> (<span class="string">&#x27;SAL&#x27;</span>,<span class="string">&#x27;IT&#x27;</span>);</span><br><span class="line"><span class="comment">#这个表有好几个部门名是IT但是部门编号不一样，所以最后有了null值</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> departments;</span><br></pre></td></tr></table></figure>
 
 
+      
     </div>
-
-    
-    
-    
-        
-
-  <div class="followme">
-    <p>欢迎关注我的其它发布渠道</p>
-
-    <div class="social-list">
-
-        <div class="social-item">
-          <a target="_blank" class="social-link" href="/atom.xml">
-            <span class="icon">
-              <i class="fa fa-rss"></i>
-            </span>
-
-            <span class="label">RSS</span>
-          </a>
-        </div>
-    </div>
-  </div>
-
-
-      <footer class="post-footer">
-
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/dopphu/2021/02/05/06%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2/" rel="prev" title="06分组查询">
-      <i class="fa fa-chevron-left"></i> 06分组查询
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/dopphu/2021/02/10/08%E5%AD%90%E6%9F%A5%E8%AF%A2/" rel="next" title="08子查询">
-      08子查询 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
-  
-  
-  
-
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Dopphu"
-      src="/dopphu/images/dopphu.jpg">
-  <p class="site-author-name" itemprop="name">Dopphu</p>
-  <div class="site-description" itemprop="description">欢迎大家扫描二维码，关注我的微信公众号</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/dopphu/archives/">
-        
-          <span class="site-state-item-count">230</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/dopphu/categories/">
-          
-        <span class="site-state-item-count">19</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/dopphu/tags/">
-          
-        <span class="site-state-item-count">2</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-
-
-  <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
-      Links
-    </div>
-    <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <a href="https://doyyli.github.io/" title="https:&#x2F;&#x2F;doyyli.github.io" rel="noopener" target="_blank">洋洋小伙伴</a>
-        </li>
-    </ul>
-  </div>
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2021</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Dopphu</span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
-  </div>
-
-        
-
-
-
-
-
-
-
-
-      </div>
+    <footer class="article-footer">
+      <a data-url="https://gitee.com/dopphu/dopphu.git/2021/02/05/07%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/" data-id="cksfl2qq6000694vubus00na2" class="article-share-link">Share</a>
+      
+      
     </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/dopphu/2021/02/10/08%E5%AD%90%E6%9F%A5%E8%AF%A2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          08子查询
+        
+      </div>
+    </a>
+  
+  
+    <a href="/dopphu/2021/02/05/06%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">06分组查询</div>
+    </a>
+  
+</nav>
 
   
-  <script src="/dopphu/lib/anime.min.js"></script>
-  <script src="/dopphu/lib/velocity/velocity.min.js"></script>
-  <script src="/dopphu/lib/velocity/velocity.ui.min.js"></script>
+</article>
 
-<script src="/dopphu/js/utils.js"></script>
-
-<script src="/dopphu/js/motion.js"></script>
-
-
-<script src="/dopphu/js/schemes/pisces.js"></script>
-
-
-<script src="/dopphu/js/next-boot.js"></script>
-
-
-
-
+</section>
+        
+          <aside id="sidebar">
   
-
-
-
-
-  
-<script src="/dopphu/js/local-search.js"></script>
-
-
-
-
-
-
-
-
-
-
-
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/dopphu/categories/C/">C++</a></li><li class="category-list-item"><a class="category-list-link" href="/dopphu/categories/Java-Language-Basics/">Java Language Basics</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/">第七章 异常处理</a></li><li class="category-list-item"><a class="category-list-link" href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%95%B0%E7%BB%84/">第三章 数组</a></li><li class="category-list-item"><a class="category-list-link" href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E5%B8%B8%E7%94%A8%E7%B1%BB/">第九章 常用类</a></li><li class="category-list-item"><a class="category-list-link" href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">第二章 基本语法</a></li><li class="category-list-item"><a class="category-list-link" href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E4%B8%AD/">第五章 面向对象(中)</a></li><li class="category-list-item"><a class="category-list-link" href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E5%85%AB%E7%AB%A0-%E5%A4%9A%E7%BA%BF%E7%A8%8B/">第八章 多线程</a></li><li class="category-list-item"><a class="category-list-link" href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E5%85%AD%E7%AB%A0-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E4%B8%8B/">第六章 面向对象(下)</a></li><li class="category-list-item"><a class="category-list-link" href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0-%E9%9B%86%E5%90%88/">第十一章 集合</a></li><li class="category-list-item"><a class="category-list-link" href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0-File%E5%92%8CIO/">第十三章 File和IO</a></li><li class="category-list-item"><a class="category-list-link" href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0-%E6%B3%9B%E5%9E%8B/">第十二章 泛型</a></li><li class="category-list-item"><a class="category-list-link" href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0-%E5%8F%8D%E5%B0%84/">第十四章 反射</a></li><li class="category-list-item"><a class="category-list-link" href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E5%8D%81%E7%AB%A0-%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%92%8C%E6%B3%A8%E8%A7%A3/">第十章 枚举类和注解</a></li><li class="category-list-item"><a class="category-list-link" href="/dopphu/categories/Java-Language-Basics/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E4%B8%8A/">第四章 面向对象(上)</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/dopphu/categories/JavaWeb/">JavaWeb</a></li><li class="category-list-item"><a class="category-list-link" href="/dopphu/categories/mysql%E9%AB%98%E7%BA%A7/">mysql高级</a></li><li class="category-list-item"><a class="category-list-link" href="/dopphu/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/">信息安全培训笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/dopphu/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0/">数据库学习</a></li></ul>
+    </div>
+  </div>
 
 
   
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/dopphu/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/dopphu/tags/python/" rel="tag">python</a></li></ul>
+    </div>
+  </div>
+
 
   
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/dopphu/tags/C/" style="font-size: 20px;">C++</a> <a href="/dopphu/tags/python/" style="font-size: 10px;">python</a>
+    </div>
+  </div>
 
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/dopphu/archives/2021/08/">八月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/dopphu/archives/2021/07/">七月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/dopphu/archives/2021/06/">六月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/dopphu/archives/2021/05/">五月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/dopphu/archives/2021/04/">四月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/dopphu/archives/2021/03/">三月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/dopphu/archives/2021/02/">二月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/dopphu/archives/2021/01/">一月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/dopphu/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/dopphu/archives/2020/10/">十月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/dopphu/archives/2020/09/">九月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/dopphu/2021/08/14/Java%20Language%20Basics/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0%E5%8F%8D%E5%B0%84/%E4%BA%86%E8%A7%A3ClassLoader/">了解ClassLoader</a>
+          </li>
+        
+          <li>
+            <a href="/dopphu/2021/07/04/JavaWeb/JSTL%E7%AC%94%E8%AE%B0/">JSTL标签库笔记</a>
+          </li>
+        
+          <li>
+            <a href="/dopphu/2021/07/02/JavaWeb/Servlet2%E7%AC%94%E8%AE%B0/">Servlet2</a>
+          </li>
+        
+          <li>
+            <a href="/dopphu/2021/07/02/JavaWeb/Servlet1/">Servlet1</a>
+          </li>
+        
+          <li>
+            <a href="/dopphu/2021/07/02/JavaWeb/jsp%E7%AC%94%E8%AE%B0/">jsp笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Dopphu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/dopphu/" class="mobile-nav-link">Home</a>
+  
+    <a href="/dopphu/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/dopphu/fancybox/jquery.fancybox.css">
+
+  
+<script src="/dopphu/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/dopphu/js/script.js"></script>
+
+
+
+
+  </div>
 </body>
 </html>
