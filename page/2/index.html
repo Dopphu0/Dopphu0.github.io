@@ -189,6 +189,303 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/06/29/JavaWeb/Tomcat%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/../images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu0's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/../2021/06/29/JavaWeb/Tomcat%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">Tomcat笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-06-29 19:45:31 / 修改时间：19:50:24" itemprop="dateCreated datePublished" datetime="2021-06-29T19:45:31+08:00">2021-06-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/../categories/JavaWeb/" itemprop="url" rel="index"><span itemprop="name">JavaWeb</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="1-JavaWeb的概念"><a href="#1-JavaWeb的概念" class="headerlink" title="1.JavaWeb的概念"></a>1.JavaWeb的概念</h2><h3 id="a-什么是javaweb"><a href="#a-什么是javaweb" class="headerlink" title="a)什么是javaweb"></a>a)什么是javaweb</h3><p>JavaWeb是指，所有通过java语言编写的可以通过浏览器对象访问的程序的总称，叫javaweb</p>
+<p>JavaWeb是基于请求和相应来开发的</p>
+<h3 id="b-什么是请求"><a href="#b-什么是请求" class="headerlink" title="b)什么是请求"></a>b)什么是请求</h3><p>请求是指客户端发送给服务器数据，叫请求Request</p>
+<h3 id="c-什么是响应"><a href="#c-什么是响应" class="headerlink" title="c)什么是响应"></a>c)什么是响应</h3><p>响应是指服务器给客户端互传数据，叫响应Response</p>
+<p>请求和响应是成对出现的</p>
+<h2 id="2-Web资源的分类"><a href="#2-Web资源的分类" class="headerlink" title="2.Web资源的分类"></a>2.Web资源的分类</h2><p>web资源按实现的技术和呈现的效果的不同，又分为静态资源和动态资源两种。</p>
+<p>静态资源：html、css、js、txt、mp4、jpg···</p>
+<p>动态资源：jsp页面、Servlet程序</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%B8%B8%E7%94%A8%E7%9A%84web%E6%9C%8D%E5%8A%A1%E5%99%A8.3guwbjdgnye0.jpg" alt="常用的web服务器"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/Tomcat%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%92%8CServlet%E5%AF%B9%E5%BA%94%E7%89%88%E6%9C%AC.55eozbdqfno0.jpg" alt="Tomcat服务器和Servlet对应版本"></p>
+<p>Servlet程序从2.5版本是现在市面使用最多的版本（xml配置）</p>
+<p>到了Servlet3.0之后，就是注解版本的Servlet使用</p>
+<h2 id="5-Tomcat的使用"><a href="#5-Tomcat的使用" class="headerlink" title="5.Tomcat的使用"></a>5.Tomcat的使用</h2><h3 id="a-安装"><a href="#a-安装" class="headerlink" title="a)安装"></a>a)安装</h3><p>找到你需要使用的Tomcat版本对应的zip的压缩包，解压到需要安装的目录即可。</p>
+<h3 id="b-目录介绍"><a href="#b-目录介绍" class="headerlink" title="b) 目录介绍"></a>b) 目录介绍</h3><p>bin：专门用来存放Tomcat服务器的可执行程序</p>
+<p>conf：专门用来存放Tomcat服务器的配置文件</p>
+<p>lib：专门用来存放Tomcat服务器的jar包</p>
+<p>logs：专门用来存放Tomcat服务器运行时输出的日记信息</p>
+<p>temp：专门用来存放Tomcat服务器运行时产生的临时数据</p>
+<p>webapps：专门用来存放部署的Web工程</p>
+<p>work：是Tomcat工作时的目录，用来存放Tomcat运行时jsp翻译为Servlet的源码，和session钝化的目录。（钝化：把对象<strong>序列化</strong>到磁盘）</p>
+<h3 id="c-如何启动Tomcat服务器"><a href="#c-如何启动Tomcat服务器" class="headerlink" title="c)如何启动Tomcat服务器"></a>c)如何启动Tomcat服务器</h3><p>找到Tomcat目录下的bin目录下的startup.bat文件，双击就可以启动Tomcat服务器</p>
+<p>如何测试Tomcat服务器启动成功？</p>
+<p>打开浏览器，在地址栏输入以下地址测试：</p>
+<ol>
+<li><code>http://localhost:8080</code></li>
+<li><code>http://127.0.0.1</code></li>
+<li>http://真实ip:8080</li>
+</ol>
+<p>常见的启动失败的情况有：双击startup.bat文件，就会出现一个 小黑窗口一闪而来。</p>
+<p>这个时候，失败的原因基本上都是英文没有配置好JAVA_HOME环境变量</p>
+<p>常见的JAVA_HOME配置错误有以下几种情况：</p>
+<p>一、JAVA_HOME必须全大写</p>
+<p>二、JAVA_HOME中间必须是下划线，不是减号-</p>
+<h4 id="另一种启动Tomcat服务器的方式"><a href="#另一种启动Tomcat服务器的方式" class="headerlink" title="另一种启动Tomcat服务器的方式"></a>另一种启动Tomcat服务器的方式</h4><ol>
+<li>打开命令行</li>
+<li>进入Tomcat的bin目录</li>
+<li>敲入启动命令 <code>catalina run</code> </li>
+</ol>
+<h3 id="d-Tomcat的停止"><a href="#d-Tomcat的停止" class="headerlink" title="d)Tomcat的停止"></a>d)Tomcat的停止</h3><p>方式一：关掉窗口</p>
+<p>方式二：ctrl+C</p>
+<p><strong>方式三</strong>（最常用）：找到Tomcat的bin目录下的shutdown.bat双击，就可以停止Tomcat服务器</p>
+<h3 id="e-如何修改Tomcat的端口号"><a href="#e-如何修改Tomcat的端口号" class="headerlink" title="e)如何修改Tomcat的端口号"></a>e)如何修改Tomcat的端口号</h3><p>MySQL的默认端口号是：3306</p>
+<p>Tomcat默认端口号：8080</p>
+<p>找到Tomcat目录下的conf目录，找到server.xml配置文件</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/Tomcat%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6Connection%E4%BF%AE%E6%94%B9%E4%BD%BF%E7%94%A8%E7%9A%84%E7%AB%AF%E5%8F%A3%E5%8F%B7.3us6eqi3eng0.jpg" alt="Tomcat配置文件Connection修改使用的端口号"></p>
+<p>端口号可选范围：1-65535（一般1000以内都是系统用，往1000以上或8000以上选）</p>
+<p>修改完端口号之后要重启Tomcat服务器才可以生效。</p>
+<p>平时上百度：<code>http://www.baidu.com:80</code></p>
+<p>http协议默认端口号是80</p>
+<h3 id="f-如何部署web工程到Tomcat服务器"><a href="#f-如何部署web工程到Tomcat服务器" class="headerlink" title="f)如何部署web工程到Tomcat服务器"></a>f)如何部署web工程到Tomcat服务器</h3><p>第一种方法：只需要把web工程的目录拷贝到Tomcat的webapps目录下即可。</p>
+<p>第二种方法：</p>
+<p>找到apache-tomcat-9.0.46\conf\Catalina\localhost目录，创建一个xml配置文件</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E9%83%A8%E7%BD%B2%E5%B7%A5%E7%A8%8B%E7%9A%84%E7%AC%AC%E4%BA%8C%E7%A7%8D%E6%96%B9%E6%B3%95.17wgmejjzqe8.jpg" alt="部署工程的第二种方法"></p>
+<p>（但是我失败了呜呜呜我的不知道为什么操作如下）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">02-Jun-2021 18:03:56.522 警告 [main] org.apache.catalina.startup.HostConfig.deployDescriptor 部署描述符[D:\Tomcat\apache-tomcat-9.0.46\conf\Catalina\localhost\abc.xml]中值为[/abc]的路径属性已被忽略</span><br><span class="line">02-Jun-2021 18:03:56.533 警告 [main] org.apache.catalina.startup.HostConfig.deployDescriptor 在主机appBase 中指定了docBase [D:\Tomcat\apache-tomcat-9.0.46\webapps\Book]，将被忽略</span><br><span class="line">02-Jun-2021 18:03:56.556 严重 [main] org.apache.catalina.startup.HostConfig.deployDescriptor 部署描述符[D:\Tomcat\apache-tomcat-9.0.46\conf\Catalina\localhost\abc.xml]时出错</span><br><span class="line">        java.lang.IllegalStateException: 启动子级时出错</span><br><span class="line">                at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:720)</span><br><span class="line">                at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:690)</span><br><span class="line">                at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:692)</span><br><span class="line">                at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:689)</span><br><span class="line">                at org.apache.catalina.startup.HostConfig<span class="variable">$DeployDescriptor</span>.run(HostConfig.java:1881)</span><br><span class="line">                at java.base/java.util.concurrent.Executors<span class="variable">$RunnableAdapter</span>.call(Executors.java:515)</span><br><span class="line">                at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)</span><br><span class="line">                at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)</span><br><span class="line">                at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:118)</span><br><span class="line">                at org.apache.catalina.startup.HostConfig.deployDescriptors(HostConfig.java:582)</span><br><span class="line">                at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:472)</span><br><span class="line">                at org.apache.catalina.startup.HostConfig.start(HostConfig.java:1611)</span><br><span class="line">                at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:319)</span><br><span class="line">                at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:123)</span><br><span class="line">                at org.apache.catalina.util.LifecycleBase.setStateInternal(LifecycleBase.java:423)</span><br><span class="line">                at org.apache.catalina.util.LifecycleBase.setState(LifecycleBase.java:366)</span><br><span class="line">                at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:936)</span><br><span class="line">                at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:829)</span><br><span class="line">                at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)</span><br><span class="line">                at org.apache.catalina.core.ContainerBase<span class="variable">$StartChild</span>.call(ContainerBase.java:1384)</span><br><span class="line">                at org.apache.catalina.core.ContainerBase<span class="variable">$StartChild</span>.call(ContainerBase.java:1374)</span><br><span class="line">                at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)</span><br><span class="line">                at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)</span><br><span class="line">                at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:140)</span><br><span class="line">                at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:909)</span><br><span class="line">                at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:262)</span><br><span class="line">                at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)</span><br><span class="line">                at org.apache.catalina.core.StandardService.startInternal(StandardService.java:433)</span><br><span class="line">                at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)</span><br><span class="line">                at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:930)</span><br><span class="line">                at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)</span><br><span class="line">                at org.apache.catalina.startup.Catalina.start(Catalina.java:772)</span><br><span class="line">                at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)</span><br><span class="line">                at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)</span><br><span class="line">                at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)</span><br><span class="line">                at java.base/java.lang.reflect.Method.invoke(Method.java:566)</span><br><span class="line">                at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:342)</span><br><span class="line">                at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)</span><br><span class="line">        Caused by: org.apache.catalina.LifecycleException: 无法启动组件[org.apache.catalina.webresources.StandardRoot@55dfebeb]</span><br><span class="line">                at org.apache.catalina.util.LifecycleBase.handleSubClassException(LifecycleBase.java:440)</span><br><span class="line">                at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:198)</span><br><span class="line">                at org.apache.catalina.core.StandardContext.resourcesStart(StandardContext.java:4830)</span><br><span class="line">                at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4966)</span><br><span class="line">                at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)</span><br><span class="line">                at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:717)</span><br><span class="line">                ... 37 more</span><br><span class="line">        Caused by: java.lang.IllegalArgumentException: 指定的主资源集 [D:\Tomcat\apache-tomcat-9.0.46\webapps\abc] 无效</span><br><span class="line">                at org.apache.catalina.webresources.StandardRoot.createMainResourceSet(StandardRoot.java:751)</span><br><span class="line">                at org.apache.catalina.webresources.StandardRoot.startInternal(StandardRoot.java:708)</span><br><span class="line">                at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)</span><br><span class="line">                ... 41 more</span><br></pre></td></tr></table></figure>
+
+<h3 id="h-ROOT工程的访问，以及默认index-html页面的访问"><a href="#h-ROOT工程的访问，以及默认index-html页面的访问" class="headerlink" title="h)ROOT工程的访问，以及默认index.html页面的访问"></a>h)ROOT工程的访问，以及默认index.html页面的访问</h3><p>当我们在浏览器地址栏中输入访问地址如下时：</p>
+<p><code>http://ip:port</code> ===&gt;&gt;&gt; 没有工程名的时候，默认访问的是ROOT工程</p>
+<p>当我们在浏览器地址栏中输入的访问地址如下：</p>
+<p><code>http://ip:port/工程名/</code> ===&gt;&gt;&gt; 没有资源名，默认访问index.html页面</p>
+<h2 id="6-整合IDEA和Tomcat"><a href="#6-整合IDEA和Tomcat" class="headerlink" title="6.整合IDEA和Tomcat"></a>6.整合IDEA和Tomcat</h2><p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E6%95%B4%E5%90%88IDEA%E5%92%8CTomcat%E6%9C%8D%E5%8A%A1%E5%99%A8.5rp9v4g0o3g0.jpg" alt="整合IDEA和Tomcat服务器"></p>
+<p>在此处进行添加，之后新建模块时就会看到可以选择server了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/IDEA%E6%B7%BB%E5%8A%A0Tomcat%E5%90%8E%E5%8F%AF%E4%BB%A5%E9%80%89%E6%8B%A9server%E4%BA%86.43ejbelp3cs0.jpg" alt="IDEA添加Tomcat后可以选择server了"></p>
+<h2 id="7-IDEA中动态Web工程的操作"><a href="#7-IDEA中动态Web工程的操作" class="headerlink" title="7.IDEA中动态Web工程的操作"></a>7.IDEA中动态Web工程的操作</h2><p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/IDEA%E4%B8%AD%E5%8A%A8%E6%80%81Web%E5%B7%A5%E7%A8%8B%E7%9A%84%E5%88%9B%E5%BB%BA1.6p0d9s465t80.jpg" alt="IDEA中动态Web工程的创建1"></p>
+<p>2.选择你要创建什么类型的模块</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/IDEA%E4%B8%AD%E5%8A%A8%E6%80%81Web%E5%B7%A5%E7%A8%8B%E7%9A%84%E5%88%9B%E5%BB%BA2.5k9jtavtl9s0.jpg" alt="IDEA中动态Web工程的创建2"></p>
+<p>3.之后输入名称，点击finish</p>
+<p>创建成功如下图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%8A%A8%E6%80%81web%E5%B7%A5%E7%A8%8B%E5%88%9B%E5%BB%BA%E6%88%90%E5%8A%9F.461jyfehix40.jpg" alt="动态web工程创建成功"></p>
+<h3 id="b-整个动态web工程目录的介绍"><a href="#b-整个动态web工程目录的介绍" class="headerlink" title="b)整个动态web工程目录的介绍"></a>b)整个动态web工程目录的介绍</h3><p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E6%95%B4%E4%B8%AA%E5%8A%A8%E6%80%81web%E5%B7%A5%E7%A8%8B%E7%9B%AE%E5%BD%95%E7%9A%84%E4%BB%8B%E7%BB%8D.3axbuuxjx4s0.jpg" alt="整个动态web工程目录的介绍"></p>
+<h3 id="c-如何给动态web工程添加额外的jar包"><a href="#c-如何给动态web工程添加额外的jar包" class="headerlink" title="c)如何给动态web工程添加额外的jar包"></a>c)如何给动态web工程添加额外的jar包</h3><p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%A6%82%E4%BD%95%E7%BB%99%E5%8A%A8%E6%80%81web%E5%B7%A5%E7%A8%8B%E6%B7%BB%E5%8A%A0%E9%A2%9D%E5%A4%96%E7%9A%84jar%E5%8C%85.6yr3ia7p2l40.jpg" alt="如何给动态web工程添加额外的jar包"></p>
+<h3 id="d-如何在IDEA中部署工程到Tomcat上运行"><a href="#d-如何在IDEA中部署工程到Tomcat上运行" class="headerlink" title="d)如何在IDEA中部署工程到Tomcat上运行"></a>d)如何在IDEA中部署工程到Tomcat上运行</h3><ol>
+<li>建议修改web工程对应的Tomcat运行 实例名称</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E4%BF%AE%E6%94%B9web%E5%B7%A5%E7%A8%8B%E5%AF%B9%E5%BA%94%E7%9A%84Tomcat%E8%BF%90%E8%A1%8C%E5%AE%9E%E4%BE%8B.26yv9vfnxcpw.jpg" alt="修改web工程对应的Tomcat运行实例"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E8%BF%90%E8%A1%8CTomcat%E5%AE%9E%E4%BE%8B.10f2b826b5fk.jpg" alt="运行Tomcat实例"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E9%87%8D%E6%96%B0%E5%90%AF%E5%8A%A8Tomcat%E8%BF%90%E8%A1%8C%E5%AE%9E%E4%BE%8B.15h80iqeh19c.jpg" alt="重新启动Tomcat运行实例"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E4%BF%AE%E6%94%B9%E6%A8%A1%E5%9D%97%E7%9A%84%E5%B7%A5%E7%A8%8B%E8%B7%AF%E5%BE%84.57lygubtnbg0.jpg" alt="修改模块的工程路径"></p>
+<p>修改运行端口号</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E4%BF%AE%E6%94%B9%E8%BF%90%E8%A1%8C%E7%AB%AF%E5%8F%A3%E5%8F%B7.41zxc7781ne0.jpg" alt="修改运行端口号"></p>
+<p>配置资源热部署</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E9%85%8D%E7%BD%AE%E8%B5%84%E6%BA%90%E7%83%AD%E9%83%A8%E7%BD%B2.5br15eb6es80.jpg" alt="配置资源热部署"></p>
+<p>一个小点</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/Tomcat%E8%BF%90%E8%A1%8C%E5%AE%9E%E4%BE%8B%E5%AF%B9%E5%BA%94%E5%93%AA%E4%B8%AAmodule%E5%B0%B1%E5%9C%A8%E8%BF%99%E9%87%8C%E8%BF%9B%E8%A1%8C%E4%BF%AE%E6%94%B9.29p4w053x5us.jpg" alt="Tomcat运行实例对应哪个module就在这里进行修改"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/06/17/Java%20Language%20Basics/%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0/UDP%E5%8D%8F%E8%AE%AE%E7%9A%84%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/../images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu0's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/../2021/06/17/Java%20Language%20Basics/%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0/UDP%E5%8D%8F%E8%AE%AE%E7%9A%84%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" class="post-title-link" itemprop="url">UDP协议的网络编程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-06-17 20:13:19 / 修改时间：20:07:36" itemprop="dateCreated datePublished" datetime="2021-06-17T20:13:19+08:00">2021-06-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/../categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/../categories/Java-Language-Basics/%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0-File%E5%92%8CIO/" itemprop="url" rel="index"><span itemprop="name">第十三章 File和IO</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> chapter13Net;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.net.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * UDP协议的网络编程</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> dopphu</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span> 2021-04-24 19:43</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test0314</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//发送端</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sender</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        DatagramSocket socket = <span class="keyword">new</span> DatagramSocket();</span><br><span class="line"></span><br><span class="line">        String str = <span class="string">&quot;吃我犹大的世界第一可爱重击&quot;</span>;</span><br><span class="line">        <span class="keyword">byte</span>[] data = str.getBytes();</span><br><span class="line">        InetAddress inet = InetAddress.getLocalHost();</span><br><span class="line">        DatagramPacket packet = <span class="keyword">new</span> DatagramPacket(data,<span class="number">0</span>,data.length,inet,<span class="number">9090</span>);</span><br><span class="line">        socket.send(packet);</span><br><span class="line"></span><br><span class="line">        socket.close();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//接收端</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">receiver</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        DatagramSocket socket = <span class="keyword">new</span> DatagramSocket(<span class="number">9090</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">100</span>];</span><br><span class="line">        DatagramPacket packet = <span class="keyword">new</span> DatagramPacket(buffer,<span class="number">0</span>,buffer.length);</span><br><span class="line"></span><br><span class="line">        socket.receive(packet);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="keyword">new</span> String(packet.getData(),<span class="number">0</span>,packet.getLength()));</span><br><span class="line"></span><br><span class="line">        socket.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/06/17/Java%20Language%20Basics/%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0/1314%20URL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/../images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu0's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/../2021/06/17/Java%20Language%20Basics/%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0/1314%20URL/" class="post-title-link" itemprop="url">1314 URL</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-06-17 20:13:19 / 修改时间：20:07:00" itemprop="dateCreated datePublished" datetime="2021-06-17T20:13:19+08:00">2021-06-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/../categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/../categories/Java-Language-Basics/%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0-File%E5%92%8CIO/" itemprop="url" rel="index"><span itemprop="name">第十三章 File和IO</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> chapter13Net;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * URL网络编程</span></span><br><span class="line"><span class="comment"> * 1. URl：统一资源定位符，对应着互联网的某一资源地址</span></span><br><span class="line"><span class="comment"> * 2. 格式：</span></span><br><span class="line"><span class="comment"> *      http://localhost:8080/examples/beauty.jpg?username=Tom</span></span><br><span class="line"><span class="comment"> *      协议      主机名  端口号    资源地址            参数列表</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> dopphu</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span> 2021-04-24 20:00</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test1314</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="comment">//        URL url = new URL(&quot;&quot;);</span></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        * 常用方法：见截图</span></span><br><span class="line"><span class="comment">        *</span></span><br><span class="line"><span class="comment">        *</span></span><br><span class="line"><span class="comment">        *</span></span><br><span class="line"><span class="comment">        * */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//        获取资源的方法演示见:https://www.bilibili.com/video/BV1Kb411W75N?p=630&amp;spm_id_from=pageDriver</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/06/17/Java%20Language%20Basics/%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0/1313%20%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%8F%91%E9%80%81%E6%96%87%E4%BB%B6%E7%BB%99%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%8C%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BF%9D%E5%AD%98%E5%88%B0%E6%9C%AC%E5%9C%B0%E3%80%82%E5%B9%B6%E8%BF%94%E5%9B%9E%E2%80%9C%E5%8F%91%E9%80%81%E6%88%90%E5%8A%9F%E2%80%9D%E7%BB%99%E5%AE%A2%E6%88%B7%E7%AB%AF%E3%80%82%E5%B9%B6%E5%85%B3%E9%97%AD%E7%9B%B8%E5%BA%94%E7%9A%84%E8%BF%9E%E6%8E%A5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -696,229 +993,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/06/17/Java%20Language%20Basics/%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0/1306%20%E5%A4%84%E7%90%86%E6%B5%81%E4%B9%8B%E4%BA%8C%EF%BC%9A%E8%BD%AC%E6%8D%A2%E6%B5%81%E7%9A%84%E4%BD%BF%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/../images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu0's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/../2021/06/17/Java%20Language%20Basics/%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0/1306%20%E5%A4%84%E7%90%86%E6%B5%81%E4%B9%8B%E4%BA%8C%EF%BC%9A%E8%BD%AC%E6%8D%A2%E6%B5%81%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">1306 处理流之二：转换流的使用</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-06-17 20:13:19 / 修改时间：20:00:05" itemprop="dateCreated datePublished" datetime="2021-06-17T20:13:19+08:00">2021-06-17</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/../categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/../categories/Java-Language-Basics/%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0-File%E5%92%8CIO/" itemprop="url" rel="index"><span itemprop="name">第十三章 File和IO</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> chapter13;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 处理流之二：转换流的使用</span></span><br><span class="line"><span class="comment"> * 1. 转化流：属于字符流</span></span><br><span class="line"><span class="comment"> *      InputStreamReader ：将一个字节的输入流转换为字符的输入流</span></span><br><span class="line"><span class="comment"> *      OutputStreamWriter ：将一个字符的输出流转换为字节的输出流</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 2. 作用：提供字节流与字符流之间的转换</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 3. 解码：字节、字符数组 ——&gt; 字符数组、字符串</span></span><br><span class="line"><span class="comment"> *    编码：字符数组、字符串 ——&gt; 字节、字节数组</span></span><br><span class="line"><span class="comment"> * 4.字符集</span></span><br><span class="line"><span class="comment"> *  ASCII：美国标准信息交换码</span></span><br><span class="line"><span class="comment"> *      用一个字节的7位可以表示</span></span><br><span class="line"><span class="comment"> *  ISO8859-1：拉丁码表。欧洲码表</span></span><br><span class="line"><span class="comment"> *      用一个字节的八位表示</span></span><br><span class="line"><span class="comment"> *  GB2321：中国的中文编码表。最多两个字节编码所有字符</span></span><br><span class="line"><span class="comment"> *  GBK：中国的中文编码表的升级，融合了更多的中文文字符号。最多两个字节编码</span></span><br><span class="line"><span class="comment"> *  Unicode：国际标准码。融合了目前人类使用的所有字符。为每个字符分配唯一的字符码。</span></span><br><span class="line"><span class="comment"> *      所有的文字都用两个字节来表示</span></span><br><span class="line"><span class="comment"> *  UTF-8：变长的编码方式，可用1-4个字节来表示一个字符</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> dopphu</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span> 2021-04-20 19:34</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test1306</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * InputStreamReader的使用，实现字节的输入流到字符的输出流的转换</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * */</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span></span>&#123;</span><br><span class="line">        InputStreamReader isr = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            FileInputStream fis = <span class="keyword">new</span> FileInputStream(<span class="string">&quot;hi.txt&quot;</span>);</span><br><span class="line"><span class="comment">//        InputStreamReader isr = new InputStreamReader(fis);//使用系统默认的字符</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//参数2指明了字符集，具体使用哪个字符集，取决于文件保存时使用的字符集</span></span><br><span class="line">            isr = <span class="keyword">new</span> InputStreamReader(fis,<span class="string">&quot;utf-8&quot;</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">char</span>[] cbuf = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">20</span>];</span><br><span class="line">            <span class="keyword">int</span> len;</span><br><span class="line">            <span class="keyword">while</span> ((len = isr.read(cbuf))!=-<span class="number">1</span>)&#123;</span><br><span class="line">                String str = <span class="keyword">new</span> String(cbuf,<span class="number">0</span>,len);</span><br><span class="line">                System.out.println(str);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(isr!=<span class="keyword">null</span>)&#123;</span><br><span class="line">                    isr.close();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * 综合使用InputStreamReader和OutputStreamWriter</span></span><br><span class="line"><span class="comment">    * 注：下面抛异常的方式处理是为了简便演示，开发中还是要用try-catch-finally</span></span><br><span class="line"><span class="comment">    * */</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        File file1 = <span class="keyword">new</span> File(<span class="string">&quot;hi.txt&quot;</span>);</span><br><span class="line">        File file2 = <span class="keyword">new</span> File(<span class="string">&quot;h1_gbk.txt&quot;</span>);</span><br><span class="line"></span><br><span class="line">        FileInputStream fis = <span class="keyword">new</span> FileInputStream(file1);</span><br><span class="line">        FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(file2);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//解码</span></span><br><span class="line">        InputStreamReader isr = <span class="keyword">new</span> InputStreamReader(fis,<span class="string">&quot;utf-8&quot;</span>);</span><br><span class="line">        <span class="comment">//编码</span></span><br><span class="line">        OutputStreamWriter osw = <span class="keyword">new</span> OutputStreamWriter(fos,<span class="string">&quot;gbk&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//读写过程</span></span><br><span class="line">        <span class="keyword">char</span>[] cbuf = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">20</span>];</span><br><span class="line">        <span class="keyword">int</span> len;</span><br><span class="line">        <span class="keyword">while</span> ((len = isr.read(cbuf))!=-<span class="number">1</span>)&#123;</span><br><span class="line">            osw.write(cbuf,<span class="number">0</span>,len);</span><br><span class="line">        &#125;</span><br><span class="line">        isr.close();</span><br><span class="line">        osw.close();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/06/17/Java%20Language%20Basics/%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0/1305%20%E5%9B%BE%E7%89%87%E7%AE%80%E5%8D%95%E7%9A%84%E5%8A%A0%E5%AF%86%E5%92%8C%E8%A7%A3%E5%AF%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/../images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu0's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/../2021/06/17/Java%20Language%20Basics/%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0/1305%20%E5%9B%BE%E7%89%87%E7%AE%80%E5%8D%95%E7%9A%84%E5%8A%A0%E5%AF%86%E5%92%8C%E8%A7%A3%E5%AF%86/" class="post-title-link" itemprop="url">1305 图片简单的加密和解密</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-06-17 20:13:19 / 修改时间：19:59:38" itemprop="dateCreated datePublished" datetime="2021-06-17T20:13:19+08:00">2021-06-17</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/../categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/../categories/Java-Language-Basics/%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0-File%E5%92%8CIO/" itemprop="url" rel="index"><span itemprop="name">第十三章 File和IO</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> chapter13;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 图片简单的加密和解密</span></span><br><span class="line"><span class="comment"> * 注：下面的方法图片的大小不会发生改变</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> dopphu</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span> 2021-04-20 19:12</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test1305</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//图片的加密</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span></span>&#123;</span><br><span class="line">        FileInputStream fis = <span class="keyword">null</span>;</span><br><span class="line">        FileOutputStream fos = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            fis = <span class="keyword">new</span> FileInputStream(<span class="keyword">new</span> File(<span class="string">&quot;未标题-1.png&quot;</span>));</span><br><span class="line">            <span class="comment">//可以这样简洁一点写</span></span><br><span class="line">            fos = <span class="keyword">new</span> FileOutputStream(<span class="string">&quot;未标题-1Secret加密版.png&quot;</span>);</span><br><span class="line">            <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">20</span>];</span><br><span class="line">            <span class="keyword">int</span> len;</span><br><span class="line">            <span class="keyword">while</span> ((len = fis.read(buffer))!=-<span class="number">1</span>)&#123;</span><br><span class="line">                <span class="comment">//字符数组进行修改</span></span><br><span class="line">                <span class="comment">//错误的:这样并不会对原有 数据进行修改（类似按值传递参数）</span></span><br><span class="line">    <span class="comment">//            for (byte b : buffer)&#123;</span></span><br><span class="line">    <span class="comment">//                b = (byte)(b^5);</span></span><br><span class="line">    <span class="comment">//            &#125;</span></span><br><span class="line">                <span class="comment">//正确的</span></span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">                    buffer[i] = (<span class="keyword">byte</span>)(buffer[i]^<span class="number">5</span>);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                fos.write(buffer,<span class="number">0</span>,len);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(fos!=<span class="keyword">null</span>)&#123;</span><br><span class="line">                    fos.close();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(fis!=<span class="keyword">null</span>)&#123;</span><br><span class="line">                    fis.close();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//图片的解密</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span></span>&#123;</span><br><span class="line">        FileInputStream fis = <span class="keyword">null</span>;</span><br><span class="line">        FileOutputStream fos = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            fis = <span class="keyword">new</span> FileInputStream(<span class="keyword">new</span> File(<span class="string">&quot;未标题-1Secret加密版.png&quot;</span>));</span><br><span class="line">            <span class="comment">//可以这样简洁一点写</span></span><br><span class="line">            fos = <span class="keyword">new</span> FileOutputStream(<span class="string">&quot;未标题-1Secret解密版.png&quot;</span>);</span><br><span class="line">            <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">20</span>];</span><br><span class="line">            <span class="keyword">int</span> len;</span><br><span class="line">            <span class="keyword">while</span> ((len = fis.read(buffer))!=-<span class="number">1</span>)&#123;</span><br><span class="line">                <span class="comment">//字符数组进行修改</span></span><br><span class="line">                <span class="comment">//错误的:这样并不会对原有 数据进行修改（类似按值传递参数）</span></span><br><span class="line">    <span class="comment">//            for (byte b : buffer)&#123;</span></span><br><span class="line">    <span class="comment">//                b = (byte)(b^5);</span></span><br><span class="line">    <span class="comment">//            &#125;</span></span><br><span class="line">                <span class="comment">//正确的</span></span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">                    buffer[i] = (<span class="keyword">byte</span>)(buffer[i]^<span class="number">5</span>);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                fos.write(buffer,<span class="number">0</span>,len);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(fos!=<span class="keyword">null</span>)&#123;</span><br><span class="line">                    fos.close();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(fis!=<span class="keyword">null</span>)&#123;</span><br><span class="line">                    fis.close();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/06/17/Java%20Language%20Basics/%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0/1304%20%E5%A4%84%E7%90%86%E6%B5%81%E4%B9%8B%E4%B8%80%EF%BC%9A%E7%BC%93%E5%86%B2%E6%B5%81%E7%9A%84%E4%BD%BF%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/../images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu0's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/../2021/06/17/Java%20Language%20Basics/%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0/1304%20%E5%A4%84%E7%90%86%E6%B5%81%E4%B9%8B%E4%B8%80%EF%BC%9A%E7%BC%93%E5%86%B2%E6%B5%81%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">1304 处理流之一：缓冲流的使用</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-06-17 20:13:19 / 修改时间：19:58:49" itemprop="dateCreated datePublished" datetime="2021-06-17T20:13:19+08:00">2021-06-17</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/../categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/../categories/Java-Language-Basics/%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0-File%E5%92%8CIO/" itemprop="url" rel="index"><span itemprop="name">第十三章 File和IO</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> chapter13;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 处理流之一：缓冲流的使用</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 1.缓冲流</span></span><br><span class="line"><span class="comment"> * BufferedInputStream</span></span><br><span class="line"><span class="comment"> * BufferedOutputStream</span></span><br><span class="line"><span class="comment"> * BufferedReader</span></span><br><span class="line"><span class="comment"> * BufferedWriter</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 2.作用：提供流的读取、写入的速度</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> dopphu</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span> 2021-04-20 18:23</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test1304</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * 实现非文本文件的复制</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * */</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">BufferedStreamTest</span><span class="params">()</span></span>&#123;</span><br><span class="line">        BufferedInputStream bis = <span class="keyword">null</span>;</span><br><span class="line">        BufferedOutputStream bos = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//1.造文件</span></span><br><span class="line">            File srcFile = <span class="keyword">new</span> File(<span class="string">&quot;未标题-1.png&quot;</span>);</span><br><span class="line">            File destFile = <span class="keyword">new</span> File(<span class="string">&quot;未标题Copy2.png&quot;</span>);</span><br><span class="line">            <span class="comment">//2.造流</span></span><br><span class="line">            <span class="comment">//2.1 造节点流</span></span><br><span class="line">            FileInputStream fis = <span class="keyword">new</span> FileInputStream(srcFile);</span><br><span class="line">            FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(destFile);</span><br><span class="line">            <span class="comment">//2.2 造缓冲流</span></span><br><span class="line">            bis = <span class="keyword">new</span> BufferedInputStream(fis);</span><br><span class="line">            bos = <span class="keyword">new</span> BufferedOutputStream(fos);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//3. 复制的细节：读取、写入</span></span><br><span class="line">            <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">10</span>];</span><br><span class="line">            <span class="keyword">int</span> len;</span><br><span class="line">            <span class="keyword">while</span>((len = bis.read(buffer))!=-<span class="number">1</span>)&#123;</span><br><span class="line">                bos.write(buffer,<span class="number">0</span>,len);</span><br><span class="line"></span><br><span class="line"><span class="comment">//                bos.flush();/* 刷新缓冲区 */ //使用缓冲流会自动调用这个方法</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="comment">//4.资源关闭（现在包了一层，关闭流的顺序就有了要求）</span></span><br><span class="line">            <span class="comment">//要求：先关闭外层的流，再关闭内层的流</span></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(bos!=<span class="keyword">null</span>)&#123;</span><br><span class="line">                    bos.close();</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(bis!=<span class="keyword">null</span>)&#123;</span><br><span class="line">                    bis.close();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//说明：关闭外层流的同时，内层流也会自动进行关闭。关于内层流的关闭，我们可以省略</span></span><br><span class="line"><span class="comment">//        fos.close();</span></span><br><span class="line"><span class="comment">//        fis.close();</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//实现文件复制的方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">copyFileWithBuffered</span><span class="params">(String srcPath, String destPath)</span> </span>&#123;</span><br><span class="line">        BufferedInputStream bis = <span class="keyword">null</span>;</span><br><span class="line">        BufferedOutputStream bos = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//1.造文件</span></span><br><span class="line">            File srcFile = <span class="keyword">new</span> File(srcPath);</span><br><span class="line">            File destFile = <span class="keyword">new</span> File(destPath);</span><br><span class="line">            <span class="comment">//2.造流</span></span><br><span class="line">            <span class="comment">//2.1 造节点流</span></span><br><span class="line">            FileInputStream fis = <span class="keyword">new</span> FileInputStream(srcFile);</span><br><span class="line">            FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(destFile);</span><br><span class="line">            <span class="comment">//2.2 造缓冲流</span></span><br><span class="line">            bis = <span class="keyword">new</span> BufferedInputStream(fis);</span><br><span class="line">            bos = <span class="keyword">new</span> BufferedOutputStream(fos);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//3. 复制的细节：读取、写入</span></span><br><span class="line">            <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">            <span class="keyword">int</span> len;</span><br><span class="line">            <span class="keyword">while</span> ((len = bis.read(buffer)) != -<span class="number">1</span>) &#123;</span><br><span class="line">                bos.write(buffer, <span class="number">0</span>, len);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="comment">//4.资源关闭（现在包了一层，关闭流的顺序就有了要求）</span></span><br><span class="line">            <span class="comment">//要求：先关闭外层的流，再关闭内层的流</span></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (bos != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    bos.close();</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (bis != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    bis.close();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 测试缓冲流文件复制的操作 */</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testCopyFileWithBuffered</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">long</span> start = System.currentTimeMillis();</span><br><span class="line">        copyFileWithBuffered(<span class="string">&quot;E:\\视频\\符华[A]ddiction _2160p_HDR_Extreme\\[A]ddiction _2160p_HDR_Extreme.mp4&quot;</span>,<span class="string">&quot;E:\\视频\\符华[A]ddiction _2160p_HDR_Extreme\\copy.mp4&quot;</span>);</span><br><span class="line">        <span class="keyword">long</span> end = System.currentTimeMillis();</span><br><span class="line">        System.out.println(<span class="string">&quot;（withBuffered）所用毫秒数为：&quot;</span> + (end - start) );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    使用Buffered和BufferedWriter实现文本文件的复制</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testBufferedReaderBufferedWriter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        BufferedReader br = <span class="keyword">null</span>;</span><br><span class="line">        BufferedWriter bw = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//简洁一下</span></span><br><span class="line">            br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> FileReader(<span class="keyword">new</span> File(<span class="string">&quot;hi.txt&quot;</span>)));</span><br><span class="line">            bw = <span class="keyword">new</span> BufferedWriter(<span class="keyword">new</span> FileWriter(<span class="keyword">new</span> File(<span class="string">&quot;hicopy&quot;</span>)));</span><br><span class="line"></span><br><span class="line">            <span class="comment">//读写操作</span></span><br><span class="line">            <span class="comment">//方式一：</span></span><br><span class="line"><span class="comment">//            char[] cbuf = new char[1024];</span></span><br><span class="line"><span class="comment">//            int len;</span></span><br><span class="line"><span class="comment">//            while ((len = br.read(cbuf))!=-1)&#123;</span></span><br><span class="line"><span class="comment">//                bw.write(cbuf,0,len);</span></span><br><span class="line"><span class="comment">//            &#125;</span></span><br><span class="line">            <span class="comment">//方式二：</span></span><br><span class="line">            String data;</span><br><span class="line">            <span class="keyword">while</span> ((data = br.readLine())!=<span class="keyword">null</span>)&#123;</span><br><span class="line">                <span class="comment">//方法1：</span></span><br><span class="line"><span class="comment">//                bw.write(data+&quot;\n&quot;);//data中不包含换行符</span></span><br><span class="line">                <span class="comment">//方法2：</span></span><br><span class="line">                bw.write(data);</span><br><span class="line">                bw.newLine();<span class="comment">//提供换行的操作</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//关闭资源</span></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(bw!=<span class="keyword">null</span>)&#123;</span><br><span class="line">                    bw.close();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(br!=<span class="keyword">null</span>)&#123;</span><br><span class="line">                    br.close();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/../"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/../">1</a><span class="page-number current">2</span><a class="page-number" href="/../page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/../page/23/">23</a><a class="extend next" rel="next" href="/../page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/../"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/../">1</a><span class="page-number current">2</span><a class="page-number" href="/../page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/../page/24/">24</a><a class="extend next" rel="next" href="/../page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -986,14 +1064,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/../archives/">
         
-          <span class="site-state-item-count">230</span>
+          <span class="site-state-item-count">233</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/../categories/">
           
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">

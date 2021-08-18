@@ -189,6 +189,225 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/06/Java%20Language%20Basics/%E7%AC%AC%E4%BA%94%E7%AB%A0/%E5%8C%85%E8%A3%85%E7%B1%BB%E7%BB%83%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/../images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu0's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/../2021/05/06/Java%20Language%20Basics/%E7%AC%AC%E4%BA%94%E7%AB%A0/%E5%8C%85%E8%A3%85%E7%B1%BB%E7%BB%83%E4%B9%A0/" class="post-title-link" itemprop="url">包装类练习</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-06 14:57:23 / 修改时间：14:57:44" itemprop="dateCreated datePublished" datetime="2021-05-06T14:57:23+08:00">2021-05-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/../categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/../categories/Java-Language-Basics/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E4%B8%AD/" itemprop="url" rel="index"><span itemprop="name">第五章 面向对象(中)</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 包装类练习</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> chapter05Test;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"> *	</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test01</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Object o1 = <span class="keyword">true</span> ? <span class="keyword">new</span> Integer(<span class="number">1</span>) : <span class="keyword">new</span> Double(<span class="number">2.0</span>);</span><br><span class="line">		<span class="comment">//三元运算符的两个表达式类型要进行统一，所以本来是1，统一成后边的Double类型1.0</span></span><br><span class="line">		System.out.println(o1);<span class="comment">//1.0</span></span><br><span class="line">		</span><br><span class="line">		Integer i = <span class="keyword">new</span> Integer(<span class="number">1</span>);</span><br><span class="line">		Integer j = <span class="keyword">new</span> Integer(<span class="number">1</span>);</span><br><span class="line">		System.out.println(i==j);<span class="comment">//false</span></span><br><span class="line">		</span><br><span class="line">		Integer m = <span class="number">1</span>;</span><br><span class="line">		Integer n = <span class="number">1</span>;</span><br><span class="line">		System.out.println(m == n);<span class="comment">//true</span></span><br><span class="line">		</span><br><span class="line">		Integer x = <span class="number">128</span>;</span><br><span class="line">		Integer y = <span class="number">128</span>;</span><br><span class="line">		<span class="comment">//语法细节https://www.bilibili.com/video/BV1Kb411W75N?p=309&amp;spm_id_from=pageDriver</span></span><br><span class="line">		<span class="comment">//Integer类中的机制可以理解为一个缓存，已经有了一个数组，里面存了-128 到 127 的int数，当给一个128时，超出了</span></span><br><span class="line">		<span class="comment">//这个数组的范围，所以就会new一个，因此地址不同，然后就false</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">//视频解释：</span></span><br><span class="line">		<span class="comment">/*</span></span><br><span class="line"><span class="comment">		 * Integer内部定义了IntegerCache结构，IntegerCache中定义了Integer[]</span></span><br><span class="line"><span class="comment">		 * 保存了-128~127范围的整数，如果我们使用自动装箱的方式，给Integer赋值的范围在</span></span><br><span class="line"><span class="comment">		 * -128~127范围内时，可以直接使用数组中标中的元素，不用再去new。目的，提高效率</span></span><br><span class="line"><span class="comment">		 * */</span></span><br><span class="line">		</span><br><span class="line">		System.out.println(x == y);<span class="comment">//false</span></span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/06/Java%20Language%20Basics/%E7%AC%AC%E4%BA%94%E7%AB%A0/07%20%E5%A4%9A%E6%80%81%E6%80%A7%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%BE%E4%BE%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/../images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu0's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/../2021/05/06/Java%20Language%20Basics/%E7%AC%AC%E4%BA%94%E7%AB%A0/07%20%E5%A4%9A%E6%80%81%E6%80%A7%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%BE%E4%BE%8B/" class="post-title-link" itemprop="url">07 多态性的使用举例</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-06 08:16:02 / 修改时间：08:12:59" itemprop="dateCreated datePublished" datetime="2021-05-06T08:16:02+08:00">2021-05-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/../categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/../categories/Java-Language-Basics/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E4%B8%AD/" itemprop="url" rel="index"><span itemprop="name">第五章 面向对象(中)</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 多态性的使用举例</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> chapter05;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test08</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Test08 test = <span class="keyword">new</span> Test08();</span><br><span class="line">		<span class="comment">//有了多态性就省了重载方法了了</span></span><br><span class="line">		test.func(<span class="keyword">new</span> Animal());</span><br><span class="line">		test.func(<span class="keyword">new</span> Dog());</span><br><span class="line">		test.func(<span class="keyword">new</span> Cat());</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">func</span><span class="params">(Animal animal)</span> </span>&#123;</span><br><span class="line">		animal.eat();</span><br><span class="line">		animal.shout();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;动物吃饭&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">shout</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;动物叫&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">	 <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		 System.out.println(<span class="string">&quot;狗吃骨头&quot;</span>);</span><br><span class="line">	 &#125;</span><br><span class="line">	 <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">shout</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		 System.out.println(<span class="string">&quot;汪汪汪&quot;</span>);</span><br><span class="line">	 &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;猫爱吃鱼&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">shout</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;喵喵喵&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/06/Java%20Language%20Basics/%E7%AC%AC%E4%BA%94%E7%AB%A0/08%20Object%E7%B1%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/../images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu0's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/../2021/05/06/Java%20Language%20Basics/%E7%AC%AC%E4%BA%94%E7%AB%A0/08%20Object%E7%B1%BB/" class="post-title-link" itemprop="url">08 Object类</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-06 08:16:02 / 修改时间：08:13:18" itemprop="dateCreated datePublished" datetime="2021-05-06T08:16:02+08:00">2021-05-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/../categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/../categories/Java-Language-Basics/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E4%B8%AD/" itemprop="url" rel="index"><span itemprop="name">第五章 面向对象(中)</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * java.lang.Object 类</span></span><br><span class="line"><span class="comment"> * 1.Object类是所有java类的根父类</span></span><br><span class="line"><span class="comment"> * 2.如果在类的声明中未使用extends关键字指明其父类，则默认父类为java.lang.Object类</span></span><br><span class="line"><span class="comment"> * 3.Object类中的功能（方法、属性）就具有通用性</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 4.Object类只声明了一个空参的构造器</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 方法：equals、toString、getClass、hashCode、clone、finalize、wait、notify、notifyAll</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 面试题：final、finally、finalize的区别</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> chapter05;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test09</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Order order = <span class="keyword">new</span> Order();</span><br><span class="line">		System.out.println(order.getClass().getSuperclass());</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Order</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">demo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/06/Java%20Language%20Basics/%E7%AC%AC%E4%BA%94%E7%AB%A0/09%20Object%E7%B1%BB%E4%B8%ADtoString()%E7%9A%84%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -696,229 +915,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/06/Java%20Language%20Basics/%E7%AC%AC%E4%BA%94%E7%AB%A0/04%20super%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E4%BD%BF%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/../images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu0's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/../2021/05/06/Java%20Language%20Basics/%E7%AC%AC%E4%BA%94%E7%AB%A0/04%20super%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">04 super关键字的使用</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-05-06 08:16:02 / 修改时间：08:11:05" itemprop="dateCreated datePublished" datetime="2021-05-06T08:16:02+08:00">2021-05-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/../categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/../categories/Java-Language-Basics/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E4%B8%AD/" itemprop="url" rel="index"><span itemprop="name">第五章 面向对象(中)</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * super关键字的使用</span></span><br><span class="line"><span class="comment"> * 1.super理解为：父类的</span></span><br><span class="line"><span class="comment"> * 2.super可以用来调用：属性、方法、构造器</span></span><br><span class="line"><span class="comment"> * 3.super的使用</span></span><br><span class="line"><span class="comment"> * 		3.1我们可以在子类的方法或构造器中，通过使用“super.属性”或“super.方法”的方式显式地调用</span></span><br><span class="line"><span class="comment"> * 		父类中声明的属性或方法。但是，通常情况下，我们习惯省略“super”（跟省略this的道理差不多）</span></span><br><span class="line"><span class="comment"> * 		3.2特殊情况：当子类和父类中定义了同名的属性时，我们要想在子类中调用父类声明的属性，则必须</span></span><br><span class="line"><span class="comment"> * 		显式使用“super.属性”的方式，表名调用的是父类中声明的属性</span></span><br><span class="line"><span class="comment"> * 		3.3同3.2，重写父类的方法后，super可以调用父类被重写的方法</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 4.super来调用构造器</span></span><br><span class="line"><span class="comment"> * 		4.1我们可以在子类的构造器中显示的使用“super(形参列表)”的方式，调用父类中声明的构造器</span></span><br><span class="line"><span class="comment"> * 		4.2“super(形参列表)”的使用，必须声明在子类构造器的首行！</span></span><br><span class="line"><span class="comment"> * 		4.3我们在类的构造器中，针对于“this(形参列表)”和“super(形参列表)”只能二选一（因为只有一个首行）</span></span><br><span class="line"><span class="comment"> * 		4.4默认会调用super()</span></span><br><span class="line"><span class="comment"> * 		4.5在类的多个构造器中，至少有一个构造器使用了“super(形参列表)”,调用父类中的构造器</span></span><br><span class="line"><span class="comment"> * 		  </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> chapter05;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test05super</span> <span class="keyword">extends</span> <span class="title">Student</span></span>&#123;</span><br><span class="line">	Test05super()&#123;</span><br><span class="line"><span class="comment">//		super(12);</span></span><br><span class="line">		<span class="comment">//啥也不写，默认就会调用super()</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">super</span>.study();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//class Test&#123;</span></span><br><span class="line"><span class="comment">//	public static void main(String[] args) &#123;</span></span><br><span class="line"><span class="comment">//		Test05super demo =  new Test05super();</span></span><br><span class="line"><span class="comment">//	&#125;</span></span><br><span class="line"><span class="comment">//&#125;</span></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/06/Java%20Language%20Basics/%E7%AC%AC%E4%BA%94%E7%AB%A0/05%20%E5%AD%90%E7%B1%BB%E5%AF%B9%E8%B1%A1%E5%AE%9E%E4%BE%8B%E5%8C%96%E7%9A%84%E5%85%A8%E8%BF%87%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/../images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu0's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/../2021/05/06/Java%20Language%20Basics/%E7%AC%AC%E4%BA%94%E7%AB%A0/05%20%E5%AD%90%E7%B1%BB%E5%AF%B9%E8%B1%A1%E5%AE%9E%E4%BE%8B%E5%8C%96%E7%9A%84%E5%85%A8%E8%BF%87%E7%A8%8B/" class="post-title-link" itemprop="url">05 子类对象实例化的全过程</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-05-06 08:16:02 / 修改时间：08:11:44" itemprop="dateCreated datePublished" datetime="2021-05-06T08:16:02+08:00">2021-05-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/../categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/../categories/Java-Language-Basics/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E4%B8%AD/" itemprop="url" rel="index"><span itemprop="name">第五章 面向对象(中)</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 子类对象实例化的全过程</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 1.从结果上看：（继承性）</span></span><br><span class="line"><span class="comment"> * 		子类继承父类以后，就获得了父类中声明的属性或方法</span></span><br><span class="line"><span class="comment"> * 		创建子类对象时，在堆空间中，就会加载所有父类声明的属性</span></span><br><span class="line"><span class="comment"> * 2.从过程上看：</span></span><br><span class="line"><span class="comment"> * 		当我们通过子类的构造器创建子类对象时，我们一定会直接或间接调用其父类的构造器。</span></span><br><span class="line"><span class="comment"> * 		直到调用了java.lang.Object类中空参的构造器为止，正因为加载过所有的父类的结构，所以才可以看到内存中有父类中的结构</span></span><br><span class="line"><span class="comment"> * 		子类对象才可以考虑进行调用。</span></span><br><span class="line"><span class="comment"> * 明确：虽然创建子类对象时调用了父类的构造器，但是自始至终只创建过一个对象，即为new的子类对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> chapter05;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test06</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/06/Java%20Language%20Basics/%E7%AC%AC%E4%BA%94%E7%AB%A0/06%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81%E4%B9%8B%E5%A4%9A%E6%80%81%E6%80%A7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/../images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu0's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/../2021/05/06/Java%20Language%20Basics/%E7%AC%AC%E4%BA%94%E7%AB%A0/06%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81%E4%B9%8B%E5%A4%9A%E6%80%81%E6%80%A7/" class="post-title-link" itemprop="url">06 面向对象特征之多态性</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-05-06 08:16:02 / 修改时间：08:12:19" itemprop="dateCreated datePublished" datetime="2021-05-06T08:16:02+08:00">2021-05-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/../categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/../categories/Java-Language-Basics/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E4%B8%AD/" itemprop="url" rel="index"><span itemprop="name">第五章 面向对象(中)</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 面向对象特征之多态性</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 1.理解多态性：可以理解为一个事物的多种形态</span></span><br><span class="line"><span class="comment"> * 2.何为多态性</span></span><br><span class="line"><span class="comment"> * 		对象的多态性：父类的引用指向子类的对象（或者子类的对象赋给父类的引用）</span></span><br><span class="line"><span class="comment"> * 3.多态的使用，虚拟方法调用</span></span><br><span class="line"><span class="comment"> * 		有了对象的多态性以后，我们在编译期，只能调用父类中声明的方法，但在运行期，我们实际执行的是</span></span><br><span class="line"><span class="comment"> * 		子类重写父类的方法</span></span><br><span class="line"><span class="comment"> * 总结：编译看右边，运行看右边</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 4.多态性的使用前提：1）类的继承关系；2）方法的重写</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 5.对象的多态性：只适用于方法，不适用与属性，属性的话都看右边</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * instanceof 关键字的使用</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> chapter05;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test07</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Person p1 = <span class="keyword">new</span> Person();</span><br><span class="line">		</span><br><span class="line">		Man man = <span class="keyword">new</span> Man();</span><br><span class="line">		man.eat();</span><br><span class="line">		man.earnMoney();</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//*******************************</span></span><br><span class="line">		System.out.println(<span class="string">&quot;**********&quot;</span>);</span><br><span class="line">		<span class="comment">//对象的多态性:父类的引用指向子类的对象</span></span><br><span class="line">		Person p2 = <span class="keyword">new</span> Man();</span><br><span class="line">		</span><br><span class="line">		p2.eat();<span class="comment">//调用的是子类重写的eat()方法，虽然p2是Person类型，</span></span><br><span class="line">		<span class="comment">//但是实际上赋了Man类型，所以调用的是重写的eat()方法</span></span><br><span class="line"><span class="comment">//		p2.walk();//不能调用，因为p2是Person类的</span></span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		System.out.println(<span class="string">&quot;*********************&quot;</span>);</span><br><span class="line"><span class="comment">//		对于p2来说不能调用子类特有的属性和方法</span></span><br><span class="line"><span class="comment">//		p2.isSmoking = true;</span></span><br><span class="line"><span class="comment">//		p2.earnMoney();</span></span><br><span class="line">		<span class="comment">//有了对象的多态性以后，内存中实际是加载了子类特有的属性和方法，但是由于变量声明为父类类型，</span></span><br><span class="line">		<span class="comment">//导致编译时，只能调用父类中声明的属性和方法。子类特有的属性和方法不能调用。</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">//那么如何才能调用子类特有的属性和方法呢？使用强制类型转换</span></span><br><span class="line">		Man m1 = (Man)p2;</span><br><span class="line">		m1.earnMoney();</span><br><span class="line">		m1.isSomking  = <span class="keyword">true</span>;</span><br><span class="line">		<span class="comment">//下面这么转就不行</span></span><br><span class="line"><span class="comment">//		Woman w1 = (Woman)p2;</span></span><br><span class="line"><span class="comment">//		w1.goShopping();</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">//为了正确的转换，引入instanceof关键字的使用</span></span><br><span class="line">		<span class="comment">/*</span></span><br><span class="line"><span class="comment">		 * instanceof关键字的使用</span></span><br><span class="line"><span class="comment">		 *</span></span><br><span class="line"><span class="comment">		 * a instanceof A ——判断对象a是否是A的实例，如果是返回，true否则返回false</span></span><br><span class="line"><span class="comment">		 *	a是A的子类，则是true</span></span><br><span class="line"><span class="comment">		 * */</span></span><br><span class="line">		</span><br><span class="line">		<span class="keyword">if</span>(p2 <span class="keyword">instanceof</span> Woman) &#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;is womon&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(p2 <span class="keyword">instanceof</span> Person) &#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;is Person&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(p2 <span class="keyword">instanceof</span> Object) &#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;is Object&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//练习</span></span><br><span class="line">		<span class="comment">//问题一：编译通过，运行不通过</span></span><br><span class="line"><span class="comment">//		Person p3 = new Woman();</span></span><br><span class="line"><span class="comment">//		Man m3 = (Man)p3;</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">//问题二：编译通过，运行也通过</span></span><br><span class="line">		Object obj = <span class="keyword">new</span> Woman();</span><br><span class="line">		Person p = (Person)obj;</span><br><span class="line">		System.out.println(p2.age);<span class="comment">//0</span></span><br><span class="line">		<span class="comment">//问题三：编译不过，运行也过(编译都不通过，运行就更不可能了)</span></span><br><span class="line"><span class="comment">//		Man m4 = new Woman();</span></span><br><span class="line"><span class="comment">//		Man m5 = new Person();</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Man</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">boolean</span> isSomking;</span><br><span class="line">	<span class="keyword">double</span> age=<span class="number">123</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">earnMoney</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;男人负责赚钱养家&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;男人多吃肉，长肌肉&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">walk</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;男人霸气的走路&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Woman</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">	<span class="keyword">boolean</span> isBeauty;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">goShopping</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;女人喜欢购物&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;女人少吃，为了减肥&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">walk</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;女人窈窕的走路&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/../page/10/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/../">1</a><span class="space">&hellip;</span><a class="page-number" href="/../page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/../page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/../page/23/">23</a><a class="extend next" rel="next" href="/../page/12/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/../page/10/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/../">1</a><span class="space">&hellip;</span><a class="page-number" href="/../page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/../page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/../page/24/">24</a><a class="extend next" rel="next" href="/../page/12/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -986,14 +986,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/../archives/">
         
-          <span class="site-state-item-count">230</span>
+          <span class="site-state-item-count">233</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/../categories/">
           
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">

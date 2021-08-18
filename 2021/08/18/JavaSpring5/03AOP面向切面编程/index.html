@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/../images/pp.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/../images/pp.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/../images/pp.jpg">
+  <link rel="mask-icon" href="/../images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/../css/main.css">
+
+
+<link rel="stylesheet" href="/../lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/../lib/pace/pace-theme-big-counter.min.css">
+  <script src="/../lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"gitee.com","root":"/../","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="AOP概念（Aspect Oriented Programming）1、什么是AOP（1）面向切面编程（方面），利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。 （2）通俗描述：不通过修改源代码的方式，在主干功能里面添加新功能 （3）使用登录例子说明AOP  AOP（底层原理）1、AOP底层使用动态代理 第一种：有接口的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="03 AOP面向切面编程">
+<meta property="og:url" content="https://gitee.com/dopphu/dopphu.git/2021/08/18/JavaSpring5/03AOP%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8B/index.html">
+<meta property="og:site_name" content="Welcome to Dopphu0&#39;s Blog">
+<meta property="og:description" content="AOP概念（Aspect Oriented Programming）1、什么是AOP（1）面向切面编程（方面），利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。 （2）通俗描述：不通过修改源代码的方式，在主干功能里面添加新功能 （3）使用登录例子说明AOP  AOP（底层原理）1、AOP底层使用动态代理 第一种：有接口的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E4%BD%BF%E7%94%A8%E7%99%BB%E5%BD%95%E4%BE%8B%E5%AD%90%E4%BB%8B%E7%BB%8DAOP.4udvtoxk8uu0.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%88%9B%E5%BB%BA%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0%E7%B1%BB%E7%9A%84%E4%BB%A3%E7%90%86%E5%AF%B9%E8%B1%A1%EF%BC%8C%E5%A2%9E%E5%BC%BA%E7%B1%BB%E7%9A%84%E6%96%B9%E6%B3%95.hsfbzzd1qxc.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%88%9B%E5%BB%BA%E5%AD%90%E7%B1%BB%E7%9A%84%E4%BB%A3%E7%90%86%E5%AF%B9%E8%B1%A1%EF%BC%8C%E5%A2%9E%E5%BC%BA%E7%B1%BB%E7%9A%84%E6%96%B9%E6%B3%95.27pgcga2ltwk.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/newProxyInstance%E6%96%B9%E6%B3%95.423khstlltc0.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%BC%95%E5%85%A5AOP%E7%9B%B8%E5%85%B3%E4%BE%9D%E8%B5%96.6bd176jsqsc0.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%A4%9A%E4%B8%AA%E5%A2%9E%E5%BC%BA%E7%B1%BB%E5%AF%B9%E5%90%8C%E4%B8%80%E4%B8%AA%E6%96%B9%E6%B3%95%E8%AE%B0%E6%80%A7%E5%A2%9E%E5%BC%BA%E8%AE%BE%E7%BD%AE%E4%BC%98%E5%85%88%E7%BA%A7.7a8qt7r5qj00.jpg">
+<meta property="article:published_time" content="2021-08-18T00:52:22.954Z">
+<meta property="article:modified_time" content="2021-08-18T00:51:47.594Z">
+<meta property="article:author" content="Dopphu">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E4%BD%BF%E7%94%A8%E7%99%BB%E5%BD%95%E4%BE%8B%E5%AD%90%E4%BB%8B%E7%BB%8DAOP.4udvtoxk8uu0.jpg">
+
+<link rel="canonical" href="https://gitee.com/dopphu/dopphu.git/2021/08/18/JavaSpring5/03AOP%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8B/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>03 AOP面向切面编程 | Welcome to Dopphu0's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/../atom.xml" title="Welcome to Dopphu0's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+<a target="_blank" rel="noopener" href="https://github.com/dopphu" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/../" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Welcome to Dopphu0's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">dopphu0.github.io</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/../" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/../tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/../categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/../archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/08/18/JavaSpring5/03AOP%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/../images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu0's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          03 AOP面向切面编程
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-08-18 08:52:22 / 修改时间：08:51:47" itemprop="dateCreated datePublished" datetime="2021-08-18T08:52:22+08:00">2021-08-18</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/../categories/spring5/" itemprop="url" rel="index"><span itemprop="name">spring5</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="AOP概念（Aspect-Oriented-Programming）"><a href="#AOP概念（Aspect-Oriented-Programming）" class="headerlink" title="AOP概念（Aspect Oriented Programming）"></a>AOP概念（Aspect Oriented Programming）</h2><h3 id="1、什么是AOP"><a href="#1、什么是AOP" class="headerlink" title="1、什么是AOP"></a>1、什么是AOP</h3><p>（1）面向切面编程（方面），利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。</p>
+<p>（2）通俗描述：不通过修改源代码的方式，在主干功能里面添加新功能</p>
+<p>（3）使用登录例子说明AOP</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E4%BD%BF%E7%94%A8%E7%99%BB%E5%BD%95%E4%BE%8B%E5%AD%90%E4%BB%8B%E7%BB%8DAOP.4udvtoxk8uu0.jpg" alt="使用登录例子介绍AOP"></p>
+<h2 id="AOP（底层原理）"><a href="#AOP（底层原理）" class="headerlink" title="AOP（底层原理）"></a>AOP（底层原理）</h2><p>1、AOP底层使用动态代理</p>
+<p>第一种：有接口的情况，使用JDK动态代理</p>
+<p>创建接口实现类的代理对象，增强类的方法</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%88%9B%E5%BB%BA%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0%E7%B1%BB%E7%9A%84%E4%BB%A3%E7%90%86%E5%AF%B9%E8%B1%A1%EF%BC%8C%E5%A2%9E%E5%BC%BA%E7%B1%BB%E7%9A%84%E6%96%B9%E6%B3%95.hsfbzzd1qxc.jpg" alt="创建接口实现类的代理对象，增强类的方法"></p>
+<p>第二种：没有接口的情况，使用CGLIB动态代理</p>
+<p>创建子类的代理对象，增强类的方法</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%88%9B%E5%BB%BA%E5%AD%90%E7%B1%BB%E7%9A%84%E4%BB%A3%E7%90%86%E5%AF%B9%E8%B1%A1%EF%BC%8C%E5%A2%9E%E5%BC%BA%E7%B1%BB%E7%9A%84%E6%96%B9%E6%B3%95.27pgcga2ltwk.jpg" alt="创建子类的代理对象，增强类的方法"></p>
+<h2 id="AOP（JDK动态代理）"><a href="#AOP（JDK动态代理）" class="headerlink" title="AOP（JDK动态代理）"></a>AOP（JDK动态代理）</h2><p>1、使用JDK动态代理，使用Proxy类里面的方法创建代理对象</p>
+<p>java.lang.Object</p>
+<p>java.lang.reflect.Proxy</p>
+<p>（1）调用newProxyInstance方法</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/newProxyInstance%E6%96%B9%E6%B3%95.423khstlltc0.jpg" alt="newProxyInstance方法"></p>
+<p>2、编写JDK动态代理代码（me：自己写底层实现的代码）</p>
+<p>（1）创建接口、定义</p>
+<p>接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserDao</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">update</span><span class="params">(String id)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>（2）实现类</p>
+<p>实现类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserDaoImpl</span> <span class="keyword">implements</span> <span class="title">UserDao</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;add方法执行了&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> a+b;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">update</span><span class="params">(String id)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;update方法执行了&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> id;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>（3）使用Proxy类创建接口代理对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JDKProxy</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//创建接口实现类的代理对象</span></span><br><span class="line">        Class[] interfaces = &#123;UserDao.class&#125;;</span><br><span class="line"></span><br><span class="line">        UserDaoImpl userDao = <span class="keyword">new</span> UserDaoImpl();</span><br><span class="line">        UserDao dao = (UserDao)Proxy.newProxyInstance(JDKProxy.class.getClassLoader(), interfaces, <span class="keyword">new</span> UserDaoProxy(userDao));</span><br><span class="line">        dao.add(<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line">        dao.update(<span class="string">&quot;111111&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建代理对象代码</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserDaoProxy</span> <span class="keyword">implements</span> <span class="title">InvocationHandler</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//1.把创建的是谁的代理对象，把谁传递过来</span></span><br><span class="line">    <span class="comment">//有参数构造进行传递</span></span><br><span class="line">    <span class="keyword">private</span> Object obj;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">UserDaoProxy</span><span class="params">(Object obj)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.obj = obj;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//增强的逻辑</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//方法之前</span></span><br><span class="line">        System.out.println(<span class="string">&quot;方法执行之前...&quot;</span>+method.getName()+<span class="string">&quot;:传递的参数...&quot;</span>+Arrays.toString(args));</span><br><span class="line"></span><br><span class="line">        <span class="comment">//被增强的方法执行</span></span><br><span class="line">        Object res = method.invoke(obj, args);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//方法之后</span></span><br><span class="line">        System.out.println(<span class="string">&quot;方法之后执行...&quot;</span> + obj);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="AOP（术语）"><a href="#AOP（术语）" class="headerlink" title="AOP（术语）"></a>AOP（术语）</h2><p>1、连接点</p>
+<p>类里面哪些方法可以被增强，这些方法被称为<strong>连接点</strong></p>
+<p>2、切入点</p>
+<p>实际真正被增强的方法被称为<strong>切入点</strong></p>
+<p>3、通知（增强）</p>
+<p>（1）实际增强的逻辑部分被称为通知（或增强）</p>
+<p>（2）通知有多种类型</p>
+<ul>
+<li>前置通知</li>
+<li>后置通知</li>
+<li>环绕通知</li>
+<li>异常通知</li>
+<li>最终通知</li>
+</ul>
+<p>4、切面</p>
+<p>是动作过程，把通知应用到切入点的过程称为切面</p>
+<h2 id="AOP-操作（准备工作）"><a href="#AOP-操作（准备工作）" class="headerlink" title="AOP 操作（准备工作）"></a>AOP 操作（准备工作）</h2><p>1、Spring框架一般基于AspectJ实现AOP操作</p>
+<p>（1）什么是<strong>AspectJ</strong>？</p>
+<p>AspectJ不是Spring组成部分，独立AOP框架，一般把AspectJ和Spring框架一起使用，进行AOP操作</p>
+<p>2、基于AspectJ实现AOP操作</p>
+<p>（1）基于xml配置文件实现</p>
+<p>（2）基于注解方式实现（使用）</p>
+<p>3、在项目工程引入AOP相关依赖</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%BC%95%E5%85%A5AOP%E7%9B%B8%E5%85%B3%E4%BE%9D%E8%B5%96.6bd176jsqsc0.jpg" alt="引入AOP相关依赖"></p>
+<p>4、切入点表达式</p>
+<p>（1）切入点表达式的作用：知道要对哪个类里面的哪个方法进行增强</p>
+<p>（2）语法结构</p>
+<p><code>execution([权限修饰符][返回类型][全类名][方法名称]([参数列表]))</code></p>
+<p>举例1：对com.atdopphu.dao.BookDao类里面的add方法进行增强（<strong>注意：是两个点啊，不是随便点的省略号啊喂</strong>）</p>
+<p><code>execution(* com.atdopphu.dao.BookDao.add(..))</code>            //<code>*</code>表示所有权限修饰符（me：通配）</p>
+<p>举例2：对com.atdopphu.dao.BookDao类里面的所有方法进行增强</p>
+<p><code>execution(* com.atdopphu.dao.BookDao.*(..))</code></p>
+<p>举例3：对com.atdopphu.dao中所有类里面所有方法进行增强</p>
+<p><code>execution(* com.atdopphu.dao.*.*(..))</code></p>
+<h2 id="AOP操作（AspectJ注解）"><a href="#AOP操作（AspectJ注解）" class="headerlink" title="AOP操作（AspectJ注解）"></a>AOP操作（AspectJ注解）</h2><p>1、创建类，在类里面定义方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;add...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2、创建增强类（编写增强逻辑）</p>
+<p>（1）在增强类里面创建方法，让不同方法代表不同通知类型</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//增强类</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserProxy</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//前置通知</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">before</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;前置方法&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3、进行通知的配置</p>
+<p>（1）在Spring配置文件，开启全注解扫描</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:context</span>=<span class="string">&quot;http://www.springframework.org/schema/context&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:aop</span>=<span class="string">&quot;http://www.springframework.org/schema/aop&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">                            http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">                            http://www.springframework.org/schema/aop  http://www.springframework.org/schema/aop/spring-aop.xsd&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">&quot;com.atdopphu.spring5.aopanno&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>（2）使用注解创建User和UserProxy对象</p>
+<p>在类上加注解@Component</p>
+<p>（3）在增强类上面添加注解@Aspect</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserProxy</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//前置通知</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">before</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;前置方法&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>（4）在spring配置文件中开启生成代理对象（需要aop名称空间）</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--开启Aspect生成代理对象--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">aop:aspectj-autoproxy</span>&gt;</span><span class="tag">&lt;/<span class="name">aop:aspectj-autoproxy</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>4、配置不同类型通知</p>
+<p>（1）增强类的里面，在作为通知方法上添加通知类型注解，使用切入点表达式配置（下方示例为前置通知）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserProxy</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//前置通知</span></span><br><span class="line">    <span class="comment">//@Before注解表示作为前置通知</span></span><br><span class="line">    <span class="meta">@Before(value = &quot;execution(* com.atdopphu.spring5.aopanno.User.add(..))&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">before</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;前置方法&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其它示例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserProxy</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">//    public UserProxy()&#123;</span></span><br><span class="line"><span class="comment">//        System.out.println(&quot;UserProxy构造器被执行&quot;);</span></span><br><span class="line"><span class="comment">//    &#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//环绕通知</span></span><br><span class="line">    <span class="meta">@Around(value = &quot;execution(* com.atdopphu.spring5.aopanno.User.add(..))&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">around</span><span class="params">(ProceedingJoinPoint proceedingJoinPoint)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;环绕之前&quot;</span>);</span><br><span class="line">        <span class="comment">//被增强的方法执行</span></span><br><span class="line">        proceedingJoinPoint.proceed();</span><br><span class="line">        System.out.println(<span class="string">&quot;环绕之后&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//前置通知</span></span><br><span class="line">    <span class="comment">//@Before注解表示作为前置通知</span></span><br><span class="line">    <span class="meta">@Before(value = &quot;execution(* com.atdopphu.spring5.aopanno.User.add(..))&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">before</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;前置方法&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//最终通知（不管被增强方法有没有异常都会执行）</span></span><br><span class="line">    <span class="meta">@After(value = &quot;execution(* com.atdopphu.spring5.aopanno.User.add(..))&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">after</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;after执行&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//后置通知或返回通知：返回结果之后进行执行（被增强方法有异常就不再执行）</span></span><br><span class="line">    <span class="meta">@AfterReturning(value = &quot;execution(* com.atdopphu.spring5.aopanno.User.add(..))&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterReturning</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;afterReturning执行&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//异常通知</span></span><br><span class="line">    <span class="meta">@AfterThrowing(value = &quot;execution(* com.atdopphu.spring5.aopanno.User.add(..))&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterThrowing</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;afterThrowing执行&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>前置通知、后置通知、最终通知、异常通知、环绕通知的执行顺序</strong>（上方代码我的实验的执行顺序）</p>
+<p>环绕进入Around↓</p>
+<p>前置@Before↓</p>
+<p>被增强方法↓</p>
+<p>环绕退出@Around↓</p>
+<p>最终通知@After↓</p>
+<p>后置通知@AfterReturning</p>
+<p>5、公共切入点进行抽取</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//相同切入点抽取</span></span><br><span class="line"><span class="meta">@Pointcut(value = &quot;execution(* com.atdopphu.spring5.aopanno.User.add(..))&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pointDemo</span><span class="params">()</span></span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//环绕通知</span></span><br><span class="line"><span class="meta">@Around(value = &quot;pointDemo()&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">around</span><span class="params">(ProceedingJoinPoint proceedingJoinPoint)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;环绕之前&quot;</span>);</span><br><span class="line">    <span class="comment">//被增强的方法执行</span></span><br><span class="line">    proceedingJoinPoint.proceed();</span><br><span class="line">    System.out.println(<span class="string">&quot;环绕之后&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>6、有多个增强类对同一个方法进行增强</p>
+<p>（1）在增强类上面添加注解 <code>@Order(数字类型值)</code> ，数字类型值（0,1,2,3….）越小优先级越高</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%A4%9A%E4%B8%AA%E5%A2%9E%E5%BC%BA%E7%B1%BB%E5%AF%B9%E5%90%8C%E4%B8%80%E4%B8%AA%E6%96%B9%E6%B3%95%E8%AE%B0%E6%80%A7%E5%A2%9E%E5%BC%BA%E8%AE%BE%E7%BD%AE%E4%BC%98%E5%85%88%E7%BA%A7.7a8qt7r5qj00.jpg" alt="多个增强类对同一个方法记性增强设置优先级"></p>
+<p>7、完全注解开发</p>
+<p>创建配置类，不需要创建xml配置文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@ComponentScan(basePackages = &#123;&quot;com.atdopphu&quot;&#125;)</span> <span class="comment">//替代&lt;context:component-scan base-package=&quot;com.atdopphu.spring5.aopanno&quot;&gt;&lt;/context:component-scan&gt;</span></span><br><span class="line"><span class="meta">@EnableAspectJAutoProxy(proxyTargetClass = true)</span> <span class="comment">//替代&lt;aop:aspectj-autoproxy&gt;&lt;/aop:aspectj-autoproxy&gt;——开启生成代理对象</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConfigAop</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="AOP操作（AspectJ配置文件）"><a href="#AOP操作（AspectJ配置文件）" class="headerlink" title="AOP操作（AspectJ配置文件）"></a>AOP操作（AspectJ配置文件）</h2><p>配置文件方式演示（实际工作中基本用的还是注解方式，配置文件方式作为了解）</p>
+<p>创建类<code>Book.java</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Book</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">buy</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;buy方法执行&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>创建增强类<code>BookProxy.java</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BookProxy</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">before</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;before方法执行&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>xml配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:context</span>=<span class="string">&quot;http://www.springframework.org/schema/context&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:aop</span>=<span class="string">&quot;http://www.springframework.org/schema/aop&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">                            http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">                            http://www.springframework.org/schema/aop  http://www.springframework.org/schema/aop/spring-aop.xsd&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--创建对象--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;book&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.atdopphu.spring5.aopxml.Book&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;bookProxy&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.atdopphu.spring5.aopxml.BookProxy&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--配置aop增强--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:config</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--切入点--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">aop:pointcut</span> <span class="attr">id</span>=<span class="string">&quot;p&quot;</span> <span class="attr">expression</span>=<span class="string">&quot;execution(* com.atdopphu.spring5.aopxml.Book.buy(..))&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!--配置切面--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">aop:aspect</span> <span class="attr">ref</span>=<span class="string">&quot;bookProxy&quot;</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--增强作用在具体的方法上--&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--演示的是@Before，其它的方式相同--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">aop:before</span> <span class="attr">method</span>=<span class="string">&quot;before&quot;</span> <span class="attr">pointcut-ref</span>=<span class="string">&quot;p&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">aop:aspect</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">aop:config</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>测试代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testAopXml</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ApplicationContext context = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">&quot;bean2.xml&quot;</span>);</span><br><span class="line">    Book book = context.getBean(<span class="string">&quot;book&quot;</span>, Book.class);</span><br><span class="line">    book.buy();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/../2021/08/18/JavaSpring5/02IOC/" rel="prev" title="02 IOC容器">
+      <i class="fa fa-chevron-left"></i> 02 IOC容器
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/../2021/08/18/JavaSpring5/01%E5%88%9D%E8%A7%81/" rel="next" title="01 初见spring5">
+      01 初见spring5 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#AOP%E6%A6%82%E5%BF%B5%EF%BC%88Aspect-Oriented-Programming%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">AOP概念（Aspect Oriented Programming）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AFAOP"><span class="nav-number">1.1.</span> <span class="nav-text">1、什么是AOP</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AOP%EF%BC%88%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">AOP（底层原理）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AOP%EF%BC%88JDK%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">AOP（JDK动态代理）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AOP%EF%BC%88%E6%9C%AF%E8%AF%AD%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">AOP（术语）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AOP-%E6%93%8D%E4%BD%9C%EF%BC%88%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C%EF%BC%89"><span class="nav-number">5.</span> <span class="nav-text">AOP 操作（准备工作）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AOP%E6%93%8D%E4%BD%9C%EF%BC%88AspectJ%E6%B3%A8%E8%A7%A3%EF%BC%89"><span class="nav-number">6.</span> <span class="nav-text">AOP操作（AspectJ注解）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AOP%E6%93%8D%E4%BD%9C%EF%BC%88AspectJ%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%89"><span class="nav-number">7.</span> <span class="nav-text">AOP操作（AspectJ配置文件）</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dopphu"
+      src="/../images/dopphu.jpg">
+  <p class="site-author-name" itemprop="name">Dopphu</p>
+  <div class="site-description" itemprop="description">欢迎大家扫描二维码，关注我的微信公众号</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/../archives/">
+        
+          <span class="site-state-item-count">233</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/../categories/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/../tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://doyyli.github.io/" title="https:&#x2F;&#x2F;doyyli.github.io" rel="noopener" target="_blank">洋洋小伙伴</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dopphu</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/../lib/anime.min.js"></script>
+  <script src="/../lib/velocity/velocity.min.js"></script>
+  <script src="/../lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/../js/utils.js"></script>
+
+<script src="/../js/motion.js"></script>
+
+
+<script src="/../js/schemes/pisces.js"></script>
+
+
+<script src="/../js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/../js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

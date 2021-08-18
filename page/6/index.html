@@ -189,6 +189,225 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/26/Java%20Language%20Basics/%E7%AC%AC%E4%B9%9D%E7%AB%A0/0908%20StringBuffer%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/../images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu0's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/../2021/05/26/Java%20Language%20Basics/%E7%AC%AC%E4%B9%9D%E7%AB%A0/0908%20StringBuffer%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">0908 StringBuffer的常用方法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-26 12:56:53 / 修改时间：12:28:22" itemprop="dateCreated datePublished" datetime="2021-05-26T12:56:53+08:00">2021-05-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/../categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/../categories/Java-Language-Basics/%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E5%B8%B8%E7%94%A8%E7%B1%BB/" itemprop="url" rel="index"><span itemprop="name">第九章 常用类</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> chapter09;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * StringBuffer的常用方法</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * StringBuffer append(xxx)：提供了很多append()方法，用于字符串的拼接</span></span><br><span class="line"><span class="comment"> * StringBuffer delete(int start, int end)：删除指定位置的内容(左闭右开)</span></span><br><span class="line"><span class="comment"> * StringBuffer replace(int start, int end, String str)：把[start, end)位置替换为str</span></span><br><span class="line"><span class="comment"> * StringBuffer insert(int offset, xxx)：在指定位置插入xxx</span></span><br><span class="line"><span class="comment"> * StringBuffer reverse()：将当前字符串反转</span></span><br><span class="line"><span class="comment"> * public int indexOf(String str)</span></span><br><span class="line"><span class="comment"> * public String substring(int start, int end)</span></span><br><span class="line"><span class="comment"> * public int Length()</span></span><br><span class="line"><span class="comment"> * public char charAt(int n)</span></span><br><span class="line"><span class="comment"> * public void setCharAt(int n, char ch)</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> dopphu</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span> 2021-04-11 10:12</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test08</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        StringBuffer s1 = <span class="keyword">new</span> StringBuffer(<span class="string">&quot;anc&quot;</span>);</span><br><span class="line">        s1.append(<span class="number">11</span>);</span><br><span class="line">        System.out.println(s1);</span><br><span class="line"></span><br><span class="line">        s1.delete(<span class="number">0</span>,<span class="number">2</span>);</span><br><span class="line">        System.out.println(s1);</span><br><span class="line"></span><br><span class="line">        s1.reverse();</span><br><span class="line">        System.out.println(s1);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/26/Java%20Language%20Basics/%E7%AC%AC%E4%B9%9D%E7%AB%A0/0907%20%E5%85%B3%E4%BA%8EStringBuffer%E5%92%8CStringBuilder%E7%9A%84%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/../images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu0's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/../2021/05/26/Java%20Language%20Basics/%E7%AC%AC%E4%B9%9D%E7%AB%A0/0907%20%E5%85%B3%E4%BA%8EStringBuffer%E5%92%8CStringBuilder%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">0907 关于StringBuffer和StringBuilder的使用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-26 12:56:53 / 修改时间：12:27:42" itemprop="dateCreated datePublished" datetime="2021-05-26T12:56:53+08:00">2021-05-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/../categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/../categories/Java-Language-Basics/%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E5%B8%B8%E7%94%A8%E7%B1%BB/" itemprop="url" rel="index"><span itemprop="name">第九章 常用类</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> chapter09;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 关于StringBuffer和StringBuilder的使用</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * StringBuffer是线程安全的，方法都加了synchronized 关键字</span></span><br><span class="line"><span class="comment"> *  String 效率最低</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> dopphu</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span> 2021-04-10 20:10</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test07</span> </span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * String、StringBuffer、StringBuilder三者的异同？</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * String：不可变的字符序列：底层使用char[] 进行存储</span></span><br><span class="line"><span class="comment">    * StringBuffer：可变的字符序列，线程安全的，效率低：底层使用char[] 进行存储</span></span><br><span class="line"><span class="comment">    * StringBuilder：可变的字符序列，jdk5.0新增，线程不安全，效率高：底层使用char[] 进行存储</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * 源码分析</span></span><br><span class="line"><span class="comment">    * String str = new String();//char[] value = new char[0];</span></span><br><span class="line"><span class="comment">    * String str1 = new String(&quot;a,b,c&quot;);//char[] value = new char[]&#123;&#x27;a&#x27;,&#x27;b&#x27;,&#x27;c&#x27;&#125;;</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * StringBuffer sb1 = new StringBuffer();//char[] value = new char[16];底层创建了一个长度是16的数组。</span></span><br><span class="line"><span class="comment">    * sb1.append(&#x27;a&#x27;);//value[0] = &#x27;a&#x27;;</span></span><br><span class="line"><span class="comment">    * sb1.append(&#x27;b&#x27;);//value[1] = &#x27;b&#x27;;</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * StringBuffer sb2 = new StringBuffer(&quot;abc&quot;);//char[] value = new char[&quot;abc&quot;.length()+16];</span></span><br><span class="line"><span class="comment">    * 注：StringBuilder也是这么扩容的</span></span><br><span class="line"><span class="comment">    * //问题1，System.out.println(sb2.length());//3</span></span><br><span class="line"><span class="comment">    * //问题2，扩容问题：如果要添加的数据底层数组盛不下了，那就需要扩容底层的数组。</span></span><br><span class="line"><span class="comment">    *       默认情况下，扩容为原来容量的2倍+2，同时、将原有数组中的元素复制的到新的数组中。</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    *        指导意义：建议大家使用：StringBuffer(int capacity) 或 StringBuilder(int capacity)——就是一开始</span></span><br><span class="line"><span class="comment">    *           就指定一个长度，省的不够了再扩容。然后根据是否需要线程安全选择用StringBuffer还是StringBuilder</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * */</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span></span>&#123;</span><br><span class="line">        StringBuffer sb1 = <span class="keyword">new</span> StringBuffer(<span class="string">&quot;abcde&quot;</span>);</span><br><span class="line">        StringBuffer sb2 = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">        System.out.println(sb2.length());<span class="comment">//返回0（不是16啊喂）</span></span><br><span class="line">        sb1.setCharAt(<span class="number">0</span>,<span class="string">&#x27;w&#x27;</span>);</span><br><span class="line">        System.out.println(sb1);</span><br><span class="line">        System.out.println(sb1.length());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/26/Java%20Language%20Basics/%E7%AC%AC%E4%B9%9D%E7%AB%A0/0906%20%E6%B6%89%E5%8F%8A%E5%88%B0String%E7%B1%BB%E4%B8%AD%E4%B8%8E%E5%85%B6%E5%AE%83%E7%BB%93%E6%9E%84%E4%B9%8B%E9%97%B4%E7%9A%84%E8%BD%AC%E6%8D%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/../images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu0's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/../2021/05/26/Java%20Language%20Basics/%E7%AC%AC%E4%B9%9D%E7%AB%A0/0906%20%E6%B6%89%E5%8F%8A%E5%88%B0String%E7%B1%BB%E4%B8%AD%E4%B8%8E%E5%85%B6%E5%AE%83%E7%BB%93%E6%9E%84%E4%B9%8B%E9%97%B4%E7%9A%84%E8%BD%AC%E6%8D%A2/" class="post-title-link" itemprop="url">0906 涉及到String类中与其它结构之间的转换</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-26 12:56:53 / 修改时间：12:26:52" itemprop="dateCreated datePublished" datetime="2021-05-26T12:56:53+08:00">2021-05-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/../categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/../categories/Java-Language-Basics/%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E5%B8%B8%E7%94%A8%E7%B1%BB/" itemprop="url" rel="index"><span itemprop="name">第九章 常用类</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> chapter09;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.UnsupportedEncodingException;</span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 涉及到String类中与其它结构之间的转换</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> dopphu</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span> 2021-04-10 19:20</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test06</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        * 只有字符类关系的才可以进行强转</span></span><br><span class="line"><span class="comment">        *</span></span><br><span class="line"><span class="comment">        * 复习：</span></span><br><span class="line"><span class="comment">        * String 与基本数据类型、包装类之间的转换</span></span><br><span class="line"><span class="comment">        *</span></span><br><span class="line"><span class="comment">        * String ——&gt; 基本数据类型、包装类：调用包装类的静态方法——parseXxx(str)</span></span><br><span class="line"><span class="comment">        * 基本数据类型、包装类 ——&gt; String：调用String重载的valueOf(xxx)</span></span><br><span class="line"><span class="comment">        * */</span></span><br><span class="line"></span><br><span class="line">        String str1 = <span class="string">&quot;123&quot;</span>;</span><br><span class="line">        String str2 = <span class="string">&quot;121233asd&quot;</span>;</span><br><span class="line"><span class="comment">//        int num = (int)str1;//错误 的</span></span><br><span class="line">        <span class="keyword">int</span> num1 = Integer.parseInt(str1);</span><br><span class="line"><span class="comment">//        int num2 = Integer.parseInt(str2);//java.lang.NumberFormatException 包含字母会报错</span></span><br><span class="line">        System.out.println(num1);</span><br><span class="line">        <span class="keyword">int</span> num3 = <span class="number">1</span>;</span><br><span class="line">        System.out.println(String.valueOf(num3));</span><br><span class="line"></span><br><span class="line">        String str3 = <span class="string">&quot;1&quot;</span>;</span><br><span class="line">        System.out.println(String.valueOf(num3)==str3);<span class="comment">//false</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        *</span></span><br><span class="line"><span class="comment">        * String 与 char[] 之间的转换</span></span><br><span class="line"><span class="comment">        *</span></span><br><span class="line"><span class="comment">        * String ——&gt; char[]：调用String的toCharArray()</span></span><br><span class="line"><span class="comment">        * char[] ——&gt; String：调用String的构造器</span></span><br><span class="line"><span class="comment">        *</span></span><br><span class="line"><span class="comment">        * */</span></span><br><span class="line"></span><br><span class="line">        String s1 = <span class="string">&quot;abc123&quot;</span>;</span><br><span class="line">        <span class="keyword">char</span>[] charArr1 = s1.toCharArray();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; charArr1.length; i++)&#123;</span><br><span class="line">            System.out.println(charArr1[i]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">char</span>[] charArr2 = <span class="keyword">new</span> <span class="keyword">char</span>[]&#123;<span class="string">&#x27;h&#x27;</span>,<span class="string">&#x27;e&#x27;</span>,<span class="string">&#x27;l&#x27;</span>,<span class="string">&#x27;l&#x27;</span>,<span class="string">&#x27;o&#x27;</span>&#125;;</span><br><span class="line"></span><br><span class="line">        String str2 = <span class="keyword">new</span> String(charArr2);</span><br><span class="line">        System.out.println(str2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test3</span><span class="params">()</span> <span class="keyword">throws</span> UnsupportedEncodingException </span>&#123;</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        * String 与 byte[] 之间的转换</span></span><br><span class="line"><span class="comment">        * String ——&gt; byte[]：调用String的getBytes()</span></span><br><span class="line"><span class="comment">        *说明：</span></span><br><span class="line"><span class="comment">        * 解码时，要求解码使用的字符集必须与编码时使用的字符集一致，否则会出现乱码</span></span><br><span class="line"><span class="comment">        *</span></span><br><span class="line"><span class="comment">        * */</span></span><br><span class="line"></span><br><span class="line">        String str1 = <span class="string">&quot;abc123中国&quot;</span>;<span class="comment">//涉及编码集，当前使用utf-8，一个汉字三个字节</span></span><br><span class="line">        <span class="keyword">byte</span>[] bytes = str1.getBytes();<span class="comment">//使用默认的字符集</span></span><br><span class="line">        System.out.println(Arrays.toString(bytes));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            System.out.println(Arrays.toString(str1.getBytes(<span class="string">&quot;gbk&quot;</span>)));</span><br><span class="line">            <span class="comment">/*gbk中一个汉字两个字节*/</span></span><br><span class="line">        &#125; <span class="keyword">catch</span> (UnsupportedEncodingException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;********************&quot;</span>);</span><br><span class="line"></span><br><span class="line">        String str2 = <span class="keyword">new</span> String(Arrays.toString(bytes));<span class="comment">///使用默认字符集进行解码</span></span><br><span class="line">        System.out.println(str2);</span><br><span class="line"></span><br><span class="line">        String str3 = <span class="keyword">new</span> String(str1.getBytes(<span class="string">&quot;gbk&quot;</span>));</span><br><span class="line">        System.out.println(str3);<span class="comment">//出现乱码。原因：编码集和解码集不一致。</span></span><br><span class="line"></span><br><span class="line">        String str4 = <span class="keyword">new</span> String(str1.getBytes(<span class="string">&quot;gbk&quot;</span>),<span class="string">&quot;gbk&quot;</span>);</span><br><span class="line">        System.out.println(str4);<span class="comment">//没有出现乱码，解码与编码使用的字符集一致</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/26/Java%20Language%20Basics/%E7%AC%AC%E4%B9%9D%E7%AB%A0/0905%20String%E6%96%B9%E6%B3%953/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -708,229 +927,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/06/Java%20Language%20Basics/%E7%AC%AC%E4%B8%83%E7%AB%A0/08%20%E5%A6%82%E4%BD%95%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8%E7%B1%BB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/../images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu0's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/../2021/05/06/Java%20Language%20Basics/%E7%AC%AC%E4%B8%83%E7%AB%A0/08%20%E5%A6%82%E4%BD%95%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8%E7%B1%BB/" class="post-title-link" itemprop="url">08 如何自定义异常类</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-05-06 15:45:00 / 修改时间：15:25:10" itemprop="dateCreated datePublished" datetime="2021-05-06T15:45:00+08:00">2021-05-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/../categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/../categories/Java-Language-Basics/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">第七章 异常处理</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 如何自定义异常类？</span></span><br><span class="line"><span class="comment"> * 1. 继承现有的异常结构：Exception、RuntimeException</span></span><br><span class="line"><span class="comment"> * 2. 提供全局常量：serialVersionUID （唯一标识一个类）</span></span><br><span class="line"><span class="comment"> * 3. 提供重载的构造器</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> chapter07;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test08</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyException</span> <span class="keyword">extends</span> <span class="title">RuntimeException</span></span>&#123;</span><br><span class="line">	 <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = -<span class="number">7034897190745766939L</span>;</span><br><span class="line">	 <span class="function"><span class="keyword">public</span> <span class="title">MyException</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		 </span><br><span class="line">	 &#125;</span><br><span class="line">	 </span><br><span class="line">	 <span class="function"><span class="keyword">public</span> <span class="title">MyException</span><span class="params">(String msg)</span> </span>&#123; </span><br><span class="line">		 <span class="keyword">super</span>(msg);</span><br><span class="line">	 &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/06/Java%20Language%20Basics/%E7%AC%AC%E4%B8%83%E7%AB%A0/07%20throw%E5%92%8Cthrows/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/../images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu0's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/../2021/05/06/Java%20Language%20Basics/%E7%AC%AC%E4%B8%83%E7%AB%A0/07%20throw%E5%92%8Cthrows/" class="post-title-link" itemprop="url">07 throw和throws</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-05-06 15:45:00 / 修改时间：15:24:43" itemprop="dateCreated datePublished" datetime="2021-05-06T15:45:00+08:00">2021-05-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/../categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/../categories/Java-Language-Basics/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">第七章 异常处理</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 手动的生成一个异常对象，并抛出（throw）—— throw 和 throws不一样，一定要注意区分！！！</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> chapter07;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test07</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Student s = <span class="keyword">new</span> Student();</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			s.register(-<span class="number">100</span>);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			System.out.println(e.getMessage());</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(s);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">register</span><span class="params">(<span class="keyword">int</span> id)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(id &gt; <span class="number">0</span>) &#123;</span><br><span class="line">			<span class="keyword">this</span>.id = id;</span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="comment">//输出的id非法</span></span><br><span class="line">			<span class="comment">//手动抛出异常</span></span><br><span class="line"><span class="comment">//			throw new RuntimeException(&quot;您输入的数据非法&quot;);</span></span><br><span class="line"><span class="comment">//			throw new Exception(&quot;你看出现异常了&quot;);</span></span><br><span class="line">			<span class="comment">//试一下自己定义的异常</span></span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> MyException(<span class="string">&quot;不能输入负数&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">&quot;Student [id=&quot;</span> + id + <span class="string">&quot;]&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/05/06/Java%20Language%20Basics/%E7%AC%AC%E4%B8%83%E7%AB%A0/05%20throws%20+%20%E5%BC%82%E5%B8%B8%E7%B1%BB%E5%9E%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/../images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu0's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/../2021/05/06/Java%20Language%20Basics/%E7%AC%AC%E4%B8%83%E7%AB%A0/05%20throws%20+%20%E5%BC%82%E5%B8%B8%E7%B1%BB%E5%9E%8B/" class="post-title-link" itemprop="url">05 throws + 异常类型</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-05-06 15:45:00 / 修改时间：15:22:29" itemprop="dateCreated datePublished" datetime="2021-05-06T15:45:00+08:00">2021-05-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/../categories/Java-Language-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Language Basics</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/../categories/Java-Language-Basics/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">第七章 异常处理</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 异常处理方式二：throws + 异常类型</span></span><br><span class="line"><span class="comment"> * 往上抛，让上一级处理</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 1. &quot;throws + 异常类型&quot;写在方法的声明处。指明此方法执行时，可能会抛出异常类型。</span></span><br><span class="line"><span class="comment"> * 一旦方法体执行时，仍会在异常的代码处生成一个异常类的对象，此对象满足throws后异常类型时，就会抛出。</span></span><br><span class="line"><span class="comment"> * 异常代码后续的代码就不会再执行了</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 2.体会：try-catch-finally真正将异常处理掉了</span></span><br><span class="line"><span class="comment"> * 		throws的方式只是将异常抛给了方法的调用者，并没有真正将异常处理掉</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 3.开发中如何选择try-catch-finally 还是使用throws</span></span><br><span class="line"><span class="comment"> * 		1）如果父类中被重写的方法没有throws方式处理异常，则子类重写的方法也不能使用throws。意味着，</span></span><br><span class="line"><span class="comment"> * 	如果子类重写的方法中有异常，必须使用try-catch-finally方式处理</span></span><br><span class="line"><span class="comment"> * 		2）执行的方法中，先后有调用了另外几个方法，这几个方法是递进关系执行的，我们建议这几个方法用throws的方式</span></span><br><span class="line"><span class="comment"> * 	进行处理，而最外层的方法可以考虑使用try-catch-finally的方式进行处理</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> chapter07;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dopphu</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test05</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">method1</span><span class="params">()</span> <span class="keyword">throws</span> ArithmeticException</span>&#123;</span><br><span class="line">		System.out.println(<span class="number">10</span>/<span class="number">0</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			method1();</span><br><span class="line">		&#125;<span class="keyword">catch</span>(ArithmeticException e) &#123;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/../page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/../">1</a><span class="space">&hellip;</span><a class="page-number" href="/../page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/../page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/../page/23/">23</a><a class="extend next" rel="next" href="/../page/7/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/../page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/../">1</a><span class="space">&hellip;</span><a class="page-number" href="/../page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/../page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/../page/24/">24</a><a class="extend next" rel="next" href="/../page/7/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -998,14 +998,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/../archives/">
         
-          <span class="site-state-item-count">230</span>
+          <span class="site-state-item-count">233</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/../categories/">
           
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">

@@ -189,6 +189,307 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/25/mysql%E9%AB%98%E7%BA%A7/11%E5%85%A8%E5%B1%80%E6%9F%A5%E8%AF%A2%E6%97%A5%E5%BF%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/../images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu0's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/../2021/04/25/mysql%E9%AB%98%E7%BA%A7/11%E5%85%A8%E5%B1%80%E6%9F%A5%E8%AF%A2%E6%97%A5%E5%BF%97/" class="post-title-link" itemprop="url">全局查询日志11</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-25 13:35:00 / 修改时间：13:39:38" itemprop="dateCreated datePublished" datetime="2021-04-25T13:35:00+08:00">2021-04-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/../categories/mysql%E9%AB%98%E7%BA%A7/" itemprop="url" rel="index"><span itemprop="name">mysql高级</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="全局查询日志"><a href="#全局查询日志" class="headerlink" title="全局查询日志"></a>全局查询日志</h1><p>永远不要在生产环境中开启这个功能！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！</p>
+<p>！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！</p>
+<p>（测试环境中使用）</p>
+<h2 id="配置启用"><a href="#配置启用" class="headerlink" title="配置启用"></a>配置启用</h2><p>在mysql的my.cnf中，设置如下：</p>
+<p>#开启</p>
+<p>general_log=1</p>
+<p>#记录日志文件的路径</p>
+<p>general_log_file=/path/logfile</p>
+<p>#输出格式</p>
+<p>log_output=FILE</p>
+<h2 id="编码使用"><a href="#编码使用" class="headerlink" title="编码使用"></a>编码使用</h2><p><img src="https://static01.imgkr.com/temp/fa291b2c3bad4439959768c4589a9a8a.jpg" alt="image-20210227170335059"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/25/mysql%E9%AB%98%E7%BA%A7/10Show%20Profile/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/../images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu0's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/../2021/04/25/mysql%E9%AB%98%E7%BA%A7/10Show%20Profile/" class="post-title-link" itemprop="url">Show Profile 10</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-25 13:35:00" itemprop="dateCreated datePublished" datetime="2021-04-25T13:35:00+08:00">2021-04-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-05 15:43:32" itemprop="dateModified" datetime="2021-05-05T15:43:32+08:00">2021-05-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/../categories/mysql%E9%AB%98%E7%BA%A7/" itemprop="url" rel="index"><span itemprop="name">mysql高级</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Show-Profile"><a href="#Show-Profile" class="headerlink" title="Show Profile"></a>Show Profile</h1><p>是什么：是mysql 提供的可以用来分析当前会话中语句执行的资源消耗情况。可以用与SQL的调优的测量</p>
+<p>默认情况下，参数出于关闭状态，并保存最近15次的运行结果</p>
+<p>分析步骤：</p>
+<ol>
+<li><p>是否支持，看看当前的mysql版本是否支持</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">&#x27;%profiling%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>开启功能，默认是关闭，使用前需开启</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> profiling = <span class="keyword">on</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>运行SQL</p>
+</li>
+<li><p>查看结果，<code>show profiles;</code></p>
+</li>
+<li><p>诊断SQL</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> profile cpu,<span class="keyword">block</span> io <span class="keyword">for</span> <span class="keyword">query</span> 上一步前面的问题<span class="keyword">SQL</span>数字号码;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/showprofile%E7%9B%B8%E5%85%B3%E5%8F%82%E6%95%B0.4h35gwq1qzy0.jpg" alt="showprofile相关参数"></p>
+<p>这四种出现一中就够你受的的</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E4%B8%80%E7%A7%8D%E5%B0%B1%E5%A4%9F%E4%BD%A0%E5%8F%97%E7%9A%84%E7%9A%84.3vg3rqwiru00.jpg" alt="一种就够你受的的"></p>
+</li>
+<li><p>日常开发需要注意的结论</p>
+<p>这四种出现一中就够你受的的</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E4%B8%80%E7%A7%8D%E5%B0%B1%E5%A4%9F%E4%BD%A0%E5%8F%97%E7%9A%84%E7%9A%84.57yutlfjcwg0.jpg" alt="一种就够你受的的"></p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/25/mysql%E9%AB%98%E7%BA%A7/06%E7%B4%A2%E5%BC%95%E4%BC%98%E5%8C%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/../images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu0's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/../2021/04/25/mysql%E9%AB%98%E7%BA%A7/06%E7%B4%A2%E5%BC%95%E4%BC%98%E5%8C%96/" class="post-title-link" itemprop="url">索引优化06</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-25 13:35:00 / 修改时间：13:39:30" itemprop="dateCreated datePublished" datetime="2021-04-25T13:35:00+08:00">2021-04-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/../categories/mysql%E9%AB%98%E7%BA%A7/" itemprop="url" rel="index"><span itemprop="name">mysql高级</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="索引分析"><a href="#索引分析" class="headerlink" title="索引分析"></a>索引分析</h2><h3 id="单表"><a href="#单表" class="headerlink" title="单表"></a>单表</h3><p>分析</p>
+<h3 id="两表"><a href="#两表" class="headerlink" title="两表"></a>两表</h3><p>左连接 建右表索引</p>
+<p>如果已经存在索引，则用相应高效的连接（如左表索引，用右连接，而不是让DBA去修改索引，索引又不是为你一个人建立的）</p>
+<h3 id="三表"><a href="#三表" class="headerlink" title="三表"></a>三表</h3><p>【结论】</p>
+<p>尽可能减少join语句中的NestedLoop的循环总次数：永远用小结果集驱动大的结果集。优先优化 NestedLoop的内层循环；</p>
+<p>保证join语句中被驱动表上join条件字段已经被索引；</p>
+<h2 id="索引失效（应该避免）"><a href="#索引失效（应该避免）" class="headerlink" title="索引失效（应该避免）"></a>索引失效（应该避免）</h2><ol>
+<li><p>全值匹配我最爱</p>
+</li>
+<li><p>最佳左前缀法则</p>
+<p>不能拆一楼：<strong>带头大哥不能少</strong></p>
+<p>也不能拆二楼还要上三楼：<strong>中间兄弟不能断</strong></p>
+</li>
+<li><p>不在索引列上做任何操作（计算、函数、（自动或手动）类型转换），否则会导致索引失效而转向全表扫描</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E4%B8%8D%E8%83%BD%E5%9C%A8%E7%B4%A2%E5%BC%95%E5%88%97%E4%B8%8A%E5%81%9A%E4%BB%BB%E4%BD%95%E6%93%8D%E4%BD%9C.6mnhqg70mak0.jpg" alt="不能在索引列上做任何操作"></p>
+</li>
+<li><p>存储引擎不能使用索引中范围条件右边的列（<strong>范围之后全失效</strong>）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E8%8C%83%E5%9B%B4%E4%B9%8B%E5%90%8E%E5%85%A8%E5%A4%B1%E6%95%88.4yoh08t09bg0.jpg" alt="范围之后全失效"></p>
+</li>
+<li><p>尽量使用覆盖索引（只访问索引的查询（查序列和索引列一致）），减少select * </p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E5%B0%BD%E9%87%8F%E7%B4%A2%E5%BC%95%E8%A6%86%E7%9B%96.2crwog7e6gcg.jpg" alt="尽量索引覆盖"></p>
+</li>
+<li><p>mysql在使用不等于（!=或&lt;&gt;）的时候，无法使用索引，会导致全表扫描</p>
+<p>但注意，该写还是要写</p>
+</li>
+<li><p>is null、is not null 也无法使用索引</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/null%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8%E7%B4%A2%E5%BC%95.5tysvlce0940.jpg" alt="null无法使用索引"></p>
+</li>
+<li><p>like以通配符开头的mysql索引会失效，会变成全表扫描的操作</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E7%99%BE%E5%88%86%E5%8F%B7like.1txvugwypqww.jpg" alt="百分号like"></p>
+<p>所以，尽量使用右%号，实在要用双%可用索引覆盖进行优化</p>
+</li>
+<li><p>字符串不加单引号索引失效</p>
+<p>varchar类型绝对不能漏写单引号，否则会被骂死（滑稽）</p>
+</li>
+<li><p>少用or，用它来连接时索引失效</p>
+</li>
+</ol>
+<p>补充：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/mysql%E8%87%AA%E5%B7%B1%E4%BC%9A%E4%BC%98%E5%8C%96.7mtucwj8124.jpg" alt="mysql自己会优化"></p>
+<p>mysql底层会自己优化一下</p>
+<p>![group by](<a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/group">https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/group</a> by.3n0u2xu3t3a0.jpg)</p>
+<p>group by 基本上都需要进行排序，会有临时表产生</p>
+<p><img src="https://static01.imgkr.com/temp/d2871dd8430b4e849f2d059c28d72cc0.jpg" alt="image-20210225171241138"></p>
+<p>me：注意第六行和第七行的对比</p>
+<h4 id="一般性建议"><a href="#一般性建议" class="headerlink" title="一般性建议"></a>一般性建议</h4><ul>
+<li>对于单键索引，尽量选择针对当前query过滤性更好的索引</li>
+<li>在选择组合索引的时候，当前query中过滤性最好的字段在索引字段顺序中，位置越靠前越好</li>
+<li>再选择组合索引的时候，尽量选择可以能够包含当前query中的where字句中更多字段的索引</li>
+<li>尽可能通过分析统计信息和调整query的写法来达到选择合适索引的目的</li>
+</ul>
+<p><strong>口诀</strong>：</p>
+<p>全值匹配我最爱，最左前缀要遵守</p>
+<p>带头大哥不能死，中间兄弟不能断</p>
+<p>索引列上少计算，范围之后全失效</p>
+<p>LIKE百分写最右，覆盖索引不写星</p>
+<p>不等空值还有or，索引失效要少用</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/04/08/%E5%A4%A9%E8%9E%8D%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B0/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E7%AC%94%E8%AE%B001/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -720,223 +1021,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/02/19/%E6%A0%87%E8%AF%86%E5%88%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/../images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu0's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/../2021/02/19/%E6%A0%87%E8%AF%86%E5%88%97/" class="post-title-link" itemprop="url">标识列</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-02-19 12:17:51 / 修改时间：12:14:36" itemprop="dateCreated datePublished" datetime="2021-02-19T12:17:51+08:00">2021-02-19</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/../categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">数据库学习</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#标识列</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	又称自增长列</span></span><br><span class="line"><span class="comment">	含义：可以不手动插入值，系统提供默认的序列值</span></span><br><span class="line"><span class="comment">	特点：</span></span><br><span class="line"><span class="comment">		1.标识列必须和主键搭配吗</span></span><br><span class="line"><span class="comment">			不一定 但必须是一个key</span></span><br><span class="line"><span class="comment">		2.一个表中可以有多少个标识列</span></span><br><span class="line"><span class="comment">			至多一个</span></span><br><span class="line"><span class="comment">		3.标识列的类型只能是数值型</span></span><br><span class="line"><span class="comment">		4.标识列可以手动插入值，可以修改步长如：SET auto_increment_increment = 3</span></span><br><span class="line"><span class="comment">		</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#一、创建时设置标识列</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> tab_identify;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> tab_identify(</span><br><span class="line">	<span class="keyword">id</span> <span class="built_in">INT</span> ,</span><br><span class="line">	<span class="comment">#seat int unique auto_increment,</span></span><br><span class="line">	<span class="keyword">NAME</span> <span class="built_in">VARCHAR</span>(<span class="number">20</span>)</span><br><span class="line">);</span><br><span class="line"><span class="keyword">TRUNCATE</span> <span class="keyword">TABLE</span> tab_identify;</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tab_identify <span class="keyword">VALUE</span>(<span class="literal">NULL</span>,<span class="string">&#x27;join&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tab_identify(<span class="keyword">NAME</span>) <span class="keyword">VALUE</span>(<span class="string">&#x27;Alic&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tab_identify <span class="keyword">VALUE</span>(<span class="number">103</span>,<span class="string">&#x27;join&#x27;</span>);</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> tab_identify;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">VARIABLES</span> <span class="keyword">LIKE</span> <span class="string">&#x27;%auto_increment%&#x27;</span>;</span><br><span class="line"><span class="comment">#mysql 中auto_increment_offsetincrement不可更改</span></span><br><span class="line"><span class="comment">#auto_increment_increment 步长支持</span></span><br><span class="line"><span class="keyword">SET</span> auto_increment_increment = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#二、修改表时设置标识列</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tab_identify <span class="keyword">MODIFY</span> <span class="keyword">COLUMN</span> <span class="keyword">id</span> <span class="built_in">INT</span> PRIMARY <span class="keyword">KEY</span> AUTO_INCREMENT;</span><br><span class="line"></span><br><span class="line"><span class="comment">#三、修改表时删除标识列</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tab_identify <span class="keyword">MODIFY</span> <span class="keyword">COLUMN</span> <span class="keyword">id</span> <span class="built_in">INT</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/02/19/%E5%B8%B8%E8%A7%81%E7%BA%A6%E6%9D%9F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/../images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu0's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/../2021/02/19/%E5%B8%B8%E8%A7%81%E7%BA%A6%E6%9D%9F/" class="post-title-link" itemprop="url">常见约束</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-02-19 12:17:51 / 修改时间：12:09:33" itemprop="dateCreated datePublished" datetime="2021-02-19T12:17:51+08:00">2021-02-19</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/../categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">数据库学习</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#常见约束</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	含义：一种限制，用于限制表中的数据，保证表中的数据的准确与可靠性</span></span><br><span class="line"><span class="comment">	分类：六大约束</span></span><br><span class="line"><span class="comment">		not null 非空 用于保证该字段的值不能为空</span></span><br><span class="line"><span class="comment">		default  默认 用于保证该字段有默认值</span></span><br><span class="line"><span class="comment">		primary key 主键约束 用于保证该字段的值具有唯一性，并且非空</span></span><br><span class="line"><span class="comment">		unique 唯一 用于保证该字段的唯一性，可以为空</span></span><br><span class="line"><span class="comment">		check 检查【MySQL不支持】</span></span><br><span class="line"><span class="comment">		foreign key 外键 用于限制两个表的关系，用于保证该字段的值必须来自于主表的关联列的值</span></span><br><span class="line"><span class="comment">			在从表中添加外键约束，用于引用主表中某列的值</span></span><br><span class="line"><span class="comment">			references</span></span><br><span class="line"><span class="comment">			比如员工表中的job_id,department_id</span></span><br><span class="line"><span class="comment">	添加约束的时机：（在添加数据之前）</span></span><br><span class="line"><span class="comment">		1.创建表时</span></span><br><span class="line"><span class="comment">		2.修改表时</span></span><br><span class="line"><span class="comment">	约束添加的分类：</span></span><br><span class="line"><span class="comment">		列级约束</span></span><br><span class="line"><span class="comment">			语法上都支持，但是外键约束、check没有效果</span></span><br><span class="line"><span class="comment">		表级约束</span></span><br><span class="line"><span class="comment">			除去非空和默认</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">	主键和唯一的大对比：</span></span><br><span class="line"><span class="comment">			是否唯一  是否能为空	一个表中可以有多少个  是否允许组合</span></span><br><span class="line"><span class="comment">		主键	√	   ×		至多一个		允许（不推荐）</span></span><br><span class="line"><span class="comment">		唯一	√	   √		可以多个		允许（不推荐）</span></span><br><span class="line"><span class="comment">		insert into major values(1,&#x27;java&#x27;);</span></span><br><span class="line"><span class="comment">		insert into major values(2,&#x27;h5&#x27;);</span></span><br><span class="line"><span class="comment">		insert into stu values(1,&#x27;join&#x27;.&#x27;男&#x27;,null,19,1);</span></span><br><span class="line"><span class="comment">		insert into stu values(2,&#x27;lily&#x27;,&#x27;男&#x27;,null,19,2);#只允许一个为空</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">		组合主键和组合唯一键</span></span><br><span class="line"><span class="comment">		比如，id和stuname组合，两者均相同才会报错</span></span><br><span class="line"><span class="comment">	外键：</span></span><br><span class="line"><span class="comment">		1.要求在从表设置外键关系</span></span><br><span class="line"><span class="comment">		2.从表的外键列和主表的关联列的类型应该一致或兼容,名称无要求</span></span><br><span class="line"><span class="comment">		3.主表的关联列必须是一个key（一般是主键和唯一）</span></span><br><span class="line"><span class="comment">		4.插入数据时，先插入主表后插入从表</span></span><br><span class="line"><span class="comment">		5.删除数据时，先删除从表后删除主表</span></span><br><span class="line"><span class="comment">		create table demo_first(</span></span><br><span class="line"><span class="comment">			id int,</span></span><br><span class="line"><span class="comment">			constraint fk_f_s foreign key(id) references demo_second(s_id)</span></span><br><span class="line"><span class="comment">		);</span></span><br><span class="line"><span class="comment">		drop table demo_first;</span></span><br><span class="line"><span class="comment">		drop table demo_second;</span></span><br><span class="line"><span class="comment">		create table demo_second(</span></span><br><span class="line"><span class="comment">			s_id int not null unique</span></span><br><span class="line"><span class="comment">		);</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> 表名(</span><br><span class="line">	字段名 字段类型 约束,</span><br><span class="line">	...,</span><br><span class="line">	表级约束</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">#一、创建表时添加约束</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	语法：</span></span><br><span class="line"><span class="comment">		直接在字段名和类型后面追加约束类型即可</span></span><br><span class="line"><span class="comment">		只支持：默认、非空、主键、唯一</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> students;</span><br><span class="line"><span class="keyword">USE</span> students;</span><br><span class="line"><span class="comment">#1.添加列级约束</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> stuinfo(</span><br><span class="line">	<span class="keyword">id</span> <span class="built_in">INT</span> PRIMARY <span class="keyword">KEY</span>,<span class="comment">#主键</span></span><br><span class="line">	stuName <span class="built_in">VARCHAR</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,<span class="comment">#非空</span></span><br><span class="line">	gender <span class="built_in">CHAR</span>(<span class="number">1</span>) <span class="keyword">CHECK</span>(gender=<span class="string">&#x27;男&#x27;</span> <span class="keyword">OR</span> gender=<span class="string">&#x27;女&#x27;</span>),<span class="comment">#检查</span></span><br><span class="line">	seat <span class="built_in">INT</span> <span class="keyword">UNIQUE</span>,<span class="comment">#唯一</span></span><br><span class="line">	age <span class="built_in">INT</span> <span class="keyword">DEFAULT</span> <span class="number">18</span>,<span class="comment">#默认约束</span></span><br><span class="line">	major_id <span class="built_in">INT</span> <span class="keyword">REFERENCES</span> major(<span class="keyword">id</span>)<span class="comment">#外键</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> major(</span><br><span class="line">	<span class="keyword">id</span> <span class="built_in">INT</span> PRIMARY <span class="keyword">KEY</span>,</span><br><span class="line">	majorName <span class="built_in">VARCHAR</span>(<span class="number">20</span>)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">DESC stuinfo;</span><br><span class="line"><span class="comment">#查看表中所有索引，包括：主键、外键、唯一</span></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">INDEX</span> <span class="keyword">FROM</span> stuinfo;</span><br><span class="line"></span><br><span class="line"><span class="comment">#2.添加表级约束</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	语法：</span></span><br><span class="line"><span class="comment">		在各个字段的最下面</span></span><br><span class="line"><span class="comment">		【constraint 约束名】 约束类型(字段名)</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> stuinfo;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> stu(</span><br><span class="line">	<span class="keyword">id</span> <span class="built_in">INT</span>,</span><br><span class="line">	stuname <span class="built_in">VARCHAR</span>(<span class="number">20</span>),</span><br><span class="line">	gender <span class="built_in">CHAR</span>(<span class="number">1</span>),</span><br><span class="line">	seat <span class="built_in">INT</span>,</span><br><span class="line">	age <span class="built_in">INT</span>,</span><br><span class="line">	major_id <span class="built_in">INT</span>,</span><br><span class="line">	<span class="keyword">CONSTRAINT</span> pk PRIMARY <span class="keyword">KEY</span>(<span class="keyword">id</span>,stuname),</span><br><span class="line">	<span class="keyword">CONSTRAINT</span> uq <span class="keyword">UNIQUE</span>(seat),</span><br><span class="line">	<span class="keyword">CONSTRAINT</span> ck <span class="keyword">CHECK</span>(gender=<span class="string">&#x27;男&#x27;</span> <span class="keyword">OR</span> gender=<span class="string">&#x27;女&#x27;</span>),</span><br><span class="line">	<span class="keyword">CONSTRAINT</span> fk_stuinfo_major <span class="keyword">FOREIGN</span> <span class="keyword">KEY</span>(major_id) <span class="keyword">REFERENCES</span> major(<span class="keyword">id</span>)</span><br><span class="line">);</span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">INDEX</span> <span class="keyword">FROM</span> stu; </span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> stu(</span><br><span class="line">	<span class="keyword">id</span> <span class="built_in">INT</span>,</span><br><span class="line">	stuname <span class="built_in">VARCHAR</span>(<span class="number">20</span>),</span><br><span class="line">	gender <span class="built_in">CHAR</span>(<span class="number">1</span>),</span><br><span class="line">	seat <span class="built_in">INT</span>,</span><br><span class="line">	age <span class="built_in">INT</span>,</span><br><span class="line">	major_id <span class="built_in">INT</span>,</span><br><span class="line">	PRIMARY <span class="keyword">KEY</span>(<span class="keyword">id</span>),</span><br><span class="line">	<span class="keyword">UNIQUE</span>(seat),</span><br><span class="line">	<span class="keyword">CHECK</span>(gender=<span class="string">&#x27;男&#x27;</span> <span class="keyword">OR</span> gender=<span class="string">&#x27;女&#x27;</span>),</span><br><span class="line">	<span class="keyword">FOREIGN</span> <span class="keyword">KEY</span>(major_id) <span class="keyword">REFERENCES</span> major(<span class="keyword">id</span>)</span><br><span class="line">);</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> stu;</span><br><span class="line"></span><br><span class="line"><span class="comment">#通用的写法</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> stuinfo(</span><br><span class="line">	<span class="keyword">id</span> <span class="built_in">INT</span> PRIMARY <span class="keyword">KEY</span>,</span><br><span class="line">	stuname <span class="built_in">VARCHAR</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="comment">#	sex char(1),</span></span><br><span class="line">	age <span class="built_in">INT</span> <span class="keyword">DEFAULT</span> <span class="number">18</span>,</span><br><span class="line">	seat <span class="built_in">INT</span> <span class="keyword">UNIQUE</span>,</span><br><span class="line">	majorid <span class="built_in">INT</span>,</span><br><span class="line">	<span class="keyword">CONSTRAINT</span> fk_stuinfo_major <span class="keyword">FOREIGN</span> <span class="keyword">KEY</span>(majorid) <span class="keyword">REFERENCES</span> major(<span class="keyword">id</span>)</span><br><span class="line">		   <span class="comment">#fk_当前表名_主表名</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">#二、修改表时添加约束</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	1.添加列级约束</span></span><br><span class="line"><span class="comment">		alter table 表名 modify column 字段名 字段类型 新约束;</span></span><br><span class="line"><span class="comment">	2.添加表级约束</span></span><br><span class="line"><span class="comment">		alter table 表名 add 【constraint 约束名】约束类型(字段名) 【外键的引用】;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> stu(</span><br><span class="line">	<span class="keyword">id</span> <span class="built_in">INT</span>,</span><br><span class="line">	stuname <span class="built_in">VARCHAR</span>(<span class="number">20</span>),</span><br><span class="line">	gender <span class="built_in">CHAR</span>(<span class="number">1</span>),</span><br><span class="line">	seat <span class="built_in">INT</span>,</span><br><span class="line">	age <span class="built_in">INT</span>,</span><br><span class="line">	major_id <span class="built_in">INT</span></span><br><span class="line">);</span><br><span class="line">DESC stu;</span><br><span class="line"><span class="comment">#1.添加非空约束</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> stu <span class="keyword">MODIFY</span> <span class="keyword">COLUMN</span> stuname <span class="built_in">VARCHAR</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>;</span><br><span class="line"><span class="comment">#2.添加默认约束</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> stu <span class="keyword">MODIFY</span> <span class="keyword">COLUMN</span> age <span class="built_in">INT</span> <span class="keyword">DEFAULT</span> <span class="number">18</span>;</span><br><span class="line"><span class="comment">#3.添加主键</span></span><br><span class="line"><span class="comment">#（1）列级约束</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> stu <span class="keyword">MODIFY</span> <span class="keyword">COLUMN</span> <span class="keyword">id</span> <span class="built_in">INT</span> PRIMARY <span class="keyword">KEY</span>;</span><br><span class="line"><span class="comment">#（2）表级约束</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> stu <span class="keyword">ADD</span> PRIMARY <span class="keyword">KEY</span>(<span class="keyword">id</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">#4.添加唯一</span></span><br><span class="line"><span class="comment">#（1）列级约束</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> stu <span class="keyword">MODIFY</span> <span class="keyword">COLUMN</span> seat <span class="built_in">INT</span> <span class="keyword">UNIQUE</span>;</span><br><span class="line"><span class="comment">#（2）表级约束</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> stu <span class="keyword">ADD</span> <span class="keyword">UNIQUE</span>(seat);</span><br><span class="line"></span><br><span class="line"><span class="comment">#5.添加外键</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> stu <span class="keyword">ADD</span> <span class="keyword">FOREIGN</span> <span class="keyword">KEY</span>(major_id) <span class="keyword">REFERENCES</span> major(<span class="keyword">id</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#三、修改表时删除约束</span></span><br><span class="line"><span class="comment">#1.删除非空约束</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> stu <span class="keyword">MODIFY</span> <span class="keyword">COLUMN</span> stuname <span class="built_in">VARCHAR</span>(<span class="number">20</span>) <span class="literal">NULL</span>;</span><br><span class="line"><span class="comment">#2.删除默认约束</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> stu <span class="keyword">MODIFY</span> <span class="keyword">COLUMN</span> age <span class="built_in">INT</span>;</span><br><span class="line"><span class="comment">#3.删除主键</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> stu <span class="keyword">DROP</span> PRIMARY <span class="keyword">KEY</span>;</span><br><span class="line"><span class="comment">#4.删除唯一</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> stu <span class="keyword">DROP</span> <span class="keyword">INDEX</span> seat;</span><br><span class="line"><span class="comment">#5.删除外键</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> stu <span class="keyword">DROP</span> <span class="keyword">FOREIGN</span> <span class="keyword">KEY</span> major_id;<span class="comment">#这是外键约束名</span></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">INDEX</span> <span class="keyword">FROM</span> stu;</span><br><span class="line"></span><br><span class="line"><span class="comment">#练习题</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> dept1 <span class="keyword">MODIFY</span> <span class="keyword">COLUMN</span> <span class="keyword">id</span> <span class="built_in">INT</span> PRIMARY <span class="keyword">KEY</span>;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> dept1 <span class="keyword">DROP</span> PRIMARY <span class="keyword">KEY</span>;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> dept1 <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> my_em_id_pk PRIMARY <span class="keyword">KEY</span>(<span class="keyword">id</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2021/02/19/TCL%E4%BA%8B%E5%8A%A1%E6%8E%A7%E5%88%B6%E8%AF%AD%E8%A8%80/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/../images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu0's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/../2021/02/19/TCL%E4%BA%8B%E5%8A%A1%E6%8E%A7%E5%88%B6%E8%AF%AD%E8%A8%80/" class="post-title-link" itemprop="url">TCL事务控制语言</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-02-19 12:17:24" itemprop="dateCreated datePublished" datetime="2021-02-19T12:17:24+08:00">2021-02-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-27 20:51:16" itemprop="dateModified" datetime="2021-02-27T20:51:16+08:00">2021-02-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/../categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">数据库学习</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#TCL 事务控制语言</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	Transcation Control Language 事务控制语言</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">	事务：</span></span><br><span class="line"><span class="comment">		一个或一组sql语句组成一个执行单元，这个执行单元要么全部执行，</span></span><br><span class="line"><span class="comment">		要么全部不执行。</span></span><br><span class="line"><span class="comment">		如果单元中某条sql语句一旦执行失败或产生错误，整个单元将会回滚。所有</span></span><br><span class="line"><span class="comment">		受到影响的数据将返回到事务开始以前的状态。</span></span><br><span class="line"><span class="comment">	案例：转账</span></span><br><span class="line"><span class="comment">	e.g.</span></span><br><span class="line"><span class="comment">		</span></span><br><span class="line"><span class="comment">	张三丰	1000</span></span><br><span class="line"><span class="comment">	郭襄	1000</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">	update 表 set 张三丰的余额=500 where name=&#x27;张三丰&#x27;</span></span><br><span class="line"><span class="comment">	update 表 set 郭襄的余额=1500 where name=&#x27;郭襄&#x27;</span></span><br><span class="line"><span class="comment">	事务的ACID（acid）属性</span></span><br><span class="line"><span class="comment">	1.原子性（Atomicity）</span></span><br><span class="line"><span class="comment">	    原子性是指事务是一个不可分割的工作单位，事务中的操作要么</span></span><br><span class="line"><span class="comment">	都发生，要么都不发生。</span></span><br><span class="line"><span class="comment">	2.一致性（Consistency）</span></span><br><span class="line"><span class="comment">	事务必须使数据库从一个一致性状态变换到另外一个一致性状态</span></span><br><span class="line"><span class="comment">	3.隔离性（Isolation）</span></span><br><span class="line"><span class="comment">	    事务的隔离性是指一个事务的执行不能被其他事务干扰，即一个</span></span><br><span class="line"><span class="comment">	事务内部的操作及使用的数据对并发的其他事物是隔离的，并发</span></span><br><span class="line"><span class="comment">	执行的各个事务之间不能互相干扰。</span></span><br><span class="line"><span class="comment">	4.持久性（Durability）</span></span><br><span class="line"><span class="comment">	    持久性是指一个事务一旦被提交，它对数据库中数据的改变就是</span></span><br><span class="line"><span class="comment">	永久性的，接下来的其他操作和数据库故障不应该对其有任何影响。</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">	事务的创建</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">	隐式事务：事务没有明显的开启和结束的标志</span></span><br><span class="line"><span class="comment">	比如：insert、update、delete语句</span></span><br><span class="line"><span class="comment">	显试事务：事务具有明显的开启和结束标志</span></span><br><span class="line"><span class="comment">	前提：必须先设置自动提交功能为禁用</span></span><br><span class="line"><span class="comment">	set autocommit=0;</span></span><br><span class="line"><span class="comment">	步骤一：开启事务</span></span><br><span class="line"><span class="comment">	set autocommit=0;</span></span><br><span class="line"><span class="comment">	start transaction;#可选的</span></span><br><span class="line"><span class="comment">	步骤二：编写事务中的sql语句（select inset update delete）</span></span><br><span class="line"><span class="comment">	语句1</span></span><br><span class="line"><span class="comment">	语句2</span></span><br><span class="line"><span class="comment">	...</span></span><br><span class="line"><span class="comment">	步骤三：结束事务</span></span><br><span class="line"><span class="comment">	commit;#提交事务</span></span><br><span class="line"><span class="comment">	rollback;#回滚事务</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">	savepoint 节点名;#设置保存点, “rollback to 节点名”这样使用</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">	事务的隔离级别：</span></span><br><span class="line"><span class="comment">			   脏读		不可重复读	幻读</span></span><br><span class="line"><span class="comment">	read uncommitted   √		√		√</span></span><br><span class="line"><span class="comment">	read committed	   ×		√		√</span></span><br><span class="line"><span class="comment">	repeatable read    ×		×		√</span></span><br><span class="line"><span class="comment">	serializable	   ×		×		×</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">	mysql默认隔离级别 repeatable （可重读）</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	存储引擎：不同的存储技术或表类型</span></span><br><span class="line"><span class="comment">	show engines 查看存储引擎</span></span><br><span class="line"><span class="comment">	innodb支持事务</span></span><br><span class="line"><span class="comment">	而myisam、memory不支持事务</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">ENGINES</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">VARIABLES</span> <span class="keyword">LIKE</span> <span class="string">&#x27;autocommit&#x27;</span>;</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> <span class="keyword">account</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">account</span>(</span><br><span class="line">	<span class="keyword">id</span> <span class="built_in">INT</span> PRIMARY <span class="keyword">KEY</span> AUTO_INCREMENT,</span><br><span class="line">	username <span class="built_in">VARCHAR</span>(<span class="number">20</span>),</span><br><span class="line">	balance <span class="keyword">DOUBLE</span></span><br><span class="line">);</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">account</span>;</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">account</span>(username,balance)</span><br><span class="line"><span class="keyword">VALUES</span>(<span class="string">&#x27;zwj&#x27;</span>,<span class="number">1000</span>),(<span class="string">&#x27;zm&#x27;</span>,<span class="number">1000</span>);</span><br><span class="line"><span class="comment">#1.演示事务的使用步骤</span></span><br><span class="line"><span class="comment">#开启事务</span></span><br><span class="line"><span class="keyword">SET</span> autocommit=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">START</span> <span class="keyword">TRANSACTION</span>;</span><br><span class="line"><span class="comment">#编写一组事务的语句</span></span><br><span class="line"><span class="keyword">UPDATE</span> <span class="keyword">account</span> <span class="keyword">SET</span> balance = <span class="number">500</span> <span class="keyword">WHERE</span> username=<span class="string">&#x27;zwj&#x27;</span>;</span><br><span class="line"><span class="keyword">UPDATE</span> <span class="keyword">account</span> <span class="keyword">SET</span> balance = <span class="number">1500</span> <span class="keyword">WHERE</span> username=<span class="string">&#x27;zm&#x27;</span>;</span><br><span class="line"><span class="comment">#结束事务</span></span><br><span class="line"><span class="comment">#commit;</span></span><br><span class="line"><span class="keyword">ROLLBACK</span>;</span><br><span class="line"><span class="comment">#2021.02.18回滚失败</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">account</span>;</span><br><span class="line"><span class="comment">#2021.02.19问题解决！</span></span><br><span class="line"><span class="comment">/*查询innodb开了没有 原文链接：https://blog.csdn.net/dengwenjieyear/article/details/78582164</span></span><br><span class="line"><span class="comment">SHOW VARIABLES LIKE &#x27;have_%&#x27;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#2.演示事务对于delete和truncate的处理的区别</span></span><br><span class="line"><span class="comment">#delete</span></span><br><span class="line"><span class="keyword">SET</span> autocommit = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">START</span> <span class="keyword">TRANSACTION</span>;</span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> <span class="keyword">account</span>;</span><br><span class="line"><span class="keyword">ROLLBACK</span>;</span><br><span class="line"><span class="comment">#truncate</span></span><br><span class="line"><span class="keyword">SET</span> autocommit = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">START</span> <span class="keyword">TRANSACTION</span>;</span><br><span class="line"><span class="keyword">TRUNCATE</span> <span class="keyword">TABLE</span> <span class="keyword">account</span>;</span><br><span class="line"><span class="keyword">ROLLBACK</span>;<span class="comment">#数据仍然被删除，即truncate不支持回滚</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#3.演示savepoint的使用</span></span><br><span class="line"><span class="keyword">SET</span> autocommit=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">START</span> <span class="keyword">TRANSACTION</span>;</span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> <span class="keyword">account</span> <span class="keyword">WHERE</span> <span class="keyword">id</span> = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">SAVEPOINT</span> a;<span class="comment">#设置保存点</span></span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> <span class="keyword">account</span> <span class="keyword">WHERE</span> <span class="keyword">id</span> = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">ROLLBACK</span> <span class="keyword">TO</span> a;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">account</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/../page/17/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/../">1</a><span class="space">&hellip;</span><a class="page-number" href="/../page/17/">17</a><span class="page-number current">18</span><a class="page-number" href="/../page/19/">19</a><span class="space">&hellip;</span><a class="page-number" href="/../page/23/">23</a><a class="extend next" rel="next" href="/../page/19/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/../page/17/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/../">1</a><span class="space">&hellip;</span><a class="page-number" href="/../page/17/">17</a><span class="page-number current">18</span><a class="page-number" href="/../page/19/">19</a><span class="space">&hellip;</span><a class="page-number" href="/../page/24/">24</a><a class="extend next" rel="next" href="/../page/19/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1004,14 +1092,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/../archives/">
         
-          <span class="site-state-item-count">230</span>
+          <span class="site-state-item-count">233</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/../categories/">
           
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
