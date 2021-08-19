@@ -189,6 +189,94 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2020/09/01/C++%E7%BB%93%E6%9E%84%E4%BD%93%E5%92%8C%E8%81%94%E5%90%88%E4%BD%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/../images/dopphu.jpg">
+      <meta itemprop="name" content="Dopphu">
+      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Dopphu0's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/../2020/09/01/C++%E7%BB%93%E6%9E%84%E4%BD%93%E5%92%8C%E8%81%94%E5%90%88%E4%BD%93/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-01 22:42:41" itemprop="dateCreated datePublished" datetime="2020-09-01T22:42:41+08:00">2020-09-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-06 15:30:38" itemprop="dateModified" datetime="2020-08-06T15:30:38+08:00">2020-08-06</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="C-结构体和联合体"><a href="#C-结构体和联合体" class="headerlink" title="C++结构体和联合体"></a>C++结构体和联合体</h1><h2 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h2><p><img src="https://s1.ax1x.com/2020/08/06/acK6G8.png" alt="acK6G8.png"></p>
+<p><img src="https://s1.ax1x.com/2020/08/06/acMksH.png" alt="acMksH.png"></p>
+<p>这是关于结构体教材的截图（我觉得已经解决我大部分的疑惑了）。我对于结构体的想法是就当C语言的结构体使用就可以了，需要更复杂的数据结构就用C++的对象就好啦。</p>
+<h2 id="联合体"><a href="#联合体" class="headerlink" title="联合体"></a>联合体</h2><p><strong>$</strong> 由于联合体的成员<strong>共用相同的内存单元</strong>，联合体变量中成员同时至多只有一个是有意义的。另外，不同数据单元共用相同内存单元的特性，联合体有下面一些限制。</p>
+<ol>
+<li>联合体的各个对象成员，不能有自定义的构造函数、自定义的析构函数和重载的赋值运算符，不仅联合体的对象成员不能有这些函数，这些对象的对象成员也不能有，以此类推。</li>
+<li>联合体不能继承，因而也不支持包含多态。</li>
+</ol>
+<p><strong>$</strong> 联合体也可以不声明名称，称为无名联合体。无名联合体没有标记名，只是声明一个成员项的集合，这些成员具有相同的内存地址，可以由成员项的名字直接访问。</p>
+<p>例如，声明无名联合体如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">union</span> &#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">float</span> f;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在程序中可以这样使用：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">10</span>;</span><br><span class="line">f = <span class="number">2.2</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>$</strong> 无名联合体通常用作类或结构体的内嵌成员，下面一个例子辅助理解。</p>
+<p>先插一个枚举类型变量的语法</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">enum</span> &#123;</span><br><span class="line">		GRADE, PASS, PERFECT</span><br><span class="line">	&#125;mode;</span><br><span class="line">	mode = GRADE;</span><br><span class="line">	</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">        //mode = 1; 如果用这个语句的话会报错，我想mode就是一个只能被GRADE、PASS等赋值的变量 </span></span><br><span class="line"><span class="comment">    	报错内容：</span></span><br><span class="line"><span class="comment">    		[Error] invalid conversion from &#x27;int&#x27; to &#x27;main()::&lt;anonymous enum&gt;&#x27; [-fpermissive]</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">	i = PASS;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;mode:&quot;</span>&lt;&lt;mode&lt;&lt;<span class="built_in">endl</span>&lt;&lt;<span class="string">&quot;i:&quot;</span>&lt;&lt;i&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>正片开始</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExamInfo</span>&#123;</span></span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		ExamInfo(<span class="built_in">string</span> name, <span class="keyword">char</span> grade):name(name), mode(GRADE), grade(grade)&#123;&#125;</span><br><span class="line">		ExamInfo(<span class="built_in">string</span> name, <span class="keyword">bool</span> pass):name(name), mode(PASS), pass(pass)&#123;&#125;</span><br><span class="line">		ExamInfo(<span class="built_in">string</span> name, <span class="keyword">int</span> percent):name(name), mode(PERCENTAGE), percent(percent)&#123;&#125;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">		<span class="built_in">string</span> name;		<span class="comment">//课程名称</span></span><br><span class="line">		<span class="keyword">enum</span> &#123;</span><br><span class="line">			GRADE, PASS, PERCENTAGE</span><br><span class="line">		&#125;mode;				<span class="comment">//采用何种计分方式</span></span><br><span class="line">		<span class="keyword">union</span>&#123;</span><br><span class="line">			<span class="keyword">char</span> grade;		<span class="comment">//等级制</span></span><br><span class="line">			<span class="keyword">bool</span> pass;		<span class="comment">//是否通过 pass or fail</span></span><br><span class="line">			<span class="keyword">int</span> percent;	<span class="comment">//百分制的成绩</span></span><br><span class="line">		&#125;;</span><br><span class="line">&#125;;	</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ExamInfo::show</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;name&lt;&lt;<span class="string">&quot;:&quot;</span>;</span><br><span class="line">	<span class="keyword">switch</span>(mode)&#123;</span><br><span class="line">		<span class="keyword">case</span> GRADE:</span><br><span class="line">				<span class="built_in">cout</span>&lt;&lt;grade;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> PASS:</span><br><span class="line">				<span class="built_in">cout</span>&lt;&lt;(pass?<span class="string">&quot;PASS&quot;</span>:<span class="string">&quot;FAIL&quot;</span>);<span class="comment">//这个括号()很关键，我在这栽了。可能是结合性的问题</span></span><br><span class="line">      	<span class="comment">//cout&lt;&lt;pass?&quot;PASS&quot;:&quot;FAIL&quot;;这样写的话会直接打印出1.我试着把true改为false，结果变成了0。</span></span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> PERCENTAGE:</span><br><span class="line">				<span class="built_in">cout</span>&lt;&lt;percent;</span><br><span class="line">				<span class="keyword">break</span>;	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="function">ExamInfo <span class="title">course1</span><span class="params">(<span class="string">&quot;Math&quot;</span>, <span class="string">&#x27;A&#x27;</span>)</span></span>;</span><br><span class="line">	<span class="function">ExamInfo <span class="title">course2</span><span class="params">(<span class="string">&quot;P.E&quot;</span>, <span class="literal">true</span>)</span></span>;</span><br><span class="line">	<span class="function">ExamInfo <span class="title">course3</span><span class="params">(<span class="string">&quot;English&quot;</span>, <span class="number">113</span>)</span></span>;</span><br><span class="line">    <span class="comment">//我忘了百分制（113&gt;100），但是不影响理解程序，不好意思。</span></span><br><span class="line">	</span><br><span class="line">	course1.show();</span><br><span class="line">	course2.show();</span><br><span class="line">	course3.show();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>程序执行结果：</p>
+<p><img src="https://wx2.sbimg.cn/2020/08/06/o6zin.png" alt="o6zin.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2020/09/01/C++%E7%9A%84%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E7%AC%A6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -924,107 +1012,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/dopphu/dopphu.git/2020/09/01/%E6%B4%BE%E7%94%9F%E7%B1%BB%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/../images/dopphu.jpg">
-      <meta itemprop="name" content="Dopphu">
-      <meta itemprop="description" content="欢迎大家扫描二维码，关注我的微信公众号">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Dopphu0's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/../2020/09/01/%E6%B4%BE%E7%94%9F%E7%B1%BB%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">派生类的构造、复制、析构函数</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-09-01 22:42:41" itemprop="dateCreated datePublished" datetime="2020-09-01T22:42:41+08:00">2020-09-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-15 12:30:54" itemprop="dateModified" datetime="2021-01-15T12:30:54+08:00">2021-01-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/../categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="派生类的构造和析构函数，还有复制构造函数"><a href="#派生类的构造和析构函数，还有复制构造函数" class="headerlink" title="派生类的构造和析构函数，还有复制构造函数"></a>派生类的构造和析构函数，还有复制构造函数</h1><p><em>写在前面</em>：</p>
-<p><img src="https://www.zx95.net/images/2020/08/18/imagecab9e2f32876101d.png" alt="imagecab9e2f32876101d.png"></p>
-<h2 id="派生类的构造函数"><a href="#派生类的构造函数" class="headerlink" title="派生类的构造函数"></a>派生类的构造函数</h2><p><img src="https://www.zx95.net/images/2020/08/18/imagef86978fb15832e91.png" alt="imagef86978fb15832e91.png"></p>
-<h3 id="派生类构造函数的一般语法形式"><a href="#派生类构造函数的一般语法形式" class="headerlink" title="派生类构造函数的一般语法形式"></a>派生类构造函数的一般语法形式</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">派生类名::派生类名(参数表):基类名<span class="number">1</span>(基类 <span class="number">1</span> 初始化参数表),...,基类名n(基类 n 初始化参数表),成员对象<span class="number">1</span>(成员对象 <span class="number">1</span> 初始化参数表),...,成员对象名m(成员对象m初始化参数表)</span><br><span class="line">&#123;</span><br><span class="line">	派生类构造函数的其他初始化操作;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这里，派生类的构造函数名与类名相同。在构造函数的参数表中，需要给出初始化基类数据和新增成员对象所需要的的参数。在参数表之后，列出所需要使用参数进行初始化的基类和成员对象名及各自的初试化参数表，各项之间使用逗号分隔。</p>
-<p>当一个类同时又多个基类是，对于所有需要给予参数进行初试化的基类，都要显式给出基类名和参数表。<strong>对于使用默认构造函数的基类，可以不给出类名</strong>。同样，对于成员对象，如果是使用默认构造函数，也不需要写出对象名和参数表。</p>
-<h3 id="什么时候需要声明派生类的构造函数？"><a href="#什么时候需要声明派生类的构造函数？" class="headerlink" title="什么时候需要声明派生类的构造函数？"></a>什么时候需要声明派生类的构造函数？</h3><p><strong>如果对基类初始化时，需要调用基类的带有参数表的构造函数时，派生类就必须声明构造函数，</strong>提供一个将参数传递给基类构造函数的途径，保证在基类进行初始化是能够获得必要的数据。如果不需要调用基类的带参数的构造函数，也不需要调用新增成员对象的带参数的构造函数，派生类也可以不声明构造函数，全部采用的构造函数。</p>
-<p>当派生类没有显式的构造函数时，系统会隐含生成一个默认构造函数，该函数会使用基类的默认构造函数对继承自基类数据初始化，并且调用类类型的成员对象的默认构造函数，对这些成员对象初始化。</p>
-<p><img src="https://www.zx95.net/images/2020/08/18/image157e69bb0574ac03.png" alt="image157e69bb0574ac03.png"></p>
-<p>请看例子：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base1</span>&#123;</span></span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		Base1(<span class="keyword">int</span> i)&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Constructing Base1 &quot;</span>&lt;&lt;i&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base2</span>&#123;</span></span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		Base2(<span class="keyword">int</span> j)&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Constructing Base2 &quot;</span>&lt;&lt;j&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base3</span>&#123;</span></span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		Base3()&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Constructing Base3 *&quot;</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//派生类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derived</span>:</span><span class="keyword">public</span> Base2, <span class="keyword">public</span> Base1, <span class="keyword">public</span> Base3&#123;</span><br><span class="line"><span class="comment">//派生新类Derived，注意类名的顺序</span></span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		Derived(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c, <span class="keyword">int</span> d):Base1(a), member2(d), member1(c), Base2(b)</span><br><span class="line">		&#123;&#125;</span><br><span class="line">		<span class="comment">//注意基类名的个数与顺序，注意成员对象名的个数与顺序</span></span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">		Base1 member1;</span><br><span class="line">		Base2 member2;</span><br><span class="line">		Base3 member3; </span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="function">Derived <span class="title">obj</span><span class="params">(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span></span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://www.zx95.net/images/2020/08/18/image32fa6907b232850b.png" alt="image32fa6907b232850b.png"></p>
-<p><em>me</em>:构造函数的执行的顺序是按继承顺序和派生类新成员的声明顺序进行，且先基类后派生类。</p>
-<p>另外，如果一个基类同时声明了默认构造函数和带有参数的构造函数，那么在派生类构造函数的声明中，既可以显式列出基类名和相应的参数，也可以不列出，程序员可以根据实际情况的需要来自行安排。</p>
-<h2 id="复制构造函数"><a href="#复制构造函数" class="headerlink" title="复制构造函数"></a>复制构造函数</h2><p><img src="https://www.zx95.net/images/2020/08/18/image382e9694bc60f930.png" alt="image382e9694bc60f930.png"></p>
-<h2 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h2><p><del>*$ 析构函数没有类型，也没有参数和构造函数相比情况略微简单些。</del></p>
-<p><del><strong>$</strong> 在派生过程中，基类的析构函数也不能继承下来，如果需要析构函数的话，就要在派生类中声明新的析构函数。派生类析构函数的声明方法与没有继承关系的类中析构函数的声明方法完全相同，只要在函数体中负责把派生类新增的非对象成员的清理工作做好</del></p>
-<p>放教材吧截图！</p>
-<p><img src="https://www.zx95.net/images/2020/08/18/image81f7b4401026c6d1.png" alt="image81f7b4401026c6d1.png"></p>
-<p>例子：派生类析构函数举例（多继承、含嵌入对象）。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//给派生类的所有基类加入析构函数</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base1</span>&#123;</span></span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		Base1(<span class="keyword">int</span> i)&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Constructing Base1 &quot;</span>&lt;&lt;i&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		~Base1()&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Destructing Base1&quot;</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;; </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base2</span>&#123;</span></span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		Base2(<span class="keyword">int</span> j)&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Constructing Base2 &quot;</span>&lt;&lt;j&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		~Base2()&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Destructing Base2&quot;</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;; </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base3</span>&#123;</span></span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		Base3()&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Constructing Base3 *&quot;</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		~Base3()&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Destructing Base3&quot;</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;; </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derived</span>:</span><span class="keyword">public</span> Base2, <span class="keyword">public</span> Base1, <span class="keyword">public</span> Base3&#123;</span><br><span class="line">	<span class="comment">//派生新类 Derived,注意基类名的顺序</span></span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">	 	Derived(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c, <span class="keyword">int</span> d):Base1(a), member2(d), member1(c), Base2(b)</span><br><span class="line">	 	&#123;&#125;</span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">		Base1 member1;</span><br><span class="line">		Base2 member2;</span><br><span class="line">		Base3 member3;</span><br><span class="line">&#125;; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="function">Derived <span class="title">obj</span><span class="params">(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span></span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>运行结果：</p>
-<p><img src="https://www.zx95.net/images/2020/08/18/image6198bb12c156f9e2.png" alt="image6198bb12c156f9e2.png"></p>
-<p>分析：</p>
-<p><img src="https://www.zx95.net/images/2020/08/18/imageafa48bf72bb028e0.png" alt="imageafa48bf72bb028e0.png"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1096,7 +1083,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/../archives/">
         
-          <span class="site-state-item-count">233</span>
+          <span class="site-state-item-count">234</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
