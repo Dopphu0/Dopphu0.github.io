@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>xml笔记</title>
+      <link href="/../2021/08/26/JavaWeb/xml%E6%96%87%E4%BB%B6%E7%AC%94%E8%AE%B0/"/>
+      <url>/../2021/08/26/JavaWeb/xml%E6%96%87%E4%BB%B6%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<h2 id="什么是xml？"><a href="#什么是xml？" class="headerlink" title="什么是xml？"></a>什么是xml？</h2><p>xml 是可扩展的标记性语言</p><h2 id="xml的作用？"><a href="#xml的作用？" class="headerlink" title="xml的作用？"></a>xml的作用？</h2><p>xml主要作用有：</p><ol><li>用来保存数据，而且这些数据具有自我描述性</li><li>它还可以作为项目或者模块的配置文件</li><li>还可作为网络传输数据的格式（现在以JSON为主）</li></ol><h2 id="xml语法"><a href="#xml语法" class="headerlink" title="xml语法"></a>xml语法</h2><ul><li><p>文档声明</p></li><li><p>元素（标签）</p></li><li><p>xml属性</p></li><li><p>xml注释</p></li><li><p>文本区域（CDATA区）</p><ul><li><p>CDATE语法可以告诉xml解析器，我CDATA里的文本内容，只是纯文本，不需要xml语法解析</p></li><li><p>CDATA格式</p><p><code>&lt;![CDATA[这里可以把你输入的字符原样显示，不会解析xml]]&gt;</code></p></li></ul></li></ul><h2 id="dom4j解析技术"><a href="#dom4j解析技术" class="headerlink" title="dom4j解析技术"></a>dom4j解析技术</h2><p>的、由于dom4j它不是sun公司的技术，而是属于第三方公司的技术，我们需要使用dom4j就需要到dom4j官网下载dom4j的jar包</p><p><img src="https://cdn.jsdelivr.net/gh/Dopphu/PicX-images@main/20210425/%E8%A7%A3%E6%9E%90xml%E6%96%87%E4%BB%B6.35vuyw4cr760.jpg" alt="解析xml文件"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> JavaWeb </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>json和ajax和i18n国际化</title>
       <link href="/../2021/08/24/JavaWeb/json/"/>
       <url>/../2021/08/24/JavaWeb/json/</url>
