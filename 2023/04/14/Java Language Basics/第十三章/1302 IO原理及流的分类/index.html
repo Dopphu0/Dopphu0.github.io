@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <meta charset="UTF-8">
+  <meta 
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta 
+    http-equiv="X-UA-Compatible" 
+    content="ie=edge">
+  <meta 
+    name="theme-color" 
+    content="#fff" 
+    id="theme-color">
+  <meta 
+    name="description" 
+    content="DOPPHU0博客站">
+  <link 
+    rel="icon" 
+    href="/">
+  <title>1302 IO原理及流的分类</title>
+  
+    
+      <meta 
+        property="og:title" 
+        content="1302 IO原理及流的分类">
+    
+    
+      <meta 
+        property="og:url" 
+        content="http://example.com/2023/04/14/Java%20Language%20Basics/%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0/1302%20IO%E5%8E%9F%E7%90%86%E5%8F%8A%E6%B5%81%E7%9A%84%E5%88%86%E7%B1%BB/index.html">
+    
+    
+      <meta 
+        property="og:img" 
+        content="https://cdn.staticaly.com/gh/Dopphu/PicX-images@main/20230413/可爱的识酱.2rp85gmt2i60.webp">
+    
+    
+    
+      <meta 
+        property="og:type" 
+        content="article">
+      <meta 
+        property="og:article:published_time" 
+        content="2023-04-14">
+      <meta 
+        property="og:article:modified_time" 
+        content="2021-06-17">
+      <meta 
+        property="og:article:author" 
+        content="DOPPHU">
+      
+        
+      
+    
+  
+  
+  <link rel="preload" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css" as="style" >
+  <link rel="preload" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css" as="style" >
+  <link rel="preload" href="/css/main.css" as="style" >
+  
+  <link rel="modulepreload" href="//instant.page/5.1.0">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css">
+  
+  
+  
+    <link rel="stylesheet" href="/js/lib/lightbox/baguetteBox.min.css">
+  
+  <script>
+    function loadScript(url, cb) {
+      var script = document.createElement('script');
+      script.src = url;
+      if (cb) script.onload = cb;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+    function loadCSS(href, data, attr) {
+      var sheet = document.createElement('link');
+      sheet.ref = 'stylesheet';
+      sheet.href = href;
+      sheet.dataset[data] = attr;
+      document.head.appendChild(sheet);
+    }
+    function changeCSS(cssFile, data, attr) {
+      var oldlink = document.querySelector(data);
+      var newlink = document.createElement("link");
+      newlink.setAttribute("rel", "stylesheet");
+      newlink.setAttribute("href", cssFile);
+      newlink.dataset.prism = attr;
+      document.head.replaceChild(newlink, oldlink);
+    }
+  </script>
+  
+    
+  
+  <script>
+    // control reverse button
+    var reverseDarkList = {
+      dark: 'light',
+      light: 'dark'
+    };
+    var themeColor = {
+      dark: '#1c1c1e',
+      light: '#fff'
+    }
+    // get the data of css prefers-color-scheme
+    var getCssMediaQuery = function() {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+    // reverse current darkmode setting function
+    var reverseDarkModeSetting = function() {
+      var setting = localStorage.getItem('user-color-scheme');
+      if(reverseDarkList[setting]) {
+        setting = reverseDarkList[setting];
+      } else if(setting === null) {
+        setting = reverseDarkList[getCssMediaQuery()];
+      } else {
+        return;
+      }
+      localStorage.setItem('user-color-scheme', setting);
+      return setting;
+    };
+    // apply current darkmode setting
+  </script>
+  
+    <script>
+      var setDarkmode = function(mode) {
+      var setting = mode || localStorage.getItem('user-color-scheme');
+      if(setting === getCssMediaQuery()) {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+      } else if(reverseDarkList[setting]) {
+        document.documentElement.setAttribute('data-user-color-scheme', setting);
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+      } else {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
+        document.getElementById('theme-color').dataset.mode = getCssMediaQuery();
+      }
+    };
+    setDarkmode();
+    </script>
+  
+  
+  
+    <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.js" as="script">
+    <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.css" as="style" >
+  
+  
+    <link rel="preload" href="/js/lib/lozad.min.js" as="script">
+  
+  
+  
+  
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+  <body>
+    <div class="wrapper">
+       
+      <nav class="navbar">
+  <div class="navbar-logo">
+    <a class="navbar-logo-main" href="/">
+      
+      <span class="navbar-logo-dsc">DOPPHU的博客站</span>
+      </a>
+  </div>
+  <div class="navbar-menu">
+    
+      <a 
+        href="/" 
+        class="navbar-menu-item">
+        
+          首页
+        
+      </a>
+    
+      <a 
+        href="/archives" 
+        class="navbar-menu-item">
+        
+          归档
+        
+      </a>
+    
+      <a 
+        href="/tags" 
+        class="navbar-menu-item">
+        
+          标签
+        
+      </a>
+    
+      <a 
+        href="/categories" 
+        class="navbar-menu-item">
+        
+          分类
+        
+      </a>
+    
+      <a 
+        href="/about" 
+        class="navbar-menu-item">
+        
+          关于
+        
+      </a>
+    
+      <a 
+        href="/links" 
+        class="navbar-menu-item">
+        
+          友链
+        
+      </a>
+    
+    <button 
+      class="navbar-menu-item darknavbar navbar-menu-btn" 
+      aria-label="Toggle dark mode"
+      id="dark">
+      <i class="iconfont icon-weather"></i>
+    </button>
+    <button 
+      class="navbar-menu-item searchnavbar navbar-menu-btn" 
+      aria-label="Toggle search"
+      id="search">
+      <!-- <i 
+        class="iconfont icon-search" 
+        style="font-size: 1.2rem; font-weight: 400;">
+      </i> -->
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+        class="iconify iconify--ion" width="28" height="28" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512">
+        <path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="28"
+          d="M256 80a176 176 0 1 0 176 176A176 176 0 0 0 256 80Z"></path>
+        <path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="28"
+          d="M232 160a72 72 0 1 0 72 72a72 72 0 0 0-72-72Z"></path>
+        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="28"
+          d="M283.64 283.64L336 336"></path>
+      </svg>
+    </button>
+  </div>
+</nav> 
+      
+      <div 
+        id="local-search" 
+        style="display: none">
+        <input
+          class="navbar-menu-item"
+          id="search-input"
+          placeholder="请输入搜索内容..." />
+        <div id="search-content"></div>
+      </div>
+      
+      <div class="section-wrap">
+        <div class="container">
+          <div class="columns">
+            <aside class="left-column">
+              
+              <div class="card card-author">
+                
+  <img 
+    src="https://cdn.staticaly.com/gh/Dopphu/PicX-images@main/20230413/可爱的识酱.2rp85gmt2i60.webp" 
+    class="author-img"
+    width="88"
+    height="88"
+    alt="author avatar">
+
+<p class="author-name">DOPPHU</p>
+<p class="author-description">一个编程小白的博客站</p>
+<div class="author-message">
+  <a 
+    class="author-posts-count" 
+    href="/archives">
+    <span>146</span>
+    <span>文章</span>
+  </a>
+  <a 
+    class="author-categories-count" 
+    href="/categories">
+    <span>14</span>
+    <span>分类</span>
+  </a>
+  <a 
+    class="author-tags-count" 
+    href="/tags">
+    <span>0</span>
+    <span>标签</span>
+  </a>
+</div>
+
+  <div class="author-card-society">
+    
+      <div class="author-card-society-icon">
+        <a target="_blank" rel="noopener" href="https://github.com/Dopphu">
+          <i class="iconfont icon-github society-icon"></i>
+        </a>
+      </div>
+    
+  </div>
+
+              </div>
+               <div class="sticky-tablet">
+  
+  
+    <article class="display-when-two-columns spacer">
+      <div class="card card-content toc-card">
+        <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>目录
+</div>
+
+      </div>
+    </article>
+  
+  
+  <article class="card card-content categories-widget">
+    <div class="categories-card">
+  <div class="categories-header">
+    <i 
+      class="iconfont icon-fenlei" 
+      style="padding-right: 2px;">
+    </i>分类
+  </div>
+  <div class="categories-list">
+    
+      <a href="/categories/Java-Language-Basics/">
+        <div class="categories-list-item">
+          Java-Language-Basics
+          <span class="categories-list-item-badge">145</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Java-Language-Basics/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/">
+        <div class="categories-list-item">
+          Java-Language-Basics/第七章-异常处理
+          <span class="categories-list-item-badge">8</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Java-Language-Basics/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%95%B0%E7%BB%84/">
+        <div class="categories-list-item">
+          Java-Language-Basics/第三章-数组
+          <span class="categories-list-item-badge">7</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Java-Language-Basics/%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E5%B8%B8%E7%94%A8%E7%B1%BB/">
+        <div class="categories-list-item">
+          Java-Language-Basics/第九章-常用类
+          <span class="categories-list-item-badge">16</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Java-Language-Basics/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">
+        <div class="categories-list-item">
+          Java-Language-Basics/第二章-基本语法
+          <span class="categories-list-item-badge">17</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Java-Language-Basics/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E4%B8%AD/">
+        <div class="categories-list-item">
+          Java-Language-Basics/第五章-面向对象-中
+          <span class="categories-list-item-badge">14</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Java-Language-Basics/%E7%AC%AC%E5%85%AB%E7%AB%A0-%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
+        <div class="categories-list-item">
+          Java-Language-Basics/第八章-多线程
+          <span class="categories-list-item-badge">15</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Java-Language-Basics/%E7%AC%AC%E5%85%AD%E7%AB%A0-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E4%B8%8B/">
+        <div class="categories-list-item">
+          Java-Language-Basics/第六章-面向对象-下
+          <span class="categories-list-item-badge">17</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Java-Language-Basics/%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0-%E9%9B%86%E5%90%88/">
+        <div class="categories-list-item">
+          Java-Language-Basics/第十一章-集合
+          <span class="categories-list-item-badge">13</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Java-Language-Basics/%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0-File%E5%92%8CIO/">
+        <div class="categories-list-item">
+          Java-Language-Basics/第十三章-File和IO
+          <span class="categories-list-item-badge">15</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Java-Language-Basics/%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0-%E6%B3%9B%E5%9E%8B/">
+        <div class="categories-list-item">
+          Java-Language-Basics/第十二章-泛型
+          <span class="categories-list-item-badge">3</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Java-Language-Basics/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0-%E5%8F%8D%E5%B0%84/">
+        <div class="categories-list-item">
+          Java-Language-Basics/第十四章-反射
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Java-Language-Basics/%E7%AC%AC%E5%8D%81%E7%AB%A0-%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%92%8C%E6%B3%A8%E8%A7%A3/">
+        <div class="categories-list-item">
+          Java-Language-Basics/第十章-枚举类和注解
+          <span class="categories-list-item-badge">2</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Java-Language-Basics/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E4%B8%8A/">
+        <div class="categories-list-item">
+          Java-Language-Basics/第四章-面向对象-上
+          <span class="categories-list-item-badge">17</span>
+        </div>
+      </a>
+    
+  </div>
+</div>
+  </article>
+  
+  <article class="card card-content tags-widget">
+    <div class="tags-card">
+  <div class="tags-header">
+    <i 
+      class="iconfont icon-biaoqian" 
+      style="padding-right: 2px;">
+    </i>热门标签
+  </div>
+  <div class="tags-list">
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+            </aside>
+            <main class="main-column">
+              
+<article class="card card-content">
+  <header>
+    <h1 class="post-title">
+      1302 IO原理及流的分类
+    </h1>
+  </header>
+  <div class="post-meta post-show-meta">
+    <time datetime="2023-04-14T02:11:59.510Z">
+      <i 
+        class="iconfont icon-calendar" 
+        style="margin-right: 2px;">
+      </i>
+      <span>2023-04-14</span>
+    </time>
+    
+      <span class="dot"></span>
+      
+        <a 
+          href="/categories/Java-Language-Basics/" 
+          class="post-meta-link">
+          Java Language Basics
+        </a>
+      
+        <a 
+          href="/categories/Java-Language-Basics/%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0-File%E5%92%8CIO/" 
+          class="post-meta-link">
+          第十三章 File和IO
+        </a>
+      
+    
+    
+      <span class="dot"></span>
+      <span>1.4k 字</span>
+    
+  </div>
+  
+  </header>
+  <div 
+    id="section" 
+    class="post-content">
+    <pre class="highlight"><span class="line"><span class="keyword">package</span> chapter13;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.FileReader;</span><br><span class="line"><span class="keyword">import</span> java.io.FileWriter;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 一、IO流原理及流的分类</span></span><br><span class="line"><span class="comment"> *  &gt; 按照作数据单位的不同：</span></span><br><span class="line"><span class="comment"> *       字节流（8 bit）——如：图片等非文本，字符流（16 bit）——如：文本</span></span><br><span class="line"><span class="comment"> *  &gt; 按照数据流的流向不同分为：输入流、输出流</span></span><br><span class="line"><span class="comment"> *  &gt; 按照流的角色不同分为：节点流、处理流</span></span><br><span class="line"><span class="comment"> *       抽象基类    字节流         字符流</span></span><br><span class="line"><span class="comment"> *        输入流    InputStream     Reader</span></span><br><span class="line"><span class="comment"> *        输出流    OutputStream    Writer</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *       1. Java的IO流共涉及40多个类，实际上非常规则，都是从如下4个</span></span><br><span class="line"><span class="comment"> *       抽象基类派生的。</span></span><br><span class="line"><span class="comment"> *       2. 有这四个类派生出来调度子类名称都是以其父类名作为子类名的后缀</span></span><br><span class="line"><span class="comment"> *  抽象基类            节点流（或文件流）       缓冲流（处理流的一种）</span></span><br><span class="line"><span class="comment"> *  InputStream         FileInputStream（read(byte[] buffer)）                  BufferedInputStream（read(byte[] buffer)）</span></span><br><span class="line"><span class="comment"> *  OutputStream        FileOutputStream（write(byte[] buffer, 0, len)）        BufferedOutputStream（write(byte[] buffer, 0, len)）/ flush()</span></span><br><span class="line"><span class="comment"> *  Reader              FileReader（read(char[] cbuf)）                         BufferedReader（read(char[] cbuf) / readLine()）</span></span><br><span class="line"><span class="comment"> *  Writer              FileWriter（write(char[] cbuf, 0, len)）                BufferedWriter（write(char[] cbuf, 0, len)） / flush()</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> dopphu</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span> 2021-04-19 18:25</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test1302</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">File</span> <span class="variable">file</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;hello.txt&quot;</span>);<span class="comment">//相较于当前工程</span></span><br><span class="line">        <span class="comment">//方法中的相对路径相对的是module</span></span><br><span class="line">        System.out.println(file.getAbsolutePath());</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    * 将硬盘中的文件读入到程序中，并输出到控制台</span></span><br><span class="line"><span class="comment">    * 说明：</span></span><br><span class="line"><span class="comment">    *   1. read()的理解：返回读入的一个字符。如果达到文件末尾，返回-1</span></span><br><span class="line"><span class="comment">    *   2. 异常的处理 ：为了保证一定可以执行关闭类操作。需要使用try-catch-finally处理</span></span><br><span class="line"><span class="comment">    *   3. 读入的文件一定要存在否则就会报FileNotFoundException</span></span><br><span class="line"><span class="comment">    * */</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testFileReader</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">FileReader</span> <span class="variable">fr</span> <span class="operator">=</span> <span class="literal">null</span>;<span class="comment">//me：声明在外面，让finally后面可以关闭</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//1.实例化File类的对象，指明要操作的文件</span></span><br><span class="line">            <span class="type">File</span> <span class="variable">file</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;E:\\Java学习\\Java_IDEA_projects\\txtTest\\hello.txt&quot;</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//2.提供具体的流</span></span><br><span class="line">            fr = <span class="keyword">new</span> <span class="title class_">FileReader</span>(file);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//3.数据的读入</span></span><br><span class="line">            <span class="comment">//read() : 返回读入的一个字符。如果到达文件末尾，返回-1</span></span><br><span class="line">            <span class="comment">//原本的方式</span></span><br><span class="line"><span class="comment">//        int data = fr.read();</span></span><br><span class="line"><span class="comment">//        while (data!=-1)&#123;</span></span><br><span class="line"><span class="comment">//            System.out.print((char)data);</span></span><br><span class="line"><span class="comment">//            data = fr.read();</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line">            <span class="comment">//优化一下 : 更加简洁，运行效率没有差别╮(╯_╰)╭</span></span><br><span class="line">            <span class="type">int</span> data;</span><br><span class="line">            <span class="keyword">while</span>((data = fr.read())!=-<span class="number">1</span>)&#123;</span><br><span class="line">                System.out.print((<span class="type">char</span>)data);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println();</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="comment">//4.流的关闭操作</span></span><br><span class="line">            <span class="comment">/* 注：对于其它的物理连接，比如数据库连接、输入输入流、Socket连接，JVM无能为力(不会自动关闭) */</span></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(fr != <span class="literal">null</span>)</span><br><span class="line">                    fr.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//抛异常的处理方式可能会导致流没有关闭，所以还是try-catch-finally进行处理</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    * 注：除了下面的重载的read()，还提供了一个重载的read()方法</span></span><br><span class="line"><span class="comment">    * public abstract int read(char cbuf[], int off, int len) throws IOException;</span></span><br><span class="line"><span class="comment">    *   说明：这个方法就指定了传入的数组可以不填满</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * */</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testFileReader1</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">FileReader</span> <span class="variable">fr</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//1. File类的实例化</span></span><br><span class="line">            <span class="type">File</span> <span class="variable">file</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;E:\\Java学习\\Java_IDEA_projects\\txtTest\\hello.txt&quot;</span>);</span><br><span class="line">            <span class="comment">//2. FileReader流的实例化</span></span><br><span class="line">            fr = <span class="keyword">new</span> <span class="title class_">FileReader</span>(file);</span><br><span class="line">            <span class="comment">//3.读入的操作</span></span><br><span class="line">            <span class="comment">/*使用read()重载的方法*/</span></span><br><span class="line">            <span class="comment">//read(char[] cbuf) : 返回每次读入cbuf数组中的字符个数。如果达到文件末尾，返回</span></span><br><span class="line">            <span class="type">char</span>[] cbuffer = <span class="keyword">new</span> <span class="title class_">char</span>[<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line">            <span class="type">int</span> len;</span><br><span class="line">            <span class="keyword">while</span>((len = fr.read(cbuffer)) != -<span class="number">1</span>)&#123;</span><br><span class="line"></span><br><span class="line">                <span class="comment">//正确的写法↓</span></span><br><span class="line"><span class="comment">//                for(int i = 0; i &lt;len; i++)&#123;</span></span><br><span class="line"><span class="comment">//                    System.out.print(cbuffer[i]);</span></span><br><span class="line"><span class="comment">//                &#125;</span></span><br><span class="line">                <span class="comment">//错误的写法↓</span></span><br><span class="line">                <span class="comment">/*</span></span><br><span class="line"><span class="comment">                *       一开始声明的数组的长度是5，一次最多只能读5个字符，最后一次读的时候可能不够5个，比如</span></span><br><span class="line"><span class="comment">                *   可能是3个，然后最后两个还是上一次读出5个字符时的最后两个，这是不符合我们的期望的。</span></span><br><span class="line"><span class="comment">                *</span></span><br><span class="line"><span class="comment">                *</span></span><br><span class="line"><span class="comment">                * */</span></span><br><span class="line"><span class="comment">//                for(int i = 0; i &lt;cbuffer.length; i++)&#123;</span></span><br><span class="line"><span class="comment">//                    System.out.print(cbuffer[i]);</span></span><br><span class="line"><span class="comment">//                &#125;</span></span><br><span class="line"></span><br><span class="line">                <span class="comment">//另一个的错误的写法↓</span></span><br><span class="line"><span class="comment">//                String str = new String(cbuffer);</span></span><br><span class="line"><span class="comment">//                System.out.print(str);</span></span><br><span class="line"></span><br><span class="line">                <span class="comment">//正确的写法↓</span></span><br><span class="line">                <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(cbuffer,<span class="number">0</span>,len);</span><br><span class="line">                System.out.print(str);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="comment">//4.(流)资源的关闭</span></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(fr!=<span class="literal">null</span>)</span><br><span class="line">                    fr.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * 从内存中写出数据到硬盘的文件里</span></span><br><span class="line"><span class="comment">    * 说明：</span></span><br><span class="line"><span class="comment">    *   1. 输出操作，对应的File可以不存在的</span></span><br><span class="line"><span class="comment">    *       如果不存在，在输出的过程中，会自动创建此文件。</span></span><br><span class="line"><span class="comment">    *       如果存在，对原有文件进行覆盖或追加</span></span><br><span class="line"><span class="comment">    *       注：</span></span><br><span class="line"><span class="comment">    *           FileWriter fw = new FileWriter(file, false);//这个构造器第二个参数是true：追加，默认是false</span></span><br><span class="line"><span class="comment">    *           FileWriter fw = new FileWriter(file);//这个构造器就是覆盖写入</span></span><br><span class="line"><span class="comment">    * */</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testFileWriter</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">FileWriter</span> <span class="variable">fw</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//1. 提供File类的对象，指明写出到的文件</span></span><br><span class="line">            <span class="type">File</span> <span class="variable">file</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;E:\\Java学习\\Java_IDEA_projects\\txtTest\\Write01.txt&quot;</span>);</span><br><span class="line">            <span class="comment">//2. 提供FileWriter的对象，用于数据的写出</span></span><br><span class="line">            fw = <span class="keyword">new</span> <span class="title class_">FileWriter</span>(file, <span class="literal">false</span>);</span><br><span class="line">            <span class="comment">//3. 写出的操作</span></span><br><span class="line">            fw.write(<span class="string">&quot;123132&quot;</span>);</span><br><span class="line">            fw.write(<span class="string">&quot;\nad asd &quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="comment">//4. 流资源的关闭</span></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                fw.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testFileReaderFileWriter</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">FileReader</span> <span class="variable">fr</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="type">FileWriter</span> <span class="variable">fw</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//1.创建File类的对象，指明读入和写出的文件</span></span><br><span class="line">            <span class="type">File</span> <span class="variable">srcFile</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;E:\\Java学习\\Java_IDEA_projects\\txtTest\\Write01.txt&quot;</span>);</span><br><span class="line">            <span class="type">File</span> <span class="variable">destFile</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;E:\\Java学习\\Java_IDEA_projects\\txtTest\\dest01.txt&quot;</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">/* 不能使用字符流来处理图片等字节数据 */</span></span><br><span class="line"><span class="comment">//            File srcFile = new File(&quot;未标题-1.png&quot;);</span></span><br><span class="line"><span class="comment">//            File destFile = new File(&quot;未标题-1new.png&quot;);</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//2.创建输入流和输出流的对象</span></span><br><span class="line">            fr = <span class="keyword">new</span> <span class="title class_">FileReader</span>(srcFile);</span><br><span class="line">            fw = <span class="keyword">new</span> <span class="title class_">FileWriter</span>(destFile);</span><br><span class="line">            <span class="comment">//3.数据的读入和写出操作</span></span><br><span class="line">            <span class="type">char</span>[] cbuf = <span class="keyword">new</span> <span class="title class_">char</span>[<span class="number">5</span>];</span><br><span class="line">            <span class="type">int</span> len;<span class="comment">//记录每次对到cbuf数组中的字符的个数</span></span><br><span class="line">            <span class="keyword">while</span> ((len = fr.read(cbuf))!=-<span class="number">1</span>)&#123;</span><br><span class="line">                <span class="comment">//每次写出len个字符</span></span><br><span class="line">                fw.write(cbuf,<span class="number">0</span>,len);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//4.关闭流资源</span></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                fw.close();</span><br><span class="line"></span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                fr.close();</span><br><span class="line"></span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre>
+
+
+  </div>
+  <div>
+    
+      <div 
+        class="post-note note-warning copyright" 
+        style="margin-top: 42px">
+        <p>
+          <span style="font-weight: bold;">作者：</span><a 
+            target="_blank" 
+            rel="nofollow noopener noreferrer" 
+            href="/about">
+            DOPPHU
+          </a>
+        </p>
+        <p>
+          <span style="font-weight: bold;">文章链接：</span><a 
+            target="_blank" 
+            rel="nofollow noopener noreferrer" 
+            href="http://example.com/2023/04/14/Java%20Language%20Basics/%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0/1302%20IO%E5%8E%9F%E7%90%86%E5%8F%8A%E6%B5%81%E7%9A%84%E5%88%86%E7%B1%BB/">
+            http://example.com/2023/04/14/Java%20Language%20Basics/%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0/1302%20IO%E5%8E%9F%E7%90%86%E5%8F%8A%E6%B5%81%E7%9A%84%E5%88%86%E7%B1%BB/
+          </a>
+        </p>
+        <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
+      </div>
+    
+  </div>
+</article>
+<div class="nav">
+  
+    <div class="nav-item-prev">
+      <a 
+        href="/2023/04/14/Java%20Language%20Basics/%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0/1303%20FileInputStream%E5%92%8CFileOutPutStream%E7%9A%84%E4%BD%BF%E7%94%A8/" 
+        class="nav-link">
+        <i class="iconfont icon-left nav-prev-icon"></i>
+        <div>
+          <div class="nav-label">上一篇</div>
+          
+            <div class="nav-title">1303 FileInputStream和FileOutPutStream的使用 </div>
+          
+        </div>
+      </a>
+    </div>
+  
+  
+    <div class="nav-item-next">
+      <a 
+        href="/2023/04/14/Java%20Language%20Basics/%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0/1301%20File%E7%B1%BB%E7%9A%84%E4%BD%BF%E7%94%A8/" 
+        class="nav-link">
+        <div>
+          <div class="nav-label">下一篇</div>
+          
+            <div class="nav-title">1301 File类的使用 </div>
+          
+        </div>
+        <i class="iconfont icon-right nav-next-icon"></i>
+      </a>
+    </div>
+  
+</div>
+
+<div 
+  class="card card-content toc-card" 
+  id="mobiletoc">
+  <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>目录
+</div>
+
+</div>
+            </main>
+            <aside class="right-column">
+              <div class="sticky-widescreen">
+  
+  
+    <article class="card card-content toc-card">
+      <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>目录
+</div>
+
+    </article>
+  
+  
+  <article class="card card-content">
+    <div class="recent-posts-card">
+  <div class="recent-posts-header">
+    <i 
+      class="iconfont icon-wenzhang_huaban" 
+      style="padding-right: 2px;">
+    </i>最近文章
+  </div>
+  <div class="recent-posts-list">
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2023-04-14</div>
+        <a href="/2023/04/14/Java%20Language%20Basics/%E7%AC%AC%E5%9B%9B%E7%AB%A0/this%20%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E4%BD%BF%E7%94%A8/"><div class="recent-posts-item-content">this 关键字的使用</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2023-04-14</div>
+        <a href="/2023/04/14/Java%20Language%20Basics/%E7%AC%AC%E5%9B%9B%E7%AB%A0/package%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E4%BD%BF%E7%94%A8/"><div class="recent-posts-item-content">package关键字的使用</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2023-04-14</div>
+        <a href="/2023/04/14/Java%20Language%20Basics/%E7%AC%AC%E5%9B%9B%E7%AB%A0/JavaBean%E6%98%AF%E4%BB%80%E4%B9%88/"><div class="recent-posts-item-content">JavaBean是什么</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2023-04-14</div>
+        <a href="/2023/04/14/Java%20Language%20Basics/%E7%AC%AC%E5%9B%9B%E7%AB%A0/import%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E4%BD%BF%E7%94%A8/"><div class="recent-posts-item-content">import关键字的使用</div></a>
+      </div>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <footer class="footer">
+  <div class="footer-container">
+    <div>
+      <div class="footer-dsc">
+        <span>
+          Copyright ©
+          
+            2020
+          
+          
+                - 
+                2023
+          
+        </span>
+        &nbsp;
+        <a 
+          href="/" 
+          class="footer-link">
+          DOPPHU的博客站
+        </a>
+      </div>
+    </div>
+
+    
+      <div class="footer-dsc">
+        
+          Powered by
+          <a 
+            href="https://hexo.io/" 
+            class="footer-link" 
+            target="_blank" 
+            rel="nofollow noopener noreferrer">
+            &nbsp;Hexo
+          </a>
+        
+        
+          <span>&nbsp;|&nbsp;</span>
+        
+        
+          Theme -
+          <a 
+            href="https://github.com/theme-kaze" 
+            class="footer-link" 
+            target="_blank"
+            rel="nofollow noopener noreferrer">
+            &nbsp;Kaze
+          </a>
+        
+      </div>
+    
+    
+    
+    
+</footer>
+ 
+    
+  <a 
+    role="button" 
+    id="scrollbutton" 
+    class="basebutton" 
+    aria-label="回到顶部">
+    <i class="iconfont icon-arrowleft button-icon"></i>
+  </a>
+
+<a 
+  role="button" 
+  id="menubutton"
+  aria-label="menu button"
+  class="basebutton">
+  <i class="iconfont icon-menu button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="popbutton" 
+  class="basebutton" 
+  aria-label="控制中心">
+  <i class="iconfont icon-expand button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="darkbutton" 
+  class="basebutton darkwidget" 
+  aria-label="夜色模式">
+  <i class="iconfont icon-weather button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="searchbutton" 
+  class="basebutton searchwidget" 
+  aria-label="搜索">
+  <i class="iconfont icon-search button-icon"></i>
+</a> 
+     
+     
+     
+      <script>
+  var addImgLayout = function () {
+    var img = document.querySelectorAll('.post-content img')
+    var i
+    for (i = 0; i < img.length; i++) {
+      var wrapper = document.createElement('a')
+      wrapper.setAttribute('href', img[i].getAttribute('data-src'))
+      wrapper.setAttribute('aria-label', 'illustration')
+      wrapper.style.cssText =
+        'width: 100%; display: flex; justify-content: center;'
+      if (img[i].alt) wrapper.dataset.caption = img[i].alt
+      wrapper.dataset.nolink = true
+      img[i].before(wrapper)
+      wrapper.append(img[i])
+      var divWrap = document.createElement('div')
+      divWrap.classList.add('gallery')
+      wrapper.before(divWrap)
+      divWrap.append(wrapper)
+    }
+    baguetteBox.run('.gallery')
+  }
+</script>
+<script>
+  loadScript(
+    "/js/lib/lightbox/baguetteBox.min.js",
+    addImgLayout
+  )
+</script>
+ 
+     
+     
+    <script src="/js/main.js"></script> 
+     
+    
+      <script>
+        var addLazyload = function () {
+          var observer = lozad('.lozad', {
+            load: function (el) {
+              el.srcset = el.getAttribute('data-src')
+            },
+            loaded: function (el) {
+              el.classList.add('loaded')
+            },
+          })
+          observer.observe()
+        }
+      </script>
+      <script>
+        loadScript('/js/lib/lozad.min.js', addLazyload)
+      </script>
+    
+    <script src="//instant.page/5.1.0" type="module"
+      integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+    
+    
+      <script>
+        setTimeout(() => {localSearch("search.json")}, 0)
+      </script>
+    
+  </body>
+</html>
