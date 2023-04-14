@@ -1644,7 +1644,6 @@
 <p>然后我们去找是怎么渲染这个script标签的，因为搜索功能在nav，我们去找layout下的<strong>nav.ejs</strong>，果然在这里，我也看不懂什么意思，直接改。</p>
 <p><img  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://cdn.staticaly.com/gh/Dopphu/PicX-images@main/20230414/image.7e3a88i70g00.webp" class="lozad post-image"src="https://cdn.staticaly.com/gh/Dopphu/PicX-images@main/20230414/image.7e3a88i70g00.webp"></p>
 <p>然后就很给面子，其他页面也可以搜索了</p>
-<p><img  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://cdn.staticaly.com/gh/Dopphu/PicX-images@main/20230414/image.5th2upaswdo0.webp" class="lozad post-image"src="https://cdn.staticaly.com/gh/Dopphu/PicX-images@main/20230414/image.5th2upaswdo0.webp"></p>
 <p><img  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://cdn.staticaly.com/gh/Dopphu/PicX-images@main/20230414/image.3rcltq1ns4u0.webp" class="lozad post-image"src="https://cdn.staticaly.com/gh/Dopphu/PicX-images@main/20230414/image.3rcltq1ns4u0.webp"></p>
 ]]></content>
       <categories>
